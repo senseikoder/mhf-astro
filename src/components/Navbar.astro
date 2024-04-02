@@ -1,0 +1,79 @@
+---
+import { Image } from "astro:assets";
+import logoMHF from "../images/logo-MHF-short.webp";
+---
+
+<header class="navbar is-fixed-top">
+   <div class="container">
+      <div class="navbar-brand">
+         <div class="navbar-item logo">
+            <Image src={logoMHF} alt="Logo" width="286" height="70" />
+         </div>
+         <span class="navbar-burger" data-target="navbarMenuHeroC">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+         </span>
+      </div>
+      <div id="navbarMenuHeroC" class="navbar-menu">
+         <div class="navbar-end">
+            <a class="navbar-item is-active"> Home </a>
+            <a class="navbar-item"> Acerca de </a>
+            <a class="navbar-item"> Vblog </a>
+            <a class="navbar-item"> Toolkit </a>
+            <a class="navbar-item"> Contacto </a>
+         </div>
+      </div>
+   </div>
+</header>
+
+<script>
+   function scroll() {
+      const navbar = document.querySelector(".navbar");
+      if (window.scrollY >= 60) {
+         navbar.classList.add("is-white");
+      } else {
+         navbar.classList.remove("is-white");
+      }
+   }
+
+   function openBurger() {
+      const $burger = document.querySelector(".navbar-burger");
+
+      $burger.addEventListener("click", () => {
+         const target = $burger.dataset.target;
+         const $target = document.getElementById(target) as HTMLElement;
+
+         $burger.classList.toggle("is-active");
+
+         $target!.classList.toggle("is-active");
+      });
+   }
+
+   document.addEventListener("DOMContentLoaded", () => {
+      openBurger();
+      scroll();
+   });
+
+   window.addEventListener("scroll", scroll);
+</script>
+
+<style>
+   .navbar {
+      background-color: rgba(255, 255, 255, 0.75);
+      transition: all .3s;
+   }
+
+   .is-white {
+      background-color: rgba(255, 255, 255, 0.95);
+   }
+
+   .navbar-menu.is-active {
+      transition: all .8s;
+   }
+
+   .logo img {
+      max-height: 70px;
+   }
+</style>

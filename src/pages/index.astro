@@ -1,0 +1,65 @@
+---
+import HomeLayout from "../layouts/HomeLayout.astro";
+import Navbar from "../components/Navbar.astro";
+import HomeCats from "../components/HomeCats.astro";
+import HomeCarrusel from "../components/HomeCarrusel.astro";
+import { Image } from "astro:assets";
+import mapaRuta from "../images/maparuta.webp";
+
+import "flickity/dist/flickity.min.css";
+---
+
+<HomeLayout title="Feria de Salud - Massachussets" description="">
+	<Navbar />
+
+	<section class="hero is-fullheight">
+		<div class="is-overlay"></div>
+		<div class="hero-head"></div>
+
+		<div class="hero-body">
+			<div class="container has-text-centered">
+				<!-- <p class="title">Title</p>
+				<p class="subtitle">Subtitle</p> -->
+			</div>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="container">
+			<div class="columns is-centered">
+				<div class="column is-8">
+					<h2
+						class="title has-text-weight-semibold is-4 has-text-centered"
+					>
+						<span class="has-text-primary has-text-weight-bold"
+							>My Health Fair</span
+						> es una feria de salud digital disponible los 365 días del año
+						que le brinda acceso a información directa de organizaciones y
+						expertos en salud, en Español.
+					</h2>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<HomeCats />
+
+	<section class="section">
+		<div class="container has-text-centered">
+			<Image src={mapaRuta} alt="" />
+		</div>
+	</section>
+
+	<HomeCarrusel />
+</HomeLayout>
+
+<style>
+	.hero {
+		background: url("../images/mhf-plaza.webp") center left no-repeat;
+		background-size: cover;
+	}
+
+	.is-overlay {
+		background: rgba(121, 171, 236, 0.15);
+	}
+</style>

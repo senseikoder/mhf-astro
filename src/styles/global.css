@@ -1,0 +1,38 @@
+/*
+  The CSS in this style tag is based off of Bear Blog's default CSS.
+  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
+  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
+ */
+@import "bulma";
+
+
+:root {
+  --bulma-primary-h: 24;
+  --bulma-primary-s: 94%;
+  --bulma-primary-l: 51%;
+
+  --bulma-info-h: 202;
+  --bulma-info-s: 82%;
+  --bulma-info-l: 49%;
+
+  --bulma-text-strong: #252525;
+
+}
+
+a.navbar-item.is-active{
+  --bulma-navbar-item-selected-h: var(--bulma-info-h);
+  --bulma-navbar-item-selected-s: var(--bulma-info-s);
+  --bulma-navbar-item-selected-l: var(--bulma-info-l);
+
+  --bulma-navbar-item-selected-background-l: var(--bulma-info-l)
+}
+
+.title {
+  --bulma-title-weight: var(--bulma-weight-semibold)
+}
+
+@media screen and (max-width: 1023px) {
+  .navbar-menu {
+    transition: all .8s;
+  }
+}

@@ -1,0 +1,87 @@
+---
+import { Image } from "astro:assets";
+import iconEnfermedades from "../images/icon-enfermedades.webp";
+import iconSalud from "../images/icon-salud.webp";
+import iconSeguro from "../images/icon-seguro.webp";
+import iconServicios from "../images/icon-servicios.webp";
+import iconEstudios from "../images/icon-estudios.webp";
+import iconTrabajos from "../images/icon-trabajos.webp";
+---
+
+<section class="section">
+   <div class="container">
+      <div class="columns">
+         <div class="column is-4">
+            <a href="#">
+               <div class="media is-align-items-center">
+                  <div class="media-left">
+                     <Image src={iconEnfermedades} alt="" />
+                  </div>
+                  <div class="media-content">
+                     <div class="h3 subtitle is-4">
+                        Enfermedades <br />Crónicas
+                     </div>
+                  </div>
+               </div>
+            </a>
+         </div>
+         <div class="column is-4">
+            <div class="media is-align-items-center">
+               <div class="media-left">
+                  <Image src={iconSalud} alt="" />
+               </div>
+               <div class="media-content">
+                  <div class="h3 subtitle is-4">Salud <br />Mental</div>
+               </div>
+            </div>
+         </div>
+         <div class="column is-4">
+            <div class="media is-align-items-center">
+               <div class="media-left">
+                  <Image src={iconSeguro} alt="" />
+               </div>
+               <div class="media-content">
+                  <div class="h3 subtitle is-4">Seguro <br />Médico</div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div class="columns">
+         <div class="column is-4">
+            <div class="media is-align-items-center">
+               <div class="media-left">
+                  <Image src={iconServicios} alt="" />
+               </div>
+               <div class="media-content">
+                  <div class="h3 subtitle is-4">
+                     Servicios <br />Sociales
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="column is-4">
+            <div class="media is-align-items-center">
+               <div class="media-left">
+                  <Image src={iconEstudios} alt="" />
+               </div>
+               <div class="media-content">
+                  <div class="h3 subtitle is-4">Estudios <br />Clínicos</div>
+               </div>
+            </div>
+         </div>
+         <div class="column is-4">
+            <div class="media is-align-items-center">
+               <div class="media-left">
+                  <Image src={iconTrabajos} alt="" />
+               </div>
+               <div class="media-content">
+                  <div class="h3 subtitle is-4">
+                     Trabajos en el <br />área de la salud
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
