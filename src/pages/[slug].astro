@@ -1,0 +1,30 @@
+---
+export const prerender = false;
+import BlogPost from "../layouts/BlogPost.astro";
+
+const { slug } = Astro.params;
+
+let res = await fetch(
+	`https://myhealthfair.com/wp-json/wp/v2/posts?slug=${slug}`,
+);
+let [post] = await res.json();
+
+// Se requiere la función getStaticPaths() para sitios estáticos en Astro.
+// Si estás utilizando SSR, no necesitarás esta función.
+// export async function getStaticPaths() {
+// 	let data = await fetch("https://myhealthfair.com/wp-json/wp/v2/posts?per_page=50");
+// 	let posts = await data.json();	
+
+// 	return posts.map((post) => ({
+// 		params: { slug: post.slug },
+// 		props: { post: post },
+// 	}));
+// }
+---
+
+<BlogPost {...post}>
+	<article>
+		<h1 set:html={post.title.rendered} />
+		<Fragment set:html={post.content.rendered} />
+	</article>
+</BlogPost>

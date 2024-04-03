@@ -9,4 +9,5 @@ export default defineConfig({
 	integrations: [mdx(), sitemap()],
 	prefetch: true,
 	format: 'file',
+	output: 'hybrid'
 });
