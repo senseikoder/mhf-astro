@@ -1,0 +1,78 @@
+---
+import PageLayout from "../layouts/PageLayout.astro";
+import { Image } from "astro:assets";
+import picContact from "../images/pic-contact.webp";
+---
+
+<PageLayout title="Contacto" description="Lorem ipsum dolor sit amet">
+   <section class="section">
+      <div class="container has-text-white">
+         <div class="columns is-centered">
+            <div class="column is-5">
+               <figure class="image">
+                  <Image src={picContact} alt="Contacto" />
+               </figure>
+            </div>
+
+            <div class="column is-5 is-offset-1 py-6">
+               
+               <form action="">
+                  <div class="field">
+                     <label class="label">Nombre</label>
+                     <div class="control">
+                        <input class="input" type="text" />
+                     </div>
+                  </div>
+
+                  <div class="field">
+                     <label class="label">Email</label>
+                     <div class="control has-icons-left has-icons-right">
+                        <input class="input" type="text" />
+                     </div>
+                     <!-- <p class="help is-success">This username is available</p> -->
+                  </div>
+
+                  <div class="field">
+                     <label class="label">Teléfono</label>
+                     <div class="control has-icons-left has-icons-right">
+                        <input class="input" type="email" />
+                     </div>
+                     <!-- <p class="help is-danger">This email is invalid</p> -->
+                  </div>
+
+                  <div class="field">
+                     <label class="label">Mensaje</label>
+                     <div class="control">
+                        <textarea class="textarea"></textarea>
+                     </div>
+                  </div>
+
+                  <div class="field is-grouped">
+                     <div class="control">
+                        <button class="button is-link">Enviar</button>
+                     </div>
+                     <!-- <div class="control">
+                        <button class="button is-link is-light">Cancel</button>
+                     </div> -->
+                  </div>
+               </form>
+            </div>
+         </div>
+
+         <h3 class="subtitle is-4 has-text-primary-60 has-text-centered mt-6">
+            #myhealthfair #feriavirtual #recursosdesalud #Massachusetts
+            #comunidadlatina
+         </h3>
+      </div>
+   </section>
+</PageLayout>
+<style>
+   .banner {
+      background: url("../images/banner-about.webp") center / cover no-repeat;
+      position: relative;
+   }
+
+   .is-overlay {
+      background-color: #0577b5d1;
+   }
+</style>
