@@ -9,11 +9,13 @@ let res = await fetch(
 );
 let [post] = await res.json();
 
+console.log(
+	post._embedded["wp:featuredmedia"][0].media_details.sizes.large.source_url,
+);
+
+post['heroImage'] =	post._embedded["wp:featuredmedia"][0].media_details.sizes.large.source_url;
 ---
 
 <BlogPost {...post}>
-	<article>
-		<h1 set:html={post.title.rendered} />
-		<Fragment set:html={post.content.rendered} />
-	</article>
+	<Fragment set:html={post.content.rendered} />
 </BlogPost>

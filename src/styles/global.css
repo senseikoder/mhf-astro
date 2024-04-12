@@ -1,8 +1,4 @@
-/*
-  The CSS in this style tag is based off of Bear Blog's default CSS.
-  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
-  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
- */
+
 @import "bulma";
 
 
@@ -15,7 +11,6 @@
   --bulma-info-s: 82%;
   --bulma-info-l: 49%;
 
-  --bulma-text-strong: #252525;
 }
 
 a.navbar-item.is-active{
@@ -28,6 +23,13 @@ a.navbar-item.is-active{
 
 .title {
   --bulma-title-weight: var(--bulma-weight-semibold)
+}
+
+.theme-light, [data-theme="light"] {
+  --bulma-family-primary: 'DM Sans Variable',
+    sans-serif;
+    --bulma-family-secondary: 'DM Sans Variable',
+      sans-serif;
 }
 
 @media screen and (max-width: 1023px) {

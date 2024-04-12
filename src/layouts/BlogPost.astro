@@ -1,36 +1,67 @@
 ---
+import { ViewTransitions } from "astro:transitions";
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 
-const { title, description, content, date } = Astro.props;
+const { title, description, heroImage, date } = Astro.props;
+
+import "@fontsource-variable/dm-sans";
 ---
 
 <html lang="es" data-theme="light">
 	<head>
 		<BaseHead title={title.rendered} description={description} />
+		<ViewTransitions />
 	</head>
 
 	<body>
 		<Header />
-		<main>
-			<article>
-				<div class="hero-image">
-					<!-- {heroImage && <img width={1020} height={510} src={heroImage} alt="" />} -->
-				</div>
-				<div class="prose">
-					<div class="title">
-						<div class="date">
-							<FormattedDate date={new Date(date)} />
-						</div>
-						<h1>{title.rendered}</h1>
-						<hr />
+
+		<div class="section">
+			<div class="container">
+				<div class="columns">
+					<div class="column is-8 article">
+						<article>
+							<div class="hero-image mb-4">
+								{
+									heroImage && (
+										<img
+											width={1020}
+											height={510}
+											src={heroImage}
+											alt=""
+										/>
+									)
+								}
+							</div>
+							<div class="content">
+								<!-- <div class="date">
+									<FormattedDate date={new Date(date)} />
+								</div> -->
+								<h1 class="title">{title.rendered}</h1>
+								<hr />
+								<slot />
+							</div>
+						</article>
 					</div>
-					<slot />
+					<div class="column is-4">
+						<aside>
+							<div class="title is-5">Últimas Entradas</div>
+							<div class="title is-5">Categorías</div>
+						</aside>
+					</div>
 				</div>
-			</article>
-		</main>
+			</div>
+		</div>
+		<main></main>
 		<Footer />
-	</body>
+	</body><style>
+		.article {
+			box-shadow:
+				0 1px 3px -2px rgba(0, 0, 0, 0.12),
+				0 1px 2px rgba(0, 0, 0, 0.24);
+		}
+	</style>
 </html>
