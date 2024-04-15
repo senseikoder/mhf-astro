@@ -11,6 +11,8 @@
   --bulma-info-s: 82%;
   --bulma-info-l: 49%;
 
+  --bulma-navbar-height: 4.2rem;
+
 }
 
 a.navbar-item.is-active{

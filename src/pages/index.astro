@@ -1,6 +1,7 @@
 ---
 import HomeLayout from "../layouts/HomeLayout.astro";
 import Navbar from "../components/Navbar.astro";
+import HomeFeria from "../components/HomeFeria.astro";
 import HomeCats from "../components/HomeCats.astro";
 import HomeCarrusel from "../components/HomeCarrusel.astro";
 import { Image } from "astro:assets";
@@ -12,17 +13,7 @@ import "flickity/dist/flickity.min.css";
 <HomeLayout title="Feria de Salud - Massachussets" description="">
 	<Navbar />
 
-	<section class="hero is-fullheight">
-		<div class="is-overlay"></div>
-		<div class="hero-head"></div>
-
-		<div class="hero-body">
-			<div class="container has-text-centered">
-				<!-- <p class="title">Title</p>
-				<p class="subtitle">Subtitle</p> -->
-			</div>
-		</div>
-	</section>
+	<HomeFeria />
 
 	<section class="section">
 		<div class="container">
@@ -53,13 +44,4 @@ import "flickity/dist/flickity.min.css";
 	<HomeCarrusel />
 </HomeLayout>
 
-<style>
-	.hero {
-		background: url("../images/mhf-plaza.webp") center left no-repeat;
-		background-size: cover;
-	}
 
-	.is-overlay {
-		background: rgba(121, 171, 236, 0.15);
-	}
-</style>
