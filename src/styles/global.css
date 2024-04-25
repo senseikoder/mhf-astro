@@ -1,8 +1,8 @@
-
 @import "bulma";
 
 
 :root {
+  --primary: #1699E3;
   --bulma-primary-h: 24;
   --bulma-primary-s: 94%;
   --bulma-primary-l: 51%;
@@ -11,11 +11,12 @@
   --bulma-info-s: 82%;
   --bulma-info-l: 49%;
 
-  --bulma-navbar-height: 4.2rem;
+  --bulma-navbar-height: 5.3rem;
 
+  --plyr-color-main: var(--primary)
 }
 
-a.navbar-item.is-active{
+a.navbar-item.is-active {
   --bulma-navbar-item-selected-h: var(--bulma-info-h);
   --bulma-navbar-item-selected-s: var(--bulma-info-s);
   --bulma-navbar-item-selected-l: var(--bulma-info-l);
@@ -27,11 +28,49 @@ a.navbar-item.is-active{
   --bulma-title-weight: var(--bulma-weight-semibold)
 }
 
-.theme-light, [data-theme="light"] {
+.modal {
+  --bulma-modal-card-head-padding: .5rem;
+  --bulma-modal-card-body-padding: 1rem;
+  transition: all .3s;
+}
+
+.modal-card {
+  --bulma-modal-content-width: 570px
+}
+
+.theme-light,
+[data-theme="light"] {
   --bulma-family-primary: 'DM Sans Variable',
     sans-serif;
-    --bulma-family-secondary: 'DM Sans Variable',
-      sans-serif;
+  --bulma-family-secondary: 'DM Sans Variable',
+    sans-serif;
+}
+
+
+.banner-booth {
+  background: url("../images/mhf-closeup.webp") center / cover no-repeat;
+  position: relative;
+}
+
+.is-overlay {
+  background-color: #0577b5d1;
+}
+
+.booth-page svg {
+  border-radius: 20px;
+}
+
+.booth-page a image,
+.booth-page a rect {
+  transition: all 0.3s;
+}
+
+.booth-page a rect:hover {
+  opacity: 0.15;
+}
+
+.booth-page a image:hover {
+  filter: drop-shadow(0 0 3px var(--primary));
 }
 
 @media screen and (max-width: 1023px) {

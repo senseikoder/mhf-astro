@@ -1,5 +1,5 @@
 ---
-import Menu from "./Menu.astro";
+import Menu from "./NavbarPages.astro";
 import { Image } from "astro:assets";
 import logo from "../images/logo-MHF-short.webp";
 import emb_header from "../images/emb-header.webp";
@@ -68,7 +68,9 @@ import emb_header from "../images/emb-header.webp";
 		<div class="columns">
 			<div class="column is-3">
 				<figure class="image logo">
-					<Image src={logo} alt="logo MHF" />
+					<a href="/">
+						<Image src={logo} alt="logo MHF" />
+					</a>
 				</figure>
 			</div>
 			<div class="column has-text-right">

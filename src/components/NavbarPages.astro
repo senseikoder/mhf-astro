@@ -1,0 +1,50 @@
+---
+import HeaderLink from "./HeaderLink.astro";
+---
+
+<nav class="navbar">
+   <div class="container">
+      <div class="navbar-brand">
+         <span class="navbar-burger" data-target="navbarMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+         </span>
+      </div>
+
+      <div id="navbarMenu" class="navbar-menu">
+         <div class="navbar-end is-uppercase">
+            <HeaderLink href="/">Home</HeaderLink>
+            <HeaderLink href="/acerca-de">Acerca de</HeaderLink>
+            <HeaderLink href="/blog">VBlog</HeaderLink>
+            <HeaderLink href="/toolkit">Toolkit</HeaderLink>
+            <HeaderLink href="/contacto">Contacto</HeaderLink>
+         </div>
+      </div>
+   </div>
+</nav>
+
+<style>
+
+   :root {
+      --bulma-navbar-height: 2.5rem
+   }
+
+   nav a {
+      padding: 1em 0.5em;
+      color: #444;
+      border-bottom: 2px solid transparent;
+      text-decoration: none;
+      letter-spacing: 0.5pt;
+   }
+   nav a.active {
+      color: var(--bulma-primary);
+      text-decoration: none;
+      border-bottom-color: var(--accent);
+   }
+
+   .navbar-end {
+      margin-inline-end: auto;
+   }
+</style>

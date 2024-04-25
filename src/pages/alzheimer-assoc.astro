@@ -1,0 +1,161 @@
+---
+import ModalBooths from "../components/ModalBooths.astro";
+import ModalVideo from "../components/ModalVideo.astro";
+import BoothLayout from "../layouts/BoothLayout.astro";
+
+const booth = {
+   image: "alzheimers-association.webp",
+   btn1: "brochure.webp",
+   btn2: "eventos.webp",
+   btn3: "recursos.webp",
+   btn4: "voluntariado.webp",
+   btn5: "contacto.webp",
+};
+---
+
+<BoothLayout title="Acerca de" description="Lorem ipsum dolor sit amet">
+   <section class="section banner-booth">
+      <div class="is-overlay"></div>
+      <div class="container has-text-white">
+         <div class="columns is-centered">
+            <div class="column is-6 has-text-centered">
+               <svg
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  viewBox="0 0 600 780"
+               >
+                  <image
+                     width="600"
+                     height="780"
+                     xlink:href={"/img/booths-bg/" + booth.image}
+                  />
+                  <!-- Video -->
+                  <a
+                     xlink:href="javascript:void(0)"
+                     class="modal-trigger"
+                     data-target="modal-video"
+                  >
+                     <rect
+                        x="120"
+                        y="50"
+                        fill="#fff"
+                        opacity="0"
+                        width="420"
+                        height="270"></rect>
+                  </a>
+
+                  <!-- Brochure -->
+                  <a
+                     xlink:href="https://myhealthfair.com/wp-content/uploads/2023/03/Here-for-You-Flyer-ESP_Updated.pdf"
+                  >
+                     <image
+                        x="90"
+                        y="545"
+                        xlink:href={"/img/booths-pics/" + booth.btn1}
+                     />
+                  </a>
+
+                  <!-- Eventos -->
+                  <a
+                     xlink:href="https://myhealthfair.com/wp-content/uploads/pum/AA-Eventos.pdf"
+                     target="_blank"
+                  >
+                     <image
+                        x="310"
+                        y="545"
+                        xlink:href={"/img/booths-pics/" + booth.btn2}
+                     />
+                  </a>
+
+                  <!-- Recursos -->
+                  <a xlink:href="#recursos">
+                     <image
+                        x="90"
+                        y="625"
+                        xlink:href={"/img/booths-pics/" + booth.btn3}
+                     />
+                  </a>
+
+                  <!-- Voluntariado -->
+                  <a
+                     xlink:href="javascript:void(0)"
+                     class="modal-trigger"
+                     data-target="modal-booth"
+                     data-content="voluntariado"
+                  >
+                     <image
+                        x="310"
+                        y="625"
+                        xlink:href={"/img/booths-pics/" + booth.btn4}
+                     />
+                  </a>
+
+                  <!-- Contacto -->
+
+                  <a
+                     xlink:href="javascript:void(0)"
+                     class="modal-trigger"
+                     data-target="modal-booth"
+                     data-content="voluntariado"
+                  >
+                     <image
+                        x="195"
+                        y="705"
+                        xlink:href={"/img/booths-pics/" + booth.btn5}
+                     />
+                  </a>
+               </svg>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <ModalBooths />
+
+   <ModalVideo videoID="https://youtu.be/HiOYsa6usrE" />
+
+   <div id="voluntariado" class="is-hidden">
+      <p>
+         Los voluntarios de la Asociación de Alzheimer brindan apoyo y
+         educación, recaudan fondos, abogan por la enfermedad de Alzheimer y más
+         para ayudar a lograr nuestra visión de un mundo sin la enfermedad de
+         Alzheimer y todas las demás demencias.
+      </p>
+      <p>
+         Sean cuales sean sus habilidades y el tiempo que tenga disponible,
+         tenemos oportunidades presenciales y virtuales para brindar un apoyo
+         vital a las personas que viven con Alzheimer y demencia y sus familias.
+      </p>
+      <p>
+         Sean cuales sean sus habilidades y el tiempo que tenga disponible,
+         tenemos oportunidades presenciales y virtuales para brindar un apoyo
+         vital a las personas que viven con Alzheimer y demencia y sus familias.<br
+         /><br />Para obtener más información sobre oportunidades de
+         voluntariado en el capítulo de Massachusetts/New Hampshire, visite<a
+            href="https://volunteer.alz.org"
+            target="_blank"
+            rel="noopener">volunteer.alz.org</a
+         >
+      </p>
+   </div>
+
+   <div id="contacto" class="is-hidden">
+      <p>Línea de ayuda 24/7 de la Asociación de Alzheimer: 800-272-3900</p>
+      <p>Marque 711 para conectarse con un operador de TRS</p>
+      <p>
+         La línea de ayuda 24/7 de la Asociación de Alzheimer (800.272.3900)
+         está disponible las 24 horas, los 365 días del año en más de 200
+         idiomas. A través de este servicio gratuito, los especialistas ofrecen
+         apoyo e información confidencial a las personas que viven con demencia,
+         a los cuidadores, a las familias y al público.
+      </p>
+      <p>
+         Para más información, haz&nbsp;<a
+            href="https://www.alz.org/ayuda-y-apoyo/linea-de-ayuda-24-7?lang=es-MX"
+            target="_blank"
+            rel="noopener">clic aquí</a
+         >, o llama al 800-272-3900.
+      </p>
+   </div>
+</BoothLayout>

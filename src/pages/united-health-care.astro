@@ -1,0 +1,104 @@
+---
+import ModalBooths from "../components/ModalBooths.astro";
+import ModalVideo from "../components/ModalVideo.astro";
+import BoothLayout from "../layouts/BoothLayout.astro";
+const booth = {
+   image: "united-health-care.webp",
+   btn1: "brochure.webp",
+   btn2: "empleos.webp",
+   btn3: "recursos.webp",
+   btn4: "eventos.webp",
+   btn5: "contacto.webp",
+};
+---
+
+<BoothLayout title="Acerca de" description="Lorem ipsum dolor sit amet">
+   <section class="section banner-booth">
+      <div class="is-overlay"></div>
+      <div class="container has-text-white">
+         <div class="columns is-centered">
+            <div class="column is-6 has-text-centered">
+               <svg
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  viewBox="0 0 600 780"
+               >
+                  <image
+                     width="600"
+                     height="780"
+                     xlink:href={"/img/booths-bg/" + booth.image}
+                  />
+                  <!-- Video -->
+                  <a
+                     xlink:href="javascript:void(0)"
+                     class="modal-trigger"
+                     data-target="modal-video"
+                  >
+                     <rect
+                        x="100"
+                        y="54"
+                        fill="#fff"
+                        opacity="0"
+                        width="413"
+                        height="266"></rect>
+                  </a>
+
+                  <!-- Brochure -->
+                  <a
+                     xlink:href="https://myhealthfair.com/wp-content/uploads/2024/03/2024-Spanish-BRC-PDF.pdf"
+                  >
+                     <image
+                        x="80"
+                        y="565"
+                        xlink:href={"/img/booths-pics/" + booth.btn1}
+                     />
+                  </a>
+
+                  <!-- Empleos -->
+                  <a
+                     xlink:href="https://careers.unitedhealthgroup.com/job-search-results/"
+                     target="_blank"
+                  >
+                     <image
+                        x="300"
+                        y="565"
+                        xlink:href={"/img/booths-pics/" + booth.btn2}
+                     />
+                  </a>
+
+                  <!-- Recursos -->
+                  <a xlink:href="#recursos">
+                     <image
+                        x="80"
+                        y="640"
+                        xlink:href={"/img/booths-pics/" + booth.btn3}
+                     />
+                  </a>
+
+                  <!-- Eventos -->
+                  <a xlink:href="#eventos">
+                     <image
+                        x="300"
+                        y="640"
+                        xlink:href={"/img/booths-pics/" + booth.btn4}
+                     />
+                  </a>
+
+                  <a xlink:href="#contacto">
+                     <image
+                        x="195"
+                        y="716"
+                        xlink:href={"/img/booths-pics/" + booth.btn5}
+                     />
+                  </a>
+               </svg>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <ModalBooths />
+
+   <ModalVideo videoID="IyRR9oIC94c" />
+</BoothLayout>
