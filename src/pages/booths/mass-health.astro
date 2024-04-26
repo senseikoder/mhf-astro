@@ -1,0 +1,166 @@
+---
+import ModalBooths from "../../components/ModalBooths.astro";
+import ModalVideo from "../../components/ModalVideo.astro";
+import BoothLayout from "../../layouts/BoothLayout.astro";
+const booth = {
+   image: "health-connector.webp",
+   btn1: "brochure.webp",
+   btn2: "empleos.webp",
+   btn3: "recursos.webp",
+   btn4: "contacto.webp",
+   btn5: null,
+};
+---
+
+<BoothLayout title="Acerca de" description="Lorem ipsum dolor sit amet">
+   <section class="section banner-booth">
+      <div class="is-overlay"></div>
+      <div class="container has-text-white">
+         <div class="columns is-centered">
+            <div class="column is-6 has-text-centered">
+               <svg
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  viewBox="0 0 600 780"
+               >
+                  <image
+                     width="600"
+                     height="780"
+                     xlink:href={"/img/booths-bg/" + booth.image}
+                  />
+
+                  <a
+                     xlink:href="javascript:void(0)"
+                     class="modal-trigger"
+                     data-target="modal-video"
+                  >
+                     <rect
+                        x="120"
+                        y="49"
+                        fill="#fff"
+                        opacity="0"
+                        width="413"
+                        height="266"></rect>
+                  </a>
+                  <a
+                     xlink:href="javascript:void(0)"
+                     class="modal-trigger"
+                     data-target="modal-booth"
+                     data-content="brochure"
+                  >
+                     <image
+                        x="90"
+                        y="575"
+                        xlink:href={"/img/booths-pics/" + booth.btn1}
+                     />
+                  </a>
+                  <a
+                     xlink:href="https://www.masshelpline.com/es/faq/"
+                     target="_blank"
+                  >
+                     <image
+                        x="310"
+                        y="575"
+                        xlink:href={"/img/booths-pics/" + booth.btn2}
+                     />
+                  </a>
+                  <a
+                     xlink:href="https://www.masshelpline.com/es/resources/"
+                     target="_blank"
+                  >
+                     <image
+                        x="90"
+                        y="660"
+                        xlink:href={"/img/booths-pics/" + booth.btn3}
+                     />
+                  </a>
+                  <a
+                     xlink:href="javascript:void(0)"
+                     class="modal-trigger"
+                     data-target="modal-booth"
+                     data-content="contacto"
+                  >
+                     <image
+                        x="310"
+                        y="660"
+                        xlink:href={"/img/booths-pics/" + booth.btn4}
+                     />
+                  </a>
+
+                  <!-- <a xlink:href="#contacto">
+                     <rect
+                        x="205"
+                        y="716"
+                        fill="#fff"
+                        opacity="0"
+                        width="164"
+                        height="54"></rect>
+                  </a> -->
+               </svg>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <ModalBooths />
+
+   <ModalVideo videoID="NsobgiNrGWk" />
+
+   <div id="brochure" class="is-hidden">
+      <p>
+         Commonwealth Health Connector Insurance Authority , su objetivo
+         principal es ofrecer cobertura de alto valor a individuos y pequeñas
+         empresas en Massachusetts, al mismo tiempo que actúa como un centro de
+         política y divulgación para las reformas de salud estatales y
+         federales.
+      </p>
+
+      <p>
+         Ha adquirido una valiosa experiencia, adaptándose a varios cambios y
+         reformas, y ahora atiende a más de un cuarto de millón de residentes en
+         Massachusetts, desempeñando un papel crucial en el panorama de la
+         atención médica del estado.
+      </p>
+
+      <p>
+         ¿Es usted un miembro actual de MassHealth? ¿Recibió recientemente un
+         sobre azul de MassHealth? ¿Necesita ayuda para completar su renovación
+         de MassHealth?
+      </p>
+
+      <p>
+         MassHealth está en el proceso de renovar la cobertura para todos los
+         miembros para asegurarse de que sigan siendo elegibles y reciban el
+         mejor beneficio para el que califican. Únase a los expertos de
+         MassHealth mientras explican qué deben hacer los miembros para
+         actualizar su información y cómo renovar su cobertura de MassHealth.
+      </p>
+
+      <p>
+         Algunas personas pueden que ya no califican para MassHealth, por lo que
+         el personal de Health Connector les explicará cómo pueden obtener
+         cobertura y pueden obtener ayuda para pagarla a través de Health
+         Connector. Obtenga información : <br />
+         ¿Por qué es importante renovar su cobertura de MassHealth? <br />
+         ¿Cómo informar cualquier cambio en su información a MassHealth? <br />
+         ¿Cómo acceder a su cuenta en línea y quién puede acceder a una cuenta en
+         línea? <br />
+         ¿Dónde obtener ayuda para completar su renovación de MassHealth? <br />
+         ¿Cómo obtener ayuda para inscribirse en la cobertura de Health Connector?
+      </p>
+   </div>
+
+   <div id="contacto" class="is-hidden">
+      <p>
+         Si necesita ayuda con su renovación, solicitud o cobertura, hable con
+         un asistente de inscripción certificado por el estado o llame
+      </p>
+
+      <p>
+         Health Connector: <a href="tel:1-877-623-6765">1-877-623-6765</a> (TTY <a
+            href="tel:1-877-623-7773">1-877-623-7773</a
+         >) Horario: Lunes-Viernes, 8:00 a.m. - 6:00 p.m.
+      </p>
+   </div>
+</BoothLayout>

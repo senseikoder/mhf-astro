@@ -1,0 +1,132 @@
+---
+import ModalBooths from "../../components/ModalBooths.astro";
+import ModalVideo from "../../components/ModalVideo.astro";
+import BoothLayout from "../../layouts/BoothLayout.astro";
+const booth = {
+   image: "all-of-us.webp",
+   btn1: "brochure.webp",
+   btn2: "empleos.webp",
+   btn3: "obsequio.webp",
+   btn4: "contacto.webp",
+   btn5: null,
+};
+---
+
+<BoothLayout title="Acerca de" description="Lorem ipsum dolor sit amet">
+   <section class="section banner-booth">
+      <div class="is-overlay"></div>
+      <div class="container has-text-white">
+         <div class="columns is-centered">
+            <div class="column is-6 has-text-centered">
+               <svg
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  viewBox="0 0 600 780"
+               >
+                  <image
+                     width="600"
+                     height="780"
+                     xlink:href={"/img/booths-bg/" + booth.image}
+                  />
+
+                  <a
+                     xlink:href="javascript:void(0)"
+                     class="modal-trigger"
+                     data-target="modal-booth"
+                     data-content="video"
+                  >
+                     <rect
+                        x="120"
+                        y="49"
+                        fill="#fff"
+                        opacity="0"
+                        width="413"
+                        height="266"></rect>
+                  </a>
+
+                  <!-- Brochure -->
+                  <a
+                     xlink:href="https://myhealthfair.com/wp-content/uploads/2021/05/Sp_AoUNE_AboutUs.pdf"
+                     target="_blank"
+                  >
+                     <image
+                        x="90"
+                        y="575"
+                        xlink:href={"/img/booths-pics/" + booth.btn1}
+                     />
+                  </a>
+
+                  <!-- Empleos -->
+                  <a
+                     xlink:href="https://myhealthfair.com/wp-content/uploads/2021/05/MyHealthFair_All-of-Us-job-ad-SPA-4.16.21.pdf"
+                     target="_blank"
+                  >
+                     <image
+                        x="310"
+                        y="575"
+                        xlink:href={"/img/booths-pics/" + booth.btn2}
+                     />
+                  </a>
+
+                  <!-- Obsequio -->
+                  <a
+                     xlink:href="https://myhealthfair.com/wp-content/uploads/2021/05/SP-AoUNE-Mental-Health-Resources-.pdf"
+                     target="_blank"
+                  >
+                     <image
+                        x="90"
+                        y="660"
+                        xlink:href={"/img/booths-pics/" + booth.btn3}
+                     />
+                  </a>
+                  <a
+                     xlink:href="javascript:void(0)"
+                     class="modal-trigger"
+                     data-target="modal-booth"
+                     data-content="contacto"
+                  >
+                     <image
+                        x="310"
+                        y="660"
+                        xlink:href={"/img/booths-pics/" + booth.btn4}
+                     />
+                  </a>
+
+                  <!-- <a xlink:href="#contacto">
+                     <rect
+                        x="205"
+                        y="716"
+                        fill="#fff"
+                        opacity="0"
+                        width="164"
+                        height="54"></rect>
+                  </a> -->
+               </svg>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <ModalBooths />
+
+   <ModalVideo videoID="fG1_wSP0EJY" />
+
+   <div id="video" class="is-hidden">
+      <div
+         style="width: 100%; height: 0px; position: relative; padding-bottom: 56.250%;"
+      >
+         <iframe
+            src="https://streamable.com/e/yphz76?quality=highest"
+            frameborder="0"
+            width="100%"
+            height="100%"
+            allowfullscreen
+            style="width: 100%; height: 100%; position: absolute;"></iframe>
+      </div>
+   </div>
+
+   <div id="contacto" class="is-hidden">
+      <p>Form</p>
+   </div>
+</BoothLayout>

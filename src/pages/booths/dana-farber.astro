@@ -1,0 +1,127 @@
+---
+import ModalBooths from "../../components/ModalBooths.astro";
+import ModalVideo from "../../components/ModalVideo.astro";
+import BoothLayout from "../../layouts/BoothLayout.astro";
+const booth = {
+   image: "dana-farber.webp",
+   btn1: "brochure.webp",
+   btn2: "empleos.webp",
+   btn3: "recursos.webp",
+   btn4: "oferta.webp",
+   btn5: "contacto.webp",
+};
+---
+
+<BoothLayout title="Acerca de" description="Lorem ipsum dolor sit amet">
+   <section class="section banner-booth">
+      <div class="is-overlay"></div>
+      <div class="container has-text-white">
+         <div class="columns is-centered">
+            <div class="column is-6 has-text-centered">
+               <svg
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  viewBox="0 0 600 780"
+               >
+                  <image
+                     width="600"
+                     height="780"
+                     xlink:href={"/img/booths-bg/" + booth.image}
+                  />
+                  <!-- Video -->
+                  <a
+                     xlink:href="javascript:void(0)"
+                     class="modal-trigger"
+                     data-target="modal-video"
+                  >
+                     <rect
+                        x="130"
+                        y="54"
+                        fill="#fff"
+                        opacity="0"
+                        width="413"
+                        height="266"></rect>
+                  </a>
+
+                  <!-- Brochure -->
+                  <a
+                     xlink:href="https://myhealthfair.com/wp-content/uploads/2024/02/Roundtable-Spanish-vax-handout.pdf"
+                  >
+                     <image
+                        x="90"
+                        y="555"
+                        xlink:href={"/img/booths-pics/" + booth.btn1}
+                     />
+                  </a>
+
+                  <!-- Empleos -->
+                  <a
+                     xlink:href="https://careers.dana-farber.org/jobs/?search_term=spanish&Submit="
+                     target="_blank"
+                  >
+                     <image
+                        x="310"
+                        y="555"
+                        xlink:href={"/img/booths-pics/" + booth.btn2}
+                     />
+                  </a>
+
+                  <!-- Recursos -->
+                  <a xlink:href="#recursos">
+                     <image
+                        x="90"
+                        y="635"
+                        xlink:href={"/img/booths-pics/" + booth.btn3}
+                     />
+                  </a>
+
+                  <!-- Oferta -->
+                  <a
+                     xlink:href="#eventos"
+                     class="modal-trigger"
+                     data-target="modal-booth"
+                     data-content="oferta"
+                  >
+                     <image
+                        x="310"
+                        y="635"
+                        xlink:href={"/img/booths-pics/" + booth.btn4}
+                     />
+                  </a>
+
+                  <a xlink:href="#contacto">
+                     <image
+                        x="195"
+                        y="710"
+                        xlink:href={"/img/booths-pics/" + booth.btn5}
+                     />
+                  </a>
+               </svg>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <ModalBooths />
+
+   <ModalVideo videoID="https://www.youtube.com/watch?v=lg8UqeWBaY4" />
+
+   <div id="oferta" class="is-hidden">
+      <p style="text-align: center;">
+         <a
+            href="https://www.dana-farber.org/about-us/community-outreach/mammography-van/van-calendar/"
+            target="_blank"
+            rel="noopener"
+            ><strong>Calendario del Van de la Mamografía</strong></a
+         >
+      </p>
+      <p style="text-align: center;">
+         <a
+            href="https://assess-your-risk.dana-farber.org/es"
+            target="_blank"
+            rel="noopener"><strong>Evalúe sus riesgos</strong></a
+         >
+      </p>
+   </div>
+</BoothLayout>

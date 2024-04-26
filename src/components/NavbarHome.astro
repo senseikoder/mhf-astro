@@ -8,9 +8,9 @@ const isHome = pathname == "/" ? true : false;
 <header class:list={["navbar", { "is-fixed-top": isHome }]}>
    <div class="container">
       <div class="navbar-brand">
-         <div class="navbar-item logo">
+         <a class="navbar-item logo">
             <Image src={logoMHF} alt="Logo" width="286" height="70" />
-         </div>
+         </a>
          <span class="navbar-burger" data-target="navbarMenu">
             <span></span>
             <span></span>
@@ -23,10 +23,10 @@ const isHome = pathname == "/" ? true : false;
             <a href="/" class:list={["navbar-item", { "is-active": isHome }]}>
                Home
             </a>
-            <a href="acerca-de" class="navbar-item"> Acerca de </a>
-            <a href="blog" class="navbar-item"> Vblog </a>
-            <a href="toolkit" class="navbar-item"> Toolkit </a>
-            <a href="contacto" class="navbar-item"> Contacto </a>
+            <a href="/acerca-de" class="navbar-item"> Acerca de </a>
+            <a href="/blog" class="navbar-item"> Vblog </a>
+            <a href="/toolkit" class="navbar-item"> Toolkit </a>
+            <a href="/contacto" class="navbar-item"> Contacto </a>
          </div>
       </div>
    </div>
@@ -55,7 +55,7 @@ const isHome = pathname == "/" ? true : false;
       });
    }
 
-   document.addEventListener("DOMContentLoaded", () => {
+   document.addEventListener("astro:page-load", () => {
       openBurger();
       scroll();
    });

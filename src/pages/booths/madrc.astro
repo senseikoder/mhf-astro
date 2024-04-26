@@ -1,0 +1,137 @@
+---
+import ModalBooths from "../../components/ModalBooths.astro";
+import ModalVideo from "../../components/ModalVideo.astro";
+import BoothLayout from "../../layouts/BoothLayout.astro";
+const booth = {
+   image: "madrc.webp",
+   btn1: "brochure.webp",
+   btn2: "eventos.webp",
+   btn3: "voluntariado.webp",
+   // btn4: "oferta.webp",
+   btn4: "contacto.webp",
+};
+---
+
+<BoothLayout title="Acerca de" description="Lorem ipsum dolor sit amet">
+   <section class="section banner-booth">
+      <div class="is-overlay"></div>
+      <div class="container has-text-white">
+         <div class="columns is-centered">
+            <div class="column is-6 has-text-centered">
+               <svg
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  viewBox="0 0 600 780"
+               >
+                  <image
+                     width="600"
+                     height="780"
+                     xlink:href={"/img/booths-bg/" + booth.image}
+                  />
+                  <!-- Video -->
+                  <a
+                     xlink:href="javascript:void(0)"
+                     class="modal-trigger"
+                     data-target="modal-video"
+                  >
+                     <rect
+                        x="115"
+                        y="50"
+                        fill="#fff"
+                        opacity="0"
+                        width="413"
+                        height="266"></rect>
+                  </a>
+
+                  <image
+                     x="160"
+                     y="465"
+                     width="270"
+                     height="80"
+                     xlink:href="/img/booths-pics/MADRC_Logo.webp"
+                  />
+
+                  <!-- Brochure -->
+                  <a
+                     xlink:href="https://myhealthfair.com/wp-content/uploads/2023/11/Symptomatic-Prevention-Flyers-ESP.pdf"
+                  >
+                     <image
+                        x="85"
+                        y="575"
+                        xlink:href={"/img/booths-pics/" + booth.btn1}
+                     />
+                  </a>
+
+                  <!-- Empleos -->
+                  <a xlink:href="https://www.madrc.org/events/" target="_blank">
+                     <image
+                        x="305"
+                        y="575"
+                        xlink:href={"/img/booths-pics/" + booth.btn2}
+                     />
+                  </a>
+
+                  <!-- Voluntariado -->
+                  <a
+                     xlink:href="https://myhealthfair.com/wp-content/uploads/2023/11/MAC-Flyer-Espanol.pdf"
+                     target="_blankm"
+                  >
+                     <image
+                        x="85"
+                        y="660"
+                        xlink:href={"/img/booths-pics/" + booth.btn3}
+                     />
+                  </a>
+
+                  <!-- Oferta -->
+                  <a
+                     xlink:href="#contacto"
+                     class="modal-trigger"
+                     data-target="modal-booth"
+                     data-content="contacto"
+                  >
+                     <image
+                        x="305"
+                        y="660"
+                        xlink:href={"/img/booths-pics/" + booth.btn4}
+                     />
+                  </a>
+
+                  <!-- <a xlink:href="#contacto">
+                     <image
+                        x="195"
+                        y="716"
+                        xlink:href={"/img/booths-pics/" + booth.btn5}
+                     />
+                  </a> -->
+               </svg>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <ModalBooths />
+
+   <ModalVideo videoID="https://youtu.be/JbsuhD6846g" />
+
+   <div id="contacto" class="is-hidden">
+      <p>
+         Para comunicarse con el equipo de MADRC por teléfono, <br />llame al <a
+            href="tel:+16172780600">617-278-0600</a
+         >
+      </p>
+      <p>
+         Para obtener información sobre nuestros programas/eventos comunitarios
+         o sobre nuestros estudios de investigación communicate con:
+      </p>
+      <p>Paola Garza</p>
+      <p>
+         <a href="tel:+1617-643-5250">617-643-5250</a> o <a
+            href="mailto:agarza3@mgb.org"
+            target="_blank"
+            rel="noopener">agarza3@mgb.org</a
+         >
+      </p>
+   </div>
+</BoothLayout>

@@ -1,13 +1,13 @@
 ---
-import ModalBooths from "../components/ModalBooths.astro";
-import ModalVideo from "../components/ModalVideo.astro";
-import BoothLayout from "../layouts/BoothLayout.astro";
+import ModalBooths from "../../components/ModalBooths.astro";
+import ModalVideo from "../../components/ModalVideo.astro";
+import BoothLayout from "../../layouts/BoothLayout.astro";
 const booth = {
-   image: "dana-farber.webp",
+   image: "united-health-care.webp",
    btn1: "brochure.webp",
    btn2: "empleos.webp",
    btn3: "recursos.webp",
-   btn4: "oferta.webp",
+   btn4: "eventos.webp",
    btn5: "contacto.webp",
 };
 ---
@@ -36,7 +36,7 @@ const booth = {
                      data-target="modal-video"
                   >
                      <rect
-                        x="130"
+                        x="100"
                         y="54"
                         fill="#fff"
                         opacity="0"
@@ -46,23 +46,23 @@ const booth = {
 
                   <!-- Brochure -->
                   <a
-                     xlink:href="https://myhealthfair.com/wp-content/uploads/2024/02/Roundtable-Spanish-vax-handout.pdf"
+                     xlink:href="https://myhealthfair.com/wp-content/uploads/2024/03/2024-Spanish-BRC-PDF.pdf"
                   >
                      <image
-                        x="90"
-                        y="555"
+                        x="80"
+                        y="565"
                         xlink:href={"/img/booths-pics/" + booth.btn1}
                      />
                   </a>
 
                   <!-- Empleos -->
                   <a
-                     xlink:href="https://careers.dana-farber.org/jobs/?search_term=spanish&Submit="
+                     xlink:href="https://careers.unitedhealthgroup.com/job-search-results/"
                      target="_blank"
                   >
                      <image
-                        x="310"
-                        y="555"
+                        x="300"
+                        y="565"
                         xlink:href={"/img/booths-pics/" + booth.btn2}
                      />
                   </a>
@@ -70,22 +70,17 @@ const booth = {
                   <!-- Recursos -->
                   <a xlink:href="#recursos">
                      <image
-                        x="90"
-                        y="635"
+                        x="80"
+                        y="640"
                         xlink:href={"/img/booths-pics/" + booth.btn3}
                      />
                   </a>
 
-                  <!-- Oferta -->
-                  <a
-                     xlink:href="#eventos"
-                     class="modal-trigger"
-                     data-target="modal-booth"
-                     data-content="oferta"
-                  >
+                  <!-- Eventos -->
+                  <a xlink:href="#eventos">
                      <image
-                        x="310"
-                        y="635"
+                        x="300"
+                        y="640"
                         xlink:href={"/img/booths-pics/" + booth.btn4}
                      />
                   </a>
@@ -93,7 +88,7 @@ const booth = {
                   <a xlink:href="#contacto">
                      <image
                         x="195"
-                        y="710"
+                        y="716"
                         xlink:href={"/img/booths-pics/" + booth.btn5}
                      />
                   </a>
@@ -105,23 +100,5 @@ const booth = {
 
    <ModalBooths />
 
-   <ModalVideo videoID="https://www.youtube.com/watch?v=lg8UqeWBaY4" />
-
-   <div id="oferta" class="is-hidden">
-      <p style="text-align: center;">
-         <a
-            href="https://www.dana-farber.org/about-us/community-outreach/mammography-van/van-calendar/"
-            target="_blank"
-            rel="noopener"
-            ><strong>Calendario del Van de la Mamografía</strong></a
-         >
-      </p>
-      <p style="text-align: center;">
-         <a
-            href="https://assess-your-risk.dana-farber.org/es"
-            target="_blank"
-            rel="noopener"><strong>Evalúe sus riesgos</strong></a
-         >
-      </p>
-   </div>
+   <ModalVideo videoID="RR5feG5E3ek" />
 </BoothLayout>

@@ -24,6 +24,10 @@ a.navbar-item.is-active {
   --bulma-navbar-item-selected-background-l: var(--bulma-info-l)
 }
 
+a.logo.navbar-item:hover {
+  background: transparent;
+}
+
 .title {
   --bulma-title-weight: var(--bulma-weight-semibold)
 }
