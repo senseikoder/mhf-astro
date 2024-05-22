@@ -6,12 +6,20 @@ import aou from "../images/carrusel/AllofUs_Logo.png";
 import danaf from "../images/carrusel/dana-farber.jpg";
 import dimock from "../images/carrusel/dimock-center.jpg";
 import mapp from "../images/carrusel/MAPP_Logo.jpg";
+
+const idioma = Astro.currentLocale;
 ---
 
 <section class="section">
    <div class="container is-fullhd">
       <div class="title-wrapper has-text-centered">
-         <h2 class="title is-3">Participantes de La Feria</h2>
+         {
+            idioma == "es" ? (
+               <h2 class="title is-3">Participantes de La Feria</h2>
+            ) : (
+               <h2 class="title is-3">Our sponsors – Community partners</h2>
+            )
+         }
       </div>
 
       <div class="content-wrapper">
@@ -81,5 +89,4 @@ import mapp from "../images/carrusel/MAPP_Logo.jpg";
          width: 25%;
       }
    }
-
 </style>

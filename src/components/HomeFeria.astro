@@ -1,9 +1,8 @@
 ---
-import mhfPlaza from "../images/mhf-plaza.webp";
-import logo_helpline from "../images/mass-helpline.webp";
+const idioma = Astro.currentLocale == "en" ? "/en" : "";
 ---
 
-<section class="hero">
+<section class="hero is-hidden-touch">
    <div class="is-overlay"></div>
 
    <div class="hero-body p-0">
@@ -19,57 +18,61 @@ import logo_helpline from "../images/mass-helpline.webp";
                height="1125"
                xlink:href="../img/mhf-plaza.webp"
             />
-            <a xlink:href="/booths/helpline-mass">
+            <a xlink:href={idioma + "/booths/helpline-mass"}>
                <image
                   xlink:href="../img/booths-pics/mass-helpline.webp"
                   x="284"
                   y="528"
                />
-            </a><a xlink:href="/booths/united-health-care">
+            </a><a xlink:href={idioma + "/booths/united-health-care"}>
                <image
                   xlink:href="../img/booths-pics/united-hc.webp"
                   x="520"
                   y="430"
                />
-            </a><a xlink:href="/booths/dana-farber/">
+            </a><a xlink:href={idioma + "/booths/dana-farber/"}>
                <image
                   xlink:href="../img/booths-pics/dana-farber.webp"
                   x="725"
                   y="345"
                />
-            </a><a xlink:href="/booths/madrc">
-               <image xlink:href="../img/booths-pics/madrc.webp" x="920" y="295" />
-            </a><a xlink:href="/booths/alzheimer-assoc">
+            </a><a xlink:href={idioma + "/booths/madrc"}>
+               <image
+                  xlink:href="../img/booths-pics/madrc.webp"
+                  x="920"
+                  y="295"
+               />
+            </a><a xlink:href={idioma + "/booths/alzheimer-assoc"}>
                <image
                   xlink:href="../img/booths-pics/alzheimer-association.webp"
                   x="1110"
                   y="255"
                />
-            </a><a xlink:href="/booths/mass-health">
+            </a><a xlink:href={idioma + "/booths/mass-health"}>
                <image
                   xlink:href="../img/booths-pics/mass-health.webp"
                   x="376"
                   y="785"
                />
-            </a><a xlink:href="/booths/whittier">
+            </a><a xlink:href={idioma + "/booths/whittier"}>
                <image
                   xlink:href="../img/booths-pics/whittier.webp"
                   x="655"
                   y="635"
                />
-            </a><a xlink:href="/booths/all-of-us/">
+            </a><a xlink:href={idioma + "/booths/all-of-us/"}>
                <image
                   xlink:href="../img/booths-pics/all-of-us.webp"
                   x="890"
                   y="520"
                />
-            </a><a xlink:href="/booths/dimock">
+            </a><a xlink:href={idioma + "/booths/dimock"}>
                <image
                   xlink:href="../img/booths-pics/dimock-center.webp"
                   x="1110"
                   y="440"
                />
-            </a><a xlink:href="/booths/project-bread/">
+            </a><a xlink:href={idioma + "/booths/project-bread/"}>
                <image
                   xlink:href="../img/booths-pics/project-bread.webp"
                   x="1320"
@@ -81,11 +84,54 @@ import logo_helpline from "../images/mass-helpline.webp";
    </div>
 </section>
 
+<section class="hero-mobile is-hidden-desktop">
+   <div class="container">
+      <div class="content py-6">
+         <ul class="list">
+            <li>
+               <a href="/booths/all-of-us/">All of Us</a>
+            </li>
+            <li>
+               <a href="/booths/alzheimer-assoc/">Alzheimer’s Association</a>
+            </li>
+            <li>
+               <a href="/booths/dana-farber/">Dana-Farber Cancer Institute</a>
+            </li>
+            <li>
+               <a href="/booths/madrc/"
+                  >Massachusetts Alzheimer’s Disease Reasearch Center</a
+               >
+            </li>
+            <li>
+               <a href="/booths/mass-health/"
+                  >Redeterminacion de Eligibilidad de Mass Health</a
+               >
+            </li>
+            <li>
+               <a href="/booths/helpline-mass/">Mass Help Line</a>
+            </li>
+            <li>
+               <a href="/booths/project-bread/">Project Bread</a>
+            </li>
+            <li>
+               <a href="/booths/dimock/">The Dimock Center</a>
+            </li>
+            <li>
+               <a href="/booths/united-health-care/">United Health Care</a>
+            </li>
+            <li>
+               <a href="/booths/whittier/">Whittier Street</a>
+            </li>
+         </ul>
+      </div>
+   </div>
+</section>
+
 <style>
-   /* .hero {
-      background: url("../images/mhf-plaza.webp") center left no-repeat;
+   .hero-mobile {
+      background: url("../images/bg-feria.webp") center no-repeat;
       background-size: cover;
-   } */
+   }
 
    .is-overlay {
       background: rgba(121, 171, 236, 0.15);
@@ -102,5 +148,9 @@ import logo_helpline from "../images/mass-helpline.webp";
       width: 135px;
       height: 135px;
       opacity: 1;
+   }
+
+   .list, .list a {
+      color: white;
    }
 </style>

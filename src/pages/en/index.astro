@@ -1,0 +1,46 @@
+---
+import HomeLayout from "../../layouts/HomeLayout.astro";
+
+import HomeFeria from "../../components/HomeFeria.astro";
+import HomeCats from "../../components/HomeCatsEN.astro";
+import HomeCarrusel from "../../components/HomeCarrusel.astro";
+import HomeBlog from "../../components/HomeBlog.astro";
+import { Image } from "astro:assets";
+import roadmap from "../../images/roadmap.webp";
+
+import "flickity/dist/flickity.min.css";
+---
+
+<HomeLayout title="MyHealthFair - Massachussets" description="">
+   <HomeFeria />
+
+   <section class="section">
+      <div class="container is-max-desktop">
+         <div class="columns is-centered">
+            <div class="column is-8">
+               <h2
+                  class="title has-text-weight-semibold is-4 has-text-centered"
+               >
+                  <span class="has-text-primary has-text-weight-bold"
+                     >My Health Fair</span
+                  > is a 365 days a year digital health fair that gives you access
+                  to information directly from health organizations and experts,
+                  in your language.
+               </h2>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <HomeCats />
+
+   <section class="section">
+      <div class="container has-text-centered">
+         <Image src={roadmap} alt="" />
+      </div>
+   </section>
+
+   <HomeCarrusel />
+
+   <HomeBlog />
+</HomeLayout>

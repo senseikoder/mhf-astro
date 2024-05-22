@@ -66,18 +66,36 @@ const isHome = pathname == "/" ? true : false;
 <style>
    .navbar {
       background-color: rgba(255, 255, 255, 0.75);
-      transition: all 0.3s;
    }
 
    .is-white {
       background-color: rgba(255, 255, 255, 0.95);
    }
 
-   .navbar-menu.is-active {
-      transition: all 0.8s;
-   }
-
    .logo img {
       max-height: 70px;
+   }
+
+   @media (max-width: 575px) {
+      .navbar.is-fixed-top {
+         position: initial;
+      }
+
+      .navbar-menu.is-active {
+         position: absolute;
+         width: 100%;
+         z-index: 999;
+         animation: show-navbar-menu .3s
+      }
+
+      @keyframes show-navbar-menu {
+         from {
+            opacity: 0;
+         }
+
+         to {
+            opacity: 1;
+         }
+      }
    }
 </style>

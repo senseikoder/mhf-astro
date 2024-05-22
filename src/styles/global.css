@@ -29,7 +29,8 @@ a.logo.navbar-item:hover {
 }
 
 .title {
-  --bulma-title-weight: var(--bulma-weight-semibold)
+  --bulma-title-weight: 500;
+  --bulma-text-strong: #555;
 }
 
 .modal {
@@ -77,8 +78,6 @@ a.logo.navbar-item:hover {
   filter: drop-shadow(0 0 3px var(--primary));
 }
 
-@media screen and (max-width: 1023px) {
-  .navbar-menu {
-    transition: all .8s;
-  }
+@media screen and (max-width: 575px) {
+  
 }

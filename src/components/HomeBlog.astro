@@ -3,16 +3,24 @@ export const prerender = false;
 import FormattedDate from "./FormattedDate.astro";
 
 const res = await fetch(
-   `https://myhealthfair.com/wp-json/wp/v2/posts?per_page=3&lang=es&_embed`,
+   `https://myhealthfair.com/wp-json/wp/v2/posts?per_page=3&lang=en&_embed`,
 );
 
 const posts = await res.json();
+const idioma = Astro.currentLocale;
 ---
 
 <section class="section banner">
    <div class="is-overlay"></div>
    <div class="container">
-      <h2 class="title has-text-light has-text-centered">Últimas Entradas</h2>
+      <h2 class="title has-text-light has-text-centered">
+         {
+            idioma == 'es' ?
+            <span>Últimas Entradas</span>
+            :
+            <span>Latest Posts</span>
+         }
+      </h2>
 
       <div class="columns is-multiline is-variable is-8">
          {
@@ -39,7 +47,9 @@ const posts = await res.json();
                            />
                         </p>
                         <p class="date mt-5">
-                           <small><FormattedDate date={new Date(post.date)} /></small>
+                           <small>
+                              <FormattedDate date={new Date(post.date)} />
+                           </small>
                         </p>
                      </div>
                   </div>

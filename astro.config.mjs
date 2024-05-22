@@ -10,5 +10,9 @@ export default defineConfig({
   prefetch: true,
   format: 'file',
   output: 'hybrid',
-  adapter: cloudflare()
+  adapter: cloudflare(),
+  i18n: {
+    defaultLocale: "es",
+    locales: ["es", "en"],
+  }
 });
