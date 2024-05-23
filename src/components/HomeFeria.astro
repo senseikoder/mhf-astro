@@ -86,43 +86,27 @@ const idioma = Astro.currentLocale == "en" ? "/en" : "";
 
 <section class="hero-mobile is-hidden-desktop">
    <div class="container">
-      <div class="content py-6">
-         <ul class="list">
-            <li>
-               <a href="/booths/all-of-us/">All of Us</a>
-            </li>
-            <li>
-               <a href="/booths/alzheimer-assoc/">Alzheimer’s Association</a>
-            </li>
-            <li>
-               <a href="/booths/dana-farber/">Dana-Farber Cancer Institute</a>
-            </li>
-            <li>
-               <a href="/booths/madrc/"
-                  >Massachusetts Alzheimer’s Disease Reasearch Center</a
-               >
-            </li>
-            <li>
-               <a href="/booths/mass-health/"
-                  >Redeterminacion de Eligibilidad de Mass Health</a
-               >
-            </li>
-            <li>
-               <a href="/booths/helpline-mass/">Mass Help Line</a>
-            </li>
-            <li>
-               <a href="/booths/project-bread/">Project Bread</a>
-            </li>
-            <li>
-               <a href="/booths/dimock/">The Dimock Center</a>
-            </li>
-            <li>
-               <a href="/booths/united-health-care/">United Health Care</a>
-            </li>
-            <li>
-               <a href="/booths/whittier/">Whittier Street</a>
-            </li>
-         </ul>
+      <div class="buttons is-centered">
+         <a href="/booths/all-of-us/" class="button">All of Us</a>
+         <a href="/booths/alzheimer-assoc/" class="button"
+            >Alzheimer's Association</a
+         >
+         <a href="/booths/dana-farber/" class="button"
+            >Dana-Farber Cancer Institute</a
+         >
+         <a href="/booths/madrc/" class="button"
+            >Mass Alzheimer's Disease Reasearch Center</a
+         >
+         <a href="/booths/mass-health/" class="button">Mass Health Connector</a>
+         <a href="/booths/helpline-mass/" class="button"
+            >Mass Behavioral Help Line</a
+         >
+         <a href="/booths/project-bread/" class="button">Project Bread</a>
+         <a href="/booths/dimock/" class="button">The Dimock Center</a>
+         <a href="/booths/united-health-care/" class="button"
+            >United Health Care</a
+         >
+         <a href="/booths/whittier/" class="button">Whittier Street</a>
       </div>
    </div>
 </section>
@@ -131,6 +115,20 @@ const idioma = Astro.currentLocale == "en" ? "/en" : "";
    .hero-mobile {
       background: url("../images/bg-feria.webp") center no-repeat;
       background-size: cover;
+   }
+
+   .hero-mobile .container {
+      padding-block: 3.5rem;
+   }
+
+   .buttons {
+      gap: 1.2rem;
+   }
+   .hero-mobile .button {
+      width: 90%;
+      background-color: rgba(255, 255, 255, 0.8);
+      text-shadow: 1px 2px 2px #fff;
+      font-size: large;
    }
 
    .is-overlay {
@@ -150,7 +148,8 @@ const idioma = Astro.currentLocale == "en" ? "/en" : "";
       opacity: 1;
    }
 
-   .list, .list a {
+   .list,
+   .list a {
       color: white;
    }
 </style>

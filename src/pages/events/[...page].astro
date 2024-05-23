@@ -1,0 +1,51 @@
+---
+export const prerender = false;
+import PageLayout from "../../layouts/PageLayout.astro";
+
+let pagina = 1;
+const { page } = Astro.params;
+
+if (page) pagina = Number(page);
+
+const res = await fetch(
+   `https://myhealthfair.com/wp-json/tribe/events/v1/events?page=${pagina}`,
+);
+
+const eventos = await res.json();
+
+---
+<PageLayout title="Feria de Salud - Eventos" description="Blog">
+   <section class="section">
+      <div class="container is-max-desktop">
+         <div class="columns is-multiline is-variable is-8">
+            {
+               eventos.events.map((evento: any) => (
+                  <div class="column is-6">
+                     <div class="card">
+                        <div class="card-content">
+                           <a href={`/event/${evento.slug}`}>
+                              <img
+                                 width={720}
+                                 height={360}
+                                 src={
+                                    evento.image.url
+                                 }
+                                 alt=""
+                              />
+                              <h4 class="title is-5 my-4">
+                                 {evento.title}
+                              </h4>
+                           </a>
+
+                           <small>
+                              <Fragment set:html={evento.excerpt} />
+                           </small>
+                        </div>
+                     </div>
+                  </div>
+               ))
+            }
+         </div>
+      </div>
+   </section>
+</PageLayout>

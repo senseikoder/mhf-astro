@@ -25,6 +25,7 @@ const isHome = pathname == "/" ? true : false;
             </a>
             <a href="/acerca-de" class="navbar-item"> Acerca de </a>
             <a href="/blog" class="navbar-item"> Vblog </a>
+            <a href="/events" class="navbar-item"> Eventos </a>
             <a href="/toolkit" class="navbar-item"> Toolkit </a>
             <a href="/contacto" class="navbar-item"> Contacto </a>
          </div>
@@ -85,7 +86,7 @@ const isHome = pathname == "/" ? true : false;
          position: absolute;
          width: 100%;
          z-index: 999;
-         animation: show-navbar-menu .3s
+         animation: show-navbar-menu 0.3s;
       }
 
       @keyframes show-navbar-menu {
