@@ -2,7 +2,7 @@
 
 
 :root {
-  --primary: #1699E3;
+  --primary: #FE8D19;
   --bulma-primary-h: 24;
   --bulma-primary-s: 94%;
   --bulma-primary-l: 51%;
@@ -26,6 +26,10 @@ a.navbar-item.is-active {
 
 a.logo.navbar-item:hover {
   background: transparent;
+}
+
+.logo img {
+  max-height: 70px;
 }
 
 .title {
@@ -78,6 +82,25 @@ a.logo.navbar-item:hover {
   filter: drop-shadow(0 0 3px var(--primary));
 }
 
-@media screen and (max-width: 575px) {
-  
+@media (max-width: 575px) {
+  .navbar.is-fixed-top {
+    position: initial;
+  }
+
+  .navbar-menu.is-active {
+    position: absolute;
+    width: 100%;
+    z-index: 999;
+    animation: show-navbar-menu 0.3s;
+  }
+
+  @keyframes show-navbar-menu {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
 }

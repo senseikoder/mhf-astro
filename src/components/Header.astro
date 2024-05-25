@@ -5,7 +5,7 @@ import logo from "../images/logo-MHF-short.webp";
 import emb_header from "../images/emb-header.webp";
 ---
 
-<section class="section p-2 has-background-primary">
+<section class="section p-2 has-background-primary is-hidden-touch">
 	<div class="container is-max-widescreen">
 		<div class="columns">
 			<div class="column">
@@ -63,28 +63,29 @@ import emb_header from "../images/emb-header.webp";
 	</div>
 </section>
 
-<section class="section p-2">
+<section class="section p-2 header-main">
 	<div class="container is-max-widescreen">
-		<div class="columns">
-			<div class="column is-3">
+		<div class="columns mb-0">
+			<div class="column is-3 header-logo">
 				<figure class="image logo">
 					<a href="/">
 						<Image src={logo} alt="logo MHF" />
 					</a>
 				</figure>
 			</div>
-			<div class="column has-text-right">
+			<div class="column has-text-right header-ad">
 				<Image src={emb_header} alt="El Mundo Boston" />
+			</div>
+		</div>
+
+		<div class="columns is-bordered">
+			<div class="column p-1">
+				<Menu />
 			</div>
 		</div>
 	</div>
 </section>
 
-<section class="section p-0 is-bordered">
-	<div class="container is-max-widescreen">
-		<Menu />
-	</div>
-</section>
 <style>
 	header {
 		margin: 0;
@@ -94,18 +95,27 @@ import emb_header from "../images/emb-header.webp";
 	}
 
 	.is-bordered {
-		border-top: 1px solid lightgrey;
-		border-bottom: 1px solid lightgrey;
-		box-shadow: 0px 3px 4px #e2e2e2;
+		border-top: 1px groove lightgrey;
+		/* box-shadow: 0px 3px 4px #e2e2e2; */
 	}
-	
+
 	.social-links,
 	.social-links a {
 		display: flex;
 		color: white;
 	}
-	@media (max-width: 720px) {
-		.social-links {
+	@media (max-width: 728px) {
+		.header-main .columns {
+			display: flex;
+			flex-direction: column;
+		}
+
+		.header-ad {
+			order: 1;
+			background-color: var(--primary);
+		}
+
+		.header-logo {
 			display: none;
 		}
 	}

@@ -6,7 +6,7 @@ import FormattedDate from "../../components/FormattedDate.astro";
 let pagina = 1;
 const { page } = Astro.params;
 
-if (page) pagina = page;
+if (page) pagina = Number(page)
 
 const res = await fetch(
 	`https://myhealthfair.com/wp-json/wp/v2/posts?page=${pagina}&lang=es&_embed`,

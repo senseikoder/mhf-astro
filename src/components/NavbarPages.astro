@@ -1,10 +1,15 @@
 ---
+import { Image } from "astro:assets";
 import HeaderLink from "./HeaderLink.astro";
+import logoMHF from "../images/logo-MHF-short.webp";
 ---
 
 <nav class="navbar">
    <div class="container">
-      <div class="navbar-brand">
+      <div class="navbar-brand is-hidden-desktop">
+         <a href="/" class="navbar-item logo">
+            <Image src={logoMHF} alt="Logo" width="286" height="70" />
+         </a>
          <span class="navbar-burger" data-target="navbarMenu">
             <span></span>
             <span></span>
@@ -14,7 +19,7 @@ import HeaderLink from "./HeaderLink.astro";
       </div>
 
       <div id="navbarMenu" class="navbar-menu">
-         <div class="navbar-end is-uppercase">
+         <div class="navbar-end">
             <HeaderLink href="/">Home</HeaderLink>
             <HeaderLink href="/acerca-de">Acerca de</HeaderLink>
             <HeaderLink href="/blog">VBlog</HeaderLink>
@@ -26,25 +31,27 @@ import HeaderLink from "./HeaderLink.astro";
 </nav>
 
 <style>
-
    :root {
-      --bulma-navbar-height: 2.5rem
+      --bulma-navbar-height: 2.5rem;
    }
 
    nav a {
-      padding: 1em 0.5em;
-      color: #444;
+      padding: 0.5em;
       border-bottom: 2px solid transparent;
       text-decoration: none;
       letter-spacing: 0.5pt;
    }
-   nav a.active {
-      color: var(--bulma-primary);
-      text-decoration: none;
-      border-bottom-color: var(--accent);
-   }
 
    .navbar-end {
       margin-inline-end: auto;
+   }
+
+   @media (min-width: 728px) {
+      nav a.is-active {
+         color: var(--bulma-primary);
+         text-decoration: none;
+         border-bottom-color: var(--accent);
+         background-color: transparent;
+      }
    }
 </style>
