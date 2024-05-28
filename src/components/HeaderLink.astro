@@ -1,13 +1,14 @@
 ---
-import type { HTMLAttributes } from "astro/types";
+// import type { HTMLAttributes } from "astro/types";
 
-type Props = HTMLAttributes<"a">;
+// type Props = HTMLAttributes<"a">;
 
 const { href, class: className, ...props } = Astro.props;
 
 const { pathname } = Astro.url;
 const subpath = pathname.match(/[^\/]+/g);
-const isActive = href === pathname || href === "/" + subpath?.[0];
+
+const isActive = href === pathname
 ---
 
 <a href={href} class:list={[className, { 'is-active': isActive }, 'navbar-item']} {...props}>
@@ -15,17 +16,14 @@ const isActive = href === pathname || href === "/" + subpath?.[0];
 </a>
 <style>
 	a {
-		display: inline-block;
+		/* display: inline-block; */
 		text-decoration: none;
+		font-size: 1.1em;
 	}
 
 	@media (max-width: 728px) {
 		a {
 			display: block;
 		}
-
-		/* a.active {
-			text-decoration: none;
-		} */
 	}
 </style>

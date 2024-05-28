@@ -1,0 +1,102 @@
+---
+import PageLayout from "../../layouts/PageLayout.astro";
+---
+
+<PageLayout title="Acerca de" description="Lorem ipsum dolor sit amet">
+   <section class="section banner">
+      <div class="is-overlay"></div>
+      <div class="container has-text-white">
+         <div class="columns is-centered">
+            <div class="column is-10 has-text-centered">
+               <h2 class="title is-2 has-text-white">Welcome to Health Fair</h2>
+
+               <h3 class="subtitle is-4 has-text-white">
+                  My Health Fair is a bilingual website business based in
+                  Boston, Massachusetts that is owned and operated by RW
+                  Consulting, LLC, and offer services:
+               </h3>
+            </div>
+         </div>
+
+         <div class="columns my-5">
+            <div class="column">
+               <iframe
+                  width="100%"
+                  height="370"
+                  src="https://www.youtube.com/embed/Z1gZkG5qHDA?si=YK7qb6u7RVezMnrV"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen></iframe>
+            </div>
+
+            <div class="column">
+               <div class="content is-size-5">
+                  <ul>
+                     <li>Medical Providers and Referral Partners</li>
+                     <li>Community Outreach and Participation</li>
+                     <li>Media relations, public relations and events</li>
+                     <li>Online tools</li>
+                  </ul>
+
+                  <div class="block has-text-centered">
+                     <a
+                        href="https://www.consultingrw.com/consulting/"
+                        class="button is-info is-light is-large px-6"
+                        >See More</a
+                     >
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <div class="columns is-centered">
+            <div class="column is-8">
+               <div class="content has-text-centered is-size-5">
+                  <p>
+                     The website connects both English and Spanish-speaking
+                     audiences to healthcare organizations that are trying to
+                     reach out to them with well-needed information and services
+                     via an on-demand virtual health fair.
+                  </p>
+
+                  <br />
+
+                  <a href="/" class="button is-primary is-large has-text-white"
+                     >Go to My Health Fair</a
+                  >
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <section class="section has-background-lightgrey">
+      <div class="container">
+         <div class="columns is-centered">
+            <div class="column is-8">
+               <div class="content is-size-5">
+                  <p>
+                     Note: MHF creates content for general knowledge, awareness,
+                     and action. We cannot answer personal medical questions or
+                     give medical advice. Concerns about a medical condition
+                     should be directed to a healthcare professional.
+                  </p>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+</PageLayout>
+
+<style>
+   .banner {
+      background: url("../images/banner-about.webp") center / cover no-repeat;
+      position: relative;
+   }
+
+   .is-overlay {
+      background-color: #0577b5d1;
+   }
+</style>
