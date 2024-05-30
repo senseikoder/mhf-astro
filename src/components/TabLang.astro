@@ -1,0 +1,39 @@
+---
+import { Image } from "astro:assets";
+import flagES from "../images/flag-esp.png";
+import flagEN from "../images/flag-eng.png";
+
+const idioma = Astro.currentLocale;
+const imgFlag = idioma == "es" ? flagEN : flagES;
+const homeUrl = idioma == "es" ? '/en' : "/"
+---
+
+<div class="tab">
+   <a href={homeUrl}>
+      <Image src={imgFlag} alt="idioma" width="25" height="25" />
+   </a>
+</div>
+
+<style>
+   .tab {
+      position: absolute;
+      top: -15px;
+      right: 40px;
+      background: white;
+      border-radius: 0 0 7px 7px;
+      opacity: .8;
+      transition: all 0.3s;
+   }
+   
+   .tab a {
+      display: block;
+      padding: 5px 10px;
+      line-height: 1;
+   }
+
+   .tab:hover {
+      top: 0;
+      opacity: 1;
+      box-shadow: 0 2px 4px grey;
+   }
+</style>
