@@ -8,6 +8,7 @@ const idioma = Astro.currentLocale;
 const { title, description, heroImage, date } = Astro.props;
 
 import "@fontsource-variable/dm-sans";
+import TabLang from "../components/TabLang.astro";
 ---
 
 <html lang={idioma} data-theme="light">
@@ -64,5 +65,7 @@ import "@fontsource-variable/dm-sans";
 					0 1px 2px rgba(0, 0, 0, 0.24);
 			}
 		</style>
+
+		<TabLang />
 	</body>
 </html>

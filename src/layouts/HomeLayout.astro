@@ -8,6 +8,7 @@ const { title, description } = Astro.props;
 
 // Supports weights 100-900
 import "@fontsource-variable/dm-sans";
+import TabLang from "../components/TabLang.astro";
 ---
 
 <html lang={idioma} data-theme="light">
@@ -21,5 +22,6 @@ import "@fontsource-variable/dm-sans";
       <slot />
       <Footer />
       <script src="../js/main.js"></script>
+      <TabLang />
    </body>
 </html>
