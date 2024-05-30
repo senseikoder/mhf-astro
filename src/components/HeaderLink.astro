@@ -1,7 +1,7 @@
 ---
-// import type { HTMLAttributes } from "astro/types";
+import type { HTMLAttributes } from "astro/types";
 
-// type Props = HTMLAttributes<"a">;
+type Props = HTMLAttributes<"a">;
 
 const { href, class: className, ...props } = Astro.props;
 
@@ -15,12 +15,6 @@ const isActive = href === pathname
 	<slot />
 </a>
 <style>
-	a {
-		/* display: inline-block; */
-		text-decoration: none;
-		font-size: 1.1em;
-	}
-
 	@media (max-width: 728px) {
 		a {
 			display: block;

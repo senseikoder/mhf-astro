@@ -22,8 +22,20 @@ document.addEventListener("astro:page-load", () => {
       });
    }
 
+   function openSubmenu(){
+      const arrow_down = document.querySelector(".has-dropdown .navbar-link")
+
+      arrow_down.addEventListener("click", () => {
+
+         const $target = document.querySelector('.navbar-dropdown')
+
+         $target.classList.toggle("is-active");
+      });
+   }
+
 
    openBurger();
+   openSubmenu();
    scroll();
 
    
