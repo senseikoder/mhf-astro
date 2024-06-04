@@ -1,19 +1,18 @@
 ---
-import ModalBooths from "../../components/ModalBooths.astro";
-import ModalVideo from "../../components/ModalVideo.astro";
-import BoothLayout from "../../layouts/BoothLayout.astro";
+import ModalBooths from "../../../components/ModalBooths.astro";
+import ModalVideo from "../../../components/ModalVideo.astro";
+import BoothLayout from "../../../layouts/BoothLayout.astro";
 const booth = {
-   image: "all-of-us.webp",
+   image: "madrc.webp",
    btn1: "brochure.webp",
-   btn2: "empleos.webp",
-   btn3: "obsequio.webp",
-   btn4: "contacto.webp",
-   btn5: null,
+   btn2: "events.webp",
+   btn3: "volunteer.webp",
+   btn4: "contact.webp",
 };
 ---
 
 <BoothLayout
-   title="All of Us New England"
+   title="Massachusetts Alzheimer’s Disease Reasearch Center"
    description="Lorem ipsum dolor sit amet"
 >
    <section class="section banner-booth">
@@ -32,78 +31,81 @@ const booth = {
                      height="780"
                      xlink:href={"/img/booths-bg/" + booth.image}
                   />
-
+                  <!-- Video -->
                   <a
                      xlink:href="javascript:void(0)"
                      class="modal-trigger"
-                     data-target="modal-booth"
-                     data-content="video"
+                     data-target="modal-video"
                   >
                      <rect
-                        x="120"
-                        y="49"
+                        x="115"
+                        y="50"
                         fill="#fff"
                         opacity="0"
                         width="413"
                         height="266"></rect>
                   </a>
 
+                  <image
+                     x="160"
+                     y="465"
+                     width="270"
+                     height="80"
+                     xlink:href="/img/booths-pics/MADRC_Logo.webp"
+                  />
+
                   <!-- Brochure -->
                   <a
-                     xlink:href="https://myhealthfair.com/wp-content/uploads/2024/06/Sp_AoUNE_AboutUs-3.pdf"
-                     target="_blank"
+                     xlink:href="https://myhealthfair.com/wp-content/uploads/2023/11/Symptomatic-Prevention-Flyers.pdf"
                   >
                      <image
-                        x="90"
+                        x="85"
                         y="575"
                         xlink:href={"/img/booths-pics/" + booth.btn1}
                      />
                   </a>
 
-                  <!-- Empleos -->
-                  <a
-                     xlink:href="https://myhealthfair.com/wp-content/uploads/2021/05/MyHealthFair_All-of-Us-job-ad-SPA-4.16.21.pdf"
-                     target="_blank"
-                  >
+                  <!-- eVENTS -->
+                  <a xlink:href="https://www.madrc.org/events/" target="_blank">
                      <image
-                        x="310"
+                        x="305"
                         y="575"
                         xlink:href={"/img/booths-pics/" + booth.btn2}
                      />
                   </a>
 
-                  <!-- Obsequio -->
+                  <!-- Voluntariado -->
                   <a
-                     xlink:href="https://myhealthfair.com/wp-content/uploads/2021/05/SP-AoUNE-Mental-Health-Resources-.pdf"
-                     target="_blank"
+                     xlink:href="https://myhealthfair.com/wp-content/uploads/2023/11/MAC-Flyer-Ingles.pdf"
+                     target="_blankm"
                   >
                      <image
-                        x="90"
+                        x="85"
                         y="660"
                         xlink:href={"/img/booths-pics/" + booth.btn3}
                      />
                   </a>
+
+                  <!-- Contact -->
                   <a
-                     xlink:href="javascript:void(0)"
+                     xlink:href="#contacto"
                      class="modal-trigger"
                      data-target="modal-booth"
                      data-content="contacto"
                   >
                      <image
-                        x="310"
+                        x="305"
                         y="660"
                         xlink:href={"/img/booths-pics/" + booth.btn4}
                      />
                   </a>
 
                   <!-- <a xlink:href="#contacto">
-                     <rect
-                        x="205"
+                     <image
+                        x="195"
                         y="716"
-                        fill="#fff"
-                        opacity="0"
-                        width="164"
-                        height="54"></rect>
+                        xlink:href={"/img/booths-pics/" + booth.btn5}
+                     />
                   </a> -->
                </svg>
             </div>
@@ -112,30 +114,32 @@ const booth = {
 
       <div class="has-text-centered mt-5">
          <a href="/" class="button is-light is-rounded is-outlined"
-            >Volver a la Feria</a
+            >Go back to Fair</a
          >
       </div>
    </section>
 
    <ModalBooths />
 
-   <ModalVideo videoID="fG1_wSP0EJY" />
-
-   <div id="video" class="is-hidden">
-      <div
-         style="width: 100%; height: 0px; position: relative; padding-bottom: 56.250%;"
-      >
-         <iframe
-            src="https://streamable.com/e/yphz76?quality=highest"
-            frameborder="0"
-            width="100%"
-            height="100%"
-            allowfullscreen
-            style="width: 100%; height: 100%; position: absolute;"></iframe>
-      </div>
-   </div>
+   <ModalVideo videoID="https://youtu.be/49hq_5UTr_g" />
 
    <div id="contacto" class="is-hidden">
-      <p>Form</p>
+      <p>
+         To reach the MADRC team by phone, call <a href="tel:+16172780600"
+            >617-278-0600</a
+         >
+      </p>
+      <p>
+         For information on our community programs/events or our research
+         studies
+      </p>
+      <p>
+         Paola Garza<br />
+         <a href="tel:+1617-643-5250">617-643-5250</a> o <a
+            href="mailto:agarza3@mgb.org"
+            target="_blank"
+            rel="noopener">agarza3@mgb.org</a
+         >
+      </p>
    </div>
 </BoothLayout>

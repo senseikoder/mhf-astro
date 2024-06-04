@@ -1,18 +1,21 @@
 ---
-import ModalBooths from "../../components/ModalBooths.astro";
-import ModalVideo from "../../components/ModalVideo.astro";
-import BoothLayout from "../../layouts/BoothLayout.astro";
+import ModalBooths from "../../../components/ModalBooths.astro";
+import ModalVideo from "../../../components/ModalVideo.astro";
+import BoothLayout from "../../../layouts/BoothLayout.astro";
 const booth = {
    image: "helpline.webp",
    btn1: "brochure.webp",
-   btn2: "preguntas.webp",
-   btn3: "recursos.webp",
-   btn4: "contacto.webp",
+   btn2: "faq.webp",
+   btn3: "resources.webp",
+   btn4: "contact.webp",
    btn5: null,
 };
 ---
 
-<BoothLayout title="Mass Health Help Line" description="Lorem ipsum dolor sit amet">
+<BoothLayout
+   title="Mass Health Help Line"
+   description="Lorem ipsum dolor sit amet"
+>
    <section class="section banner-booth">
       <div class="is-overlay"></div>
       <div class="container has-text-white">
@@ -56,7 +59,7 @@ const booth = {
                      />
                   </a>
                   <a
-                     xlink:href="https://www.masshelpline.com/es/faq/"
+                     xlink:href="https://www.masshelpline.com/faq/"
                      target="_blank"
                   >
                      <image
@@ -66,7 +69,7 @@ const booth = {
                      />
                   </a>
                   <a
-                     xlink:href="https://www.masshelpline.com/es/resources/"
+                     xlink:href="https://www.masshelpline.com/resources/"
                      target="_blank"
                   >
                      <image
@@ -104,54 +107,52 @@ const booth = {
 
       <div class="has-text-centered mt-5">
          <a href="/" class="button is-light is-rounded is-outlined"
-            >Volver a la Feria</a
+            >Go back to Fair</a
          >
       </div>
    </section>
 
    <ModalBooths />
 
-   <ModalVideo videoID="https://youtu.be/IyRR9oIC94c" />
+   <ModalVideo videoID="https://youtu.be/crnXORdWaMk" />
 
    <div id="brochure" class="is-hidden">
       <p>
-         La línea de ayuda de salud conductual de Massachusetts (BHHL) está aquí
-         para conectarlo directamente con ayuda clínica, cuando y donde la
-         necesite. Incluso si no está seguro de qué tipo de ayuda o tratamiento
-         puede necesitar, podemos guiarlo. Las razones comunes para buscar ayuda
-         incluyen:
+         The Massachusetts Behavioral Health Help Line (BHHL) is here to connect
+         you directly to clinical help, when and where you need it. Even if
+         you're not sure what kind of help or treatment you may need, we can
+         help guide you.
       </p>
 
+      <p>Common Reasons for Seeking Help Include:</p>
+
       <ul>
-         <li>Tener problemas para dormir o dormir todo el tiempo</li>
+         <li>Having trouble sleeping or sleeping all the time</li>
+         <li>Feeling anxious or worried more often than usual</li>
+         <li>Alcohol or drug use</li>
+         <li>Feeling trapped or hopeless</li>
+         <li>Acting recklessly or engaging in unsafe activities</li>
+         <li>Feeling very angry or looking for revenge</li>
          <li>
-            Sentirse ansioso o preocupado con más frecuencia de lo habitual
+            Talking or thinking about harming or killing yourself or others
          </li>
-         <li>Consumo de alcohol o drogas</li>
-         <li>Sentirse atrapado o sin esperanza</li>
-         <li>Actuar imprudentemente o participar en actividades inseguras</li>
-         <li>Sentirse muy enojado o buscar venganza</li>
-         <li>Hablar o pensar en lastimarse o matarse a sí mismo o a otros</li>
       </ul>
    </div>
 
    <div id="contacto" class="is-hidden">
+      <p>It's free, confidential, and no health insurance is required.</p>
+      <p>Real-time interpretation in 200+ languages.</p>
+
       <p>
-         Es gratis, confidencial y no se requiere seguro médico. Interpretación
-         en tiempo real en más de 200 idiomas.
+         Deaf or hard of hearing? Contact MassRelay at 711, or use your video
+         relay or caption provider of choice.
       </p>
 
       <p>
-         ¿Sordo o con problemas de audición? Comuníquese con MassRelay al 711, o
-         use su retransmisión de video o proveedor de subtítulos de su elección.
+         The Behavioral Health Help Line is a service of the Commonwealth of
+         Massachusetts, operated by the Massachusetts Behavioral Health
+         Partnership (MBHP).
       </p>
-
-      <p>
-         La Línea de Ayuda de Salud del Comportamiento es un servicio de la
-         Mancomunidad de Massachusetts, operado por la Asociación de Salud del
-         Comportamiento de Massachusetts (MBHP).
-      </p>
-
-      <p>Llamar o mensaje 833-773-2445 (BHHL)</p>
+      <p>Call or text 833-773-2445 (BHHL)</p>
    </div>
 </BoothLayout>

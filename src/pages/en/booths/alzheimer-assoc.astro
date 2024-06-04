@@ -1,0 +1,168 @@
+---
+import ModalBooths from "../../../components/ModalBooths.astro";
+import ModalVideo from "../../../components/ModalVideo.astro";
+import BoothLayout from "../../../layouts/BoothLayout.astro";
+
+const booth = {
+   image: "alzheimers-association.webp",
+   btn1: "brochure.webp",
+   btn2: "events.webp",
+   btn3: "resources.webp",
+   btn4: "volunteer.webp",
+   btn5: "contact.webp",
+};
+---
+
+<BoothLayout
+   title="Alzheimer's Association"
+   description="Lorem ipsum dolor sit amet"
+>
+   <section class="section banner-booth">
+      <div class="is-overlay"></div>
+      <div class="container has-text-white">
+         <div class="columns is-centered">
+            <div class="column is-6 has-text-centered">
+               <svg
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  viewBox="0 0 600 780"
+               >
+                  <image
+                     width="600"
+                     height="780"
+                     xlink:href={"/img/booths-bg/" + booth.image}
+                  />
+                  <!-- Video -->
+                  <a
+                     xlink:href="javascript:void(0)"
+                     class="modal-trigger"
+                     data-target="modal-video"
+                  >
+                     <rect
+                        x="120"
+                        y="50"
+                        fill="#fff"
+                        opacity="0"
+                        width="420"
+                        height="270"></rect>
+                  </a>
+
+                  <!-- Brochure -->
+                  <a
+                     xlink:href="https://myhealthfair.com/wp-content/uploads/2023/03/Here-for-You-Buckslip-ENG_updated_opt.pdf"
+                  >
+                     <image
+                        x="90"
+                        y="545"
+                        xlink:href={"/img/booths-pics/" + booth.btn1}
+                     />
+                  </a>
+
+                  <!-- Eventos -->
+                  <a
+                     xlink:href="https://myhealthfair.com/wp-content/uploads/pum/AA-Events.pdf"
+                     target="_blank"
+                  >
+                     <image
+                        x="310"
+                        y="545"
+                        xlink:href={"/img/booths-pics/" + booth.btn2}
+                     />
+                  </a>
+
+                  <!-- Recursos -->
+                  <a xlink:href="#recursos">
+                     <image
+                        x="90"
+                        y="625"
+                        xlink:href={"/img/booths-pics/" + booth.btn3}
+                     />
+                  </a>
+
+                  <!-- Voluntariado -->
+                  <a
+                     xlink:href="javascript:void(0)"
+                     class="modal-trigger"
+                     data-target="modal-booth"
+                     data-content="volunteer"
+                  >
+                     <image
+                        x="310"
+                        y="625"
+                        xlink:href={"/img/booths-pics/" + booth.btn4}
+                     />
+                  </a>
+
+                  <!-- Contacto -->
+
+                  <a
+                     xlink:href="javascript:void(0)"
+                     class="modal-trigger"
+                     data-target="modal-booth"
+                     data-content="contact"
+                  >
+                     <image
+                        x="195"
+                        y="705"
+                        xlink:href={"/img/booths-pics/" + booth.btn5}
+                     />
+                  </a>
+               </svg>
+            </div>
+         </div>
+      </div>
+
+      <div class="has-text-centered mt-5">
+         <a href="/" class="button is-light is-rounded is-outlined"
+            >Go back to Fair</a
+         >
+      </div>
+   </section>
+
+   <ModalBooths />
+
+   <ModalVideo videoID="https://youtu.be/pFINKY_b4eA" />
+
+   <div id="volunteer" class="is-hidden">
+      <p>
+         Alzheimer's Association volunteers deliver support and education, raise
+         funds, advocate for Alzheimer’s and more to help achieve our vision of
+         a world without Alzheimer’s and all other dementia.
+      </p>
+      <p>
+         Whatever your skills and whatever time you have available, we have
+         in-person and virtual opportunities to provide vital support for people
+         living with Alzheimer's and dementia and their families.
+      </p>
+      <p>
+         For more information on volunteer opportunities in the
+         Massachusetts/New Hampshire chapter, visit<a
+            href="https://volunteer.alz.org"
+            target="_blank"
+            rel="noopener">volunteer.alz.org</a
+         >
+      </p>
+   </div>
+
+   <div id="contact" class="is-hidden">
+      <p>
+         Alzheimer’s Association 24/7 Helpline: 800-272-3900 <br />Dial 711 to
+         connect with a TRS operator
+      </p>
+      <p>
+         The Alzheimer’s Association 24/7 Helpline (800.272.3900) is available
+         around the clock, 365 days a year in over 200 languages. Through this
+         free service, specialists offer confidential support and information to
+         people living with dementia, caregivers, families and the public.
+      </p>
+
+      <p>
+         For more information,<a
+            href="https://www.alz.org/ayuda-y-apoyo/linea-de-ayuda-24-7?lang=es-MX"
+            target="_blank"
+            rel="noopener">click here</a
+         >, or call <a href="tel:+1800-272-3900">800-272-3900</a>.
+      </p>
+   </div>
+</BoothLayout>

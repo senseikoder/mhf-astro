@@ -3,11 +3,13 @@ import { ViewTransitions } from "astro:transitions";
 import BaseHead from "../components/BaseHead.astro";
 import NavbarHome from "../components/NavbarHome.astro";
 import Footer from "../components/Footer.astro";
+import FooterEN from "../components/FooterEN.astro";
 const idioma = Astro.currentLocale;
 const { title, description } = Astro.props;
 
 // Supports weights 100-900
 import "@fontsource-variable/dm-sans";
+import TabLang from "../components/TabLang.astro";
 ---
 
 <html lang={idioma} data-theme="light">
@@ -19,7 +21,7 @@ import "@fontsource-variable/dm-sans";
    <body class="booth-page">
       <NavbarHome />
       <slot />
-      <Footer />
+      {idioma == "es" ? <Footer /> : <FooterEN />}
 
       <script>
          document.addEventListener("astro:page-load", () => {
@@ -81,5 +83,6 @@ import "@fontsource-variable/dm-sans";
             });
          });
       </script>
+      <TabLang/>
    </body>
 </html>

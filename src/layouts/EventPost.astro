@@ -3,6 +3,7 @@ import { ViewTransitions } from "astro:transitions";
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import FooterEN from "../components/FooterEN.astro";
 const idioma = Astro.currentLocale;
 const { title, description, image } = Astro.props;
 
@@ -57,7 +58,7 @@ import "@fontsource-variable/dm-sans";
          </div>
       </div>
       <main></main>
-      <Footer />
+      {idioma == "es" ? <Footer /> : <FooterEN />}
       <style>
          .article {
             box-shadow:

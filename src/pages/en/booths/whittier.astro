@@ -1,18 +1,21 @@
 ---
-import ModalBooths from "../../components/ModalBooths.astro";
-import ModalVideo from "../../components/ModalVideo.astro";
-import BoothLayout from "../../layouts/BoothLayout.astro";
+import ModalBooths from "../../../components/ModalBooths.astro";
+import ModalVideo from "../../../components/ModalVideo.astro";
+import BoothLayout from "../../../layouts/BoothLayout.astro";
 const booth = {
-   image: "helpline.webp",
+   image: "whittier.webp",
    btn1: "brochure.webp",
-   btn2: "preguntas.webp",
-   btn3: "recursos.webp",
-   btn4: "contacto.webp",
+   btn2: "jobs.webp",
+   btn3: "food-pantry.webp",
+   btn4: "contact.webp",
    btn5: null,
 };
 ---
 
-<BoothLayout title="Mass Health Help Line" description="Lorem ipsum dolor sit amet">
+<BoothLayout
+   title="Whittier Street Health Center"
+   description="Lorem ipsum dolor sit amet"
+>
    <section class="section banner-booth">
       <div class="is-overlay"></div>
       <div class="container has-text-white">
@@ -43,11 +46,11 @@ const booth = {
                         width="413"
                         height="266"></rect>
                   </a>
+
+                  <!-- Brochure -->
                   <a
-                     xlink:href="javascript:void(0)"
-                     class="modal-trigger"
-                     data-target="modal-booth"
-                     data-content="brochure"
+                     xlink:href="https://myhealthfair.com/wp-content/uploads/2022/08/Womens-Health-Flyer-English.pdf"
+                     target="_blank"
                   >
                      <image
                         x="90"
@@ -55,9 +58,13 @@ const booth = {
                         xlink:href={"/img/booths-pics/" + booth.btn1}
                      />
                   </a>
+
+                  <!-- Empleos -->
                   <a
-                     xlink:href="https://www.masshelpline.com/es/faq/"
-                     target="_blank"
+                     xlink:href="javascript:void(0)"
+                     class="modal-trigger"
+                     data-target="modal-booth"
+                     data-content="jobs"
                   >
                      <image
                         x="310"
@@ -65,8 +72,10 @@ const booth = {
                         xlink:href={"/img/booths-pics/" + booth.btn2}
                      />
                   </a>
+
+                  <!-- Despensa -->
                   <a
-                     xlink:href="https://www.masshelpline.com/es/resources/"
+                     xlink:href="https://myhealthfair.com/wp-content/uploads/2022/08/2021-Food-pantry.pdf"
                      target="_blank"
                   >
                      <image
@@ -79,7 +88,7 @@ const booth = {
                      xlink:href="javascript:void(0)"
                      class="modal-trigger"
                      data-target="modal-booth"
-                     data-content="contacto"
+                     data-content="contact"
                   >
                      <image
                         x="310"
@@ -104,54 +113,20 @@ const booth = {
 
       <div class="has-text-centered mt-5">
          <a href="/" class="button is-light is-rounded is-outlined"
-            >Volver a la Feria</a
+            >Go back to Fair</a
          >
       </div>
    </section>
 
    <ModalBooths />
 
-   <ModalVideo videoID="https://youtu.be/IyRR9oIC94c" />
+   <ModalVideo videoID="https://youtu.be/n3qSmA2m3eQ" />
 
-   <div id="brochure" class="is-hidden">
-      <p>
-         La línea de ayuda de salud conductual de Massachusetts (BHHL) está aquí
-         para conectarlo directamente con ayuda clínica, cuando y donde la
-         necesite. Incluso si no está seguro de qué tipo de ayuda o tratamiento
-         puede necesitar, podemos guiarlo. Las razones comunes para buscar ayuda
-         incluyen:
-      </p>
-
-      <ul>
-         <li>Tener problemas para dormir o dormir todo el tiempo</li>
-         <li>
-            Sentirse ansioso o preocupado con más frecuencia de lo habitual
-         </li>
-         <li>Consumo de alcohol o drogas</li>
-         <li>Sentirse atrapado o sin esperanza</li>
-         <li>Actuar imprudentemente o participar en actividades inseguras</li>
-         <li>Sentirse muy enojado o buscar venganza</li>
-         <li>Hablar o pensar en lastimarse o matarse a sí mismo o a otros</li>
-      </ul>
+   <div id="jobs" class="is-hidden">
+      <p>Sorry, there are no positions available at this time</p>
    </div>
 
-   <div id="contacto" class="is-hidden">
-      <p>
-         Es gratis, confidencial y no se requiere seguro médico. Interpretación
-         en tiempo real en más de 200 idiomas.
-      </p>
-
-      <p>
-         ¿Sordo o con problemas de audición? Comuníquese con MassRelay al 711, o
-         use su retransmisión de video o proveedor de subtítulos de su elección.
-      </p>
-
-      <p>
-         La Línea de Ayuda de Salud del Comportamiento es un servicio de la
-         Mancomunidad de Massachusetts, operado por la Asociación de Salud del
-         Comportamiento de Massachusetts (MBHP).
-      </p>
-
-      <p>Llamar o mensaje 833-773-2445 (BHHL)</p>
+   <div id="contact" class="is-hidden">
+      <p>Form</p>
    </div>
 </BoothLayout>

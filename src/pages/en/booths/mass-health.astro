@@ -1,18 +1,21 @@
 ---
-import ModalBooths from "../../components/ModalBooths.astro";
-import ModalVideo from "../../components/ModalVideo.astro";
-import BoothLayout from "../../layouts/BoothLayout.astro";
+import ModalBooths from "../../../components/ModalBooths.astro";
+import ModalVideo from "../../../components/ModalVideo.astro";
+import BoothLayout from "../../../layouts/BoothLayout.astro";
 const booth = {
-   image: "helpline.webp",
+   image: "health-connector.webp",
    btn1: "brochure.webp",
-   btn2: "preguntas.webp",
-   btn3: "recursos.webp",
-   btn4: "contacto.webp",
+   btn2: "jobs.webp",
+   btn3: "resources.webp",
+   btn4: "contact.webp",
    btn5: null,
 };
 ---
 
-<BoothLayout title="Mass Health Help Line" description="Lorem ipsum dolor sit amet">
+<BoothLayout
+   title="Mass Health Redetermination"
+   description="Lorem ipsum dolor sit amet"
+>
    <section class="section banner-booth">
       <div class="is-overlay"></div>
       <div class="container has-text-white">
@@ -43,6 +46,8 @@ const booth = {
                         width="413"
                         height="266"></rect>
                   </a>
+
+                  <!-- Brochure -->
                   <a
                      xlink:href="javascript:void(0)"
                      class="modal-trigger"
@@ -55,8 +60,10 @@ const booth = {
                         xlink:href={"/img/booths-pics/" + booth.btn1}
                      />
                   </a>
+
+                  <!-- Jobs -->
                   <a
-                     xlink:href="https://www.masshelpline.com/es/faq/"
+                     xlink:href="https://www.mahealthconnector.org/about/careers"
                      target="_blank"
                   >
                      <image
@@ -65,8 +72,10 @@ const booth = {
                         xlink:href={"/img/booths-pics/" + booth.btn2}
                      />
                   </a>
+
+                  <!-- Resources -->
                   <a
-                     xlink:href="https://www.masshelpline.com/es/resources/"
+                     xlink:href="https://www.mahealthconnector.org/start"
                      target="_blank"
                   >
                      <image
@@ -79,7 +88,7 @@ const booth = {
                      xlink:href="javascript:void(0)"
                      class="modal-trigger"
                      data-target="modal-booth"
-                     data-content="contacto"
+                     data-content="contact"
                   >
                      <image
                         x="310"
@@ -104,54 +113,77 @@ const booth = {
 
       <div class="has-text-centered mt-5">
          <a href="/" class="button is-light is-rounded is-outlined"
-            >Volver a la Feria</a
+            >Go back to Fair</a
          >
       </div>
    </section>
 
    <ModalBooths />
 
-   <ModalVideo videoID="https://youtu.be/IyRR9oIC94c" />
+   <ModalVideo videoID="https://youtu.be/PFa31HNDIhU" />
 
    <div id="brochure" class="is-hidden">
       <p>
-         La línea de ayuda de salud conductual de Massachusetts (BHHL) está aquí
-         para conectarlo directamente con ayuda clínica, cuando y donde la
-         necesite. Incluso si no está seguro de qué tipo de ayuda o tratamiento
-         puede necesitar, podemos guiarlo. Las razones comunes para buscar ayuda
-         incluyen:
+         The Commonwealth Health Connector Insurance Authority is the country's
+         first and longest-running state-based marketplace, its primary
+         objective is to offer high-value coverage to individuals and small
+         businesses in Massachusetts, while also acting as a policy and outreach
+         hub for state and federal health reforms.&nbsp;
       </p>
 
-      <ul>
-         <li>Tener problemas para dormir o dormir todo el tiempo</li>
-         <li>
-            Sentirse ansioso o preocupado con más frecuencia de lo habitual
-         </li>
-         <li>Consumo de alcohol o drogas</li>
-         <li>Sentirse atrapado o sin esperanza</li>
-         <li>Actuar imprudentemente o participar en actividades inseguras</li>
-         <li>Sentirse muy enojado o buscar venganza</li>
-         <li>Hablar o pensar en lastimarse o matarse a sí mismo o a otros</li>
-      </ul>
+      <p>
+         Throughout its 13-year history, the Health Connector has gained
+         valuable experience, adapting to various changes and reforms, and now
+         serves over a quarter million residents in Massachusetts, playing a
+         crucial role in the state's healthcare landscape.
+      </p>
+
+      <p>
+         Are you a current MassHealth member? Did you recently get a blue
+         envelope from MassHealth? Need help completing your MassHealth renewal?
+      </p>
+
+      <p>About this event</p>
+      <p>
+         MassHealth is in the process of renewing coverage for all members to
+         make sure they remain eligible and receive the best benefit for which
+         they qualify.
+      </p>
+
+      <p>
+         Join MassHealth experts as they explain what members need to do to
+         update their information and how to renew their MassHealth coverage.
+      </p>
+
+      <p>
+         Some people may not qualify for MassHealth, so the Health Connector
+         staff will explain how they can get coverage and help paying for it
+         through the Health Connector.
+      </p>
+
+      <p>Get information:</p>
+
+      <p>Why is it important to renew your MassHealth coverage?</p>
+      <p>How to report any changes in your information to MassHealth?</p>
+      <p>
+         How to access your online account and who can access an online account?
+      </p>
+      <p>Where to get help completing your MassHealth renewal?</p>
+      <p>How to get help enrolling in Health Connector coverage?</p>
    </div>
 
-   <div id="contacto" class="is-hidden">
+   <div id="contact" class="is-hidden">
       <p>
-         Es gratis, confidencial y no se requiere seguro médico. Interpretación
-         en tiempo real en más de 200 idiomas.
+         If you need help with your renewal, application, or coverage, you
+         should speak with a state-certified enrollment assistant or call
       </p>
 
       <p>
-         ¿Sordo o con problemas de audición? Comuníquese con MassRelay al 711, o
-         use su retransmisión de video o proveedor de subtítulos de su elección.
+         Health Connector: <a href="tel:1-877-623-6765">1-877-623-6765</a> (TTY <a
+            href="tel:1-877-623-7773">1-877-623-7773</a
+         >)
+         <br />Hours: Monday–Friday, 8:00 a.m.–6:00 p.m., Saturday–Sunday,
+         Closed.
       </p>
-
-      <p>
-         La Línea de Ayuda de Salud del Comportamiento es un servicio de la
-         Mancomunidad de Massachusetts, operado por la Asociación de Salud del
-         Comportamiento de Massachusetts (MBHP).
-      </p>
-
-      <p>Llamar o mensaje 833-773-2445 (BHHL)</p>
    </div>
 </BoothLayout>

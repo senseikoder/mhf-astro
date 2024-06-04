@@ -1,18 +1,21 @@
 ---
-import ModalBooths from "../../components/ModalBooths.astro";
-import ModalVideo from "../../components/ModalVideo.astro";
-import BoothLayout from "../../layouts/BoothLayout.astro";
+import ModalBooths from "../../../components/ModalBooths.astro";
+import ModalVideo from "../../../components/ModalVideo.astro";
+import BoothLayout from "../../../layouts/BoothLayout.astro";
 const booth = {
    image: "united-health-care.webp",
    btn1: "brochure.webp",
-   btn2: "empleos.webp",
-   btn3: "recursos.webp",
-   btn4: "eventos.webp",
-   btn5: "contacto.webp",
+   btn2: "jobs.webp",
+   btn3: "resources.webp",
+   btn4: "events.webp",
+   btn5: "contact.webp",
 };
 ---
 
-<BoothLayout title="Acerca de" description="Lorem ipsum dolor sit amet">
+<BoothLayout
+   title="United Health Care"
+   description="Lorem ipsum dolor sit amet"
+>
    <section class="section banner-booth">
       <div class="is-overlay"></div>
       <div class="container has-text-white">
@@ -46,7 +49,7 @@ const booth = {
 
                   <!-- Brochure -->
                   <a
-                     xlink:href="https://myhealthfair.com/wp-content/uploads/2024/03/2024-Spanish-BRC-PDF.pdf"
+                     xlink:href="https://myhealthfair.com/wp-content/uploads/2024/03/2024-English-BRC-PDF.pdf"
                   >
                      <image
                         x="80"
@@ -57,7 +60,7 @@ const booth = {
 
                   <!-- Empleos -->
                   <a
-                     xlink:href="https://careers.unitedhealthgroup.com/es/job-search-results-es/"
+                     xlink:href="https://careers.unitedhealthgroup.com/job-search-results/"
                      target="_blank"
                   >
                      <image
@@ -77,7 +80,7 @@ const booth = {
                   </a>
 
                   <!-- Eventos -->
-                  <a xlink:href="#eventos">
+                  <a xlink:href="#events">
                      <image
                         x="300"
                         y="640"
@@ -85,7 +88,12 @@ const booth = {
                      />
                   </a>
 
-                  <a xlink:href="#contacto">
+                  <a
+                     xlink:href="javascript:void(0)"
+                     class="modal-trigger"
+                     data-target="modal-booth"
+                     data-content="contact"
+                  >
                      <image
                         x="195"
                         y="716"
@@ -99,12 +107,16 @@ const booth = {
 
       <div class="has-text-centered mt-5">
          <a href="/" class="button is-light is-rounded is-outlined"
-            >Volver a la Feria</a
+            >Go back to Fair</a
          >
       </div>
    </section>
 
    <ModalBooths />
 
-   <ModalVideo videoID="RR5feG5E3ek" />
+   <ModalVideo videoID="https://youtu.be/UUzn_J_NUzI" />
+
+   <div id="contact" class="is-hidden">
+      Form
+   </div>
 </BoothLayout>

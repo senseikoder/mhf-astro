@@ -3,6 +3,7 @@ import { ViewTransitions } from "astro:transitions";
 import BaseHead from "../components/BaseHead.astro";
 import NavbarHome from "../components/NavbarHome.astro";
 import Footer from "../components/Footer.astro";
+import FooterEN from "../components/FooterEN.astro";
 const idioma = Astro.currentLocale;
 const { title, description } = Astro.props;
 
@@ -20,7 +21,12 @@ import TabLang from "../components/TabLang.astro";
    <body>
       <NavbarHome />
       <slot />
-      <Footer />
+      {
+         idioma == 'es' ?
+         <Footer />
+         :
+         <FooterEN />
+      }
       <script src="../js/main.js"></script>
       <TabLang />
    </body>
