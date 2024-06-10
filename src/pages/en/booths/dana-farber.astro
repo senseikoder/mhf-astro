@@ -2,6 +2,13 @@
 import ModalBooths from "../../../components/ModalBooths.astro";
 import ModalVideo from "../../../components/ModalVideo.astro";
 import BoothLayout from "../../../layouts/BoothLayout.astro";
+import { Image } from "astro:assets";
+import rec1 from "../../../images/recursos/dana-rec1_.webp";
+import rec2 from "../../../images/recursos/dana-rec2_.webp";
+import rec3 from "../../../images/recursos/dana-rec3_.webp";
+import rec4 from "../../../images/recursos/dana-rec4_.webp";
+import rec5 from "../../../images/recursos/dana-rec5_.webp";
+
 const booth = {
    image: "dana-farber.webp",
    btn1: "brochure.webp",
@@ -114,6 +121,56 @@ const booth = {
          <a href="/" class="button is-light is-rounded is-outlined"
             >Go back to Fair</a
          >
+      </div>
+   </section>
+
+   <section class="section" id="recursos">
+      <div class="container is-max-widescreen">
+         <div class="columns">
+            <div class="column">
+               <a
+                  href="https://myhealthfair.com/wp-content/uploads/2023/12/Cancer-Risk-Assessment-Dana-Farbers-Groundbreaking-Tool.webp"
+                  target="_blank"
+               >
+                  <Image src={rec1} alt="" />
+               </a>
+            </div>
+            <div class="column">
+               <a
+                  href="https://myhealthfair.com/wp-content/uploads/2022/09/Newspaper-Full-Page-1-1.pdf"
+                  target="_blank"
+               >
+                  <Image src={rec2} alt="" />
+               </a>
+            </div>
+            <div class="column">
+               <a
+                  href="https://myhealthfair.com/wp-content/uploads/2022/09/Newspaper-Full-Page-7.pdf"
+                  target="_blank"
+               >
+                  <Image src={rec3} alt="" />
+               </a>
+            </div>
+         </div>
+
+         <div class="columns my-5 is-centered">
+            <div class="column is-4">
+               <a
+                  href="https://myhealthfair.com/wp-content/uploads/2022/09/Newspaper-Full-Page-2-1.pdf"
+                  target="_blank"
+               >
+                  <Image src={rec4} alt="" />
+               </a>
+            </div>
+            <div class="column is-4">
+               <a
+                  href="https://myhealthfair.com/wp-content/uploads/2023/06/Newspaper-El-Mundo-Ad-Eng.pdf"
+                  target="_blank"
+               >
+                  <Image src={rec5} alt="" />
+               </a>
+            </div>
+         </div>
       </div>
    </section>
 

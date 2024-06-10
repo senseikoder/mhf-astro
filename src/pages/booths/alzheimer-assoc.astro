@@ -6,6 +6,11 @@ import { Image } from "astro:assets";
 import rec1 from "../../images/recursos/rec1.webp";
 import rec2 from "../../images/recursos/rec2.webp";
 import rec3 from "../../images/recursos/rec3.webp";
+import rec4 from "../../images/recursos/rec4.webp";
+import rec5 from "../../images/recursos/rec5.webp";
+import rec6 from "../../images/recursos/rec6.webp";
+import rec7 from "../../images/recursos/rec7.webp";
+import rec8 from "../../images/recursos/rec8.webp";
 
 const booth = {
    image: "alzheimers-association.webp",
@@ -17,7 +22,10 @@ const booth = {
 };
 ---
 
-<BoothLayout title="Acerca de" description="Lorem ipsum dolor sit amet">
+<BoothLayout
+   title="Alzheimer's Association"
+   description="Lorem ipsum dolor sit amet"
+>
    <section class="section banner-booth">
       <div class="is-overlay"></div>
       <div class="container has-text-white">
@@ -61,10 +69,7 @@ const booth = {
                   </a>
 
                   <!-- Eventos -->
-                  <a
-                     xlink:href="https://myhealthfair.com/wp-content/uploads/pum/AA-Eventos.pdf"
-                     target="_blank"
-                  >
+                  <a xlink:href="#eventos">
                      <image
                         x="310"
                         y="545"
@@ -121,22 +126,77 @@ const booth = {
       </div>
    </section>
 
-   <section class="section">
-      <div class="container">
+   <section class="section" id="recursos">
+      <div class="container is-max-widescreen">
          <div class="columns">
             <div class="column">
-               <a href="#">
+               <a
+                  href="https://myhealthfair.com/wp-content/uploads/2023/12/Tips-para-cuidadores-de-Alzheimer-durante-las-fiestas.pdf"
+                  target="_blank"
+               >
                   <Image src={rec1} alt="" />
                </a>
             </div>
             <div class="column">
-               <a href="#">
-                  <Image src={rec2} alt="" />
+               <a
+                  href="https://myhealthfair.com/wp-content/uploads/2023/06/aa-mesa.pdf"
+                  target="_blank"
+               >
+                  <Image src={rec3} alt="" />
                </a>
             </div>
             <div class="column">
-               <a href="#">
-                  <Image src={rec3} alt="" />
+               <a
+                  href="https://myhealthfair.com/wp-content/uploads/2023/06/MY-HEALTH-FAIR-PDF-Demencia.pdf"
+                  target="_blank"
+               >
+                  <Image src={rec2} alt="" />
+               </a>
+            </div>
+         </div>
+
+         <div class="columns my-5">
+            <div class="column">
+               <a
+                  href="https://myhealthfair.com/wp-content/uploads/2023/06/10-Ways_Poster_ESP.jpg"
+                  target="_blank"
+               >
+                  <Image src={rec4} alt="" />
+               </a>
+            </div>
+            <div class="column">
+               <a
+                  href="https://myhealthfair.com/wp-content/uploads/2023/06/aa-servicios-sociales.pdf"
+                  target="_blank"
+               >
+                  <Image src={rec5} alt="" />
+               </a>
+            </div>
+            <div class="column">
+               <a
+                  href="https://myhealthfair.com/wp-content/uploads/2023/06/aa-videoconferencia.pdf"
+                  target="_blank"
+               >
+                  <Image src={rec6} alt="" />
+               </a>
+            </div>
+         </div>
+
+         <div class="columns is-centered">
+            <div class="column is-4">
+               <a
+                  href="https://myhealthfair.com/wp-content/uploads/2023/06/aa-medicos-massachusetts.pdf"
+                  target="_blank"
+               >
+                  <Image src={rec7} alt="" />
+               </a>
+            </div>
+            <div class="column is-4">
+               <a
+                  href="https://myhealthfair.com/wp-content/uploads/2023/06/aa-cuidadores.pdf"
+                  target="_blank"
+               >
+                  <Image src={rec8} alt="" />
                </a>
             </div>
          </div>

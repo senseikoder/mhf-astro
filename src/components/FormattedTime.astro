@@ -1,0 +1,24 @@
+---
+const { date_ini, date_end } = Astro.props;
+const idioma = Astro.currentLocale == "es" ? "es-es" : "en-us";
+---
+
+<time datetime={date_ini.toISOString()}>
+   {
+      date_ini.toLocaleTimeString(idioma, {
+         hour12: false,
+         hour: "numeric",
+         minute: "numeric",
+      })
+   }
+</time>
+-
+<time datetime={date_end.toISOString()}>
+   {
+      date_end.toLocaleTimeString(idioma, {
+         hour12: false,
+         hour: "numeric",
+         minute: "numeric",
+      })
+   }
+</time>

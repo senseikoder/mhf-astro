@@ -5,12 +5,13 @@ import flagEN from "../images/flag-eng.png";
 
 const idioma = Astro.currentLocale;
 const imgFlag = idioma == "es" ? flagEN : flagES;
-const homeUrl = idioma == "es" ? '/en' : "/"
+const homeUrl = idioma == "es" ? "/en" : "/";
 ---
 
-<div class="tab">
+<div class="tab is-hidden-mobile">
    <a href={homeUrl}>
-      <Image src={imgFlag} alt="idioma" width="25" height="25" />
+      {idioma == "es" ? <span>English</span> : <span>Español</span>}
+      <Image src={imgFlag} alt="idioma" width="20" height="20" />
    </a>
 </div>
 
@@ -18,18 +19,22 @@ const homeUrl = idioma == "es" ? '/en' : "/"
    .tab {
       position: absolute;
       z-index: 50;
-      top: -15px;
+      top: -5px;
       right: 40px;
       background: white;
       border-radius: 0 0 7px 7px;
-      opacity: .8;
+      opacity: 0.8;
       transition: all 0.3s;
    }
-   
+
    .tab a {
-      display: block;
+      /* display: block; */
+      /* line-height: 1; */
       padding: 5px 10px;
-      line-height: 1;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      color: #666;
    }
 
    .tab:hover {
@@ -37,4 +42,5 @@ const homeUrl = idioma == "es" ? '/en' : "/"
       opacity: 1;
       box-shadow: 0 2px 4px grey;
    }
+   
 </style>

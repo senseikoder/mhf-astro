@@ -1,15 +1,15 @@
 ---
 export const prerender = false;
 import PageLayout from "../../../layouts/PageLayout.astro";
-// import FormattedDate from "../../../components/FormattedDate.astro";
 
+const idioma = Astro.currentLocale;
 let pagina = 1;
 const { page } = Astro.params;
 
 if (page) pagina = Number(page);
 
 const res = await fetch(
-   `https://myhealthfair.com/wp-json/wp/v2/posts?page=${pagina}&lang=en&_embed`,
+   `https://myhealthfair.com/wp-json/wp/v2/posts?page=${pagina}&lang=${idioma}&_embed`,
 );
 
 const posts = await res.json();
@@ -48,6 +48,36 @@ const posts = await res.json();
                   </div>
                ))
             }
+         </div>
+
+         <div class="buttons is-centered">
+            <a
+               class={`button is-link is-outlined ${pagina <= 1 ? "is-static" : ""}`}
+               href={pagina > 1 ? `/en/blog/${pagina - 1}` : "#"}
+               aria-disabled={pagina <= 1 ? "true" : "false"}
+               ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="1.3em"
+                  height="1.3em"
+                  viewBox="0 0 24 24"
+                  ><path
+                     fill="currentColor"
+                     d="M15.41 16.58L10.83 12l4.58-4.59L14 6l-6 6l6 6z"
+                  ></path></svg
+               ></a
+            >
+            <a class="button is-link is-outlined" href={`/en/blog/${pagina + 1}`}
+               ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="1.3em"
+                  height="1.3em"
+                  viewBox="0 0 24 24"
+                  ><path
+                     fill="currentColor"
+                     d="M8.59 16.58L13.17 12L8.59 7.41L10 6l6 6l-6 6z"
+                  ></path></svg
+               ></a
+            >
          </div>
       </div>
    </section>

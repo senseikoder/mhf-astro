@@ -1,5 +1,8 @@
 @import "bulma";
 
+html {
+  scroll-behavior: smooth;
+}
 
 :root {
   --primary: #FE8D19;
@@ -14,6 +17,7 @@
   --bulma-navbar-height: 5.3rem;
 
   --plyr-color-main: var(--primary)
+
 }
 
 a.navbar-item.is-active {

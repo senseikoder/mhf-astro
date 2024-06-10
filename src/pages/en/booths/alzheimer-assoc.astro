@@ -2,6 +2,10 @@
 import ModalBooths from "../../../components/ModalBooths.astro";
 import ModalVideo from "../../../components/ModalVideo.astro";
 import BoothLayout from "../../../layouts/BoothLayout.astro";
+import { Image } from "astro:assets";
+import rec1 from "../../../images/recursos/rec1_.webp";
+import rec2 from "../../../images/recursos/rec2_.webp";
+import rec3 from "../../../images/recursos/rec3_.webp";
 
 const booth = {
    image: "alzheimers-association.webp",
@@ -117,6 +121,37 @@ const booth = {
          <a href="/" class="button is-light is-rounded is-outlined"
             >Go back to Fair</a
          >
+      </div>
+   </section>
+
+   <section class="section" id="recursos">
+      <div class="container is-max-widescreen">
+         <div class="columns">
+            <div class="column">
+               <a
+                  href="https://myhealthfair.com/wp-content/uploads/2023/12/Tips-for-Alzheimers-Caregivers-During-the-Holidays.pdf"
+                  target="_blank"
+               >
+                  <Image src={rec1} alt="" />
+               </a>
+            </div>
+            <div class="column">
+               <a
+                  href="https://myhealthfair.com/wp-content/uploads/2023/07/Newspaper-El-Mundo-Ad-3_optimize.pdf"
+                  target="_blank"
+               >
+                  <Image src={rec2} alt="" />
+               </a>
+            </div>
+            <div class="column">
+               <a
+                  href="https://myhealthfair.com/wp-content/uploads/2023/07/MY-HEALTH-FAIR-PDF-Dementia_optimize.pdf"
+                  target="_blank"
+               >
+                  <Image src={rec3} alt="" />
+               </a>
+            </div>
+         </div>
       </div>
    </section>
 

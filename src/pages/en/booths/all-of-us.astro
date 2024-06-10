@@ -5,7 +5,7 @@ import BoothLayout from "../../../layouts/BoothLayout.astro";
 const booth = {
    image: "all-of-us.webp",
    btn1: "brochure.webp",
-   btn2: "jobs.webp",
+   btn2: "faq.webp",
    btn3: "giveaway.webp",
    btn4: "contact.webp",
    btn5: null,
@@ -36,8 +36,7 @@ const booth = {
                   <a
                      xlink:href="javascript:void(0)"
                      class="modal-trigger"
-                     data-target="modal-booth"
-                     data-content="video"
+                     data-target="modal-video"
                   >
                      <rect
                         x="120"
@@ -60,9 +59,9 @@ const booth = {
                      />
                   </a>
 
-                  <!-- Empleos -->
+                  <!-- FAQ -->
                   <a
-                     xlink:href="https://myhealthfair.com/wp-content/uploads/2021/04/MyHealthFair_All-of-Us-Job-Ad.pdf"
+                     xlink:href="https://www.joinallofus.org/faq"
                      target="_blank"
                   >
                      <image
@@ -119,21 +118,7 @@ const booth = {
 
    <ModalBooths />
 
-   <ModalVideo videoID="fG1_wSP0EJY" />
-
-   <div id="video" class="is-hidden">
-      <div
-         style="width: 100%; height: 0px; position: relative; padding-bottom: 56.250%;"
-      >
-         <iframe
-            src="https://streamable.com/e/yphz76?quality=highest"
-            frameborder="0"
-            width="100%"
-            height="100%"
-            allowfullscreen
-            style="width: 100%; height: 100%; position: absolute;"></iframe>
-      </div>
-   </div>
+   <ModalVideo videoID="https://www.youtube.com/watch?v=HvHj_yxKbkE" />
 
    <div id="contacto" class="is-hidden">
       <p>Form</p>
