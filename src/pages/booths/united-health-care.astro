@@ -1,4 +1,5 @@
 ---
+import BoothForm from "../../components/BoothForm.astro";
 import ModalBooths from "../../components/ModalBooths.astro";
 import ModalVideo from "../../components/ModalVideo.astro";
 import BoothLayout from "../../layouts/BoothLayout.astro";
@@ -85,7 +86,12 @@ const booth = {
                      />
                   </a>
 
-                  <a xlink:href="#contacto">
+                  <a
+                     xlink:href="javascript:void(0)"
+                     class="modal-trigger"
+                     data-target="modal-booth"
+                     data-content="contacto"
+                  >
                      <image
                         x="195"
                         y="716"
@@ -107,4 +113,8 @@ const booth = {
    <ModalBooths />
 
    <ModalVideo videoID="RR5feG5E3ek" />
+
+   <div id="contacto" class="is-hidden">
+      <BoothForm to="evelyn_sandoval@uhc.com, sharon.castillo@uhc.com" />
+   </div>
 </BoothLayout>

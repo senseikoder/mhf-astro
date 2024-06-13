@@ -12,6 +12,7 @@ const res = await fetch(
 	`https://myhealthfair.com/wp-json/wp/v2/posts?page=${pagina}&lang=${idioma}&_embed`,
 );
 
+const totalPaginas = res.headers.get("x-wp-totalpages");
 const posts = await res.json();
 ---
 
@@ -29,9 +30,7 @@ const posts = await res.json();
 											width={720}
 											height={360}
 											src={
-												post._embedded["wp:featuredmedia"]["0"]
-													.media_details.sizes.medium_large
-													.source_url
+												post._embedded["wp:featuredmedia"]["0"].source_url
 											}
 											alt=""
 										/>
@@ -66,7 +65,9 @@ const posts = await res.json();
 						></path></svg
 					></a
 				>
-				<a class="button is-link is-outlined" href={`/blog/${pagina + 1}`}
+				<a
+					class={`button is-link is-outlined ${pagina == totalPaginas ? "is-static" : ""}`}
+					href={`/blog/${pagina + 1}`}
 					><svg
 						xmlns="http://www.w3.org/2000/svg"
 						width="1.3em"

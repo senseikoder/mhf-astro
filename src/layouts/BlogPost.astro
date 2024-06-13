@@ -10,6 +10,10 @@ const { title, description, heroImage, date } = Astro.props;
 
 import "@fontsource-variable/dm-sans";
 import TabLang from "../components/TabLang.astro";
+import AsideEntradas from "../components/AsideEntradas.astro";
+import AsidePosts from "../components/AsidePosts.astro";
+import AsideCategorias from "../components/AsideCategorias.astro";
+import AsideCategories from "../components/AsideCategories.astro";
 ---
 
 <html lang={idioma} data-theme="light">
@@ -23,7 +27,7 @@ import TabLang from "../components/TabLang.astro";
 
 		<div class="section">
 			<div class="container">
-				<div class="columns">
+				<div class="columns is-variable is-1">
 					<div class="column is-8 article">
 						<article>
 							<div class="hero-image mb-4">
@@ -48,10 +52,10 @@ import TabLang from "../components/TabLang.astro";
 							</div>
 						</article>
 					</div>
-					<div class="column is-4">
+					<div class="column is-4 p-5">
 						<aside>
-							<div class="title is-5">Últimas Entradas</div>
-							<div class="title is-5">Categorías</div>
+							{idioma == "es" ? <AsideEntradas /> : <AsidePosts />}
+							{idioma == "es" ? <AsideCategorias /> : <AsideCategories />}
 						</aside>
 					</div>
 				</div>
