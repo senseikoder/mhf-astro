@@ -1,5 +1,6 @@
 ---
 import ModalBooths from "../../../components/ModalBooths.astro";
+import ModalForm from "../../../components/ModalForm.astro";
 import ModalVideo from "../../../components/ModalVideo.astro";
 import BoothLayout from "../../../layouts/BoothLayout.astro";
 const booth = {
@@ -85,8 +86,7 @@ const booth = {
                   <a
                      xlink:href="javascript:void(0)"
                      class="modal-trigger"
-                     data-target="modal-booth"
-                     data-content="contacto"
+                     data-target="modal-form"
                   >
                      <image
                         x="310"
@@ -120,7 +120,8 @@ const booth = {
 
    <ModalVideo videoID="https://www.youtube.com/watch?v=HvHj_yxKbkE" />
 
-   <div id="contacto" class="is-hidden">
-      <p>Form</p>
-   </div>
+   <ModalForm
+      to="allofus@partners.org"
+      subject="Booth All of Us - New Contact Us Request"
+   />
 </BoothLayout>

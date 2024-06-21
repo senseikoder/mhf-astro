@@ -1,7 +1,8 @@
 ---
+import BoothLayout from "../../layouts/BoothLayout.astro";
 import ModalBooths from "../../components/ModalBooths.astro";
 import ModalVideo from "../../components/ModalVideo.astro";
-import BoothLayout from "../../layouts/BoothLayout.astro";
+import ModalForm from "../../components/ModalForm.astro";
 const booth = {
    image: "whittier.webp",
    btn1: "brochure.webp",
@@ -84,8 +85,7 @@ const booth = {
                   <a
                      xlink:href="javascript:void(0)"
                      class="modal-trigger"
-                     data-target="modal-booth"
-                     data-content="contacto"
+                     data-target="modal-form"
                   >
                      <image
                         x="310"
@@ -119,11 +119,12 @@ const booth = {
 
    <ModalVideo videoID="fG1_wSP0EJY" />
 
+   <ModalForm
+      to="robert.edwards@wshc.org"
+      subject="Booth Whittier - Nuevo contacto web"
+   />
+
    <div id="empleos" class="is-hidden">
       <p>Lo sentimos, no hay vacantes en este momento</p>
-   </div>
-
-   <div id="contacto" class="is-hidden">
-      <p>Form</p>
    </div>
 </BoothLayout>

@@ -8,6 +8,7 @@ import rec2 from "../../../images/recursos/dana-rec2_.webp";
 import rec3 from "../../../images/recursos/dana-rec3_.webp";
 import rec4 from "../../../images/recursos/dana-rec4_.webp";
 import rec5 from "../../../images/recursos/dana-rec5_.webp";
+import ModalForm from "../../../components/ModalForm.astro";
 
 const booth = {
    image: "dana-farber.webp",
@@ -101,10 +102,9 @@ const booth = {
                   </a>
 
                   <a
-                     xlink:href="#contact"
+                     xlink:href="javascript:void(0)"
                      class="modal-trigger"
-                     data-target="modal-booth"
-                     data-content="contact"
+                     data-target="modal-form"
                   >
                      <image
                         x="195"
@@ -178,6 +178,11 @@ const booth = {
 
    <ModalVideo videoID="https://youtu.be/Vqm6S-s0Zc0" />
 
+   <ModalForm
+      to="dfci_communitybenefits@dfci.harvard.edu"
+      subject="Booth Dana Farber - New Contact Us Request"
+   />
+
    <div id="oferta" class="is-hidden">
       <p style="text-align: center;">
          <a
@@ -195,9 +200,5 @@ const booth = {
             ></strong
          >
       </p>
-   </div>
-
-   <div id="contact" class="is-hidden">
-      <p>Form</p>
    </div>
 </BoothLayout>

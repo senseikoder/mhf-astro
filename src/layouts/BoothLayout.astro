@@ -25,6 +25,7 @@ import TabLang from "../components/TabLang.astro";
 
       <script>
          document.addEventListener("astro:page-load", () => {
+
             const modal_body = document.querySelector(
                ".modal-card-body .content",
             );
@@ -81,8 +82,10 @@ import TabLang from "../components/TabLang.astro";
                   closeAllModals();
                }
             });
+
+            // cargaEmail();
          });
       </script>
-      <TabLang/>
+      <TabLang />
    </body>
 </html>

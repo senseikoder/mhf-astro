@@ -1,7 +1,7 @@
 ---
-import BoothForm from "../../components/BoothForm.astro";
 import ModalBooths from "../../components/ModalBooths.astro";
 import ModalVideo from "../../components/ModalVideo.astro";
+import ModalForm from "../../components/ModalForm.astro";
 import BoothLayout from "../../layouts/BoothLayout.astro";
 const booth = {
    image: "united-health-care.webp",
@@ -13,7 +13,7 @@ const booth = {
 };
 ---
 
-<BoothLayout title="Acerca de" description="Lorem ipsum dolor sit amet">
+<BoothLayout title="United HealthCare" description="Lorem ipsum dolor sit amet">
    <section class="section banner-booth">
       <div class="is-overlay"></div>
       <div class="container has-text-white">
@@ -89,8 +89,7 @@ const booth = {
                   <a
                      xlink:href="javascript:void(0)"
                      class="modal-trigger"
-                     data-target="modal-booth"
-                     data-content="contacto"
+                     data-target="modal-form"
                   >
                      <image
                         x="195"
@@ -114,7 +113,15 @@ const booth = {
 
    <ModalVideo videoID="RR5feG5E3ek" />
 
-   <div id="contacto" class="is-hidden">
-      <BoothForm to="evelyn_sandoval@uhc.com, sharon.castillo@uhc.com" />
-   </div>
+   <ModalForm
+      to="evelyn_sandoval@uhc.com,sharon.castillo@uhc.com"
+      subject="Booth United Health Care - Web Form"
+   >
+      <div class="has-text-centered">
+         <h3 class="title">
+            Telf: <a href="tel:+1866-325-4811" class="has-text-link">866-325-4811</a>
+         </h3>
+         <h4 class="subtitle">Hablamos Español</h4>
+      </div>
+   </ModalForm>
 </BoothLayout>

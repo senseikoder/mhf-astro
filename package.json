@@ -10,12 +10,13 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^10.1.0",
+    "@astrojs/cloudflare": "^10.4.0",
     "@astrojs/sitemap": "^3.1.2",
     "@fontsource-variable/dm-sans": "^5.0.5",
     "astro": "^4.5.12",
     "bulma": "^1.0.0",
     "flickity": "^3.0.0",
-    "plyr": "^3.7.8"
+    "plyr": "^3.7.8",
+    "resend": "^3.3.0"
   }
 }

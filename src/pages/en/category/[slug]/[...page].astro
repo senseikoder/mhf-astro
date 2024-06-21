@@ -8,7 +8,7 @@ const { slug, page } = Astro.params;
 if (page) pagina = Number(page);
 
 const res_cat = await fetch(
-   `https://myhealthfair.com/wp-json/wp/v2/categories?slug=${slug}&_embed`,
+   `https://myhealthfair.com/wp-json/wp/v2/categories?slug=${slug}`,
 );
 
 const cat = await res_cat.json();
@@ -36,8 +36,7 @@ const posts = await res.json();
                                  width={720}
                                  height={360}
                                  src={
-                                    post._embedded["wp:featuredmedia"]["0"]
-                                       .source_url
+                                    post._embedded["wp:featuredmedia"]["0"].source_url
                                  }
                                  alt=""
                               />

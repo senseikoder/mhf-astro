@@ -1,5 +1,6 @@
 ---
 import ModalBooths from "../../../components/ModalBooths.astro";
+import ModalForm from "../../../components/ModalForm.astro";
 import ModalVideo from "../../../components/ModalVideo.astro";
 import BoothLayout from "../../../layouts/BoothLayout.astro";
 const booth = {
@@ -91,8 +92,7 @@ const booth = {
                   <a
                      xlink:href="javascript:void(0)"
                      class="modal-trigger"
-                     data-target="modal-booth"
-                     data-content="contact"
+                     data-target="modal-form"
                   >
                      <image
                         x="195"
@@ -116,7 +116,17 @@ const booth = {
 
    <ModalVideo videoID="https://youtu.be/UUzn_J_NUzI" />
 
-   <div id="contact" class="is-hidden">
-      Form
-   </div>
+   <ModalForm
+      to="evelyn_sandoval@uhc.com,sharon.castillo@uhc.com"
+      subject="Booth United Health Care - Web Form"
+   >
+      <div class="has-text-centered">
+         <h3 class="title">
+            Phone: <a href="tel:+1866-325-4811" class="has-text-link"
+               >866-325-4811</a
+            >
+         </h3>
+      </div>
+   </ModalForm>
+
 </BoothLayout>

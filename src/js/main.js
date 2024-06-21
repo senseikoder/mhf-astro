@@ -38,6 +38,7 @@ document.addEventListener("astro:page-load", () => {
    openSubmenu();
    scroll();
 
+
    
    window.addEventListener("scroll", scroll);
 });

@@ -67,69 +67,71 @@
    <span class="text"></span>
 </div>
 
-<script src="https://smtpjs.com/v3/smtp.js" is:inline></script>
+<script>
+   document.addEventListener("astro:page-load", () => {
+      const form = document.querySelector("#contact-form");
 
-<script is:inline>
-   async function enviarEmail(cuerpo) {
-      const resp = await Email.send({
-         SecureToken: "0ebd851e-de39-4f2a-af7f-6f6520b08255",
-         To: "molina.frank@outlook.com",
-         From: "info@miferiadesalud.com",
-         Subject: "Contact Form Web MHF",
-         Body: cuerpo,
-      });
-      if (resp !== "OK") {
-         return false;
-      }
-      return true;
-   }
+      if(!form) return
 
-   const nombre = document.querySelector("#nombreZhyr7");
-   const telf = document.querySelector("#telfZhyr7");
-   const email = document.querySelector("#emailZhyr7");
-   const mensaje = document.querySelector("#mensajeZhyr7");
+      const nombre = document.querySelector("#nombreZhyr7");
+      const telf = document.querySelector("#telfZhyr7");
+      const email = document.querySelector("#emailZhyr7");
+      const mensaje = document.querySelector("#mensajeZhyr7");
 
-   const name = document.querySelector("#name");
-   const nickname = document.querySelector("#nickname");
-   const form = document.querySelector("#contact-form");
-   const notif = document.querySelector(".notification");
+      const name = document.querySelector("#name");
+      const nickname = document.querySelector("#nickname");
+      const notif = document.querySelector(".notification");
 
-   form.addEventListener("submit", (event) => {
-      event.preventDefault();
-      if (
-         name.value === "" ||
-         (name.value === null && nickname.value === "") ||
-         nickname.value === null
-      ) {
-         const cuerpo = `<h3>Contact Details</h3>
+      form?.addEventListener("submit", async (event) => {
+         event.preventDefault();
+         if (!name.value && !nickname.value) {
+            const cuerpo = `<h3>Contact Details</h3>
                            <p><b>Name:</b> ${nombre.value}</p>
                            <p><b>Contact Phone:</b> ${telf.value}</p>
                            <p><b>Email:</b> ${email.value}</p>
                            <p><b>Message:</b> ${mensaje.value}</p>
                            <br><br>
                            <p>This message was sent from myhealthfair.com</p>`;
-         const resp = enviarEmail(cuerpo);
-         if (resp) {
-            notif.classList.toggle("is-success");
-            notif.classList.toggle("is-hidden");
-            notif.lastElementChild.textContent = "Your message was sent! 👍";
+
+            const emailData = {
+               from: "info@miferiadesalud.com",
+               to: "molina.frank@outlook.com",
+               subject: "Contact Web Form",
+               html: cuerpo,
+            };
+
+            const res = await fetch("/api/sendEmail.json", {
+               method: "POST",
+               headers: {
+                  "Content-Type": "application/json",
+               },
+               body: JSON.stringify(emailData),
+            });
+
+            if (res.ok) {
+               notif.classList.toggle("is-success");
+               notif.classList.toggle("is-hidden");
+               notif.lastElementChild.textContent = "Your message was sent! 👍";
+            } else {
+               const error = await res.json();
+               console.error("Error:", error);
+               notif.lastElementChild.textContent = "Oh sorry 🙁";
+               notif.classList.toggle("is-hidden");
+               notif.classList.toggle("is-danger");
+            }
          }
-      } else {
-         notif.lastElementChild.textContent = "Oh sorry 🙁";
-         notif.classList.toggle("is-hidden");
-         notif.classList.toggle("is-danger");
-      }
 
-      setTimeout(() => {
-         notif.classList.toggle("is-hidden");
-         notif.classList.remove("is-danger");
-         notif.classList.remove("is-success");
+         setTimeout(() => {
+            notif.classList.toggle("is-hidden");
+            notif.classList.remove("is-danger");
+            notif.classList.remove("is-success");
 
-         nombre.value = "";
-         telf.value = "";
-         email.value = "";
-         mensaje.value = "";
-      }, 2000);
+            nombre.value = "";
+            telf.value = "";
+            email.value = "";
+            mensaje.value = "";
+         }, 2000);
+      });
    });
 </script>
 
