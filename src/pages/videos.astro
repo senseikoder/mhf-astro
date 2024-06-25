@@ -10,7 +10,7 @@ import "plyr/dist/plyr.css";
             <h3 class="title">United Health Care</h3>
          </div>
 
-         <div class="columns is-centered">
+         <div class="columns is-centered my-6">
             <div class="column is-5">
                <div
                   class="player"
@@ -27,21 +27,13 @@ import "plyr/dist/plyr.css";
                >
                </div>
             </div>
-            <div class="column is-4">
-               <!-- <div
-                  id="player"
-                  data-plyr-provider="youtube"
-                  data-plyr-embed-id={videoID}
-               >
-               </div> -->
-            </div>
          </div>
-
+<br>
          <div class="block has-text-centered">
             <h3 class="title">Alzheimer's Association</h3>
          </div>
 
-         <div class="columns is-centered">
+         <div class="columns is-centered my-6">
             <div class="column is-4">
                <div
                   class="player"
@@ -67,6 +59,39 @@ import "plyr/dist/plyr.css";
                </div>
             </div>
          </div>
+
+         <br>
+
+         <div class="block has-text-centered">
+            <h3 class="title">Dana Farber Cancer Institute</h3>
+         </div>
+
+         <div class="columns is-centered my-6">
+            <div class="column is-4">
+               <div
+                  class="player"
+                  data-plyr-provider="youtube"
+                  data-plyr-embed-id="https://www.youtube.com/watch?v=ksSKq1VrO5Q"
+               >
+               </div>
+            </div>
+            <div class="column is-4">
+               <div
+                  class="player"
+                  data-plyr-provider="youtube"
+                  data-plyr-embed-id="https://www.youtube.com/watch?v=J-um1mgfR1w"
+               >
+               </div>
+            </div>
+            <div class="column is-4">
+               <div
+                  class="player"
+                  data-plyr-provider="youtube"
+                  data-plyr-embed-id="https://www.youtube.com/watch?v=82WYR2w0EmM"
+               >
+               </div>
+            </div>
+         </div>
       </div>
    </section>
 </PageLayout>
@@ -75,6 +100,8 @@ import "plyr/dist/plyr.css";
    import Plyr from "plyr";
 
    document.addEventListener("astro:page-load", () => {
-      const players = Plyr.setup(".player");
+      const players = Plyr.setup(".player", {
+         ratio: "16:9",
+      });
    });
 </script>
