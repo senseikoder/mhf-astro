@@ -9,6 +9,7 @@ import { Image } from "astro:assets";
 import mapaRuta from "../images/maparuta.webp";
 
 import "flickity/dist/flickity.min.css";
+import HomeVideos from "../components/HomeVideos.astro";
 ---
 
 <HomeLayout title="Feria de Salud - Massachussets" description="">
@@ -35,11 +36,7 @@ import "flickity/dist/flickity.min.css";
 
 	<HomeCats />
 
-	<!-- <section class="section">
-		<div class="container has-text-centered">
-			<Image src={mapaRuta} alt="" />
-		</div>
-	</section> -->
+	<HomeVideos/>
 
 	<HomeCarrusel />
 

@@ -35,11 +35,11 @@ import Mailchimp from "./Mailchimp.astro";
 			<div class="column is-4">
 				<div class="content">
 					<ul class="list">
-						<li>Recursos</li>
-						<li>Contacto</li>
-						<li>Conviértete en Expositor</li>
-						<li>Mapa del sitio</li>
-						<li>Política de privacidad</li>
+						<li><a href="/recursos">Recursos</a></li>
+						<li><a href="/contacto">Contacto</a></li>
+						<li><a href="/expositor">Conviértete en Expositor</a></li>
+						<li><a href="/mapa-del-sitio">Mapa del sitio</a></li>
+						<li><a href="/politica-privacidad">Política de privacidad</a></li>
 					</ul>
 				</div>
 			</div>
@@ -91,5 +91,9 @@ import Mailchimp from "./Mailchimp.astro";
 	.list li {
 		padding: 0.75rem;
 		border-bottom: 1px solid whitesmoke;
+	}
+
+	.list a {
+		color: white
 	}
 </style>

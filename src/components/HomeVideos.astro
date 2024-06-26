@@ -1,0 +1,48 @@
+---
+import "plyr/dist/plyr.css";
+---
+
+<section class="section">
+   <div class="container has-text-white">
+      <div class="block has-text-centered">
+         <h3 class="title">Participantes en Video</h3>
+      </div>
+
+      <div class="columns is-centered my-6">
+         <div class="column is-4">
+            <div
+               class="player"
+               data-plyr-provider="youtube"
+               data-plyr-embed-id="https://www.youtube.com/watch?v=UvKkd4mncsk"
+            >
+            </div>
+         </div>
+         <div class="column is-4">
+            <div
+               class="player"
+               data-plyr-provider="youtube"
+               data-plyr-embed-id="https://www.youtube.com/watch?v=bIC4Siso-NI&t=2s"
+            >
+            </div>
+         </div>
+         <div class="column is-4">
+            <div
+               class="player"
+               data-plyr-provider="youtube"
+               data-plyr-embed-id="https://www.youtube.com/watch?v=ksSKq1VrO5Q"
+            >
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+
+<script>
+   import Plyr from "plyr";
+
+   document.addEventListener("astro:page-load", () => {
+      const players = Plyr.setup(".player", {
+         ratio: "16:9",
+      });
+   });
+</script>

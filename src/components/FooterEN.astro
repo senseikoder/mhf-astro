@@ -2,6 +2,7 @@
 const today = new Date();
 import Image from "astro/components/Image.astro";
 import logoWhite from "../images/logo-mhf-white.webp";
+import Mailchimp from "./Mailchimp.astro";
 ---
 
 <footer class="footer has-background-info-20 has-text-white">
@@ -34,11 +35,11 @@ import logoWhite from "../images/logo-mhf-white.webp";
          <div class="column is-4">
             <div class="content">
                <ul class="list">
-                  <li>Resources</li>
-                  <li>Contact</li>
-                  <li>Become a Vendor/Sponsor</li>
-                  <li>Sitemap</li>
-                  <li>Privacy policy</li>
+                  <li><a href="/resources">Resources</a></li>
+                  <li><a href="/contact">Contact</a></li>
+                  <li><a href="/sponsor">Become a Sponsor</a></li>
+                  <li><a href="/sitemap">Sitemap</a></li>
+                  <li><a href="/privacy-policy">Privacy policy</a></li>
                </ul>
             </div>
          </div>
@@ -47,6 +48,8 @@ import logoWhite from "../images/logo-mhf-white.webp";
                Subscribe to MyHealthFair.com newsletter, which will then be
                emailed to you
             </p>
+
+            <Mailchimp />
          </div>
       </div>
    </div>
@@ -88,5 +91,9 @@ import logoWhite from "../images/logo-mhf-white.webp";
    .list li {
       padding: 0.75rem;
       border-bottom: 1px solid whitesmoke;
+   }
+
+   .list a {
+      color: white;
    }
 </style>
