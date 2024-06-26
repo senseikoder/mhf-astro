@@ -9,7 +9,13 @@ export default defineConfig({
   prefetch: true,
   format: 'file',
   output: 'hybrid',
-  adapter: cloudflare(),
+  adapter: cloudflare({
+    // platformProxy: {
+    //   enabled: true,
+    //   configPath: 'wrangler.toml'
+    // },
+    imageService: 'passthrough'
+  }),
   i18n: {
     defaultLocale: "es",
     locales: ["es", "en"]
