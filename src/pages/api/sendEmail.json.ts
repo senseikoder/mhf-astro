@@ -1,6 +1,6 @@
 export const prerender = false;
 import type { APIRoute } from "astro";
-import { Resend } from "node:resend";
+import { Resend } from "resend";
 
 const resend = new Resend(import.meta.env.RESEND_API_KEY);
 

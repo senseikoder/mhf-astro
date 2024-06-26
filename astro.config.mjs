@@ -10,10 +10,6 @@ export default defineConfig({
   format: 'file',
   output: 'hybrid',
   adapter: cloudflare({
-    // platformProxy: {
-    //   enabled: true,
-    //   configPath: 'wrangler.toml'
-    // },
     imageService: 'passthrough'
   }),
   i18n: {
