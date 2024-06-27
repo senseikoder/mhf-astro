@@ -15,10 +15,5 @@ export default defineConfig({
   i18n: {
     defaultLocale: "es",
     locales: ["es", "en"]
-  },
-  vite: {
-    ssr: {
-      external: ['node:resend'],
-    },
-  },
+  }
 });
