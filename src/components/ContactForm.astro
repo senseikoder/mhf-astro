@@ -1,8 +1,4 @@
----
-const api_key = import.meta.env.RESEND_API_KEY;
----
-
-<form id="contact-form" data-key={api_key}>
+<form id="contact-form">
    <div class="columns is-multiline">
       <div class="column is-12">
          <input
@@ -72,14 +68,10 @@ const api_key = import.meta.env.RESEND_API_KEY;
 </div>
 
 <script>
-   import { Resend } from "resend";
-
    document.addEventListener("astro:page-load", () => {
       const form = document.querySelector("#contact-form");
 
-      if (!form) return;
-
-      const resend = new Resend(form.dataset.key);
+      if(!form) return
 
       const nombre = document.querySelector("#nombreZhyr7");
       const telf = document.querySelector("#telfZhyr7");
@@ -108,24 +100,15 @@ const api_key = import.meta.env.RESEND_API_KEY;
                html: cuerpo,
             };
 
-            // const res = await fetch("/api/sendEmail.json", {
-            //    method: "POST",
-            //    headers: {
-            //       "Content-Type": "application/json",
-            //    },
-            //    body: JSON.stringify(emailData),
-            // });
-
-            const { to, from, html, subject } = emailData;
-
-            const send = await resend.emails.send({
-               from,
-               to,
-               subject,
-               html,
+            const res = await fetch("/api/sendEmail.json", {
+               method: "POST",
+               headers: {
+                  "Content-Type": "application/json",
+               },
+               body: JSON.stringify(emailData),
             });
 
-            if (send.data) {
+            if (res.ok) {
                notif.classList.toggle("is-success");
                notif.classList.toggle("is-hidden");
                notif.lastElementChild.textContent = "Your message was sent! 👍";

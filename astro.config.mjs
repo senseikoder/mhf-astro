@@ -1,6 +1,6 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
-import cloudflare from "@astrojs/cloudflare";
+import netlify from "@astrojs/netlify";
 
 // https://astro.build/config
 export default defineConfig({
@@ -9,11 +9,11 @@ export default defineConfig({
   prefetch: true,
   format: 'file',
   output: 'hybrid',
-  adapter: cloudflare({
-    imageService: 'passthrough'
-  }),
   i18n: {
     defaultLocale: "es",
     locales: ["es", "en"]
-  }
+  },
+  adapter: netlify({
+    cacheOnDemandPages: true,
+  }),
 });
