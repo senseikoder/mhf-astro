@@ -15,10 +15,11 @@ const idioma = Astro.currentLocale;
    <div class="container">
       <h2 class="title has-text-light has-text-centered">
          {
-            idioma == 'es' ?
-            <span>Últimas Entradas</span>
-            :
-            <span>Latest Posts</span>
+            idioma == "es" ? (
+               <span>Recientes Vlogs de Salud</span>
+            ) : (
+               <span>Latest Health Vlogs</span>
+            )
          }
       </h2>
 
