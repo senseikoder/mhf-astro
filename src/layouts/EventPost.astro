@@ -4,8 +4,15 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import FooterEN from "../components/FooterEN.astro";
+import AsideEntradas from "../components/AsideEntradas.astro";
+import AsidePosts from "../components/AsidePosts.astro";
+import AsideCategorias from "../components/AsideCategorias.astro";
+import AsideCategories from "../components/AsideCategories.astro";
+import FormattedDateTime from "../components/FormattedDateTime.astro";
+import TabLang from "../components/TabLang.astro";
+
 const idioma = Astro.currentLocale;
-const { title, description, image } = Astro.props;
+const { title, description, image, start_date, end_date, tags } = Astro.props;
 
 const heroImage = image.url;
 
@@ -39,19 +46,47 @@ import "@fontsource-variable/dm-sans";
                         }
                      </div>
                      <div class="content">
-                        <!-- <div class="date">
-									<FormattedDate date={new Date(date)} />
-								</div> -->
                         <h1 class="title">{title}</h1>
+
+                        <div class="block">
+                           <span
+                              >Inicio: <FormattedDateTime
+                                 date={new Date(start_date)}
+                              /></span
+                           > -
+                           <span
+                              >Fin: <FormattedDateTime
+                                 date={new Date(end_date)}
+                              /></span
+                           >
+                           <span>
+
+                              - Tags: 
+                              
+                                 {tags.map((tag) => (
+                                    <span class="is-uppercase">{tag.name}</span>
+                                 ))}
+                              
+                           </span>
+                        </div>
+
                         <hr />
+
+                        <!-- Descripcion -->
                         <slot />
                      </div>
                   </article>
                </div>
                <div class="column is-4">
                   <aside>
-                     <div class="title is-5">Últimas Entradas</div>
-                     <div class="title is-5">Categorías</div>
+                     {idioma == "es" ? <AsideEntradas /> : <AsidePosts />}
+                     {
+                        idioma == "es" ? (
+                           <AsideCategorias />
+                        ) : (
+                           <AsideCategories />
+                        )
+                     }
                   </aside>
                </div>
             </div>
@@ -66,5 +101,7 @@ import "@fontsource-variable/dm-sans";
                0 1px 2px rgba(0, 0, 0, 0.24);
          }
       </style>
+
+      <TabLang />
    </body>
 </html>

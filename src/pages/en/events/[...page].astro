@@ -47,11 +47,11 @@ const eventos = await res.json();
          <div class="buttons is-centered">
             <a
                class="button is-info is-outlined"
-               href={`/eventos/${pagina - 1}`}>Semana anterior</a
+               href={`/eventos/${pagina - 1}`}>Prev week</a
             >
             <a
                class="button is-info is-outlined"
-               href={`/eventos/${pagina + 1}`}>Semana siguiente</a
+               href={`/eventos/${pagina + 1}`}>Next week</a
             >
          </div>
 
@@ -76,7 +76,9 @@ const eventos = await res.json();
                                  src={evento.image.url}
                                  alt=""
                               />
-                              <h4 class="title is-5 my-4">{evento.title}</h4>
+                              <h4 class="title is-5 my-4">
+                                 <Fragment set:html={evento.title}  />
+                              </h4>
                            </a>
 
                            <small>

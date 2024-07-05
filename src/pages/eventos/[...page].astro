@@ -4,7 +4,7 @@ import PageLayout from "../../layouts/PageLayout.astro";
 import FormattedDate from "../../components/FormattedDate.astro";
 import FormattedTime from "../../components/FormattedTime.astro";
 
-const idioma = Astro.currentLocale
+const idioma = Astro.currentLocale;
 const { page } = Astro.params;
 let pagina = page ? Number(page) : 1;
 
@@ -76,7 +76,9 @@ const eventos = await res.json();
                                  src={evento.image.url}
                                  alt=""
                               />
-                              <h4 class="title is-5 my-4">{evento.title}</h4>
+                              <h4 class="title is-5 my-4">
+                                 <Fragment set:html={evento.title} />
+                              </h4>
                            </a>
 
                            <small>
