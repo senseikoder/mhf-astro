@@ -16,6 +16,9 @@ const posts = await res.json();
 ---
 
 <PageLayout title="Feria de Salud - Blog" description="Blog">
+   <section class="section is-medium banner">
+   </section>
+
    <section class="section">
       <div class="container is-max-desktop">
          <div class="columns is-multiline is-variable is-8">
@@ -29,7 +32,8 @@ const posts = await res.json();
                                  width={720}
                                  height={360}
                                  src={
-                                    post._embedded["wp:featuredmedia"]["0"].source_url
+                                    post._embedded["wp:featuredmedia"]["0"]
+                                       .source_url
                                  }
                                  alt=""
                               />
@@ -82,3 +86,10 @@ const posts = await res.json();
       </div>
    </section>
 </PageLayout>
+
+<style>
+   .banner {
+      background: url("../../../images/banner-blog.webp") center / cover no-repeat;
+      position: relative;
+   }
+</style>
