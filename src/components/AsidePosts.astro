@@ -1,8 +1,9 @@
 ---
 export const prerender = false;
 
+const wpurl = import.meta.env.WP_URL;
 const res = await fetch(
-   `https://myhealthfair.com/wp-json/wp/v2/posts?per_page=5&lang=en`,
+   `${wpurl}/posts?per_page=5&lang=en`,
 );
 
 const posts = await res.json();

@@ -2,24 +2,22 @@
 export const prerender = false;
 import PageLayout from "../../../layouts/PageLayout.astro";
 
+const wpurl = import.meta.env.WP_URL;
 let pagina = 1;
 const { slug, page } = Astro.params;
 
 if (page) pagina = Number(page);
 
-const res_cat = await fetch(
-   `https://myhealthfair.com/wp-json/wp/v2/categories?slug=${slug}&_embed`,
-);
+const res_cat = await fetch(`${wpurl}/categories?slug=${slug}&_embed`);
 
 const cat = await res_cat.json();
 
 const res = await fetch(
-   `https://myhealthfair.com/wp-json/wp/v2/posts?categories=${cat[0].id}&page=${pagina}&_embed`,
+   `${wpurl}/posts?categories=${cat[0].id}&page=${pagina}&_embed`,
 );
 
 const totalPaginas = res.headers.get("x-wp-totalpages");
 const posts = await res.json();
-
 ---
 
 <PageLayout title="Feria de Salud - Blog" description="Blog">

@@ -1,26 +1,29 @@
 ---
 export const prerender = false;
 
+const wpurl = import.meta.env.WP_URL;
 const res = await fetch(
-   `https://myhealthfair.com/wp-json/wp/v2/posts?per_page=5&lang=es`,
+   `${wpurl}/posts?per_page=5&lang=es`,
 );
 
 const posts = await res.json();
 ---
 
 <div class="title is-5">Últimas Entradas</div>
-   <ul class="ml-4">
-      {
-         posts.map((post: any) => (
-            <li class="mb-4">
-               <a href={`/${post.slug}`}>
-                  <span class="has-text-info-40">{post.title.rendered}</span>
-               </a>
-            </li>
-         ))
-      }
-   </ul>
+<ul class="ml-4">
+   {
+      posts.map((post: any) => (
+         <li class="mb-4">
+            <a href={`/${post.slug}`}>
+               <span class="has-text-info-40">{post.title.rendered}</span>
+            </a>
+         </li>
+      ))
+   }
+</ul>
 
 <style>
-   ul { list-style: none;}
+   ul {
+      list-style: none;
+   }
 </style>

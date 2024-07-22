@@ -3,21 +3,22 @@ export const prerender = false;
 import PageLayout from "../../../layouts/PageLayout.astro";
 
 const idioma = Astro.currentLocale;
+const wpurl = import.meta.env.WP_URL;
+
 let pagina = 1;
 const { page } = Astro.params;
 
 if (page) pagina = Number(page);
 
 const res = await fetch(
-   `https://myhealthfair.com/wp-json/wp/v2/posts?page=${pagina}&lang=${idioma}&_embed`,
+   `${wpurl}/posts?page=${pagina}&lang=${idioma}&_embed`,
 );
 const totalPaginas = res.headers.get("x-wp-totalpages");
 const posts = await res.json();
 ---
 
 <PageLayout title="Feria de Salud - Blog" description="Blog">
-   <section class="section is-medium banner">
-   </section>
+   <section class="section is-medium banner"></section>
 
    <section class="section">
       <div class="container is-max-desktop">
@@ -37,8 +38,8 @@ const posts = await res.json();
                                  }
                                  alt=""
                               />
-                              <h4 class="title is-5 my-4">
-                                 {post.title.rendered}
+                              <h4 class="title is-5 my-4">}
+                                 <Fragment set:html={post.title.rendered} />
                               </h4>
                            </a>
 
@@ -89,7 +90,8 @@ const posts = await res.json();
 
 <style>
    .banner {
-      background: url("../../../images/banner-blog.webp") center / cover no-repeat;
+      background: url("../../../images/banner-blog.webp") center / cover
+         no-repeat;
       position: relative;
    }
 </style>

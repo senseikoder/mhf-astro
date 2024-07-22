@@ -5,6 +5,7 @@ import FormattedDate from "../../components/FormattedDate.astro";
 import FormattedTime from "../../components/FormattedTime.astro";
 
 const idioma = Astro.currentLocale;
+const wpurl = import.meta.env.WP_URL_EVENTS;
 const { page } = Astro.params;
 let pagina = page ? Number(page) : 1;
 
@@ -35,7 +36,7 @@ const fecha_ini = startDate.toISOString().split("T")[0];
 const fecha_fin = endDate.toISOString().split("T")[0];
 
 const res = await fetch(
-   `https://myhealthfair.com/wp-json/tribe/events/v1/events?start_date=${fecha_ini}&end_date=${fecha_fin}&lang=${idioma}`,
+   `${wpurl}/events?start_date=${fecha_ini}&end_date=${fecha_fin}&lang=${idioma}`,
 );
 
 const eventos = await res.json();

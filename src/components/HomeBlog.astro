@@ -2,8 +2,9 @@
 export const prerender = false;
 import FormattedDate from "./FormattedDate.astro";
 
+const wpurl = import.meta.env.WP_URL;
 const res = await fetch(
-   `https://myhealthfair.com/wp-json/wp/v2/posts?per_page=3&lang=en&_embed`,
+   `${wpurl}/posts?per_page=3&lang=en&_embed`,
 );
 
 const posts = await res.json();
