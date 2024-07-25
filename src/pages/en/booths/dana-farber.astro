@@ -18,6 +18,7 @@ const booth = {
    btn4: "offer.webp",
    btn5: "contact.webp",
 };
+const wpuploads = import.meta.env.WP_UPLOADS;
 ---
 
 <BoothLayout
@@ -57,7 +58,7 @@ const booth = {
 
                   <!-- Brochure -->
                   <a
-                     xlink:href="https://myhealthfair.com/wp-content/uploads/2024/02/HPV-Roundtable-English-vax-handout.pdf"
+                     xlink:href={wpuploads + "/2024/02/HPV-Roundtable-English-vax-handout.pdf"}
                   >
                      <image
                         x="90"
@@ -129,7 +130,7 @@ const booth = {
          <div class="columns">
             <div class="column">
                <a
-                  href="https://myhealthfair.com/wp-content/uploads/2023/12/Cancer-Risk-Assessment-Dana-Farbers-Groundbreaking-Tool.webp"
+                  href={wpuploads+"/2023/12/Cancer-Risk-Assessment-Dana-Farbers-Groundbreaking-Tool.webp"}
                   target="_blank"
                >
                   <Image src={rec1} alt="" />
@@ -137,7 +138,7 @@ const booth = {
             </div>
             <div class="column">
                <a
-                  href="https://myhealthfair.com/wp-content/uploads/2022/09/Newspaper-Full-Page-1-1.pdf"
+                  href={wpuploads+"/2022/09/Newspaper-Full-Page-1-1.pdf"}
                   target="_blank"
                >
                   <Image src={rec2} alt="" />
@@ -145,7 +146,7 @@ const booth = {
             </div>
             <div class="column">
                <a
-                  href="https://myhealthfair.com/wp-content/uploads/2022/09/Newspaper-Full-Page-7.pdf"
+                  href={wpuploads+"/2022/09/Newspaper-Full-Page-7.pdf"}
                   target="_blank"
                >
                   <Image src={rec3} alt="" />
@@ -156,7 +157,7 @@ const booth = {
          <div class="columns my-5 is-centered">
             <div class="column is-4">
                <a
-                  href="https://myhealthfair.com/wp-content/uploads/2022/09/Newspaper-Full-Page-2-1.pdf"
+                  href={wpuploads+"/2022/09/Newspaper-Full-Page-2-1.pdf"}
                   target="_blank"
                >
                   <Image src={rec4} alt="" />
@@ -164,7 +165,7 @@ const booth = {
             </div>
             <div class="column is-4">
                <a
-                  href="https://myhealthfair.com/wp-content/uploads/2023/06/Newspaper-El-Mundo-Ad-Eng.pdf"
+                  href={wpuploads+"/2023/06/Newspaper-El-Mundo-Ad-Eng.pdf"}
                   target="_blank"
                >
                   <Image src={rec5} alt="" />
@@ -208,7 +209,8 @@ const booth = {
             rel="noopener"
             data-auth="NotApplicable"
             data-linkindex="0"
-            data-ogsc="">Sun Safety and Skin Cancer Prevention</a>
+            data-ogsc="">Sun Safety and Skin Cancer Prevention</a
+         >
       </p>
    </div>
 </BoothLayout>

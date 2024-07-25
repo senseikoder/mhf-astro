@@ -10,6 +10,7 @@ const booth = {
    btn4: "contact.webp",
    btn5: null,
 };
+const wpuploads = import.meta.env.WP_UPLOADS;
 ---
 
 <BoothLayout title="Project Bread" description="Lorem ipsum dolor sit amet">
@@ -46,7 +47,7 @@ const booth = {
 
                   <!-- Brochure -->
                   <a
-                     xlink:href="https://myhealthfair.com/wp-content/uploads/2023/04/HotlineIngles.pdf"
+                     xlink:href={wpuploads+"/2023/04/HotlineIngles.pdf"}
                      target="_blank"
                   >
                      <image
@@ -70,7 +71,7 @@ const booth = {
 
                   <!-- Recursos -->
                   <a
-                     xlink:href="https://myhealthfair.com/wp-content/uploads/2022/08/Find-Local-Food-Resources_General_English.pdf"
+                     xlink:href={wpuploads+"/2022/08/Find-Local-Food-Resources_General_English.pdf"}
                      target="_blank"
                   >
                      <image

@@ -11,6 +11,7 @@ const booth = {
    btn4: "contacto.webp",
    btn5: null,
 };
+const wpuploads = import.meta.env.WP_UPLOADS;
 ---
 
 <BoothLayout
@@ -50,7 +51,7 @@ const booth = {
 
                   <!-- Brochure -->
                   <a
-                     xlink:href="https://myhealthfair.com/wp-content/uploads/2024/06/Sp_AoUNE_AboutUs-3.pdf"
+                     xlink:href={wpuploads + "/2024/06/Sp_AoUNE_AboutUs-3.pdf"}
                      target="_blank"
                   >
                      <image
@@ -74,7 +75,7 @@ const booth = {
 
                   <!-- Obsequio -->
                   <a
-                     xlink:href="https://myhealthfair.com/wp-content/uploads/2021/05/SP-AoUNE-Mental-Health-Resources-.pdf"
+                     xlink:href={wpuploads + "/2021/05/SP-AoUNE-Mental-Health-Resources-.pdf"}
                      target="_blank"
                   >
                      <image

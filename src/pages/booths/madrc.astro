@@ -10,6 +10,7 @@ const booth = {
    // btn4: "oferta.webp",
    btn4: "contacto.webp",
 };
+const wpuploads = import.meta.env.WP_UPLOADS;
 ---
 
 <BoothLayout title="Acerca de" description="Lorem ipsum dolor sit amet">
@@ -54,7 +55,7 @@ const booth = {
 
                   <!-- Brochure -->
                   <a
-                     xlink:href="https://myhealthfair.com/wp-content/uploads/2023/11/Symptomatic-Prevention-Flyers-ESP.pdf"
+                     xlink:href={wpuploads + "/2023/11/Symptomatic-Prevention-Flyers-ESP.pdf"}
                   >
                      <image
                         x="85"
@@ -74,8 +75,8 @@ const booth = {
 
                   <!-- Voluntariado -->
                   <a
-                     xlink:href="https://myhealthfair.com/wp-content/uploads/2023/11/MAC-Flyer-Espanol.pdf"
-                     target="_blankm"
+                     xlink:href={wpuploads + "/2023/11/MAC-Flyer-Espanol.pdf"}
+                     target="_blank"
                   >
                      <image
                         x="85"

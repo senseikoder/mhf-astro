@@ -11,6 +11,7 @@ const booth = {
    btn4: "contacto.webp",
    btn5: null,
 };
+const wpuploads = import.meta.env.WP_UPLOADS;
 ---
 
 <BoothLayout title="Acerca de" description="Lorem ipsum dolor sit amet">
@@ -47,7 +48,8 @@ const booth = {
 
                   <!-- Brochure -->
                   <a
-                     xlink:href="https://myhealthfair.com/wp-content/uploads/2021/07/Dimock-Brochure-in-Spanish.pdf"
+                     xlink:href={wpuploads +
+                        "/2021/07/Dimock-Brochure-in-Spanish.pdf"}
                      target="_blank"
                   >
                      <image

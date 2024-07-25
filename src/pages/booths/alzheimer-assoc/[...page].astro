@@ -1,16 +1,19 @@
 ---
-import ModalBooths from "../../components/ModalBooths.astro";
-import ModalVideo from "../../components/ModalVideo.astro";
-import BoothLayout from "../../layouts/BoothLayout.astro";
+export const prerender = false;
+import ModalBooths from "../../../components/ModalBooths.astro";
+import ModalVideo from "../../../components/ModalVideo.astro";
+import BoothLayout from "../../../layouts/BoothLayout.astro";
+import FormattedDate from "../../../components/FormattedDate.astro";
+import FormattedTime from "../../../components/FormattedTime.astro";
 import { Image } from "astro:assets";
-import rec1 from "../../images/recursos/rec1.webp";
-import rec2 from "../../images/recursos/rec2.webp";
-import rec3 from "../../images/recursos/rec3.webp";
-import rec4 from "../../images/recursos/rec4.webp";
-import rec5 from "../../images/recursos/rec5.webp";
-import rec6 from "../../images/recursos/rec6.webp";
-import rec7 from "../../images/recursos/rec7.webp";
-import rec8 from "../../images/recursos/rec8.webp";
+import rec1 from "../../../images/recursos/rec1.webp";
+import rec2 from "../../../images/recursos/rec2.webp";
+import rec3 from "../../../images/recursos/rec3.webp";
+import rec4 from "../../../images/recursos/rec4.webp";
+import rec5 from "../../../images/recursos/rec5.webp";
+import rec6 from "../../../images/recursos/rec6.webp";
+import rec7 from "../../../images/recursos/rec7.webp";
+import rec8 from "../../../images/recursos/rec8.webp";
 
 const booth = {
    image: "alzheimers-association.webp",
@@ -20,6 +23,44 @@ const booth = {
    btn4: "voluntariado.webp",
    btn5: "contacto.webp",
 };
+const wpuploads = import.meta.env.WP_UPLOADS;
+const wpurl = import.meta.env.WP_URL_EVENTS;
+
+const idioma = Astro.currentLocale;
+const { page } = Astro.params;
+let pagina = page ? Number(page) : 1;
+
+// Función para obtener el lunes de la semana actual
+function getMonday(date) {
+   const day = date.getDay();
+   const diff = date.getDate() - day + (day == 0 ? -6 : 1);
+   return new Date(date.setDate(diff));
+}
+
+// Función para obtener el domingo de la semana actual
+function getSunday(monday) {
+   return new Date(monday.getTime() + 6 * 24 * 60 * 60 * 1000);
+}
+
+// Calcular la fecha de inicio y fin de la semana actual
+const today = new Date();
+const currentMonday = getMonday(new Date(today));
+const currentSunday = getSunday(currentMonday);
+
+// Ajustar la semana según el parámetro de la página
+const startDate = new Date(currentMonday);
+startDate.setDate(startDate.getDate() + (pagina - 1) * 7);
+const endDate = new Date(currentSunday);
+endDate.setDate(endDate.getDate() + (pagina - 1) * 7);
+
+const fecha_ini = startDate.toISOString().split("T")[0];
+const fecha_fin = endDate.toISOString().split("T")[0];
+
+const res = await fetch(
+   `${wpurl}/events?start_date=${fecha_ini}&end_date=${fecha_fin}&lang=${idioma}&tags=alzheimer-association&per_page=9`,
+);
+
+const eventos = await res.json();
 ---
 
 <BoothLayout
@@ -59,7 +100,8 @@ const booth = {
 
                   <!-- Brochure -->
                   <a
-                     xlink:href="https://myhealthfair.com/wp-content/uploads/2023/03/Here-for-You-Flyer-ESP_Updated.pdf"
+                     xlink:href={wpuploads +
+                        "/2023/03/Here-for-You-Flyer-ESP_Updated.pdf"}
                   >
                      <image
                         x="90"
@@ -131,23 +173,21 @@ const booth = {
          <div class="columns">
             <div class="column">
                <a
-                  href="https://myhealthfair.com/wp-content/uploads/2023/12/Tips-para-cuidadores-de-Alzheimer-durante-las-fiestas.pdf"
+                  href={wpuploads +
+                     "/2023/12/Tips-para-cuidadores-de-Alzheimer-durante-las-fiestas.pdf"}
                   target="_blank"
                >
                   <Image src={rec1} alt="" />
                </a>
             </div>
             <div class="column">
-               <a
-                  href="https://myhealthfair.com/wp-content/uploads/2023/06/aa-mesa.pdf"
-                  target="_blank"
-               >
+               <a href={wpuploads + "/2023/06/aa-mesa.pdf"} target="_blank">
                   <Image src={rec3} alt="" />
                </a>
             </div>
             <div class="column">
                <a
-                  href="https://myhealthfair.com/wp-content/uploads/2023/06/MY-HEALTH-FAIR-PDF-Demencia.pdf"
+                  href={wpuploads + "/2023/06/MY-HEALTH-FAIR-PDF-Demencia.pdf"}
                   target="_blank"
                >
                   <Image src={rec2} alt="" />
@@ -158,7 +198,7 @@ const booth = {
          <div class="columns my-5">
             <div class="column">
                <a
-                  href="https://myhealthfair.com/wp-content/uploads/2023/06/10-Ways_Poster_ESP.jpg"
+                  href={wpuploads + "/2023/06/10-Ways_Poster_ESP.jpg"}
                   target="_blank"
                >
                   <Image src={rec4} alt="" />
@@ -166,7 +206,7 @@ const booth = {
             </div>
             <div class="column">
                <a
-                  href="https://myhealthfair.com/wp-content/uploads/2023/06/aa-servicios-sociales.pdf"
+                  href={wpuploads + "/2023/06/aa-servicios-sociales.pdf"}
                   target="_blank"
                >
                   <Image src={rec5} alt="" />
@@ -174,7 +214,7 @@ const booth = {
             </div>
             <div class="column">
                <a
-                  href="https://myhealthfair.com/wp-content/uploads/2023/06/aa-videoconferencia.pdf"
+                  href={wpuploads + "/2023/06/aa-videoconferencia.pdf"}
                   target="_blank"
                >
                   <Image src={rec6} alt="" />
@@ -185,7 +225,7 @@ const booth = {
          <div class="columns is-centered">
             <div class="column is-4">
                <a
-                  href="https://myhealthfair.com/wp-content/uploads/2023/06/aa-medicos-massachusetts.pdf"
+                  href={wpuploads + "/2023/06/aa-medicos-massachusetts.pdf"}
                   target="_blank"
                >
                   <Image src={rec7} alt="" />
@@ -193,12 +233,74 @@ const booth = {
             </div>
             <div class="column is-4">
                <a
-                  href="https://myhealthfair.com/wp-content/uploads/2023/06/aa-cuidadores.pdf"
+                  href={wpuploads + "/2023/06/aa-cuidadores.pdf"}
                   target="_blank"
                >
                   <Image src={rec8} alt="" />
                </a>
             </div>
+         </div>
+      </div>
+   </section>
+
+   <section class="section" id="eventos">
+      <div class="container is-max-widescreen">
+         <div class="buttons is-centered">
+            <a
+               class="button is-info is-outlined"
+               href={`${pagina - 1}`}>Semana anterior</a
+            >
+            <a
+               class="button is-info is-outlined"
+               href={`${pagina + 1}`}>Semana siguiente</a
+            >
+         </div>
+
+         <div class="has-text-centered my-4">
+            <p class="is-size-5">
+               Mostrando eventos de la semana: <strong
+                  >{startDate.toLocaleDateString()}</strong
+               > al <strong>{endDate.toLocaleDateString()}</strong>
+            </p>
+         </div>
+
+         <div class="columns is-multiline is-variable is-8">
+            {
+               eventos.events.map((evento: any) => (
+                  <div class="column is-4">
+                     <div class="card">
+                        <div class="card-content">
+                           <a href={`/event/${evento.slug}`}>
+                              <img
+                                 width={720}
+                                 height={360}
+                                 src={evento.image.url}
+                                 alt=""
+                              />
+                              <h4 class="title is-5 my-4">
+                                 <Fragment set:html={evento.title} />
+                              </h4>
+                           </a>
+
+                           <small>
+                              <FormattedDate
+                                 date={new Date(evento.start_date)}
+                              />{" "}
+                              @
+                              <FormattedTime
+                                 date_ini={new Date(evento.start_date)}
+                                 date_end={new Date(evento.end_date)}
+                              />
+                           </small>
+
+                           <small>
+                              <Fragment set:html={evento.excerpt} />
+                           </small>
+                        </div>
+                     </div>
+                  </div>
+               ))
+            }
          </div>
       </div>
    </section>
