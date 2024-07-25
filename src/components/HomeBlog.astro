@@ -3,12 +3,12 @@ export const prerender = false;
 import FormattedDate from "./FormattedDate.astro";
 
 const wpurl = import.meta.env.WP_URL;
+const idioma = Astro.currentLocale;
 const res = await fetch(
-   `${wpurl}/posts?per_page=3&lang=en&_embed`,
+   `${wpurl}/posts?per_page=3&lang=${idioma}&_embed`,
 );
 
 const posts = await res.json();
-const idioma = Astro.currentLocale;
 ---
 
 <section class="section banner">
@@ -17,7 +17,7 @@ const idioma = Astro.currentLocale;
       <h2 class="title has-text-light has-text-centered">
          {
             idioma == "es" ? (
-               <span>Recientes Vlogs de Salud</span>
+               <span>Recientes Vlogs de Salud</span>
             ) : (
                <span>Latest Health Vlogs</span>
             )
