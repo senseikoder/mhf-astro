@@ -4,9 +4,7 @@ import FormattedDate from "./FormattedDate.astro";
 
 const wpurl = import.meta.env.WP_URL;
 const idioma = Astro.currentLocale;
-const res = await fetch(
-   `${wpurl}/posts?per_page=3&lang=${idioma}&_embed`,
-);
+const res = await fetch(`${wpurl}/posts?per_page=3&lang=${idioma}&_embed`);
 
 const posts = await res.json();
 ---
