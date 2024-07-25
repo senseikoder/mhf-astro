@@ -8,6 +8,7 @@ import rec2 from "../../../images/recursos/dana-rec2_.webp";
 import rec3 from "../../../images/recursos/dana-rec3_.webp";
 import rec4 from "../../../images/recursos/dana-rec4_.webp";
 import rec5 from "../../../images/recursos/dana-rec5_.webp";
+import rec6 from "../../../images/recursos/dana-rec6_.webp";
 import ModalForm from "../../../components/ModalForm.astro";
 
 const booth = {
@@ -58,7 +59,8 @@ const wpuploads = import.meta.env.WP_UPLOADS;
 
                   <!-- Brochure -->
                   <a
-                     xlink:href={wpuploads + "/2024/02/HPV-Roundtable-English-vax-handout.pdf"}
+                     xlink:href={wpuploads +
+                        "/2024/02/HPV-Roundtable-English-vax-handout.pdf"}
                   >
                      <image
                         x="90"
@@ -127,10 +129,23 @@ const wpuploads = import.meta.env.WP_UPLOADS;
 
    <section class="section" id="recursos">
       <div class="container is-max-widescreen">
+         <div class="columns is-centered">
+            <div class="column is-9">
+               <a
+                  href={wpuploads +
+                     "2024/06/Sun-Safety-Beach-Schedule-Postcard_5x7_-Spanish.pdf"}
+                  target="_blank"
+               >
+                  <Image src={rec6} alt="" />
+               </a>
+            </div>
+         </div>
+         
          <div class="columns">
             <div class="column">
                <a
-                  href={wpuploads+"/2023/12/Cancer-Risk-Assessment-Dana-Farbers-Groundbreaking-Tool.webp"}
+                  href={wpuploads +
+                     "/2023/12/Cancer-Risk-Assessment-Dana-Farbers-Groundbreaking-Tool.webp"}
                   target="_blank"
                >
                   <Image src={rec1} alt="" />
@@ -138,7 +153,7 @@ const wpuploads = import.meta.env.WP_UPLOADS;
             </div>
             <div class="column">
                <a
-                  href={wpuploads+"/2022/09/Newspaper-Full-Page-1-1.pdf"}
+                  href={wpuploads + "/2022/09/Newspaper-Full-Page-1-1.pdf"}
                   target="_blank"
                >
                   <Image src={rec2} alt="" />
@@ -146,7 +161,7 @@ const wpuploads = import.meta.env.WP_UPLOADS;
             </div>
             <div class="column">
                <a
-                  href={wpuploads+"/2022/09/Newspaper-Full-Page-7.pdf"}
+                  href={wpuploads + "/2022/09/Newspaper-Full-Page-7.pdf"}
                   target="_blank"
                >
                   <Image src={rec3} alt="" />
@@ -157,7 +172,7 @@ const wpuploads = import.meta.env.WP_UPLOADS;
          <div class="columns my-5 is-centered">
             <div class="column is-4">
                <a
-                  href={wpuploads+"/2022/09/Newspaper-Full-Page-2-1.pdf"}
+                  href={wpuploads + "/2022/09/Newspaper-Full-Page-2-1.pdf"}
                   target="_blank"
                >
                   <Image src={rec4} alt="" />
@@ -165,7 +180,7 @@ const wpuploads = import.meta.env.WP_UPLOADS;
             </div>
             <div class="column is-4">
                <a
-                  href={wpuploads+"/2023/06/Newspaper-El-Mundo-Ad-Eng.pdf"}
+                  href={wpuploads + "/2023/06/Newspaper-El-Mundo-Ad-Eng.pdf"}
                   target="_blank"
                >
                   <Image src={rec5} alt="" />

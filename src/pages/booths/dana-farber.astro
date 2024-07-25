@@ -8,6 +8,7 @@ import rec2 from "../../images/recursos/dana-rec2.webp";
 import rec3 from "../../images/recursos/dana-rec3.webp";
 import rec4 from "../../images/recursos/dana-rec4.webp";
 import rec5 from "../../images/recursos/dana-rec5.webp";
+import rec6 from "../../images/recursos/dana-rec6.webp";
 import ModalForm from "../../components/ModalForm.astro";
 
 const booth = {
@@ -128,10 +129,23 @@ const wpuploads = import.meta.env.WP_UPLOADS;
 
    <section class="section" id="recursos">
       <div class="container is-max-widescreen">
+         <div class="columns is-centered">
+            <div class="column is-9">
+               <a
+                  href={wpuploads +
+                     "2024/06/Sun-Safety-Beach-Schedule-Postcard_5x7_-Spanish.pdf"}
+                  target="_blank"
+               >
+                  <Image src={rec6} alt="" />
+               </a>
+            </div>
+         </div>
+
          <div class="columns">
             <div class="column">
                <a
-                  href={wpuploads +"/2023/12/Evaluacion-del-riesgo-de-cancer-la-innovadora-herramienta-de-Dana-Farber.pdf"}
+                  href={wpuploads +
+                     "/2023/12/Evaluacion-del-riesgo-de-cancer-la-innovadora-herramienta-de-Dana-Farber.pdf"}
                   target="_blank"
                >
                   <Image src={rec1} alt="" />

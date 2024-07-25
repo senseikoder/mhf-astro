@@ -168,6 +168,66 @@ const eventos = await res.json();
       </div>
    </section>
 
+   <section class="section" id="eventos">
+      <div class="container is-max-widescreen">
+         <div class="buttons is-centered">
+            <a class="button is-info is-outlined" href={`${pagina - 1}`}
+               >Semana anterior</a
+            >
+            <a class="button is-info is-outlined" href={`${pagina + 1}`}
+               >Semana siguiente</a
+            >
+         </div>
+
+         <div class="has-text-centered my-4">
+            <p class="is-size-5">
+               Mostrando eventos de la semana: <strong
+                  >{startDate.toLocaleDateString()}</strong
+               > al <strong>{endDate.toLocaleDateString()}</strong>
+            </p>
+         </div>
+
+         <div class="columns is-multiline is-variable is-8">
+            {
+               eventos.events.map((evento: any) => (
+                  <div class="column is-4">
+                     <div class="card">
+                        <div class="card-content">
+                           <a href={`/event/${evento.slug}`}>
+                              <img
+                                 width={720}
+                                 height={360}
+                                 src={evento.image.url}
+                                 alt=""
+                              />
+                              <h4 class="title is-5 my-4">
+                                 <Fragment set:html={evento.title} />
+                              </h4>
+                           </a>
+
+                           <small>
+                              <FormattedDate
+                                 date={new Date(evento.start_date)}
+                              />{" "}
+                              @
+                              <FormattedTime
+                                 date_ini={new Date(evento.start_date)}
+                                 date_end={new Date(evento.end_date)}
+                              />
+                           </small>
+
+                           <small>
+                              <Fragment set:html={evento.excerpt} />
+                           </small>
+                        </div>
+                     </div>
+                  </div>
+               ))
+            }
+         </div>
+      </div>
+   </section>
+
    <section class="section" id="recursos">
       <div class="container is-max-widescreen">
          <div class="columns">
@@ -239,68 +299,6 @@ const eventos = await res.json();
                   <Image src={rec8} alt="" />
                </a>
             </div>
-         </div>
-      </div>
-   </section>
-
-   <section class="section" id="eventos">
-      <div class="container is-max-widescreen">
-         <div class="buttons is-centered">
-            <a
-               class="button is-info is-outlined"
-               href={`${pagina - 1}`}>Semana anterior</a
-            >
-            <a
-               class="button is-info is-outlined"
-               href={`${pagina + 1}`}>Semana siguiente</a
-            >
-         </div>
-
-         <div class="has-text-centered my-4">
-            <p class="is-size-5">
-               Mostrando eventos de la semana: <strong
-                  >{startDate.toLocaleDateString()}</strong
-               > al <strong>{endDate.toLocaleDateString()}</strong>
-            </p>
-         </div>
-
-         <div class="columns is-multiline is-variable is-8">
-            {
-               eventos.events.map((evento: any) => (
-                  <div class="column is-4">
-                     <div class="card">
-                        <div class="card-content">
-                           <a href={`/event/${evento.slug}`}>
-                              <img
-                                 width={720}
-                                 height={360}
-                                 src={evento.image.url}
-                                 alt=""
-                              />
-                              <h4 class="title is-5 my-4">
-                                 <Fragment set:html={evento.title} />
-                              </h4>
-                           </a>
-
-                           <small>
-                              <FormattedDate
-                                 date={new Date(evento.start_date)}
-                              />{" "}
-                              @
-                              <FormattedTime
-                                 date_ini={new Date(evento.start_date)}
-                                 date_end={new Date(evento.end_date)}
-                              />
-                           </small>
-
-                           <small>
-                              <Fragment set:html={evento.excerpt} />
-                           </small>
-                        </div>
-                     </div>
-                  </div>
-               ))
-            }
          </div>
       </div>
    </section>

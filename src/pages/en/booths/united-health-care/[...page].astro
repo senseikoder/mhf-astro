@@ -6,6 +6,7 @@ import ModalVideo from "../../../../components/ModalVideo.astro";
 import BoothLayout from "../../../../layouts/BoothLayout.astro";
 import FormattedDate from "../../../../components/FormattedDate.astro";
 import FormattedTime from "../../../../components/FormattedTime.astro";
+import Image from "astro/components/Image.astro";
 const booth = {
    image: "united-health-care.webp",
    btn1: "brochure.webp",
@@ -14,6 +15,8 @@ const booth = {
    btn4: "events.webp",
    btn5: "contact.webp",
 };
+import rec1 from "../../../../images/recursos/uhc-rec1_.webp";
+
 const wpuploads = import.meta.env.WP_UPLOADS;
 const wpurl = import.meta.env.WP_URL_EVENTS;
 
@@ -212,6 +215,22 @@ const eventos = await res.json();
                   </div>
                ))
             }
+         </div>
+      </div>
+   </section>
+
+   <section class="section" id="recursos">
+      <div class="container is-max-widescreen">
+         <div class="columns is-centered">
+            <div class="column is-6">
+               <a
+                  href={wpuploads +
+                     "2024/07/UnitedHealthcare-fresh-truck-ING.pdf"}
+                  target="_blank"
+               >
+                  <Image src={rec1} alt="" />
+               </a>
+            </div>
          </div>
       </div>
    </section>
