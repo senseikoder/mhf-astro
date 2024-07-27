@@ -5,13 +5,14 @@ import HomeFeria from "../components/HomeFeria.astro";
 import HomeCats from "../components/HomeCats.astro";
 import HomeCarrusel from "../components/HomeCarrusel.astro";
 import HomeBlog from "../components/HomeBlog.astro";
+import { Image } from "astro:assets";
+import emb_header from "../images/emb-header.webp";
 
 import "flickity/dist/flickity.min.css";
 import HomeVideos from "../components/HomeVideos.astro";
 ---
 
 <HomeLayout title="Feria de Salud - Massachussets" description="">
-
 	<HomeFeria />
 
 	<section class="section">
@@ -32,14 +33,19 @@ import HomeVideos from "../components/HomeVideos.astro";
 		</div>
 	</section>
 
-	<HomeCats />
+	<section class="section p-2 is-hidden-touch">
+		<div class="has-text-centered">
+			<a href="https://elmundoboston.com" target="_blank" alt="El Mundo Boston">
+				<Image src={emb_header} alt="El Mundo Boston" />
+			</a>
+		</div>
+	</section>
 
-	<HomeVideos/>
+	<!-- <HomeCats /> -->
+
+	<HomeVideos />
 
 	<HomeCarrusel />
 
 	<HomeBlog />
-	
 </HomeLayout>
-
-

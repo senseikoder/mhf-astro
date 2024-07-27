@@ -1,0 +1,35 @@
+---
+import { Image } from "astro:assets";
+import Mailchimp from "./Mailchimp.astro";
+import banner from "../images/banner-newsletter.webp";
+---
+
+<div class="modal" id="modal-popup">
+   <div class="modal-background"></div>
+   <div class="modal-card">
+
+         <button class="delete" aria-label="close"></button>
+
+      <div class="modal-card-body">
+         <div class="content has-text-centered">
+            <Image src={banner} alt="" />
+            <h4 class="title">Complete sus datos para descargarlo</h4>
+            <Mailchimp />
+         </div>
+      </div>
+      <footer class="modal-card-foot"></footer>
+   </div>
+   <button class="modal-close is-large" aria-label="close"></button>
+</div>
+
+<style>
+   .modal-card-head {
+      justify-content: center;
+   }
+
+   .delete {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+   }
+</style>

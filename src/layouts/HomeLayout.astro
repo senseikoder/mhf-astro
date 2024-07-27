@@ -4,12 +4,16 @@ import BaseHead from "../components/BaseHead.astro";
 import NavbarHome from "../components/NavbarHome.astro";
 import Footer from "../components/Footer.astro";
 import FooterEN from "../components/FooterEN.astro";
+import { Image } from "astro:assets";
+import emb_header from "../images/emb-header.webp";
+
 const idioma = Astro.currentLocale;
 const { title, description } = Astro.props;
 
 // Supports weights 100-900
 import "@fontsource-variable/dm-sans";
 import TabLang from "../components/TabLang.astro";
+import ModalPopup from "../components/ModalPopup.astro";
 ---
 
 <html lang={idioma} data-theme="light">
@@ -19,15 +23,18 @@ import TabLang from "../components/TabLang.astro";
    </head>
 
    <body>
+      <section class="section p-2 is-hidden-desktop">
+         <div class="block">
+            <Image src={emb_header} alt="El Mundo Boston" />
+         </div>
+      </section>
+
       <NavbarHome />
       <slot />
-      {
-         idioma == 'es' ?
-         <Footer />
-         :
-         <FooterEN />
-      }
+      {idioma == "es" ? <Footer /> : <FooterEN />}
       <script src="../js/main.js"></script>
+      <script src="../js/popup.js"></script>
       <TabLang />
+      <ModalPopup />
    </body>
 </html>

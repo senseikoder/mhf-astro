@@ -9,6 +9,7 @@ import { Image } from "astro:assets";
 import rec1 from "../../../../images/recursos/rec1_.webp";
 import rec2 from "../../../../images/recursos/rec2_.webp";
 import rec3 from "../../../../images/recursos/rec3_.webp";
+import rec9 from "../../../../images/recursos/rec9_.webp";
 
 const booth = {
    image: "alzheimers-association.webp",
@@ -228,6 +229,14 @@ const eventos = await res.json();
    <section class="section" id="recursos">
       <div class="container is-max-widescreen">
          <div class="columns">
+            <div class="column">
+               <a
+                  href={wpuploads + "/2024/07/EARLY-SIGNS-OF-ALZHEIMER.pdf"}
+                  target="_blank"
+               >
+                  <Image src={rec9} alt="" />
+               </a>
+            </div>
             <div class="column">
                <a
                   href={wpuploads +

@@ -16,6 +16,7 @@ const booth = {
    btn5: "contacto.webp",
 };
 import rec1 from "../../../images/recursos/uhc-rec1.webp";
+import baneruhc from "../../../images/banner-uhc.webp";
 
 const wpuploads = import.meta.env.WP_UPLOADS;
 const wpurl = import.meta.env.WP_URL_EVENTS;
@@ -239,12 +240,14 @@ const eventos = await res.json();
       subject="Booth United Health Care - Web Form"
    >
       <div class="has-text-centered">
-         <h3 class="title">
-            Telf: <a href="tel:+1866-325-4811" class="has-text-link"
-               >866-325-4811</a
-            >
-         </h3>
-         <h4 class="subtitle">Hablamos Español</h4>
+         <div class="image">
+            <Image src={baneruhc} alt="" />
+         </div>
+
+         <div class="block mt-4">            
+            <a href="tel:+1866-325-4811" class="button is-medium is-rounded is-link is-outlined">866-325-4811</a>
+         </div>
+        
       </div>
    </ModalForm>
 </BoothLayout>

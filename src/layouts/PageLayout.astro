@@ -9,6 +9,7 @@ const { title, description } = Astro.props;
 
 import "@fontsource-variable/dm-sans";
 import TabLang from "../components/TabLang.astro";
+import ModalPopup from "../components/ModalPopup.astro";
 ---
 
 <html lang={idioma} data-theme="light">
@@ -23,5 +24,6 @@ import TabLang from "../components/TabLang.astro";
       {idioma == "es" ? <Footer /> : <FooterEN />}
       <script src="../js/main.js"></script>
       <TabLang />
+      <ModalPopup />
    </body>
 </html>

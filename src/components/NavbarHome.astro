@@ -2,6 +2,8 @@
 import { Image } from "astro:assets";
 import logoMHF from "../images/logo-MHF-short.webp";
 import SubmenuFeria from "./SubmenuFeria.astro";
+import SubmenuBlogES from "./SubmenuBlogES.astro";
+import SubmenuBlogEN from "./SubmenuBlogEN.astro";
 import SubmenuFair from "./SubmenuFair.astro";
 const { pathname } = Astro.url;
 const idioma = Astro.currentLocale;
@@ -40,14 +42,13 @@ if (pathname == "/" || pathname == "/en" || pathname == "/en/") isHome = true;
                         Acerca de
                      </a>
 
-                     <a href="/blog" class="navbar-item">
-                        Vblog
-                     </a>
+                     <SubmenuBlogES />
+
                      <a href="/eventos" class="navbar-item">
                         Eventos
                      </a>
-                     <a href="/toolkit" class="navbar-item">
-                        Toolkit
+                     <a href="/videos" class="navbar-item">
+                        Videos
                      </a>
                      <a href="/contacto" class="navbar-item">
                         Contacto
@@ -73,20 +74,18 @@ if (pathname == "/" || pathname == "/en" || pathname == "/en/") isHome = true;
                      </a>
 
                      <SubmenuFair />
-                     
+
                      <a href="/en/about" class="navbar-item">
                         About us
                      </a>
 
+                     <SubmenuBlogEN />
 
-                     <a href="/en/blog" class="navbar-item">
-                        Vblog
-                     </a>
                      <a href="/en/events" class="navbar-item">
                         Events
                      </a>
-                     <a href="/en/toolkit" class="navbar-item">
-                        Toolkit
+                     <a href="/en/videos" class="navbar-item">
+                        Videos
                      </a>
                      <a href="/en/contact" class="navbar-item">
                         Contact
