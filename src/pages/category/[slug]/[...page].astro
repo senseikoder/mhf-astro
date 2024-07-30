@@ -40,7 +40,7 @@ const posts = await res.json();
                                  alt=""
                               />
                               <h4 class="title is-5 my-4">
-                                 {post.title.rendered}
+                                 <Fragment set:html={post.title.rendered} />
                               </h4>
                            </a>
 
