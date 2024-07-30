@@ -4,6 +4,8 @@ import HeaderLink from "./HeaderLink.astro";
 import logoMHF from "../images/logo-MHF-short.webp";
 import SubmenuFeria from "./SubmenuFeria.astro";
 import SubmenuFair from "./SubmenuFair.astro";
+import SubmenuBlogES from "./SubmenuBlogES.astro";
+import SubmenuBlogEN from "./SubmenuBlogEN.astro";
 const idioma = Astro.currentLocale;
 ---
 
@@ -29,7 +31,7 @@ const idioma = Astro.currentLocale;
                      <HeaderLink href="/">Inicio</HeaderLink>
                      <SubmenuFeria />
                      <HeaderLink href="/acerca-de">Acerca de</HeaderLink>
-                     <HeaderLink href="/blog">VBlog</HeaderLink>
+                     <SubmenuBlogES />
                      <HeaderLink href="/eventos">Eventos</HeaderLink>
                      <HeaderLink href="/toolkit">Toolkit</HeaderLink>
                      <HeaderLink href="/contacto">Contacto</HeaderLink>
@@ -43,13 +45,13 @@ const idioma = Astro.currentLocale;
                            style="width: 16px; height: 11px;"
                         />
                      </HeaderLink>
-                  </>
+                  </SubmenuBlogES>
                ) : (
                   <>
                      <HeaderLink href="/en">Home</HeaderLink>
                      <SubmenuFair />
                      <HeaderLink href="/en/about">About us</HeaderLink>
-                     <HeaderLink href="/en/blog">VBlog</HeaderLink>
+                     <SubmenuBlogEN />
                      <HeaderLink href="/en/events">Events</HeaderLink>
                      <HeaderLink href="/en/toolkit">Toolkit</HeaderLink>
                      <HeaderLink href="/en/contact">Contact</HeaderLink>
@@ -63,7 +65,7 @@ const idioma = Astro.currentLocale;
                            style="width: 16px; height: 11px;"
                         />
                      </HeaderLink>
-                  </>
+                  </SubmenuBlogEN>
                )
             }
          </div>
