@@ -14,7 +14,10 @@ const booth = {
 const wpuploads = import.meta.env.WP_UPLOADS;
 ---
 
-<BoothLayout title="Acerca de" description="Lorem ipsum dolor sit amet">
+<BoothLayout
+   title="Whittier Street Health Center"
+   description="Lorem ipsum dolor sit amet"
+>
    <section class="section banner-booth">
       <div class="is-overlay"></div>
       <div class="container has-text-white">
@@ -48,7 +51,8 @@ const wpuploads = import.meta.env.WP_UPLOADS;
 
                   <!-- Brochure -->
                   <a
-                     xlink:href={wpuploads + "/2022/08/Womens-Health-Spanish.pdf"}
+                     xlink:href={wpuploads +
+                        "/2022/08/Womens-Health-Spanish.pdf"}
                      target="_blank"
                   >
                      <image
@@ -73,10 +77,7 @@ const wpuploads = import.meta.env.WP_UPLOADS;
                   </a>
 
                   <!-- Despensa -->
-                  <a
-                     xlink:href="/2022/08/2021-Food-pantry.pdf"
-                     target="_blank"
-                  >
+                  <a xlink:href={wpuploads+"/2022/08/2021-Food-pantry.pdf"} target="_blank">
                      <image
                         x="90"
                         y="660"

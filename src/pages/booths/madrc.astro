@@ -13,7 +13,10 @@ const booth = {
 const wpuploads = import.meta.env.WP_UPLOADS;
 ---
 
-<BoothLayout title="Acerca de" description="Lorem ipsum dolor sit amet">
+<BoothLayout
+   title="Massachusetts Alzheimer's Disease Reasearch Center"
+   description="Lorem ipsum dolor sit amet"
+>
    <section class="section banner-booth">
       <div class="is-overlay"></div>
       <div class="container has-text-white">
@@ -55,7 +58,8 @@ const wpuploads = import.meta.env.WP_UPLOADS;
 
                   <!-- Brochure -->
                   <a
-                     xlink:href={wpuploads + "/2023/11/Symptomatic-Prevention-Flyers-ESP.pdf"}
+                     xlink:href={wpuploads +
+                        "/2023/11/Symptomatic-Prevention-Flyers-ESP.pdf"}
                   >
                      <image
                         x="85"
