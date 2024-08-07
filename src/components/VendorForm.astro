@@ -1,0 +1,248 @@
+---
+const idioma = Astro.currentLocale;
+const empresa = idioma == "es" ? "Nombre empresa" : "Company";
+const nombre = idioma == "es" ? "Nombre" : "Name";
+const apellido = idioma == "es" ? "Apellido" : "Lastname";
+const cargo = idioma == "es" ? "Cargo" : "Position";
+const correo = idioma == "es" ? "Correo empresa" : "Company email";
+const direccion = idioma == "es" ? "Dirección" : "Address";
+const ciudad = idioma == "es" ? "Ciudad" : "City";
+const estado = idioma == "es" ? "Estado" : "State";
+const zipcode = idioma == "es" ? "Código Postal" : "Zip code";
+const telefono = idioma == "es" ? "Teléfono" : "Phone";
+const mensaje = idioma == "es" ? "Mensaje" : "Message";
+const boton = idioma == "es" ? "Enviar" : "Send";
+const howto = {
+   label:
+      idioma == "es"
+         ? "¿Cómo se enteró de My Health Fair?"
+         : "How did you find out My Health Fair? ",
+   opc1: idioma == "es" ? "Búsqueda web" : "Web search",
+   opc2: idioma == "es" ? "Redes sociales" : "Social media",
+   opc3: idioma == "es" ? "Otro" : "Other",
+};
+---
+
+<form id="contact-form">
+   <div class="columns is-multiline">
+      <div class="column is-12">
+         <input
+            class="input"
+            type="text"
+            id="empresa"
+            placeholder={empresa}
+            required
+         />
+      </div>
+      <div class="column is-6">
+         <input
+            class="input"
+            type="text"
+            id="nombre"
+            placeholder={nombre}
+            required
+         />
+      </div>
+      <div class="column is-6">
+         <input
+            class="input"
+            type="text"
+            id="apellido"
+            placeholder={apellido}
+            required
+         />
+      </div>
+      <div class="column is-6">
+         <input
+            class="input"
+            type="text"
+            id="cargo"
+            placeholder={cargo}
+            required
+         />
+      </div>
+      <div class="column is-6">
+         <input
+            class="input"
+            type="email"
+            id="correo"
+            placeholder={correo}
+            required
+         />
+      </div>
+      <div class="column is-12">
+         <input class="input" id="direccion" placeholder={direccion} required />
+      </div>
+
+      <div class="column is-6">
+         <input class="input" id="ciudad" placeholder={ciudad} required />
+      </div>
+
+      <div class="column is-6">
+         <input class="input" id="estado" placeholder={estado} required />
+      </div>
+
+      <div class="column is-6">
+         <input class="input" id="zipcode" placeholder={zipcode} required />
+      </div>
+      <div class="column is-6">
+         <input class="input" id="telefono" placeholder={telefono} required />
+      </div>
+
+      <div class="column is-12">
+         <textarea
+            class="textarea"
+            rows="6"
+            id="mensajeZhyr7"
+            placeholder={mensaje}
+            required></textarea>
+      </div>
+
+      <div class="column is-6">
+         <div class="field">
+            <label for="howto">{howto.label}</label>
+         </div>
+         <input type="checkbox" class="checkbox" id="howto" name="howto" />
+         {howto.opc1}
+         <input type="checkbox" class="checkbox" id="howto" name="howto" />
+         {howto.opc2}
+         <input type="checkbox" class="checkbox" id="howto" name="howto" />
+         {howto.opc3}
+      </div>
+
+      <!-- T a r r i t o d e l i e m -->
+      <div class="fieldset ohnohoney">
+         <label for="name"></label>
+         <input
+            autocomplete="off"
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Your name here"
+         />
+         <label for="email"></label>
+         <input
+            autocomplete="off"
+            type="email"
+            id="nickname"
+            name="nickname"
+            placeholder="Your e-mail here"
+         />
+      </div>
+      <!-- ///////// -->
+
+      <div class="column is-12">
+         <div class="mt-10">
+            <button class="button is-medium is-primary">{boton}</button>
+         </div>
+      </div>
+   </div>
+</form>
+
+<div class="notification animated fadeInUp is-hidden">
+   <button class="delete"></button>
+   <span class="text"></span>
+</div>
+
+<script>
+   document.addEventListener("astro:page-load", () => {
+      const form = document.querySelector("#contact-form");
+
+      if (!form) return;
+
+      const empresa = document.querySelector("#empresa");
+      const nombre = document.querySelector("#nombre");
+      const apellido = document.querySelector("#apellido");
+      const cargo = document.querySelector("#cargo");
+      const correo = document.querySelector("#correo");
+      const direccion = document.querySelector("#direccion");
+      const ciudad = document.querySelector("#ciudad");
+      const estado = document.querySelector("#estado");
+      const zipcode = document.querySelector("#zipcode");
+      const telefono = document.querySelector("#telefono");
+      const mensaje = document.querySelector("#mensajeZhyr7");
+      const howto = document.querySelector("#howto");
+
+      const name = document.querySelector("#name");
+      const nickname = document.querySelector("#nickname");
+      const notif = document.querySelector(".notification");
+
+      form?.addEventListener("submit", async (event) => {
+         event.preventDefault();
+         if (!name.value && !nickname.value) {
+            const cuerpo = `<h3>Become Vendor Spanish</h3>
+                           <p><b>Company:</b> ${empresa.value}</p>
+                           <p><b>Name:</b> ${nombre.value}</p>
+                           <p><b>Lastname:</b> ${apellido.value}</p>
+                           <p><b>Position:</b> ${cargo.value}</p>
+                           <p><b>Email:</b> ${correo.value}</p>
+                           <p><b>Address:</b> ${direccion.value}</p>
+                           <p><b>City:</b> ${ciudad.value}</p>
+                           <p><b>State:</b> ${estado.value}</p>
+                           <p><b>Zip Code:</b> ${zipcode.value}</p>
+                           <p><b>Contact Phone:</b> ${telefono.value}</p>
+                           <p><b>Message:</b> ${mensaje.value}</p>
+                           <p><b>How find out:</b> ${howto.value}</p>
+                           <br><br>
+                           <p>This message was sent from myhealthfair.com</p>`;
+
+            const emailData = {
+               from: "info@miferiadesalud.com",
+               to: ["info@myhealthfair.com, molina.frank@outlook.com"],
+               subject: "Become Vendor",
+               html: cuerpo,
+            };
+
+            const res = await fetch("/api/sendEmail.json", {
+               method: "POST",
+               headers: {
+                  "Content-Type": "application/json",
+               },
+               body: JSON.stringify(emailData),
+            });
+
+            if (res.ok) {
+               notif.classList.toggle("is-success");
+               notif.classList.toggle("is-hidden");
+               notif.lastElementChild.textContent = "Your message was sent! 👍";
+            } else {
+               const error = await res.json();
+               console.error("Error:", error);
+               notif.lastElementChild.textContent = "Oh sorry 🙁";
+               notif.classList.toggle("is-hidden");
+               notif.classList.toggle("is-danger");
+            }
+         }
+
+         setTimeout(() => {
+            notif.classList.toggle("is-hidden");
+            notif.classList.remove("is-danger");
+            notif.classList.remove("is-success");
+
+            nombre.value = "";
+            telf.value = "";
+            email.value = "";
+            mensaje.value = "";
+         }, 2000);
+      });
+   });
+</script>
+
+<style>
+   .ohnohoney {
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 0;
+      width: 0;
+      z-index: -1;
+   }
+
+   .notification {
+      width: 300px;
+      position: absolute;
+      bottom: 3rem;
+      right: 3rem;
+   }
+</style>

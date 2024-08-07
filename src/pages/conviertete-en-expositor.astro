@@ -1,0 +1,33 @@
+---
+import VendorForm from "../components/VendorForm.astro";
+import PageLayout from "../layouts/PageLayout.astro";
+---
+
+<PageLayout
+   title="Conviértete en un Expositor"
+   description="Lorem ipsum dolor sit amet"
+>
+   <section class="section">
+      <div class="container my-6">
+         <div class="columns is-centered">
+            <div class="column is-10">
+               <div class="content">
+                  <p>
+                     Si está interesado en obtener más información sobre el
+                     proveedor / patrocinador de My Health Fair, envíenos su
+                     información completando el formulario a continuación.
+                  </p>
+
+                  <p>
+                     Respetamos su privacidad y no compartiremos su información
+                     con terceros.
+                  </p>
+
+                  <VendorForm />
+
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+</PageLayout>
