@@ -2,6 +2,7 @@
 import PageLayout from "../../layouts/PageLayout.astro";
 import { Image } from "astro:assets";
 import picContact from "../../images/pic-contact.webp";
+import ContactForm from "../../components/ContactForm.astro";
 ---
 
 <PageLayout title="Contacto" description="Lorem ipsum dolor sit amet">
@@ -15,53 +16,9 @@ import picContact from "../../images/pic-contact.webp";
             </div>
 
             <div class="column is-5 is-offset-1 py-6">
-               <form action="">
-                  <div class="field">
-                     <label class="label">Name</label>
-                     <div class="control">
-                        <input class="input" type="text" />
-                     </div>
-                  </div>
-
-                  <div class="field">
-                     <label class="label">Email</label>
-                     <div class="control has-icons-left has-icons-right">
-                        <input class="input" type="text" />
-                     </div>
-                     <!-- <p class="help is-success">This username is available</p> -->
-                  </div>
-
-                  <div class="field">
-                     <label class="label">Phone</label>
-                     <div class="control has-icons-left has-icons-right">
-                        <input class="input" type="email" />
-                     </div>
-                     <!-- <p class="help is-danger">This email is invalid</p> -->
-                  </div>
-
-                  <div class="field">
-                     <label class="label">Message</label>
-                     <div class="control">
-                        <textarea class="textarea"></textarea>
-                     </div>
-                  </div>
-
-                  <div class="field is-grouped">
-                     <div class="control">
-                        <button class="button is-link">Send</button>
-                     </div>
-                     <!-- <div class="control">
-                        <button class="button is-link is-light">Cancel</button>
-                     </div> -->
-                  </div>
-               </form>
+               <ContactForm />
             </div>
          </div>
-
-         <h3 class="subtitle is-4 has-text-primary-60 has-text-centered mt-6">
-            #myhealthfair #virtualfair #healthresources #Massachusetts
-            #latincommunity
-         </h3>
       </div>
    </section>
 </PageLayout>
