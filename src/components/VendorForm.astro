@@ -102,11 +102,26 @@ const howto = {
          <div class="field">
             <label for="howto">{howto.label}</label>
          </div>
-         <input type="checkbox" class="checkbox" id="howto" name="howto" />
+         <input
+            type="checkbox"
+            class="checkbox"
+            name="howto"
+            value={howto.opc1}
+         />
          {howto.opc1}
-         <input type="checkbox" class="checkbox" id="howto" name="howto" />
+         <input
+            type="checkbox"
+            class="checkbox"
+            name="howto"
+            value={howto.opc2}
+         />
          {howto.opc2}
-         <input type="checkbox" class="checkbox" id="howto" name="howto" />
+         <input
+            type="checkbox"
+            class="checkbox"
+            name="howto"
+            value={howto.opc3}
+         />
          {howto.opc3}
       </div>
 
@@ -161,7 +176,7 @@ const howto = {
       const zipcode = document.querySelector("#zipcode");
       const telefono = document.querySelector("#telefono");
       const mensaje = document.querySelector("#mensajeZhyr7");
-      const howto = document.querySelector("#howto");
+      const findOptions = document.querySelectorAll("input[name='howto']");
 
       const name = document.querySelector("#name");
       const nickname = document.querySelector("#nickname");
@@ -169,8 +184,14 @@ const howto = {
 
       form?.addEventListener("submit", async (event) => {
          event.preventDefault();
+
+         let howOptions = [];
+         findOptions.forEach((option) => {
+            if (option.checked) howOptions.push(option.value);
+         });
+
          if (!name.value && !nickname.value) {
-            const cuerpo = `<h3>Become Vendor Spanish</h3>
+            const cuerpo = `<h3>Become Vendor Form</h3>
                            <p><b>Company:</b> ${empresa.value}</p>
                            <p><b>Name:</b> ${nombre.value}</p>
                            <p><b>Lastname:</b> ${apellido.value}</p>
@@ -182,13 +203,13 @@ const howto = {
                            <p><b>Zip Code:</b> ${zipcode.value}</p>
                            <p><b>Contact Phone:</b> ${telefono.value}</p>
                            <p><b>Message:</b> ${mensaje.value}</p>
-                           <p><b>How find out:</b> ${howto.value}</p>
+                           <p><b>How find out:</b> ${howOptions.join(", ")}</p>
                            <br><br>
                            <p>This message was sent from myhealthfair.com</p>`;
 
             const emailData = {
                from: "info@miferiadesalud.com",
-               to: ["info@myhealthfair.com, molina.frank@outlook.com"],
+               to: ["info@myhealthfair.com"],
                subject: "Become Vendor",
                html: cuerpo,
             };
@@ -220,7 +241,7 @@ const howto = {
             notif.classList.remove("is-success");
 
             nombre.value = "";
-            telf.value = "";
+            telefono.value = "";
             email.value = "";
             mensaje.value = "";
          }, 2000);
