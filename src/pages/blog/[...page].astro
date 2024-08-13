@@ -14,6 +14,13 @@ const res = await fetch(`${wpurl}/posts?page=${pagina}&lang=${idioma}&_embed`);
 
 const totalPaginas = res.headers.get("x-wp-totalpages");
 const posts = await res.json();
+
+// Convertir la fecha del post a un formato legible
+function fechaFormateada(fechaPost) {
+	const fecha = new Date(fechaPost);
+	const opcionesFecha = { month: "short", day: "numeric" }
+	return fecha.toLocaleDateString("es-ES", opcionesFecha)
+}
 ---
 
 <PageLayout title="Feria de Salud - Blog" description="Blog">
@@ -27,6 +34,9 @@ const posts = await res.json();
 							<div class="card">
 								<div class="card-content">
 									<a href={`/${post.slug}`}>
+										<div class="date-overlay">
+											{fechaFormateada(post.date)}
+										</div>
 										<img
 											width={720}
 											height={360}
@@ -89,6 +99,24 @@ const posts = await res.json();
 <style>
 	.banner {
 		background: url("../../images/banner-blog.webp") center / cover no-repeat;
+		position: relative;
+	}
+
+	.date-overlay {
+		position: absolute;
+		top: 5px;
+		left: 5px;
+		background-color: #179ae1dc;
+		color: #fff;
+		padding: 5px 10px;
+		font-size: 1.2rem;
+		font-weight: bold;
+		z-index: 2;
+		border-radius: 10px;
+		text-transform: capitalize;
+	}
+
+	.card {
 		position: relative;
 	}
 </style>
