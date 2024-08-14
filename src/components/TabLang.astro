@@ -2,14 +2,20 @@
 import { Image } from "astro:assets";
 import flagES from "../images/flag-esp.png";
 import flagEN from "../images/flag-eng.png";
+import { getRelativeLocaleUrl } from "astro:i18n";
 
 const idioma = Astro.currentLocale;
+
 const imgFlag = idioma == "es" ? flagEN : flagES;
-const homeUrl = idioma == "es" ? "/en" : "/";
+const urlLang = idioma == "es" ? "en" : "es";
+const arrayRuta = Astro.url.pathname.split('/');
+console.log(arrayRuta.length);
+const urlPath = arrayRuta.length == 2 ? Astro.url.pathname : arrayRuta[2]
+const url = getRelativeLocaleUrl(urlLang, urlPath);
 ---
 
 <div class="tab is-hidden-mobile">
-   <a href={homeUrl}>
+   <a href={url}>
       {idioma == "es" ? <span>English</span> : <span>Español</span>}
       <Image src={imgFlag} alt="idioma" width="20" height="20" />
    </a>
@@ -42,5 +48,4 @@ const homeUrl = idioma == "es" ? "/en" : "/";
       opacity: 1;
       box-shadow: 0 2px 4px grey;
    }
-   
 </style>
