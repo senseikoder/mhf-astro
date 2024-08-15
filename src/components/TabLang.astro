@@ -5,13 +5,30 @@ import flagEN from "../images/flag-eng.png";
 import { getRelativeLocaleUrl } from "astro:i18n";
 
 const idioma = Astro.currentLocale;
+const wpurl = import.meta.env.WP_URL;
+let objTrads = Astro.props["traducciones"];
+let isPost = Astro.props["isPost"];
 
-const imgFlag = idioma == "es" ? flagEN : flagES;
-const urlLang = idioma == "es" ? "en" : "es";
-const arrayRuta = Astro.url.pathname.split('/');
-console.log(arrayRuta.length);
-const urlPath = arrayRuta.length == 2 ? Astro.url.pathname : arrayRuta[2]
-const url = getRelativeLocaleUrl(urlLang, urlPath);
+let imgFlag = idioma == "es" ? flagEN : flagES;
+let urlLang = idioma == "es" ? "en" : "es";
+let arrayRuta = Astro.url.pathname.split("/");
+// let urlBlog = arrayRuta.includes("blog");
+let urlPath, urlPost, url;
+
+if (arrayRuta.length > 2) {
+   if (isPost) {
+      let idUrlPost = idioma == "es" ? objTrads["en"] : objTrads["es"];
+      let res = await fetch(`${wpurl}/posts/${idUrlPost}`);
+      let post = await res.json();
+      urlPost = idioma == "es" ? "/en/blog/" + post.slug : "/blog/" + post.slug;
+   } else {
+      urlPath = arrayRuta[2];
+   }
+} else {
+   urlPath = Astro.url.pathname;
+}
+
+url = isPost ? urlPost : getRelativeLocaleUrl(urlLang, urlPath);
 ---
 
 <div class="tab is-hidden-mobile">

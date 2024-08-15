@@ -6,7 +6,7 @@ import Footer from "../components/Footer.astro";
 import FooterEN from "../components/FooterEN.astro";
 // import FormattedDate from "../components/FormattedDate.astro";
 const idioma = Astro.currentLocale;
-const { title, description, heroImage, date } = Astro.props;
+const { title, description, heroImage, translations } = Astro.props;
 
 import "@fontsource-variable/dm-sans";
 import TabLang from "../components/TabLang.astro";
@@ -46,7 +46,9 @@ import AsideCategories from "../components/AsideCategories.astro";
 								<!-- <div class="date">
 									<FormattedDate date={new Date(date)} />
 								</div> -->
-								<h1 class="title">{title.rendered}</h1>
+								<h1 class="title">
+									<Fragment set:html={title.rendered} />
+								</h1>
 								<hr />
 								<slot />
 							</div>
@@ -55,7 +57,13 @@ import AsideCategories from "../components/AsideCategories.astro";
 					<div class="column is-4 p-5">
 						<aside>
 							{idioma == "es" ? <AsideEntradas /> : <AsidePosts />}
-							{idioma == "es" ? <AsideCategorias /> : <AsideCategories />}
+							{
+								idioma == "es" ? (
+									<AsideCategorias />
+								) : (
+									<AsideCategories />
+								)
+							}
 						</aside>
 					</div>
 				</div>
@@ -71,6 +79,6 @@ import AsideCategories from "../components/AsideCategories.astro";
 			}
 		</style>
 
-		<TabLang />
+		<TabLang traducciones={translations} isPost="1" />
 	</body>
 </html>

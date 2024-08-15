@@ -6,14 +6,14 @@ const { slug } = Astro.params;
 const wpurl = import.meta.env.WP_URL;
 
 let res = await fetch(
-   `${wpurl}/posts?slug=${slug}&_embed`,
+	`${wpurl}/posts?slug=${slug}&_embed`,
 );
 let [post] = await res.json();
 
 post["heroImage"] =
-   post._embedded["wp:featuredmedia"][0].media_details.sizes.large.source_url;
+	post._embedded["wp:featuredmedia"][0].media_details.sizes.large.source_url;
 ---
 
 <BlogPost {...post}>
-   <Fragment set:html={post.content.rendered} />
+	<Fragment set:html={post.content.rendered} />
 </BlogPost>
