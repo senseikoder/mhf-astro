@@ -11,21 +11,17 @@ let isPost = Astro.props["isPost"];
 
 let imgFlag = idioma == "es" ? flagEN : flagES;
 let urlLang = idioma == "es" ? "en" : "es";
-let arrayRuta = Astro.url.pathname.split("/");
-// let urlBlog = arrayRuta.includes("blog");
+
 let urlPath, urlPost, url;
 
-if (arrayRuta.length > 2) {
-   if (isPost) {
-      let idUrlPost = idioma == "es" ? objTrads["en"] : objTrads["es"];
-      let res = await fetch(`${wpurl}/posts/${idUrlPost}`);
-      let post = await res.json();
-      urlPost = idioma == "es" ? "/en/blog/" + post.slug : "/blog/" + post.slug;
-   } else {
-      urlPath = arrayRuta[2];
-   }
+if (isPost) {
+   let idUrlPost = idioma == "es" ? objTrads["en"] : objTrads["es"];
+   let res = await fetch(`${wpurl}/posts/${idUrlPost}`);
+   let post = await res.json();
+   urlPost = idioma == "es" ? "/en/blog/" + post.slug : "/blog/" + post.slug;
 } else {
-   urlPath = Astro.url.pathname;
+   urlPath =
+      urlLang == "es" ? Astro.url.pathname.substr(3) : Astro.url.pathname;
 }
 
 url = isPost ? urlPost : getRelativeLocaleUrl(urlLang, urlPath);
