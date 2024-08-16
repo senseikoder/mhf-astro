@@ -10,22 +10,25 @@ const { title, description } = Astro.props;
 // Supports weights 100-900
 import "@fontsource-variable/dm-sans";
 import TabLang from "../components/TabLang.astro";
+import BodyTop from "../components/BodyTop.astro";
+import Snippets from "../components/Snippets.astro";
 ---
 
 <html lang={idioma} data-theme="light">
    <head>
+      <Snippets/>
       <BaseHead title={title} description={description} />
       <ViewTransitions />
    </head>
 
    <body class="booth-page">
+      <BodyTop />
       <NavbarHome />
       <slot />
       {idioma == "es" ? <Footer /> : <FooterEN />}
 
       <script>
          document.addEventListener("astro:page-load", () => {
-
             const modal_body = document.querySelector(
                ".modal-card-body .content",
             );

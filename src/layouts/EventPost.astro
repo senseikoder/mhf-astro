@@ -10,6 +10,7 @@ import AsideCategorias from "../components/AsideCategorias.astro";
 import AsideCategories from "../components/AsideCategories.astro";
 import FormattedDateTime from "../components/FormattedDateTime.astro";
 import TabLang from "../components/TabLang.astro";
+import Snippets from "../components/Snippets.astro";
 
 const idioma = Astro.currentLocale;
 const { title, description, image, start_date, end_date, tags } = Astro.props;
@@ -17,15 +18,18 @@ const { title, description, image, start_date, end_date, tags } = Astro.props;
 const heroImage = image.url;
 
 import "@fontsource-variable/dm-sans";
+import BodyTop from "../components/BodyTop.astro";
 ---
 
 <html lang={idioma} data-theme="light">
    <head>
+      <Snippets/>
       <BaseHead title={title} description={description} />
       <ViewTransitions />
    </head>
 
    <body>
+      <BodyTop />
       <Header />
 
       <div class="section">
@@ -60,13 +64,13 @@ import "@fontsource-variable/dm-sans";
                               /></span
                            >
                            <span>
+                              - Tags:
 
-                              - Tags: 
-                              
-                                 {tags.map((tag) => (
+                              {
+                                 tags.map((tag) => (
                                     <span class="is-uppercase">{tag.name}</span>
-                                 ))}
-                              
+                                 ))
+                              }
                            </span>
                         </div>
 

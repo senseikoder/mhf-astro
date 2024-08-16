@@ -14,15 +14,19 @@ import AsideEntradas from "../components/AsideEntradas.astro";
 import AsidePosts from "../components/AsidePosts.astro";
 import AsideCategorias from "../components/AsideCategorias.astro";
 import AsideCategories from "../components/AsideCategories.astro";
+import BodyTop from "../components/BodyTop.astro";
+import Snippets from "../components/Snippets.astro";
 ---
 
 <html lang={idioma} data-theme="light">
 	<head>
+		<Snippets/>
 		<BaseHead title={title.rendered} description={description} />
 		<ViewTransitions />
 	</head>
 
 	<body>
+		<BodyTop />
 		<Header />
 
 		<div class="section">

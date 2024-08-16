@@ -10,20 +10,24 @@ const { title, description } = Astro.props;
 import "@fontsource-variable/dm-sans";
 import TabLang from "../components/TabLang.astro";
 import ModalPopup from "../components/ModalPopup.astro";
+import BodyTop from "../components/BodyTop.astro";
+import Snippets from "../components/Snippets.astro";
 ---
 
 <html lang={idioma} data-theme="light">
    <head>
+      <Snippets />
       <BaseHead title={title} description={description} />
       <ViewTransitions />
    </head>
 
    <body>
+      <BodyTop/>
       <Header />
       <slot />
       {idioma == "es" ? <Footer /> : <FooterEN />}
       <script src="../js/main.js"></script>
-      <TabLang />
       <ModalPopup />
+      <TabLang />
    </body>
 </html>
