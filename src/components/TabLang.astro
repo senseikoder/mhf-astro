@@ -8,9 +8,34 @@ const idioma = Astro.currentLocale;
 const wpurl = import.meta.env.WP_URL;
 let objTrads = Astro.props["traducciones"];
 let isPost = Astro.props["isPost"];
+let isCategory = Astro.url.pathname.includes("category");
 
 let imgFlag = idioma == "es" ? flagEN : flagES;
 let urlLang = idioma == "es" ? "en" : "es";
+
+const categoriesES = {
+   alzheimer: "alzheimers",
+   cancer: "cancer-en",
+   "enfermedades-cronicas": "chronic-diseases",
+   "salud-mental": "mental-health",
+   "seguro-medico": "health-insurance",
+   "servicios-sociales": "social-services",
+   "estudios-clinicos": "clinical-studies",
+   "un-minuto-de-salud": "one-minute-of-health",
+   trabajos: "job-opportunities",
+};
+
+const categoriesEN = {
+   alzheimers: "alzheimer",
+   "cancer-en": "cancer",
+   "chronic-diseases": "enfermedades-cronicas",
+   "mental-health": "salud-mental",
+   "health-insurance": "seguro-medico",
+   "social-services": "servicios-sociales",
+   "clinical-studies": "estudios-clinicos",
+   "one-minute-of-health": "un-minuto-de-salud",
+   "job-opportunities": "trabajos",
+};
 
 let urlPath, urlPost, url;
 
@@ -19,6 +44,13 @@ if (isPost) {
    let res = await fetch(`${wpurl}/posts/${idUrlPost}`);
    let post = await res.json();
    urlPost = idioma == "es" ? "/en/blog/" + post.slug : "/blog/" + post.slug;
+} else if (isCategory) {
+   const { slug } = Astro.params;
+   urlPath = idioma == "es" ? categoriesES[slug] : categoriesEN[slug];
+   urlPath = "/category/" + urlPath
+   console.log(urlPath);
+   
+   
 } else {
    urlPath =
       urlLang == "es" ? Astro.url.pathname.substr(3) : Astro.url.pathname;
