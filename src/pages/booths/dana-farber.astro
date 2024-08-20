@@ -3,6 +3,7 @@ import ModalBooths from "../../components/ModalBooths.astro";
 import ModalVideo from "../../components/ModalVideo.astro";
 import BoothLayout from "../../layouts/BoothLayout.astro";
 import { Image } from "astro:assets";
+import rec0 from "../../images/recursos/dana-rec0.webp";
 import rec1 from "../../images/recursos/dana-rec1.webp";
 import rec2 from "../../images/recursos/dana-rec2.webp";
 import rec3 from "../../images/recursos/dana-rec3.webp";
@@ -129,10 +130,20 @@ const wpuploads = import.meta.env.WP_UPLOADS;
       </div>
    </section>
 
+   <!-- RECURSOS -->
+
    <section class="section" id="recursos">
       <div class="container is-max-widescreen">
          <div class="columns is-centered">
             <div class="column is-5">
+               <a href="/recursos/Dana-Farber-skin-cancer-esp.pdf" target="_blank">
+                  <Image src={rec0} alt="" />
+               </a>
+            </div>
+         </div>
+
+         <div class="columns">
+            <div class="column">
                <a
                   href={wpuploads +
                      "2024/06/Sun-Safety-Beach-Schedule-Postcard_5x7_-Spanish.pdf"}
@@ -141,9 +152,6 @@ const wpuploads = import.meta.env.WP_UPLOADS;
                   <Image src={rec7} alt="" />
                </a>
             </div>
-         </div>
-
-         <div class="columns">
             <div class="column">
                <a
                   href={wpuploads +
@@ -161,6 +169,9 @@ const wpuploads = import.meta.env.WP_UPLOADS;
                   <Image src={rec2} alt="" />
                </a>
             </div>
+         </div>
+
+         <div class="columns my-5 is-centered">
             <div class="column">
                <a
                   href={wpuploads + "/2022/09/Newspaper-Full-Page-1.pdf"}
@@ -169,9 +180,6 @@ const wpuploads = import.meta.env.WP_UPLOADS;
                   <Image src={rec3} alt="" />
                </a>
             </div>
-         </div>
-
-         <div class="columns my-5 is-centered">
             <div class="column is-4">
                <a
                   href={wpuploads + "/2022/09/Newspaper-Full-Page-3.pdf"}
@@ -222,7 +230,8 @@ const wpuploads = import.meta.env.WP_UPLOADS;
             <a
                href="https://www.dana-farber.org/community-health/sun-safety-skin-cancer-prevention"
                target="_blank"
-               ><strong>Van de Seguridad Solar y Prevención del Cáncer de Piel
+               ><strong
+                  >Van de Seguridad Solar y Prevención del Cáncer de Piel
                </strong></a
             >
          </p>
