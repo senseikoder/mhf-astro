@@ -9,7 +9,6 @@ const wpurl = import.meta.env.WP_URL;
 let objTrads = Astro.props["traducciones"];
 let isPost = Astro.props["isPost"];
 let isCategory = Astro.url.pathname.includes("category");
-
 let imgFlag = idioma == "es" ? flagEN : flagES;
 let urlLang = idioma == "es" ? "en" : "es";
 
@@ -41,16 +40,18 @@ let urlPath, urlPost, url;
 
 if (isPost) {
    let idUrlPost = idioma == "es" ? objTrads["en"] : objTrads["es"];
-   let res = await fetch(`${wpurl}/posts/${idUrlPost}`);
-   let post = await res.json();
-   urlPost = idioma == "es" ? "/en/blog/" + post.slug : "/blog/" + post.slug;
+   if (idUrlPost) {
+      let res = await fetch(`${wpurl}/posts/${idUrlPost}`);
+      let post = await res.json();
+      urlPost = idioma == "es" ? "/en/blog/" + post.slug : "/blog/" + post.slug;
+   } else {
+      urlPost = idioma == "es" ? "/en/blog" : "/blog"
+   }
 } else if (isCategory) {
    const { slug } = Astro.params;
    urlPath = idioma == "es" ? categoriesES[slug] : categoriesEN[slug];
-   urlPath = "/category/" + urlPath
+   urlPath = "/category/" + urlPath;
    console.log(urlPath);
-   
-   
 } else {
    urlPath =
       urlLang == "es" ? Astro.url.pathname.substr(3) : Astro.url.pathname;
