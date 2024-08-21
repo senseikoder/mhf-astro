@@ -1,0 +1,14 @@
+---
+export const prerender = false;
+import EventPost from "../../../layouts/EventPost.astro";
+
+const wpurl = import.meta.env.WP_URL_EVENTS;
+const { slug } = Astro.params;
+
+let res = await fetch(`${wpurl}/events/by-slug/${slug}`);
+let evento = await res.json();
+---
+
+<EventPost {...evento}>
+   <Fragment set:html={evento.description} />
+</EventPost>

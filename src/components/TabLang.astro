@@ -8,6 +8,7 @@ const idioma = Astro.currentLocale;
 const wpurl = import.meta.env.WP_URL;
 let objTrads = Astro.props["traducciones"];
 let isPost = Astro.props["isPost"];
+let isEvent = Astro.props["isEvent"];
 let isCategory = Astro.url.pathname.includes("category");
 let imgFlag = idioma == "es" ? flagEN : flagES;
 let urlLang = idioma == "es" ? "en" : "es";
@@ -52,6 +53,8 @@ if (isPost) {
    urlPath = idioma == "es" ? categoriesES[slug] : categoriesEN[slug];
    urlPath = "/category/" + urlPath;
    console.log(urlPath);
+} else if(isEvent){
+   urlPath = "/events"
 } else {
    urlPath =
       urlLang == "es" ? Astro.url.pathname.substr(3) : Astro.url.pathname;

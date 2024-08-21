@@ -48,11 +48,11 @@ const eventos = await res.json();
          <div class="buttons is-centered">
             <a
                class="button is-info is-outlined"
-               href={`/eventos/${pagina - 1}`}>Prev week</a
+               href={`/en/events/${pagina - 1}`}>Prev week</a
             >
             <a
                class="button is-info is-outlined"
-               href={`/eventos/${pagina + 1}`}>Next week</a
+               href={`/en/events/${pagina + 1}`}>Next week</a
             >
          </div>
 
@@ -70,7 +70,7 @@ const eventos = await res.json();
                   <div class="column is-4">
                      <div class="card">
                         <div class="card-content">
-                           <a href={`/event/${evento.slug}`}>
+                           <a href={`/en/event/${evento.slug}`}>
                               <img
                                  width={720}
                                  height={360}
