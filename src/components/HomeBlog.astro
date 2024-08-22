@@ -7,6 +7,7 @@ const idioma = Astro.currentLocale;
 const res = await fetch(`${wpurl}/posts?per_page=3&lang=${idioma}&_embed`);
 
 const posts = await res.json();
+const urlLang = idioma == 'es' ? '' : '/en'
 ---
 
 <section class="section banner">
@@ -28,7 +29,7 @@ const posts = await res.json();
                <div class="column is-4">
                   <div class="card">
                      <div class="card-content">
-                        <a href={`/blog/${post.slug}`}>
+                        <a href={`${urlLang}/blog/${post.slug}`}>
                            <img
                               width={720}
                               height={360}

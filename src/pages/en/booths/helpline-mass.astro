@@ -14,9 +14,9 @@ const booth = {
 
 <BoothLayout
    title="Mass Health Help Line"
-   description="Lorem ipsum dolor sit amet"
+   description="Massachusetts Behavioral Health Help Line"
 >
-   <section class="section banner-booth">
+   <section class="section banner-booth helpline-mass-en">
       <div class="is-overlay"></div>
       <div class="container has-text-white">
          <div class="columns is-centered">
@@ -33,9 +33,10 @@ const booth = {
                      xlink:href={"/img/booths-bg/" + booth.image}
                   />
 
+                  <!-- Video -->
                   <a
                      xlink:href="javascript:void(0)"
-                     class="modal-trigger"
+                     class="modal-trigger video"
                      data-target="modal-video"
                   >
                      <rect
@@ -46,9 +47,11 @@ const booth = {
                         width="413"
                         height="266"></rect>
                   </a>
+
+                  <!-- Brochure -->
                   <a
                      xlink:href="javascript:void(0)"
-                     class="modal-trigger"
+                     class="modal-trigger brochure"
                      data-target="modal-booth"
                      data-content="brochure"
                   >
@@ -58,9 +61,12 @@ const booth = {
                         xlink:href={"/img/booths-pics/" + booth.btn1}
                      />
                   </a>
+
+                  <!-- FAQ -->
                   <a
                      xlink:href="https://www.masshelpline.com/faq/"
                      target="_blank"
+                     class="faq"
                   >
                      <image
                         x="310"
@@ -68,9 +74,12 @@ const booth = {
                         xlink:href={"/img/booths-pics/" + booth.btn2}
                      />
                   </a>
+
+                  <!-- Resources -->
                   <a
                      xlink:href="https://www.masshelpline.com/resources/"
                      target="_blank"
+                     class="resources"
                   >
                      <image
                         x="90"
@@ -78,9 +87,11 @@ const booth = {
                         xlink:href={"/img/booths-pics/" + booth.btn3}
                      />
                   </a>
+
+                  <!-- Contact -->
                   <a
                      xlink:href="javascript:void(0)"
-                     class="modal-trigger"
+                     class="modal-trigger contact"
                      data-target="modal-booth"
                      data-content="contacto"
                   >
@@ -106,7 +117,7 @@ const booth = {
       </div>
 
       <div class="has-text-centered mt-5">
-         <a href="/" class="button is-light is-rounded is-outlined"
+         <a href="/en" class="button is-light is-rounded is-outlined"
             >Go back to Fair</a
          >
       </div>

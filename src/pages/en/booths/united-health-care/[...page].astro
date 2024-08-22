@@ -58,11 +58,8 @@ const res = await fetch(
 const eventos = await res.json();
 ---
 
-<BoothLayout
-   title="United Health Care"
-   description="Lorem ipsum dolor sit amet"
->
-   <section class="section banner-booth">
+<BoothLayout title="United Health Care" description="United Health Care Community Plan">
+   <section class="section banner-booth united-health-care-en">
       <div class="is-overlay"></div>
       <div class="container has-text-white">
          <div class="columns is-centered">
@@ -81,7 +78,7 @@ const eventos = await res.json();
                   <!-- Video -->
                   <a
                      xlink:href="javascript:void(0)"
-                     class="modal-trigger"
+                     class="modal-trigger video"
                      data-target="modal-video"
                   >
                      <rect
@@ -98,6 +95,7 @@ const eventos = await res.json();
                      xlink:href={wpuploads +
                         "/2024/03/2024-English-BRC-PDF.pdf"}
                      target="_blank"
+                     class="brochure"
                   >
                      <image
                         x="80"
@@ -110,6 +108,7 @@ const eventos = await res.json();
                   <a
                      xlink:href="https://careers.unitedhealthgroup.com/job-search-results/"
                      target="_blank"
+                     class="jobs"
                   >
                      <image
                         x="300"
@@ -119,7 +118,7 @@ const eventos = await res.json();
                   </a>
 
                   <!-- Recursos -->
-                  <a xlink:href="#recursos">
+                  <a xlink:href="#recursos" class="resources">
                      <image
                         x="80"
                         y="640"
@@ -128,7 +127,7 @@ const eventos = await res.json();
                   </a>
 
                   <!-- Eventos -->
-                  <a xlink:href="#events">
+                  <a xlink:href="#events" class="events">
                      <image
                         x="300"
                         y="640"
@@ -138,7 +137,7 @@ const eventos = await res.json();
 
                   <a
                      xlink:href="javascript:void(0)"
-                     class="modal-trigger"
+                     class="modal-trigger contact"
                      data-target="modal-form"
                   >
                      <image
@@ -153,7 +152,7 @@ const eventos = await res.json();
       </div>
 
       <div class="has-text-centered mt-5">
-         <a href="/" class="button is-light is-rounded is-outlined"
+         <a href="/en" class="button is-light is-rounded is-outlined"
             >Go back to Fair</a
          >
       </div>

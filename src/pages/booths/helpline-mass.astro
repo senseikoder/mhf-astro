@@ -12,8 +12,11 @@ const booth = {
 };
 ---
 
-<BoothLayout title="Mass Health Help Line" description="Lorem ipsum dolor sit amet">
-   <section class="section banner-booth">
+<BoothLayout
+   title="Mass Health Help Line"
+   description="Massachusetts Behavioral Health Help Line"
+>
+   <section class="section banner-booth helpline-mass">
       <div class="is-overlay"></div>
       <div class="container has-text-white">
          <div class="columns is-centered">
@@ -29,10 +32,10 @@ const booth = {
                      height="780"
                      xlink:href={"/img/booths-bg/" + booth.image}
                   />
-
+                  <!-- Video -->
                   <a
                      xlink:href="javascript:void(0)"
-                     class="modal-trigger"
+                     class="modal-trigger video"
                      data-target="modal-video"
                   >
                      <rect
@@ -43,9 +46,11 @@ const booth = {
                         width="413"
                         height="266"></rect>
                   </a>
+
+                  <!-- Brochure -->
                   <a
                      xlink:href="javascript:void(0)"
-                     class="modal-trigger"
+                     class="modal-trigger brochure"
                      data-target="modal-booth"
                      data-content="brochure"
                   >
@@ -55,9 +60,12 @@ const booth = {
                         xlink:href={"/img/booths-pics/" + booth.btn1}
                      />
                   </a>
+
+                  <!-- FAQ -->
                   <a
                      xlink:href="https://www.masshelpline.com/es/faq/"
                      target="_blank"
+                     class="faq"
                   >
                      <image
                         x="310"
@@ -65,9 +73,12 @@ const booth = {
                         xlink:href={"/img/booths-pics/" + booth.btn2}
                      />
                   </a>
+
+                  <!-- Recursos -->
                   <a
                      xlink:href="https://www.masshelpline.com/es/resources/"
                      target="_blank"
+                     class="recursos"
                   >
                      <image
                         x="90"
@@ -75,9 +86,11 @@ const booth = {
                         xlink:href={"/img/booths-pics/" + booth.btn3}
                      />
                   </a>
+
+                  <!-- Contacto -->
                   <a
                      xlink:href="javascript:void(0)"
-                     class="modal-trigger"
+                     class="modal-trigger contacto"
                      data-target="modal-booth"
                      data-content="contacto"
                   >

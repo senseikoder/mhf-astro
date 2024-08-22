@@ -59,7 +59,7 @@ const eventos = await res.json();
 ---
 
 <BoothLayout title="United HealthCare" description="Lorem ipsum dolor sit amet">
-   <section class="section banner-booth">
+   <section class="section banner-booth united-health-care">
       <div class="is-overlay"></div>
       <div class="container has-text-white">
          <div class="columns is-centered">
@@ -78,7 +78,7 @@ const eventos = await res.json();
                   <!-- Video -->
                   <a
                      xlink:href="javascript:void(0)"
-                     class="modal-trigger"
+                     class="modal-trigger video"
                      data-target="modal-video"
                   >
                      <rect
@@ -95,6 +95,7 @@ const eventos = await res.json();
                      xlink:href={wpuploads +
                         "/2024/03/2024-Spanish-BRC-PDF.pdf"}
                      target="_blank"
+                     class="brochure"
                   >
                      <image
                         x="80"
@@ -107,6 +108,7 @@ const eventos = await res.json();
                   <a
                      xlink:href="https://careers.unitedhealthgroup.com/es/job-search-results-es/"
                      target="_blank"
+                     class="empleos"
                   >
                      <image
                         x="300"
@@ -116,7 +118,7 @@ const eventos = await res.json();
                   </a>
 
                   <!-- Recursos -->
-                  <a xlink:href="#recursos">
+                  <a xlink:href="#recursos" class="recursos">
                      <image
                         x="80"
                         y="640"
@@ -125,7 +127,7 @@ const eventos = await res.json();
                   </a>
 
                   <!-- Eventos -->
-                  <a xlink:href="#eventos">
+                  <a xlink:href="#eventos" class="eventos">
                      <image
                         x="300"
                         y="640"
@@ -133,9 +135,10 @@ const eventos = await res.json();
                      />
                   </a>
 
+                  <!-- Contacto -->
                   <a
                      xlink:href="javascript:void(0)"
-                     class="modal-trigger"
+                     class="modal-trigger contacto"
                      data-target="modal-form"
                   >
                      <image
@@ -245,10 +248,13 @@ const eventos = await res.json();
             <Image src={baneruhc} alt="" />
          </div>
 
-         <div class="block mt-4">            
-            <a href="tel:+1866-325-4811" class="button is-medium is-rounded is-link is-outlined">866-325-4811</a>
+         <div class="block mt-4">
+            <a
+               href="tel:+1866-325-4811"
+               class="button is-medium is-rounded is-link is-outlined"
+               >866-325-4811</a
+            >
          </div>
-        
       </div>
    </ModalForm>
 </BoothLayout>

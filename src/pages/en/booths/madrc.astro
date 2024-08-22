@@ -16,7 +16,7 @@ const wpuploads = import.meta.env.WP_UPLOADS;
    title="Massachusetts Alzheimer's Disease Reasearch Center"
    description="Lorem ipsum dolor sit amet"
 >
-   <section class="section banner-booth">
+   <section class="section banner-booth madrc-en">
       <div class="is-overlay"></div>
       <div class="container has-text-white">
          <div class="columns is-centered">
@@ -35,7 +35,7 @@ const wpuploads = import.meta.env.WP_UPLOADS;
                   <!-- Video -->
                   <a
                      xlink:href="javascript:void(0)"
-                     class="modal-trigger"
+                     class="modal-trigger video"
                      data-target="modal-video"
                   >
                      <rect
@@ -60,6 +60,7 @@ const wpuploads = import.meta.env.WP_UPLOADS;
                      xlink:href={wpuploads +
                         "/2023/11/Symptomatic-Prevention-Flyers.pdf"}
                      target="_blank"
+                     class="brochure"
                   >
                      <image
                         x="85"
@@ -68,8 +69,12 @@ const wpuploads = import.meta.env.WP_UPLOADS;
                      />
                   </a>
 
-                  <!-- eVENTS -->
-                  <a xlink:href="https://www.madrc.org/events/" target="_blank">
+                  <!-- Events -->
+                  <a
+                     xlink:href="https://www.madrc.org/events/"
+                     target="_blank"
+                     class="events"
+                  >
                      <image
                         x="305"
                         y="575"
@@ -80,7 +85,8 @@ const wpuploads = import.meta.env.WP_UPLOADS;
                   <!-- Voluntariado -->
                   <a
                      xlink:href={wpuploads + "/2023/11/MAC-Flyer-Ingles.pdf"}
-                     target="_blankm"
+                     target="_blank"
+                     class="volunteer"
                   >
                      <image
                         x="85"
@@ -92,7 +98,7 @@ const wpuploads = import.meta.env.WP_UPLOADS;
                   <!-- Contact -->
                   <a
                      xlink:href="#contacto"
-                     class="modal-trigger"
+                     class="modal-trigger contact"
                      data-target="modal-booth"
                      data-content="contacto"
                   >
@@ -116,7 +122,7 @@ const wpuploads = import.meta.env.WP_UPLOADS;
       </div>
 
       <div class="has-text-centered mt-5">
-         <a href="/" class="button is-light is-rounded is-outlined"
+         <a href="/en" class="button is-light is-rounded is-outlined"
             >Go back to Fair</a
          >
       </div>
