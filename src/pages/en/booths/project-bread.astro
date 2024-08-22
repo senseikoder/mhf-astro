@@ -14,7 +14,7 @@ const wpuploads = import.meta.env.WP_UPLOADS;
 ---
 
 <BoothLayout title="Project Bread" description="Lorem ipsum dolor sit amet">
-   <section class="section banner-booth">
+   <section class="section banner-booth project-bread">
       <div class="is-overlay"></div>
       <div class="container has-text-white">
          <div class="columns is-centered">
@@ -33,7 +33,7 @@ const wpuploads = import.meta.env.WP_UPLOADS;
 
                   <a
                      xlink:href="javascript:void(0)"
-                     class="modal-trigger"
+                     class="modal-trigger video"
                      data-target="modal-video"
                   >
                      <rect
@@ -47,8 +47,9 @@ const wpuploads = import.meta.env.WP_UPLOADS;
 
                   <!-- Brochure -->
                   <a
-                     xlink:href={wpuploads+"/2023/04/HotlineIngles.pdf"}
+                     xlink:href={wpuploads + "/2023/04/HotlineIngles.pdf"}
                      target="_blank"
+                     class="brochure"
                   >
                      <image
                         x="90"
@@ -61,6 +62,7 @@ const wpuploads = import.meta.env.WP_UPLOADS;
                   <a
                      xlink:href="https://www.projectbread.org/careers"
                      target="_blank"
+                     class="jobs"
                   >
                      <image
                         x="310"
@@ -71,8 +73,10 @@ const wpuploads = import.meta.env.WP_UPLOADS;
 
                   <!-- Recursos -->
                   <a
-                     xlink:href={wpuploads+"/2022/08/Find-Local-Food-Resources_General_English.pdf"}
+                     xlink:href={wpuploads +
+                        "/2022/08/Find-Local-Food-Resources_General_English.pdf"}
                      target="_blank"
+                     class="resources"
                   >
                      <image
                         x="90"
@@ -85,6 +89,7 @@ const wpuploads = import.meta.env.WP_UPLOADS;
                   <a
                      xlink:href="https://www.projectbread.org/get-help"
                      target="_blank"
+                     class="contact"
                   >
                      <image
                         x="310"

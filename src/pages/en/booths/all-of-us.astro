@@ -18,7 +18,7 @@ const wpuploads = import.meta.env.WP_UPLOADS;
    title="All of Us New England"
    description="Lorem ipsum dolor sit amet"
 >
-   <section class="section banner-booth">
+   <section class="section banner-booth all-of-us">
       <div class="is-overlay"></div>
       <div class="container has-text-white">
          <div class="columns is-centered">
@@ -37,7 +37,7 @@ const wpuploads = import.meta.env.WP_UPLOADS;
 
                   <a
                      xlink:href="javascript:void(0)"
-                     class="modal-trigger"
+                     class="modal-trigger video"
                      data-target="modal-video"
                   >
                      <rect
@@ -53,6 +53,7 @@ const wpuploads = import.meta.env.WP_UPLOADS;
                   <a
                      xlink:href={wpuploads + "/2024/06/En_AoUNE_AboutUs-3.pdf"}
                      target="_blank"
+                     class="brochure"
                   >
                      <image
                         x="90"
@@ -65,6 +66,7 @@ const wpuploads = import.meta.env.WP_UPLOADS;
                   <a
                      xlink:href="https://www.joinallofus.org/faq"
                      target="_blank"
+                     class="faq"
                   >
                      <image
                         x="310"
@@ -75,8 +77,10 @@ const wpuploads = import.meta.env.WP_UPLOADS;
 
                   <!-- Obsequio -->
                   <a
-                     xlink:href={wpuploads + "/2021/04/EN-AoUNE-Mental-Health-Resources-.pdf"}
+                     xlink:href={wpuploads +
+                        "/2021/04/EN-AoUNE-Mental-Health-Resources-.pdf"}
                      target="_blank"
+                     class="giveaway"
                   >
                      <image
                         x="90"
@@ -86,7 +90,7 @@ const wpuploads = import.meta.env.WP_UPLOADS;
                   </a>
                   <a
                      xlink:href="javascript:void(0)"
-                     class="modal-trigger"
+                     class="modal-trigger contact"
                      data-target="modal-form"
                   >
                      <image

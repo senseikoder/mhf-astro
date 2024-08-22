@@ -18,7 +18,7 @@ const wpuploads = import.meta.env.WP_UPLOADS;
    title="Whittier Street Health Center"
    description="Lorem ipsum dolor sit amet"
 >
-   <section class="section banner-booth">
+   <section class="section banner-booth whittier">
       <div class="is-overlay"></div>
       <div class="container has-text-white">
          <div class="columns is-centered">
@@ -37,7 +37,7 @@ const wpuploads = import.meta.env.WP_UPLOADS;
 
                   <a
                      xlink:href="javascript:void(0)"
-                     class="modal-trigger"
+                     class="modal-trigger video"
                      data-target="modal-video"
                   >
                      <rect
@@ -54,6 +54,7 @@ const wpuploads = import.meta.env.WP_UPLOADS;
                      xlink:href={wpuploads +
                         "/2022/08/Womens-Health-Spanish.pdf"}
                      target="_blank"
+                     class="brochure"
                   >
                      <image
                         x="90"
@@ -65,7 +66,7 @@ const wpuploads = import.meta.env.WP_UPLOADS;
                   <!-- Empleos -->
                   <a
                      xlink:href="javascript:void(0)"
-                     class="modal-trigger"
+                     class="modal-trigger empleos"
                      data-target="modal-booth"
                      data-content="empleos"
                   >
@@ -77,7 +78,7 @@ const wpuploads = import.meta.env.WP_UPLOADS;
                   </a>
 
                   <!-- Despensa -->
-                  <a xlink:href={wpuploads+"/2022/08/2021-Food-pantry.pdf"} target="_blank">
+                  <a xlink:href={wpuploads+"/2022/08/2021-Food-pantry.pdf"} target="_blank" class="despensa">
                      <image
                         x="90"
                         y="660"
@@ -86,7 +87,7 @@ const wpuploads = import.meta.env.WP_UPLOADS;
                   </a>
                   <a
                      xlink:href="javascript:void(0)"
-                     class="modal-trigger"
+                     class="modal-trigger contacto"
                      data-target="modal-form"
                   >
                      <image

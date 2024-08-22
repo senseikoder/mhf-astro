@@ -15,7 +15,7 @@ const wpuploads = import.meta.env.WP_UPLOADS;
 ---
 
 <BoothLayout title="The Dimock Center" description="Lorem ipsum dolor sit amet">
-   <section class="section banner-booth">
+   <section class="section banner-booth dimock">
       <div class="is-overlay"></div>
       <div class="container has-text-white">
          <div class="columns is-centered">
@@ -34,7 +34,7 @@ const wpuploads = import.meta.env.WP_UPLOADS;
 
                   <a
                      xlink:href="javascript:void(0)"
-                     class="modal-trigger"
+                     class="modal-trigger video"
                      data-target="modal-video"
                   >
                      <rect
@@ -50,6 +50,7 @@ const wpuploads = import.meta.env.WP_UPLOADS;
                   <a
                      xlink:href={wpuploads+"/2021/07/Dimock-Brochure-PDF.pdf"}
                      target="_blank"
+                     class="brochure"
                   >
                      <image
                         x="90"
@@ -62,6 +63,7 @@ const wpuploads = import.meta.env.WP_UPLOADS;
                   <a
                      xlink:href="https://dimock.org/careers/jobs/"
                      target="_blank"
+                     class="jobs"
                   >
                      <image
                         x="310"
@@ -73,7 +75,7 @@ const wpuploads = import.meta.env.WP_UPLOADS;
                   <!-- Obsequio -->
                   <a
                      xlink:href="javascript:void(0)"
-                     class="modal-trigger"
+                     class="modal-trigger giveaway"
                      data-target="modal-booth"
                      data-content="obsequio"
                   >
@@ -87,7 +89,7 @@ const wpuploads = import.meta.env.WP_UPLOADS;
                   <!-- Contacto -->
                   <a
                      xlink:href="javascript:void(0)"
-                     class="modal-trigger"
+                     class="modal-trigger contact"
                      data-target="modal-form"
      
                   >

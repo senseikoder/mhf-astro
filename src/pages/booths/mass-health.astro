@@ -5,7 +5,7 @@ import BoothLayout from "../../layouts/BoothLayout.astro";
 const booth = {
    image: "health-connector.webp",
    btn1: "brochure.webp",
-   btn2: "empleos.webp",
+   btn2: "faq.webp",
    btn3: "recursos.webp",
    btn4: "contacto.webp",
    btn5: null,
@@ -16,7 +16,7 @@ const booth = {
    title="Mass Health Redetermination"
    description="Lorem ipsum dolor sit amet"
 >
-   <section class="section banner-booth">
+   <section class="section banner-booth mass-health">
       <div class="is-overlay"></div>
       <div class="container has-text-white">
          <div class="columns is-centered">
@@ -35,7 +35,7 @@ const booth = {
 
                   <a
                      xlink:href="javascript:void(0)"
-                     class="modal-trigger"
+                     class="modal-trigger video"
                      data-target="modal-video"
                   >
                      <rect
@@ -48,7 +48,7 @@ const booth = {
                   </a>
                   <a
                      xlink:href="javascript:void(0)"
-                     class="modal-trigger"
+                     class="modal-trigger brochure"
                      data-target="modal-booth"
                      data-content="brochure"
                   >
@@ -61,6 +61,7 @@ const booth = {
                   <a
                      xlink:href="https://www.masshelpline.com/es/faq/"
                      target="_blank"
+                     class="faq"
                   >
                      <image
                         x="310"
@@ -71,6 +72,7 @@ const booth = {
                   <a
                      xlink:href="https://www.masshelpline.com/es/resources/"
                      target="_blank"
+                     class="recursos"
                   >
                      <image
                         x="90"
@@ -80,7 +82,7 @@ const booth = {
                   </a>
                   <a
                      xlink:href="javascript:void(0)"
-                     class="modal-trigger"
+                     class="modal-trigger contacto"
                      data-target="modal-booth"
                      data-content="contacto"
                   >
