@@ -16,4 +16,8 @@ export default defineConfig({
   adapter: netlify({
     cacheOnDemandPages: true,
   }),
+  redirects: {
+    '/blog': '/blog/page',
+    '/en/blog': '/en/blog/page',
+  }
 });

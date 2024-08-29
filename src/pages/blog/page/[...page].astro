@@ -1,6 +1,6 @@
 ---
 export const prerender = false;
-import PageLayout from "../../layouts/PageLayout.astro";
+import PageLayout from "../../../layouts/PageLayout.astro";
 
 const idioma = Astro.currentLocale;
 const wpurl = import.meta.env.WP_URL;
@@ -64,7 +64,7 @@ function fechaFormateada(fechaPost) {
 			<div class="buttons is-centered">
 				<a
 					class={`button is-link is-outlined ${pagina <= 1 ? "is-static" : ""}`}
-					href={pagina > 1 ? `/blog/${pagina - 1}` : "#"}
+					href={pagina > 1 ? `/blog/page/${pagina - 1}` : "#"}
 					aria-disabled={pagina <= 1 ? "true" : "false"}
 					><svg
 						xmlns="http://www.w3.org/2000/svg"
@@ -79,7 +79,7 @@ function fechaFormateada(fechaPost) {
 				>
 				<a
 					class={`button is-link is-outlined ${pagina == totalPaginas ? "is-static" : ""}`}
-					href={`/blog/${pagina + 1}`}
+					href={`/blog/page/${pagina + 1}`}
 					><svg
 						xmlns="http://www.w3.org/2000/svg"
 						width="1.3em"
@@ -98,7 +98,7 @@ function fechaFormateada(fechaPost) {
 
 <style>
 	.banner {
-		background: url("../../images/banner-blog.webp") center / cover no-repeat;
+		background: url("../../../images/banner-blog.webp") center / cover no-repeat;
 		position: relative;
 	}
 
