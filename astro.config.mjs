@@ -1,12 +1,12 @@
 import { defineConfig } from 'astro/config';
-import sitemap from '@astrojs/sitemap';
+// import sitemap from '@astrojs/sitemap';
 import netlify from "@astrojs/netlify";
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://myhealthfair.com',
-  integrations: [sitemap()],
-  prefetch: true,
+  // integrations: [sitemap()],
+  prefetch: false,
   format: 'file',
   output: 'hybrid',
   i18n: {
