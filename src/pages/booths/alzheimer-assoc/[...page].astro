@@ -43,6 +43,14 @@ function getSunday(monday) {
    return new Date(monday.getTime() + 6 * 24 * 60 * 60 * 1000);
 }
 
+function formatDate(date) {
+   const year = date.getFullYear();
+   const month = String(date.getMonth() + 1).padStart(2, "0"); // Los meses en JavaScript son 0-indexados
+   const day = String(date.getDate()).padStart(2, "0");
+
+   return `${year}-${month}-${day}`;
+}
+
 // Calcular la fecha de inicio y fin de la semana actual
 const today = new Date();
 const currentMonday = getMonday(new Date(today));
@@ -54,8 +62,8 @@ startDate.setDate(startDate.getDate() + (pagina - 1) * 7);
 const endDate = new Date(currentSunday);
 endDate.setDate(endDate.getDate() + (pagina - 1) * 7);
 
-const fecha_ini = startDate.toISOString().split("T")[0];
-const fecha_fin = endDate.toISOString().split("T")[0];
+const fecha_ini = formatDate(startDate);
+const fecha_fin = formatDate(endDate);
 
 const res = await fetch(
    `${wpurl}/events?start_date=${fecha_ini}&end_date=${fecha_fin}&lang=${idioma}&tags=alzheimer-association&per_page=9`,
@@ -232,6 +240,10 @@ const eventos = await res.json();
 
    <section class="section" id="recursos">
       <div class="container is-max-widescreen">
+         <div class="mb-6">
+            <h4 class="title has-text-centered"><u>Recursos</u></h4>
+         </div>
+
          <div class="columns">
             <div class="column">
                <a
