@@ -1,6 +1,8 @@
 import { defineConfig } from 'astro/config';
 // import sitemap from '@astrojs/sitemap';
-import netlify from "@astrojs/netlify";
+// import netlify from "@astrojs/netlify";
+
+import vercel from "@astrojs/vercel/serverless";
 
 // https://astro.build/config
 export default defineConfig({
@@ -13,11 +15,9 @@ export default defineConfig({
     defaultLocale: "es",
     locales: ["es", "en"]
   },
-  adapter: netlify({
-    cacheOnDemandPages: true,
-  }),
+  adapter: vercel(),
   redirects: {
     '/blog': '/blog/page',
-    '/en/blog': '/en/blog/page',
+    '/en/blog': '/en/blog/page'
   }
 });
