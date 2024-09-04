@@ -10,6 +10,8 @@ import recurso_dana_farber3 from "../images/recursos/recurso-dana-farber3.webp";
 import recurso_pbread from "../images/recursos/recurso-pbread.webp";
 import recurso_emb from "../images/recursos/recurso-emb.webp";
 import recurso_emb2 from "../images/recursos/recurso-emb-2.webp";
+
+const wpuploads = import.meta.env.WP_UPLOADS;
 ---
 
 <PageLayout title="Recursos" description="Lorem ipsum dolor sit amet">
@@ -18,7 +20,8 @@ import recurso_emb2 from "../images/recursos/recurso-emb-2.webp";
          <div class="columns">
             <div class="column is-8">
                <a
-                  href="https://myhealthfair.com/wp-content/uploads/2024/01/Calendario-de-Salud-2024-My-Health-Fair.pdf"
+                  href={wpuploads +
+                     "/2024/01/Calendario-de-Salud-2024-My-Health-Fair.pdf"}
                   target="_blank"
                >
                   <Image src={banner_calendario_salud} alt="" />
@@ -27,7 +30,7 @@ import recurso_emb2 from "../images/recursos/recurso-emb-2.webp";
 
             <div class="column is-4">
                <a
-                  href="https://myhealthfair.com/wp-content/uploads/2024/03/Annual-Report-2023-Esp.pdf"
+                  href={wpuploads + "/2024/03/Annual-Report-2023-Esp.pdf"}
                   target="_blank"
                >
                   <Image src={banner_reporte_2023} alt="" class="px-5" />
@@ -38,7 +41,7 @@ import recurso_emb2 from "../images/recursos/recurso-emb-2.webp";
          <div class="columns is-centered">
             <div class="column is-3">
                <a
-                  href="https://myhealthfair.com/wp-content/uploads/2024/05/Salud-Mental.pdf"
+                  href={wpuploads + "/2024/05/Salud-Mental.pdf"}
                   target="_blank"
                >
                   <Image src={recurso_salud_mental} alt="" />
@@ -46,7 +49,7 @@ import recurso_emb2 from "../images/recursos/recurso-emb-2.webp";
             </div>
             <!-- <div class="column is-3">
                <a
-                  href="https://myhealthfair.com/wp-content/uploads/2022/09/Newspaper-Full-Page-2.pdf"
+                  href="/2022/09/Newspaper-Full-Page-2.pdf"
                   target="_blank"
                >
                   <Image src={recurso_dana_farber} alt="" />
@@ -54,7 +57,7 @@ import recurso_emb2 from "../images/recursos/recurso-emb-2.webp";
             </div> -->
             <div class="column is-3">
                <a
-                  href="https://myhealthfair.com/wp-content/uploads/2022/09/Newspaper-Full-Page-1.pdf"
+                  href={wpuploads + "/2022/09/Newspaper-Full-Page-1.pdf"}
                   target="_blank"
                >
                   <Image src={recurso_dana_farber2} alt="" />
@@ -62,7 +65,7 @@ import recurso_emb2 from "../images/recursos/recurso-emb-2.webp";
             </div>
             <div class="column is-3">
                <a
-                  href="https://myhealthfair.com/wp-content/uploads/2022/09/Newspaper-Full-Page-4.pdf"
+                  href={wpuploads + "/2022/09/Newspaper-Full-Page-4.pdf"}
                   target="_blank"
                >
                   <Image src={recurso_pbread} alt="" />
@@ -73,7 +76,7 @@ import recurso_emb2 from "../images/recursos/recurso-emb-2.webp";
          <div class="columns is-centered">
             <div class="column is-3">
                <a
-                  href="https://myhealthfair.com/wp-content/uploads/2022/09/Newspaper-Full-Page-6.pdf"
+                  href={wpuploads + "/2022/09/Newspaper-Full-Page-6.pdf"}
                   target="_blank"
                >
                   <Image src={recurso_emb} alt="" />
@@ -81,7 +84,7 @@ import recurso_emb2 from "../images/recursos/recurso-emb-2.webp";
             </div>
             <div class="column is-3">
                <a
-                  href="https://myhealthfair.com/wp-content/uploads/2022/09/Newspaper-Full-Page.pdf"
+                  href={wpuploads + "/2022/09/Newspaper-Full-Page.pdf"}
                   target="_blank"
                >
                   <Image src={recurso_emb2} alt="" />

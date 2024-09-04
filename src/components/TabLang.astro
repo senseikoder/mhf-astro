@@ -52,7 +52,6 @@ if (isPost) {
    const { slug } = Astro.params;
    urlPath = idioma == "es" ? categoriesES[slug] : categoriesEN[slug];
    urlPath = "/category/" + urlPath;
-   console.log(urlPath);
 } else if(isEvent){
    urlPath = "/events"
 } else {

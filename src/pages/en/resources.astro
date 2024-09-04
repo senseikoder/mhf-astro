@@ -9,6 +9,8 @@ import resource_summer from "../../images/recursos/resource-summer.webp";
 import resource_vph from "../../images/recursos/resource-vph.webp";
 import resource_skin_cancer from "../../images/recursos/resource-skin-cancer.webp";
 import resource_food_health from "../../images/recursos/resource-food-health.webp";
+
+const wpuploads = import.meta.env.WP_UPLOADS;
 ---
 
 <PageLayout title="Recursos" description="Lorem ipsum dolor sit amet">
@@ -17,7 +19,8 @@ import resource_food_health from "../../images/recursos/resource-food-health.web
          <div class="columns">
             <div class="column is-8">
                <a
-                  href="https://myhealthfair.com/wp-content/uploads/2024/01/2024-Health-Calendar-My-Health-Fair.pdf"
+                  href={wpuploads +
+                     "/2024/01/2024-Health-Calendar-My-Health-Fair.pdf"}
                   target="_blank"
                >
                   <Image src={banner_calendar_health} alt="" />
@@ -26,7 +29,7 @@ import resource_food_health from "../../images/recursos/resource-food-health.web
 
             <div class="column is-4">
                <a
-                  href="https://myhealthfair.com/wp-content/uploads/2024/03/Annual-Report-2023-Eng.pdf"
+                  href={wpuploads + "/2024/03/Annual-Report-2023-Eng.pdf"}
                   target="_blank"
                >
                   <Image src={banner_report_2023} alt="" class="px-5" />
@@ -37,7 +40,7 @@ import resource_food_health from "../../images/recursos/resource-food-health.web
          <div class="columns is-centered">
             <div class="column is-3">
                <a
-                  href="https://myhealthfair.com/wp-content/uploads/2024/05/MENTAL-HEALTH.pdf"
+                  href={wpuploads + "/2024/05/MENTAL-HEALTH.pdf"}
                   target="_blank"
                >
                   <Image src={resource_mental_health} alt="" />
@@ -45,7 +48,7 @@ import resource_food_health from "../../images/recursos/resource-food-health.web
             </div>
             <div class="column is-3">
                <a
-                  href="https://myhealthfair.com/wp-content/uploads/2023/02/MY-HEALTH-FAIR-PDF-Dementia.pdf"
+                  href={wpuploads + "/2023/02/MY-HEALTH-FAIR-PDF-Dementia.pdf"}
                   target="_blank"
                >
                   <Image src={resource_dementia} alt="" />
@@ -53,7 +56,7 @@ import resource_food_health from "../../images/recursos/resource-food-health.web
             </div>
             <!-- <div class="column is-3">
                <a
-                  href="https://myhealthfair.com/wp-content/uploads/2022/09/Newspaper-Full-Page-1-1.pdf"
+                  href="/2022/09/Newspaper-Full-Page-1-1.pdf"
                   target="_blank"
                >
                   <Image src={resource_summer} alt="" />
@@ -64,7 +67,7 @@ import resource_food_health from "../../images/recursos/resource-food-health.web
          <div class="columns is-centered">
             <div class="column is-3">
                <a
-                  href="https://myhealthfair.com/wp-content/uploads/2022/09/Newspaper-Full-Page-7.pdf"
+                  href={wpuploads + "/2022/09/Newspaper-Full-Page-7.pdf"}
                   target="_blank"
                >
                   <Image src={resource_vph} alt="" />
@@ -72,7 +75,7 @@ import resource_food_health from "../../images/recursos/resource-food-health.web
             </div>
             <!-- <div class="column is-3">
                <a
-                  href="https://myhealthfair.com/wp-content/uploads/2022/09/Newspaper-Full-Page-2-1.pdf"
+                  href="/2022/09/Newspaper-Full-Page-2-1.pdf"
                   target="_blank"
                >
                   <Image src={resource_skin_cancer} alt="" />
@@ -80,7 +83,7 @@ import resource_food_health from "../../images/recursos/resource-food-health.web
             </div> -->
             <div class="column is-3">
                <a
-                  href="https://myhealthfair.com/wp-content/uploads/2022/09/Newspaper-Full-Page-3-1.pdf"
+                  href={wpuploads + "/2022/09/Newspaper-Full-Page-3-1.pdf"}
                   target="_blank"
                >
                   <Image src={resource_food_health} alt="" />
