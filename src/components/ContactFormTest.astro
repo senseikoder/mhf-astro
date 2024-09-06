@@ -1,0 +1,163 @@
+---
+const idioma = Astro.currentLocale;
+const nombre = idioma == "es" ? "Nombre" : "Name";
+const telefono = idioma == "es" ? "Teléfono" : "Phone";
+const mensaje = idioma == "es" ? "Mensaje" : "Message";
+const boton = idioma == "es" ? "Enviar" : "Send";
+---
+
+<form id="contact-form">
+   <div class="columns is-multiline">
+      <div class="column is-12">
+         <input
+            class="input is-medium"
+            type="text"
+            id="nombreZhyr7"
+            placeholder={nombre}
+            required
+         />
+      </div>
+      <div class="column is-12">
+         <input
+            class="input is-medium"
+            type="text"
+            id="telfZhyr7"
+            placeholder={telefono}
+            required
+         />
+      </div>
+      <div class="column is-12">
+         <input
+            class="input is-medium"
+            type="email"
+            id="emailZhyr7"
+            placeholder="Email *"
+            required
+         />
+      </div>
+      <div class="column is-12">
+         <textarea
+            class="textarea"
+            rows="6"
+            id="mensajeZhyr7"
+            placeholder={mensaje}
+            required></textarea>
+      </div>
+      <!-- T a r r i t o d e l i e m -->
+      <div class="fieldset ohnohoney">
+         <label for="name"></label>
+         <input
+            autocomplete="off"
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Your name here"
+         />
+         <label for="email"></label>
+         <input
+            autocomplete="off"
+            type="email"
+            id="nickname"
+            name="nickname"
+            placeholder="Your e-mail here"
+         />
+      </div>
+      <div class="column is-12">
+         <div class="mt-10">
+            <button class="button is-large is-primary">{boton}</button>
+         </div>
+      </div>
+   </div>
+</form>
+
+<div class="notification animated fadeInUp is-hidden">
+   <button class="delete"></button>
+   <span class="text"></span>
+</div>
+
+<script>
+   document.addEventListener("astro:page-load", () => {
+      const form = document.querySelector("#contact-form");
+
+      if (!form) return;
+
+      const nombre = document.querySelector("#nombreZhyr7");
+      const telf = document.querySelector("#telfZhyr7");
+      const email = document.querySelector("#emailZhyr7");
+      const mensaje = document.querySelector("#mensajeZhyr7");
+
+      const name = document.querySelector("#name");
+      const nickname = document.querySelector("#nickname");
+      const notif = document.querySelector(".notification");
+
+      form?.addEventListener("submit", async (event) => {
+         event.preventDefault();
+         if (!name.value && !nickname.value) {
+            const cuerpo = `<h3>Contact Form</h3>
+                           <p><b>Name:</b> ${nombre.value}</p>
+                           <p><b>Contact Phone:</b> ${telf.value}</p>
+                           <p><b>Email:</b> ${email.value}</p>
+                           <p><b>Message:</b> ${mensaje.value}</p>
+                           <br><br>
+                           <p>This message was sent from myhealthfair.com</p>`;
+
+            const emailData = {
+               from: "info@miferiadesalud.com",
+               to: ["molina.frank@outlook.com"],
+               subject: "Contact Web Form",
+               html: cuerpo,
+            };
+
+            const res = await fetch("/api/sendEmail.json", {
+               method: "POST",
+               headers: {
+                  "Content-Type": "application/json",
+               },
+               body: JSON.stringify(emailData),
+            });
+
+            if (res.ok) {
+               notif.classList.toggle("is-success");
+               notif.classList.toggle("is-hidden");
+               notif.lastElementChild.textContent = "Your message was sent! 👍";
+            } else {
+               const error = await res.json();
+               console.error("Error:", error);
+               notif.lastElementChild.textContent = "Oh sorry 🙁";
+               notif.classList.toggle("is-hidden");
+               notif.classList.toggle("is-danger");
+            }
+         }
+
+         setTimeout(() => {
+            notif.classList.toggle("is-hidden");
+            notif.classList.remove("is-danger");
+            notif.classList.remove("is-success");
+
+            nombre.value = "";
+            telf.value = "";
+            email.value = "";
+            mensaje.value = "";
+         }, 2000);
+      });
+   });
+</script>
+
+<style>
+   .ohnohoney {
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 0;
+      width: 0;
+      z-index: -1;
+   }
+
+   .notification {
+      width: 300px;
+      position: absolute;
+      bottom: 3rem;
+      right: 3rem;
+   }
+</style>

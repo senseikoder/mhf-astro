@@ -8,7 +8,7 @@ import vercel from "@astrojs/vercel/serverless";
 export default defineConfig({
   site: 'https://myhealthfair.com',
   // integrations: [sitemap()],
-  prefetch: false,
+  prefetch: true,
   format: 'file',
   output: 'hybrid',
   i18n: {
