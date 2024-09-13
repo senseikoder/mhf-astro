@@ -90,6 +90,26 @@ a.logo.navbar-item:hover {
   filter: drop-shadow(0 0 3px var(--primary));
 }
 
+.wp-block-embed__wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 25px;
+  height: 0;
+}
+
+.wp-block-embed__wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.embed__wrapper iframe {
+  max-width: 100%;
+}
+
+
 @media (max-width: 575px) {
   .navbar.is-fixed-top {
     position: initial;
