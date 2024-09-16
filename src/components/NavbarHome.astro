@@ -14,7 +14,7 @@ if (pathname == "/" || pathname == "/en" || pathname == "/en/") isHome = true;
 <header class:list={["navbar", { "is-fixed-top": isHome }]}>
    <div class="container">
       <div class="navbar-brand">
-         <a class="navbar-item logo">
+         <a class="navbar-item logo" href={pathname}>
             <Image src={logoMHF} alt="Logo" width="286" height="70" />
          </a>
          <span class="navbar-burger" data-target="navbarMenu">

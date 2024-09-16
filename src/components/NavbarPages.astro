@@ -7,93 +7,94 @@ import SubmenuFair from "./SubmenuFair.astro";
 import SubmenuBlogES from "./SubmenuBlogES.astro";
 import SubmenuBlogEN from "./SubmenuBlogEN.astro";
 const idioma = Astro.currentLocale;
+const urlHome = idioma == "es" ? "/" : "/en";
 ---
 
 <nav class="navbar">
-   <div class="container">
-      <div class="navbar-brand is-hidden-desktop">
-         <a href="/" class="navbar-item logo">
-            <Image src={logoMHF} alt="Logo" width="286" height="70" />
-         </a>
-         <span class="navbar-burger" data-target="navbarMenu">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-         </span>
-      </div>
+  <div class="container">
+    <div class="navbar-brand is-hidden-desktop">
+      <a href={urlHome} class="navbar-item logo">
+        <Image src={logoMHF} alt="Logo" width="286" height="70" />
+      </a>
+      <span class="navbar-burger" data-target="navbarMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </div>
 
-      <div id="navbarMenu" class="navbar-menu">
-         <div class="navbar-end">
-            {
-               idioma == "es" ? (
-                  <>
-                     <HeaderLink href="/">Inicio</HeaderLink>
-                     <SubmenuFeria />
-                     <HeaderLink href="/about">Acerca de</HeaderLink>
-                     <SubmenuBlogES />
-                     <HeaderLink href="/events">Eventos</HeaderLink>
-                     <HeaderLink href="/videos">Videos</HeaderLink>
-                     <HeaderLink href="/contact">Contacto</HeaderLink>
-                     <HeaderLink href="/en" class="is-hidden-desktop">
-                        English
-                        <img
-                           src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAMAAABBPP0LAAAAmVBMVEViZsViZMJiYrf9gnL8eWrlYkjgYkjZYkj8/PujwPybvPz4+PetraBEgfo+fvo3efkydfkqcvj8Y2T8UlL8Q0P8MzP9k4Hz8/Lu7u4DdPj9/VrKysI9fPoDc/EAZ7z7IiLHYkjp6ekCcOTk5OIASbfY/v21takAJrT5Dg6sYkjc3Nn94t2RkYD+y8KeYkjs/v7l5fz0dF22YkjWvcOLAAAAgElEQVR4AR2KNULFQBgGZ5J13KGGKvc/Cw1uPe62eb9+Jr1EUBFHSgxxjP2Eca6AfUSfVlUfBvm1Ui1bqafctqMndNkXpb01h5TLx4b6TIXgwOCHfjv+/Pz+5vPRw7txGWT2h6yO0/GaYltIp5PT1dEpLNPL/SdWjYjAAZtvRPgHJX4Xio+DSrkAAAAASUVORK5CYII="
-                           alt=""
-                           width="16"
-                           height="11"
-                           style="width: 16px; height: 11px;"
-                        />
-                     </HeaderLink>
-                  </SubmenuBlogES>
-               ) : (
-                  <>
-                     <HeaderLink href="/en">Home</HeaderLink>
-                     <SubmenuFair />
-                     <HeaderLink href="/en/about">About us</HeaderLink>
-                     <SubmenuBlogEN />
-                     <HeaderLink href="/en/events">Events</HeaderLink>
-                     <HeaderLink href="/en/videos">Videos</HeaderLink>
-                     <HeaderLink href="/en/contact">Contact</HeaderLink>
-                     <HeaderLink href="/" class="is-hidden-desktop">
-                        Español
-                        <img
-                           src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAMAAABBPP0LAAAAflBMVEX/AAD9AAD3AADxAADrAAD/eXn9bGz8YWH8WVn6UVH5SEj5Pz/3NDT0Kir9/QD+/nL+/lT18lDt4Uf6+j/39zD39yf19R3n5wDxflXsZ1Pt4Y3x8zr0wbLs1NXz8xPj4wD37t3jmkvsUU/Bz6nrykm3vJ72IiL0FBTyDAvhAABEt4UZAAAAX0lEQVR4AQXBQUrFQBBAwXqTDkYE94Jb73+qfwVRcYxVQRBRToiUfoaVpGTrtdS9SO0Z9FR9lVy/g5c99+dKl30N5uxPuviexXEc9/msC7TOkd4kHu/Dlh4itCJ8AP4B0w4Qwmm7CFQAAAAASUVORK5CYII="
-                           alt=""
-                           width="16"
-                           height="11"
-                           style="width: 16px; height: 11px;"
-                        />
-                     </HeaderLink>
-                  </SubmenuBlogEN>
-               )
-            }
-         </div>
+    <div id="navbarMenu" class="navbar-menu">
+      <div class="navbar-end">
+        {
+          idioma == "es" ? (
+            <>
+              <HeaderLink href="/">Inicio</HeaderLink>
+              <SubmenuFeria />
+              <HeaderLink href="/about">Acerca de</HeaderLink>
+              <SubmenuBlogES />
+              <HeaderLink href="/events">Eventos</HeaderLink>
+              <HeaderLink href="/videos">Videos</HeaderLink>
+              <HeaderLink href="/contact">Contacto</HeaderLink>
+              <HeaderLink href="/en" class="is-hidden-desktop">
+                English
+                <img
+                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAMAAABBPP0LAAAAmVBMVEViZsViZMJiYrf9gnL8eWrlYkjgYkjZYkj8/PujwPybvPz4+PetraBEgfo+fvo3efkydfkqcvj8Y2T8UlL8Q0P8MzP9k4Hz8/Lu7u4DdPj9/VrKysI9fPoDc/EAZ7z7IiLHYkjp6ekCcOTk5OIASbfY/v21takAJrT5Dg6sYkjc3Nn94t2RkYD+y8KeYkjs/v7l5fz0dF22YkjWvcOLAAAAgElEQVR4AR2KNULFQBgGZ5J13KGGKvc/Cw1uPe62eb9+Jr1EUBFHSgxxjP2Eca6AfUSfVlUfBvm1Ui1bqafctqMndNkXpb01h5TLx4b6TIXgwOCHfjv+/Pz+5vPRw7txGWT2h6yO0/GaYltIp5PT1dEpLNPL/SdWjYjAAZtvRPgHJX4Xio+DSrkAAAAASUVORK5CYII="
+                  alt=""
+                  width="16"
+                  height="11"
+                  style="width: 16px; height: 11px;"
+                />
+              </HeaderLink>
+            </>
+          ) : (
+            <>
+              <HeaderLink href="/en">Home</HeaderLink>
+              <SubmenuFair />
+              <HeaderLink href="/en/about">About us</HeaderLink>
+              <SubmenuBlogEN />
+              <HeaderLink href="/en/events">Events</HeaderLink>
+              <HeaderLink href="/en/videos">Videos</HeaderLink>
+              <HeaderLink href="/en/contact">Contact</HeaderLink>
+              <HeaderLink href="/" class="is-hidden-desktop">
+                Español
+                <img
+                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAMAAABBPP0LAAAAflBMVEX/AAD9AAD3AADxAADrAAD/eXn9bGz8YWH8WVn6UVH5SEj5Pz/3NDT0Kir9/QD+/nL+/lT18lDt4Uf6+j/39zD39yf19R3n5wDxflXsZ1Pt4Y3x8zr0wbLs1NXz8xPj4wD37t3jmkvsUU/Bz6nrykm3vJ72IiL0FBTyDAvhAABEt4UZAAAAX0lEQVR4AQXBQUrFQBBAwXqTDkYE94Jb73+qfwVRcYxVQRBRToiUfoaVpGTrtdS9SO0Z9FR9lVy/g5c99+dKl30N5uxPuviexXEc9/msC7TOkd4kHu/Dlh4itCJ8AP4B0w4Qwmm7CFQAAAAASUVORK5CYII="
+                  alt=""
+                  width="16"
+                  height="11"
+                  style="width: 16px; height: 11px;"
+                />
+              </HeaderLink>
+            </>
+          )
+        }
       </div>
-   </div>
+    </div>
+  </div>
 </nav>
 
 <style>
-   :root {
-      --bulma-navbar-height: 2.5rem;
-   }
+  :root {
+    --bulma-navbar-height: 2.5rem;
+  }
 
-   nav a {
-      border-bottom: 2px solid transparent;
+  nav a {
+    border-bottom: 2px solid transparent;
+    text-decoration: none;
+    letter-spacing: 0.5pt;
+  }
+
+  .navbar-end {
+    margin-inline-end: auto;
+  }
+
+  @media (min-width: 728px) {
+    nav a.is-active {
+      color: var(--bulma-primary);
       text-decoration: none;
-      letter-spacing: 0.5pt;
-   }
-
-   .navbar-end {
-      margin-inline-end: auto;
-   }
-
-   @media (min-width: 728px) {
-      nav a.is-active {
-         color: var(--bulma-primary);
-         text-decoration: none;
-         border-bottom-color: var(--accent);
-         background-color: transparent;
-      }
-   }
+      border-bottom-color: var(--accent);
+      background-color: transparent;
+    }
+  }
 </style>
