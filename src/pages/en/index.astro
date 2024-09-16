@@ -2,7 +2,7 @@
 import HomeLayout from "../../layouts/HomeLayout.astro";
 
 import HomeFeria from "../../components/HomeFeria.astro";
-import HomeCats from "../../components/HomeCatsEN.astro";
+// import HomeCats from "../../components/HomeCatsEN.astro";
 import HomeCarrusel from "../../components/HomeCarrusel.astro";
 import HomeBlog from "../../components/HomeBlog.astro";
 import { Image } from "astro:assets";
@@ -12,44 +12,40 @@ import "flickity/dist/flickity.min.css";
 import HomeVideos from "../../components/HomeVideos.astro";
 ---
 
-<HomeLayout title="MyHealthFair - Massachussets" description="">
-   <HomeFeria />
+<HomeLayout
+  title="MyHealthFair - Massachussets"
+  description="We help you get medical help in Boston, Massachusetts by connecting you with the health organizations you need, 365 days a year."
+>
+  <HomeFeria />
 
-   <section class="section">
-      <div class="container is-max-desktop">
-         <div class="columns is-centered">
-            <div class="column is-8">
-               <h2
-                  class="title has-text-weight-semibold is-4 has-text-centered"
-               >
-                  <span class="has-text-primary has-text-weight-bold"
-                     >My Health Fair</span
-                  > is a 365 days a year digital health fair that gives you access
-                  to information directly from health organizations and experts,
-                  in your language.
-               </h2>
-            </div>
-         </div>
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <h2 class="title has-text-weight-semibold is-4 has-text-centered">
+            <span class="has-text-primary has-text-weight-bold"
+              >My Health Fair</span
+            > is a 365 days a year digital health fair that gives you access to information
+            directly from health organizations and experts, in your language.
+          </h2>
+        </div>
       </div>
-   </section>
+    </div>
+  </section>
 
-   <section class="section p-2 is-hidden-touch">
-      <div class="has-text-centered">
-         <a
-            href="https://elmundoboston.com"
-            target="_blank"
-            alt="El Mundo Boston"
-         >
-            <Image src={emb_header} alt="El Mundo Boston" />
-         </a>
-      </div>
-   </section>
+  <section class="section p-2 is-hidden-touch">
+    <div class="has-text-centered">
+      <a href="https://elmundoboston.com" target="_blank" alt="El Mundo Boston">
+        <Image src={emb_header} alt="El Mundo Boston" />
+      </a>
+    </div>
+  </section>
 
-   <!-- <HomeCats /> -->
+  <!-- <HomeCats /> -->
 
-   <HomeVideos />
+  <HomeVideos />
 
-   <HomeCarrusel />
+  <HomeCarrusel />
 
-   <HomeBlog />
+  <HomeBlog />
 </HomeLayout>

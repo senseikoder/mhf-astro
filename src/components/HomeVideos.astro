@@ -4,63 +4,60 @@ import "plyr/dist/plyr.css";
 ---
 
 <section class="section">
-   <div class="container has-text-white">
-      <div class="block has-text-centered">
-         {
-            idioma == "es" ? (
-               <h3 class="title">Participantes de la Feria en la Media</h3>
-            ) : (
-               <h3 class="title">Participants of the Fair in Media</h3>
-            )
-         }
+  <div class="container has-text-white">
+    <div class="block has-text-centered">
+      {
+        idioma == "es" ? (
+          <h3 class="title">Participantes de la Feria en la Media</h3>
+        ) : (
+          <h3 class="title">Participants of the Fair in Media</h3>
+        )
+      }
+    </div>
+
+    <div class="columns is-centered my-6">
+      <div class="column is-4">
+        <lite-youtube videoid="UvKkd4mncsk"></lite-youtube>
+        <!-- <div
+          class="player"
+          data-plyr-provider="youtube"
+          data-plyr-embed-id="https://www.youtube.com/watch?v=UvKkd4mncsk"
+        > 
+      </div>-->
+
+        <h3 class="title is-5 my-4">
+          Senior Care Options - Orale con Veronica Radio
+        </h3>
       </div>
+      <div class="column is-4">
+        <!-- <div
+          class="player"
+          data-plyr-provider="youtube"
+          data-plyr-embed-id="https://www.youtube.com/watch?v=bIC4Siso-NI&t=2s"
+        >
+        </div> -->
+        <lite-youtube videoid="bIC4Siso-NI"></lite-youtube>
 
-      <div class="columns is-centered my-6">
-         <div class="column is-4">
-            <div
-               class="player"
-               data-plyr-provider="youtube"
-               data-plyr-embed-id="https://www.youtube.com/watch?v=UvKkd4mncsk"
-            >
-            </div>
-
-            <h3 class="title is-5 my-4">
-               Senior Care Options - Orale con Veronica Radio
-            </h3>
-         </div>
-         <div class="column is-4">
-            <div
-               class="player"
-               data-plyr-provider="youtube"
-               data-plyr-embed-id="https://www.youtube.com/watch?v=bIC4Siso-NI&t=2s"
-            >
-            </div>
-
-            <h3 class="title is-5 my-4">
-               Los Latinos y el Alzheimers - La Cajita TV
-            </h3>
-         </div>
-         <div class="column is-4">
-            <div
-               class="player"
-               data-plyr-provider="youtube"
-               data-plyr-embed-id="https://www.youtube.com/watch?v=ksSKq1VrO5Q"
-            >
-            </div>
-            <h3 class="title is-5 my-4">
-               Orale con Veronica - Dana Farber Cancer Institute
-            </h3>
-         </div>
+        <h3 class="title is-5 my-4">
+          Los Latinos y el Alzheimers - La Cajita TV
+        </h3>
       </div>
-   </div>
+      <div class="column is-4">
+        <!-- <div
+         class="player"
+         data-plyr-provider="youtube"
+         data-plyr-embed-id="https://www.youtube.com/watch?v=ksSKq1VrO5Q"
+         >
+         </div> -->
+        <lite-youtube videoid="ksSKq1VrO5Q"></lite-youtube>
+        <h3 class="title is-5 my-4">
+          Orale con Veronica - Dana Farber Cancer Institute
+        </h3>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    import "@justinribeiro/lite-youtube";
+  </script>
 </section>
-
-<script>
-   import Plyr from "plyr";
-
-   document.addEventListener("astro:page-load", () => {
-      const players = Plyr.setup(".player", {
-         ratio: "16:9",
-      });
-   });
-</script>

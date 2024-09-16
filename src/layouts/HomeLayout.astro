@@ -19,26 +19,26 @@ import Snippets from "../components/Snippets.astro";
 ---
 
 <html lang={idioma} data-theme="light">
-   <head>
-      <BaseHead title={title} description={description} />
-      <Snippets/>
-      <ViewTransitions />
-   </head>
+  <head>
+    <BaseHead title={title} description={description} />
+    <Snippets />
+    <ViewTransitions />
+  </head>
 
-   <body>
-      <BodyTop />
-      <section class="section p-2 is-hidden-desktop">
-         <div class="block">
-            <Image src={emb_header} alt="El Mundo Boston" />
-         </div>
-      </section>
+  <body>
+    <BodyTop />
+    <section class="section p-2 is-hidden-desktop">
+      <div class="block">
+        <Image src={emb_header} alt="El Mundo Boston" />
+      </div>
+    </section>
 
-      <NavbarHome />
-      <slot />
-      {idioma == "es" ? <Footer /> : <FooterEN />}
-      <script src="../js/main.js"></script>
-      <script src="../js/popup.js"></script>
-      <TabLang />
-      <ModalPopup />
-   </body>
+    <NavbarHome />
+    <slot />
+    {idioma == "es" ? <Footer /> : <FooterEN />}
+    <script src="../js/main.js"></script>
+    <script src="../js/popup.js"></script>
+    <TabLang />
+    <ModalPopup />
+  </body>
 </html>
