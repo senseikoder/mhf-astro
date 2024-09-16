@@ -4,104 +4,58 @@ import "plyr/dist/plyr.css";
 ---
 
 <PageLayout title="Aliados en video" description="Lorem ipsum dolor sit amet">
-   <section class="section">
-      <div class="container has-text-white">
-         <div class="block has-text-centered">
-            <h3 class="title">United Health Care</h3>
-         </div>
-         
-         <div class="columns is-centered my-6">
-            <div class="column is-5">
-               <div
-                  class="player"
-                  data-plyr-provider="youtube"
-                  data-plyr-embed-id="https://www.youtube.com/watch?v=UvKkd4mncsk"
-               >
-               </div>
-            </div>
-            <div class="column is-5">
-               <div
-                  class="player"
-                  data-plyr-provider="youtube"
-                  data-plyr-embed-id="https://www.youtube.com/watch?v=TzK7Tr82MPo"
-               >
-               </div>
-            </div>
-         </div>
-         <br />
-         <div class="block has-text-centered">
-            <h3 class="title">Alzheimer's Association</h3>
-         </div>
-
-         <div class="columns is-centered my-6">
-            <div class="column is-4">
-               <div
-                  class="player"
-                  data-plyr-provider="youtube"
-                  data-plyr-embed-id="https://www.youtube.com/watch?v=bIC4Siso-NI&t=2s"
-               >
-               </div>
-            </div>
-            <div class="column is-4">
-               <div
-                  class="player"
-                  data-plyr-provider="youtube"
-                  data-plyr-embed-id="https://www.youtube.com/watch?v=nUSGM7XCyHc"
-               >
-               </div>
-            </div>
-            <div class="column is-4">
-               <div
-                  class="player"
-                  data-plyr-provider="youtube"
-                  data-plyr-embed-id="https://www.youtube.com/watch?v=owi6H0gUq5o"
-               >
-               </div>
-            </div>
-         </div>
-
-         <br />
-
-         <div class="block has-text-centered">
-            <h3 class="title">Dana Farber Cancer Institute</h3>
-         </div>
-
-         <div class="columns is-centered my-6">
-            <div class="column is-4">
-               <div
-                  class="player"
-                  data-plyr-provider="youtube"
-                  data-plyr-embed-id="https://www.youtube.com/watch?v=ksSKq1VrO5Q"
-               >
-               </div>
-            </div>
-            <div class="column is-4">
-               <div
-                  class="player"
-                  data-plyr-provider="youtube"
-                  data-plyr-embed-id="https://www.youtube.com/watch?v=J-um1mgfR1w"
-               >
-               </div>
-            </div>
-            <div class="column is-4">
-               <div
-                  class="player"
-                  data-plyr-provider="youtube"
-                  data-plyr-embed-id="https://www.youtube.com/watch?v=82WYR2w0EmM"
-               >
-               </div>
-            </div>
-         </div>
+  <section class="section">
+    <div class="container has-text-white">
+      <div class="block has-text-centered">
+        <h3 class="title">United Health Care</h3>
       </div>
-   </section>
+
+      <div class="columns is-centered my-6">
+        <div class="column is-5">
+          <lite-youtube videoid="UvKkd4mncsk"></lite-youtube>
+        </div>
+        <div class="column is-5">
+          <lite-youtube videoid="TzK7Tr82MPo"></lite-youtube>
+        </div>
+      </div>
+      <br />
+      <div class="block has-text-centered">
+        <h3 class="title">Alzheimer's Association</h3>
+      </div>
+
+      <div class="columns is-centered my-6">
+        <div class="column is-4">
+          <lite-youtube videoid="bIC4Siso-NI"></lite-youtube>
+        </div>
+        <div class="column is-4">
+          <lite-youtube videoid="nUSGM7XCyHc"></lite-youtube>
+        </div>
+        <div class="column is-4">
+          <lite-youtube videoid="owi6H0gUq5o"></lite-youtube>
+        </div>
+      </div>
+
+      <br />
+
+      <div class="block has-text-centered">
+        <h3 class="title">Dana Farber Cancer Institute</h3>
+      </div>
+
+      <div class="columns is-centered my-6">
+        <div class="column is-4">
+          <lite-youtube videoid="ksSKq1VrO5Q"></lite-youtube>
+        </div>
+        <div class="column is-4">
+          <lite-youtube videoid="J-um1mgfR1w"></lite-youtube>
+        </div>
+        <div class="column is-4">
+          <lite-youtube videoid="82WYR2w0EmM"></lite-youtube>
+        </div>
+      </div>
+    </div>
+  </section>
 </PageLayout>
 
 <script>
-   import Plyr from "plyr";
-
-   document.addEventListener("astro:page-load", () => {
-      const players = Plyr.setup(".player", {
-         ratio: "16:9",
-      });
-   });
+  import "@justinribeiro/lite-youtube";
 </script>
