@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: 
+Sitemap: https://myhealthfair.com/sitemap-index.xml
