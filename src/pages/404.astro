@@ -1,0 +1,24 @@
+---
+import PageLayout from "../layouts/PageLayout.astro";
+import { Image } from "astro:assets";
+const idioma = Astro.currentLocale;
+import pic404es from "../images/404-es.webp";
+import pic404en from "../images/404-en.webp";
+let pic404;
+pic404 = idioma == "es" ? pic404es : pic404en;
+const textBtn = idioma == "es" ? "IR A FERIA VIRTUAL" : "GO TO VIRTUAL FAIR"
+---
+
+<PageLayout title="No encontrado - 404 - MyHealthFair" description="">
+  <section class="section">
+    <div class="container has-text-centered">
+      <Image src={pic404} alt="No encontrado" />
+
+      <br />
+
+      <a href="/" class="button is-primary is-large has-text-white"
+        >{textBtn}</a
+      >
+    </div>
+  </section>
+</PageLayout>
