@@ -14,222 +14,216 @@ import rec7 from "../../images/recursos/dana-blum.webp";
 import ModalForm from "../../components/ModalForm.astro";
 
 const booth = {
-   image: "dana-farber.webp",
-   btn1: "brochure.webp",
-   btn2: "empleos.webp",
-   btn3: "recursos.webp",
-   btn4: "oferta.webp",
-   btn5: "contacto.webp",
+  image: "dana-farber.webp",
+  btn1: "brochure.webp",
+  btn2: "empleos.webp",
+  btn3: "recursos.webp",
+  btn4: "oferta.webp",
+  btn5: "contacto.webp",
 };
 const wpuploads = import.meta.env.WP_UPLOADS;
 ---
 
 <BoothLayout
-   title="Dana Farber Cancer Institute"
-   description="Lorem ipsum dolor sit amet"
+  title="Dana Farber Cancer Institute"
+  description="Lorem ipsum dolor sit amet"
 >
-   <section class="section banner-booth dana-farber">
-      <div class="is-overlay"></div>
-      <div class="container has-text-white">
-         <div class="columns is-centered">
-            <div class="column is-6 has-text-centered">
-               <svg
-                  version="1.1"
-                  xmlns="http://www.w3.org/2000/svg"
-                  xmlns:xlink="http://www.w3.org/1999/xlink"
-                  viewBox="0 0 600 780"
-               >
-                  <image
-                     width="600"
-                     height="780"
-                     xlink:href={"/img/booths-bg/" + booth.image}
-                  />
-                  <!-- Video -->
-                  <a
-                     xlink:href="javascript:void(0)"
-                     class="modal-trigger video"
-                     data-target="modal-video"
-                  >
-                     <rect
-                        x="130"
-                        y="54"
-                        fill="#fff"
-                        opacity="0"
-                        width="413"
-                        height="266"></rect>
-                  </a>
-
-                  <!-- Brochure -->
-                  <a
-                     xlink:href={wpuploads +
-                        "/2024/02/Roundtable-Spanish-vax-handout.pdf"}
-                     target="_blank"
-                     class="brochure"
-                  >
-                     <image
-                        x="90"
-                        y="555"
-                        xlink:href={"/img/booths-pics/" + booth.btn1}
-                     />
-                  </a>
-
-                  <!-- Empleos -->
-                  <a
-                     xlink:href="https://careers.dana-farber.org/jobs/?search_term=spanish&Submit="
-                     target="_blank"
-                     class="empleos"
-                  >
-                     <image
-                        x="310"
-                        y="555"
-                        xlink:href={"/img/booths-pics/" + booth.btn2}
-                     />
-                  </a>
-
-                  <!-- Recursos -->
-                  <a xlink:href="#recursos" class="recursos">
-                     <image
-                        x="90"
-                        y="635"
-                        xlink:href={"/img/booths-pics/" + booth.btn3}
-                     />
-                  </a>
-
-                  <!-- Oferta -->
-                  <a
-                     xlink:href="#eventos"
-                     class="modal-trigger oferta"
-                     data-target="modal-booth"
-                     data-content="oferta"
-                  >
-                     <image
-                        x="310"
-                        y="635"
-                        xlink:href={"/img/booths-pics/" + booth.btn4}
-                     />
-                  </a>
-
-                  <a
-                     xlink:href="javascript:void(0)"
-                     class="modal-trigger contact"
-                     data-target="modal-form"
-                  >
-                     <image
-                        x="195"
-                        y="710"
-                        xlink:href={"/img/booths-pics/" + booth.btn5}
-                     />
-                  </a>
-               </svg>
-            </div>
-         </div>
-      </div>
-
-      <div class="has-text-centered mt-5">
-         <a href="/" class="button is-light is-rounded is-outlined"
-            >Volver a la Feria</a
-         >
-      </div>
-   </section>
-
-   <!-- RECURSOS -->
-
-   <section class="section" id="recursos">
-      <div class="container is-max-widescreen">
-         
-         <div class="columns">
-            
-            <div class="column">
-               <a href="/recursos/Dana-Farber-skin-cancer-esp.pdf" target="_blank">
-                  <Image src={rec0} alt="" />
-               </a>
-
-            </div>
-            <div class="column">
-               <a
-                  href={wpuploads +
-                     "2024/06/Sun-Safety-Beach-Schedule-Postcard_5x7_-Spanish.pdf"}
-                  target="_blank"
-               >
-                  <Image src={rec7} alt="" />
-               </a>
-            </div>
-            <div class="column">
-               <a
-                  href={wpuploads +
-                     "/2023/12/Evaluacion-del-riesgo-de-cancer-la-innovadora-herramienta-de-Dana-Farber.pdf"}
-                  target="_blank"
-               >
-                  <Image src={rec1} alt="" />
-               </a>
-            </div>
-            
-         </div>
-
-         <div class="columns my-5 is-centered">
-            <div class="column">
-               <a
-                  href={wpuploads + "/2022/09/Newspaper-Full-Page-1.pdf"}
-                  target="_blank"
-               >
-                  <Image src={rec3} alt="" />
-               </a>
-            </div>
-            <div class="column is-4">
-               <a
-                  href={wpuploads + "/2022/09/Newspaper-Full-Page-3.pdf"}
-                  target="_blank"
-               >
-                  <Image src={rec4} alt="" />
-               </a>
-            </div>
-            <div class="column is-4">
-               <a
-                  href={wpuploads + "/2023/06/Newspaper-El-Mundo-Ad-Esp.pdf"}
-                  target="_blank"
-               >
-                  <Image src={rec5} alt="" />
-               </a>
-            </div>
-         </div>
-      </div>
-   </section>
-
-   <ModalBooths />
-
-   <ModalVideo videoID="https://youtu.be/gaj-_TBVDSA" />
-
-   <ModalForm
-      to="dfci_communitybenefits@dfci.harvard.edu"
-      subject="Booth Dana Farber - Nuevo contacto web"
-   />
-
-   <div id="oferta" class="is-hidden">
-      <div class="has-text-centered">
-         <p>
+  <section class="section banner-booth dana-farber">
+    <div class="is-overlay"></div>
+    <div class="container has-text-white">
+      <div class="columns is-centered">
+        <div class="column is-6 has-text-centered">
+          <svg
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 600 780"
+          >
+            <image
+              width="600"
+              height="780"
+              xlink:href={"/img/booths-bg/" + booth.image}
+            />
+            <!-- Video -->
             <a
-               href="https://www.dana-farber.org/about-us/community-outreach/mammography-van/van-calendar/"
-               target="_blank"
-               rel="noopener"
-               ><strong>Calendario del Van de la Mamografía</strong></a
+              xlink:href="javascript:void(0)"
+              class="modal-trigger video"
+              data-target="modal-video"
             >
-         </p>
-         <p>
+              <rect
+                x="130"
+                y="54"
+                fill="#fff"
+                opacity="0"
+                width="413"
+                height="266"></rect>
+            </a>
+
+            <!-- Brochure -->
             <a
-               href="https://assess-your-risk.dana-farber.org/es"
-               target="_blank"
-               rel="noopener"><strong>Evalúe sus riesgos</strong></a
+              xlink:href={wpuploads + "/2024/10/Brochure-Dana-Farber-esp.pdf"}
+              target="_blank"
+              class="brochure"
             >
-         </p>
-         <p>
+              <image
+                x="90"
+                y="555"
+                xlink:href={"/img/booths-pics/" + booth.btn1}
+              />
+            </a>
+
+            <!-- Empleos -->
             <a
-               href="https://www.dana-farber.org/community-health/sun-safety-skin-cancer-prevention"
-               target="_blank"
-               ><strong
-                  >Van de Seguridad Solar y Prevención del Cáncer de Piel
-               </strong></a
+              xlink:href="https://careers.dana-farber.org/jobs/?search_term=spanish&Submit="
+              target="_blank"
+              class="empleos"
             >
-         </p>
+              <image
+                x="310"
+                y="555"
+                xlink:href={"/img/booths-pics/" + booth.btn2}
+              />
+            </a>
+
+            <!-- Recursos -->
+            <a xlink:href="#recursos" class="recursos">
+              <image
+                x="90"
+                y="635"
+                xlink:href={"/img/booths-pics/" + booth.btn3}
+              />
+            </a>
+
+            <!-- Oferta -->
+            <a
+              xlink:href="#eventos"
+              class="modal-trigger oferta"
+              data-target="modal-booth"
+              data-content="oferta"
+            >
+              <image
+                x="310"
+                y="635"
+                xlink:href={"/img/booths-pics/" + booth.btn4}
+              />
+            </a>
+
+            <a
+              xlink:href="javascript:void(0)"
+              class="modal-trigger contact"
+              data-target="modal-form"
+            >
+              <image
+                x="195"
+                y="710"
+                xlink:href={"/img/booths-pics/" + booth.btn5}
+              />
+            </a>
+          </svg>
+        </div>
       </div>
-   </div>
+    </div>
+
+    <div class="has-text-centered mt-5">
+      <a href="/" class="button is-light is-rounded is-outlined"
+        >Volver a la Feria</a
+      >
+    </div>
+  </section>
+
+  <!-- RECURSOS -->
+
+  <section class="section" id="recursos">
+    <div class="container is-max-widescreen">
+      <div class="columns">
+        <div class="column">
+          <a href="/recursos/Dana-Farber-skin-cancer-esp.pdf" target="_blank">
+            <Image src={rec0} alt="" />
+          </a>
+        </div>
+        <div class="column">
+          <a
+            href={wpuploads +
+              "2024/06/Sun-Safety-Beach-Schedule-Postcard_5x7_-Spanish.pdf"}
+            target="_blank"
+          >
+            <Image src={rec7} alt="" />
+          </a>
+        </div>
+        <div class="column">
+          <a
+            href={wpuploads +
+              "/2023/12/Evaluacion-del-riesgo-de-cancer-la-innovadora-herramienta-de-Dana-Farber.pdf"}
+            target="_blank"
+          >
+            <Image src={rec1} alt="" />
+          </a>
+        </div>
+      </div>
+
+      <div class="columns my-5 is-centered">
+        <div class="column">
+          <a
+            href={wpuploads + "/2022/09/Newspaper-Full-Page-1.pdf"}
+            target="_blank"
+          >
+            <Image src={rec3} alt="" />
+          </a>
+        </div>
+        <div class="column is-4">
+          <a
+            href={wpuploads + "/2022/09/Newspaper-Full-Page-3.pdf"}
+            target="_blank"
+          >
+            <Image src={rec4} alt="" />
+          </a>
+        </div>
+        <div class="column is-4">
+          <a
+            href={wpuploads + "/2023/06/Newspaper-El-Mundo-Ad-Esp.pdf"}
+            target="_blank"
+          >
+            <Image src={rec5} alt="" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ModalBooths />
+
+  <ModalVideo videoID="https://youtu.be/_IunlRGsd04" />
+
+  <ModalForm
+    to="dfci_communitybenefits@dfci.harvard.edu"
+    subject="Booth Dana Farber - Nuevo contacto web"
+  />
+
+  <div id="oferta" class="is-hidden">
+    <div class="has-text-centered">
+      <p>
+        <a
+          href="https://www.dana-farber.org/about-us/community-outreach/mammography-van/van-calendar/"
+          target="_blank"
+          rel="noopener"><strong>Calendario del Van de la Mamografía</strong></a
+        >
+      </p>
+      <p>
+        <a
+          href="https://assess-your-risk.dana-farber.org/es"
+          target="_blank"
+          rel="noopener"><strong>Evalúe sus riesgos</strong></a
+        >
+      </p>
+      <p>
+        <a
+          href="https://www.dana-farber.org/community-health/sun-safety-skin-cancer-prevention"
+          target="_blank"
+          ><strong
+            >Van de Seguridad Solar y Prevención del Cáncer de Piel
+          </strong></a
+        >
+      </p>
+    </div>
+  </div>
 </BoothLayout>
