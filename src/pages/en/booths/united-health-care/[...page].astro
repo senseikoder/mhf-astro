@@ -8,12 +8,12 @@ import FormattedDate from "../../../../components/FormattedDate.astro";
 import FormattedTime from "../../../../components/FormattedTime.astro";
 import Image from "astro/components/Image.astro";
 const booth = {
-   image: "united-health-care.webp",
-   btn1: "brochure.webp",
-   btn2: "jobs.webp",
-   btn3: "resources.webp",
-   btn4: "events.webp",
-   btn5: "contact.webp",
+  image: "united-health-care.webp",
+  btn1: "brochure.webp",
+  btn2: "jobs.webp",
+  btn3: "resources.webp",
+  btn4: "events.webp",
+  btn5: "contact.webp",
 };
 import rec1 from "../../../../images/recursos/uhc-rec1_.webp";
 import baneruhc from "../../../../images/banner-uhc.webp";
@@ -27,22 +27,22 @@ let pagina = page ? Number(page) : 1;
 
 // Función para obtener el lunes de la semana actual
 function getMonday(date) {
-   const day = date.getDay();
-   const diff = date.getDate() - day + (day == 0 ? -6 : 1);
-   return new Date(date.setDate(diff));
+  const day = date.getDay();
+  const diff = date.getDate() - day + (day == 0 ? -6 : 1);
+  return new Date(date.setDate(diff));
 }
 
 // Función para obtener el domingo de la semana actual
 function getSunday(monday) {
-   return new Date(monday.getTime() + 6 * 24 * 60 * 60 * 1000);
+  return new Date(monday.getTime() + 6 * 24 * 60 * 60 * 1000);
 }
 
 function formatDate(date) {
-   const year = date.getFullYear();
-   const month = String(date.getMonth() + 1).padStart(2, "0"); // Los meses en JavaScript son 0-indexados
-   const day = String(date.getDate()).padStart(2, "0");
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0"); // Los meses en JavaScript son 0-indexados
+  const day = String(date.getDate()).padStart(2, "0");
 
-   return `${year}-${month}-${day}`;
+  return `${year}-${month}-${day}`;
 }
 
 // Calcular la fecha de inicio y fin de la semana actual
@@ -60,218 +60,210 @@ const fecha_ini = formatDate(startDate);
 const fecha_fin = formatDate(endDate);
 
 const res = await fetch(
-   `${wpurl}/events?start_date=${fecha_ini}&end_date=${fecha_fin}&lang=${idioma}&tags=united-care&per_page=9`,
+  `${wpurl}/events?start_date=${fecha_ini}&end_date=${fecha_fin}&lang=${idioma}&tags=united-care&per_page=9`
 );
 
 const eventos = await res.json();
 ---
 
 <BoothLayout
-   title="United Health Care"
-   description="United Health Care Community Plan"
+  title="United Health Care"
+  description="United Health Care Community Plan"
 >
-   <section class="section banner-booth united-health-care-en">
-      <div class="is-overlay"></div>
-      <div class="container has-text-white">
-         <div class="columns is-centered">
-            <div class="column is-6 has-text-centered">
-               <svg
-                  version="1.1"
-                  xmlns="http://www.w3.org/2000/svg"
-                  xmlns:xlink="http://www.w3.org/1999/xlink"
-                  viewBox="0 0 600 780"
-               >
-                  <image
-                     width="600"
-                     height="780"
-                     xlink:href={"/img/booths-bg/" + booth.image}
-                  />
-                  <!-- Video -->
-                  <a
-                     xlink:href="javascript:void(0)"
-                     class="modal-trigger video"
-                     data-target="modal-video"
-                  >
-                     <rect
-                        x="100"
-                        y="54"
-                        fill="#fff"
-                        opacity="0"
-                        width="413"
-                        height="266"></rect>
+  <section class="section banner-booth united-health-care-en">
+    <div class="is-overlay"></div>
+    <div class="container has-text-white">
+      <div class="columns is-centered">
+        <div class="column is-6 has-text-centered">
+          <svg
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 600 780"
+          >
+            <image
+              width="600"
+              height="780"
+              xlink:href={"/img/booths-bg/" + booth.image}
+            />
+            <!-- Video -->
+            <a
+              xlink:href="javascript:void(0)"
+              class="modal-trigger video"
+              data-target="modal-video"
+            >
+              <rect
+                x="100"
+                y="54"
+                fill="#fff"
+                opacity="0"
+                width="413"
+                height="266"></rect>
+            </a>
+
+            <!-- Brochure -->
+            <a
+              xlink:href={wpuploads + "/2024/03/2024-English-BRC-PDF.pdf"}
+              target="_blank"
+              class="brochure"
+            >
+              <image
+                x="80"
+                y="565"
+                xlink:href={"/img/booths-pics/" + booth.btn1}
+              />
+            </a>
+
+            <!-- Empleos -->
+            <a
+              xlink:href="https://careers.unitedhealthgroup.com/job/21083616/sales-account-manager-bilingual-spanish-springfield-ma-remote-springfield-ma/"
+              target="_blank"
+              class="jobs"
+            >
+              <image
+                x="300"
+                y="565"
+                xlink:href={"/img/booths-pics/" + booth.btn2}
+              />
+            </a>
+
+            <!-- Recursos -->
+            <a xlink:href="#recursos" class="resources">
+              <image
+                x="80"
+                y="640"
+                xlink:href={"/img/booths-pics/" + booth.btn3}
+              />
+            </a>
+
+            <!-- Eventos -->
+            <a xlink:href="#events" class="events">
+              <image
+                x="300"
+                y="640"
+                xlink:href={"/img/booths-pics/" + booth.btn4}
+              />
+            </a>
+
+            <a
+              xlink:href="javascript:void(0)"
+              class="modal-trigger contact"
+              data-target="modal-form"
+            >
+              <image
+                x="195"
+                y="716"
+                xlink:href={"/img/booths-pics/" + booth.btn5}
+              />
+            </a>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="has-text-centered mt-5">
+      <a href="/en" class="button is-light is-rounded is-outlined"
+        >Go back to Fair</a
+      >
+    </div>
+  </section>
+
+  <section class="section" id="events">
+    <div class="container is-max-widescreen">
+      <div class="buttons is-centered">
+        <a class="button is-info is-outlined" href={`/eventos/${pagina - 1}`}
+          >Prev week</a
+        >
+        <a class="button is-info is-outlined" href={`/eventos/${pagina + 1}`}
+          >Next week</a
+        >
+      </div>
+
+      <div class="has-text-centered my-4">
+        <p class="is-size-5">
+          Showing events of the week: <strong
+            >{startDate.toLocaleDateString()}</strong
+          > to <strong>{endDate.toLocaleDateString()}</strong>
+        </p>
+      </div>
+
+      <div class="columns is-multiline is-variable is-8">
+        {
+          eventos.events.map((evento: any) => (
+            <div class="column is-4">
+              <div class="card">
+                <div class="card-content">
+                  <a href={`/event/${evento.slug}`}>
+                    <img
+                      width={720}
+                      height={360}
+                      src={evento.image.url}
+                      alt=""
+                    />
+                    <h4 class="title is-5 my-4">
+                      <Fragment set:html={evento.title} />
+                    </h4>
                   </a>
 
-                  <!-- Brochure -->
-                  <a
-                     xlink:href={wpuploads +
-                        "/2024/03/2024-English-BRC-PDF.pdf"}
-                     target="_blank"
-                     class="brochure"
-                  >
-                     <image
-                        x="80"
-                        y="565"
-                        xlink:href={"/img/booths-pics/" + booth.btn1}
-                     />
-                  </a>
+                  <small>
+                    <FormattedDate date={new Date(evento.start_date)} /> @
+                    <FormattedTime
+                      date_ini={new Date(evento.start_date)}
+                      date_end={new Date(evento.end_date)}
+                    />
+                  </small>
 
-                  <!-- Empleos -->
-                  <a
-                     xlink:href="https://careers.unitedhealthgroup.com/job-search-results/"
-                     target="_blank"
-                     class="jobs"
-                  >
-                     <image
-                        x="300"
-                        y="565"
-                        xlink:href={"/img/booths-pics/" + booth.btn2}
-                     />
-                  </a>
-
-                  <!-- Recursos -->
-                  <a xlink:href="#recursos" class="resources">
-                     <image
-                        x="80"
-                        y="640"
-                        xlink:href={"/img/booths-pics/" + booth.btn3}
-                     />
-                  </a>
-
-                  <!-- Eventos -->
-                  <a xlink:href="#events" class="events">
-                     <image
-                        x="300"
-                        y="640"
-                        xlink:href={"/img/booths-pics/" + booth.btn4}
-                     />
-                  </a>
-
-                  <a
-                     xlink:href="javascript:void(0)"
-                     class="modal-trigger contact"
-                     data-target="modal-form"
-                  >
-                     <image
-                        x="195"
-                        y="716"
-                        xlink:href={"/img/booths-pics/" + booth.btn5}
-                     />
-                  </a>
-               </svg>
+                  <small>
+                    <Fragment set:html={evento.excerpt} />
+                  </small>
+                </div>
+              </div>
             </div>
-         </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="recursos">
+    <div class="container is-max-widescreen">
+      <div class="mb-6">
+        <h4 class="title has-text-centered"><u>Resources</u></h4>
       </div>
 
-      <div class="has-text-centered mt-5">
-         <a href="/en" class="button is-light is-rounded is-outlined"
-            >Go back to Fair</a
-         >
+      <div class="columns is-centered">
+        <div class="column is-6">
+          <a
+            href={wpuploads + "2024/07/UnitedHealthcare-fresh-truck-ING.pdf"}
+            target="_blank"
+          >
+            <Image src={rec1} alt="" />
+          </a>
+        </div>
       </div>
-   </section>
+    </div>
+  </section>
 
-   <section class="section" id="events">
-      <div class="container is-max-widescreen">
-         <div class="buttons is-centered">
-            <a
-               class="button is-info is-outlined"
-               href={`/eventos/${pagina - 1}`}>Prev week</a
-            >
-            <a
-               class="button is-info is-outlined"
-               href={`/eventos/${pagina + 1}`}>Next week</a
-            >
-         </div>
+  <ModalBooths />
 
-         <div class="has-text-centered my-4">
-            <p class="is-size-5">
-               Showing events of the week: <strong
-                  >{startDate.toLocaleDateString()}</strong
-               > to <strong>{endDate.toLocaleDateString()}</strong>
-            </p>
-         </div>
+  <ModalVideo videoID="https://youtu.be/UUzn_J_NUzI" />
 
-         <div class="columns is-multiline is-variable is-8">
-            {
-               eventos.events.map((evento: any) => (
-                  <div class="column is-4">
-                     <div class="card">
-                        <div class="card-content">
-                           <a href={`/event/${evento.slug}`}>
-                              <img
-                                 width={720}
-                                 height={360}
-                                 src={evento.image.url}
-                                 alt=""
-                              />
-                              <h4 class="title is-5 my-4">
-                                 <Fragment set:html={evento.title} />
-                              </h4>
-                           </a>
-
-                           <small>
-                              <FormattedDate
-                                 date={new Date(evento.start_date)}
-                              />{" "}
-                              @
-                              <FormattedTime
-                                 date_ini={new Date(evento.start_date)}
-                                 date_end={new Date(evento.end_date)}
-                              />
-                           </small>
-
-                           <small>
-                              <Fragment set:html={evento.excerpt} />
-                           </small>
-                        </div>
-                     </div>
-                  </div>
-               ))
-            }
-         </div>
+  <ModalForm
+    to="evelyn_sandoval@uhc.com,sharon.castillo@uhc.com"
+    subject="Booth United Health Care - Web Form"
+  >
+    <div class="has-text-centered">
+      <div class="image">
+        <Image src={baneruhc} alt="" />
       </div>
-   </section>
 
-   <section class="section" id="recursos">
-      <div class="container is-max-widescreen">
-
-         <div class="mb-6">
-            <h4 class="title has-text-centered"><u>Resources</u></h4>
-         </div>
-         
-         <div class="columns is-centered">
-            <div class="column is-6">
-               <a
-                  href={wpuploads +
-                     "2024/07/UnitedHealthcare-fresh-truck-ING.pdf"}
-                  target="_blank"
-               >
-                  <Image src={rec1} alt="" />
-               </a>
-            </div>
-         </div>
+      <div class="block mt-4">
+        <a
+          href="tel:+1866-325-4811"
+          class="button is-medium is-rounded is-link is-outlined"
+          >866-325-4811</a
+        >
       </div>
-   </section>
-
-   <ModalBooths />
-
-   <ModalVideo videoID="https://youtu.be/UUzn_J_NUzI" />
-
-   <ModalForm
-      to="evelyn_sandoval@uhc.com,sharon.castillo@uhc.com"
-      subject="Booth United Health Care - Web Form"
-   >
-      <div class="has-text-centered">
-         <div class="image">
-            <Image src={baneruhc} alt="" />
-         </div>
-
-         <div class="block mt-4">
-            <a
-               href="tel:+1866-325-4811"
-               class="button is-medium is-rounded is-link is-outlined"
-               >866-325-4811</a
-            >
-         </div>
-      </div>
-   </ModalForm>
+    </div>
+  </ModalForm>
 </BoothLayout>
