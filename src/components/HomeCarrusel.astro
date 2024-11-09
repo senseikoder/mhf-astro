@@ -4,89 +4,106 @@ import aa from "../images/carrusel/A-A.jpg";
 import pbread from "../images/carrusel/p-bread.jpg";
 import aou from "../images/carrusel/AllofUs_Logo.png";
 import danaf from "../images/carrusel/dana-farber.jpg";
-import dimock from "../images/carrusel/dimock-center.jpg";
-import mapp from "../images/carrusel/MAPP_Logo.jpg";
+import uhc from "../images/carrusel/united-healthcare-slider.webp";
+import tufts from "../images/carrusel/tufts-logo.jpg";
+import joslin from "../images/carrusel/joslin-slide.webp";
+import masshealth from "../images/carrusel/mass-health-slide.jpg";
 
 const idioma = Astro.currentLocale;
 ---
 
 <section class="section">
-   <div class="container is-fullhd">
-      <div class="title-wrapper has-text-centered">
-         {
-            idioma == "es" ? (
-               <h2 class="title is-3">Participantes de La Feria</h2>
-            ) : (
-               <h2 class="title is-3">Our sponsors – Community partners</h2>
-            )
-         }
-      </div>
+  <div class="container is-fullhd">
+    <div class="title-wrapper has-text-centered">
+      {
+        idioma == "es" ? (
+          <h2 class="title is-3">Participantes de La Feria</h2>
+        ) : (
+          <h2 class="title is-3">Our sponsors – Community partners</h2>
+        )
+      }
+    </div>
 
-      <div class="content-wrapper">
-         <!-- Start Carousel -->
-         <div class="sponsor-carousel">
-            <div class="item-carousel">
-               <figure class="image">
-                  <Image src={aa} alt="" />
-               </figure>
-            </div>
-            <div class="item-carousel">
-               <figure class="image">
-                  <Image src={pbread} alt="" />
-               </figure>
-            </div>
-            <div class="item-carousel">
-               <figure class="image">
-                  <Image src={danaf} alt="" />
-               </figure>
-            </div>
-            <div class="item-carousel">
-               <figure class="image">
-                  <Image src={dimock} alt="" />
-               </figure>
-            </div>
-            <div class="item-carousel">
-               <figure class="image">
-                  <Image src={mapp} alt="" />
-               </figure>
-            </div>
-         </div>
-         <!-- End Carousel Services -->
+    <div class="content-wrapper">
+      <!-- Start Carousel -->
+      <div class="sponsor-carousel">
+        <div class="item-carousel">
+          <figure class="image">
+            <Image src={aou} alt="" />
+          </figure>
+        </div>
+        <div class="item-carousel">
+          <figure class="image">
+            <Image src={aa} alt="" />
+          </figure>
+        </div>
+        <div class="item-carousel">
+          <figure class="image">
+            <Image src={pbread} alt="" />
+          </figure>
+        </div>
+        <div class="item-carousel">
+          <figure class="image">
+            <Image src={danaf} alt="" />
+          </figure>
+        </div>
+        <div class="item-carousel">
+          <figure class="image">
+            <Image src={uhc} alt="" />
+          </figure>
+        </div>
+        <div class="item-carousel">
+          <figure class="image">
+            <Image src={tufts} alt="" />
+          </figure>
+        </div>
+        <div class="item-carousel">
+          <figure class="image">
+            <Image src={joslin} alt="" />
+          </figure>
+        </div>
+        <div class="item-carousel">
+          <figure class="image">
+            <Image src={masshealth} alt="" />
+          </figure>
+        </div>
       </div>
-   </div>
+      <!-- End Carousel Services -->
+    </div>
+  </div>
 </section>
 
 <script>
-   import Flickity from "flickity";
+  import Flickity from "flickity";
 
-   document.addEventListener("astro:page-load", () => {
-      const elem = document.querySelector(".sponsor-carousel");
-      if (!elem) return;
+  document.addEventListener("astro:page-load", () => {
+    const elem = document.querySelector(".sponsor-carousel");
+    if (!elem) return;
 
-      let flkty = new Flickity(".sponsor-carousel", {
-         draggable: true,
-         contain: true,
-         freeScroll: true,
-         wrapAround: true,
-         pageDots: false,
-      });
-   });
+    let flkty = new Flickity(".sponsor-carousel", {
+      draggable: true,
+      contain: true,
+      freeScroll: true,
+      wrapAround: true,
+      pageDots: false,
+    });
+  });
 </script>
 
 <style>
-   .image img {
-      border-radius: 6px;
-   }
+  .image img {
+    border-radius: 6px;
+  }
 
-   .item-carousel {
-      width: 100%;
-      margin-right: 20px;
-      margin-bottom: 20px;
-   }
+  .item-carousel {
+    width: 100%;
+    margin-right: 20px;
+    margin-bottom: 20px;
+  }
 
-   @media screen and (min-width: 768px) {
-      .item-carousel {
-         width: 25%;
-      }
-   }
+  @media screen and (min-width: 768px) {
+    .item-carousel {
+      width: 25%;
+    }
+  }
 </style>
