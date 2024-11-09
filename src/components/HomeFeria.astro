@@ -3,155 +3,133 @@ const idioma = Astro.currentLocale == "en" ? "/en" : "";
 ---
 
 <section class="hero is-hidden-touch">
-   <!-- <div class="is-overlay"></div> -->
+  <!-- <div class="is-overlay"></div> -->
 
-   <div class="hero-body p-0">
-      <div class="container is-fluid p-0">
-         <svg
-            version="1.1"
-            xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
-            viewBox="0 0 2000 1125"
-         >
-            <image
-               width="2000"
-               height="1125"
-               xlink:href="/img/mhf-plaza.webp"
-            />
-            <a xlink:href={idioma + "/booths/helpline-mass"}>
-               <image
-                  xlink:href="/img/booths-pics/mass-helpline.webp"
-                  x="284"
-                  y="528"
-               />
-            </a><a xlink:href={idioma + "/booths/united-health-care"}>
-               <image
-                  xlink:href="/img/booths-pics/united-hc.webp"
-                  x="520"
-                  y="430"
-               />
-            </a><a xlink:href={idioma + "/booths/dana-farber/"}>
-               <image
-                  xlink:href="/img/booths-pics/dana-farber.webp"
-                  x="725"
-                  y="345"
-               />
-            </a><a xlink:href={idioma + "/booths/madrc"}>
-               <image
-                  xlink:href="/img/booths-pics/madrc.webp"
-                  x="920"
-                  y="295"
-               />
-            </a><a xlink:href={idioma + "/booths/alzheimer-assoc"}>
-               <image
-                  xlink:href="/img/booths-pics/alzheimer-association.webp"
-                  x="1110"
-                  y="255"
-               />
-            </a><a xlink:href={idioma + "/booths/mass-health"}>
-               <image
-                  xlink:href="/img/booths-pics/mass-health.webp"
-                  x="376"
-                  y="785"
-               />
-            </a><a xlink:href={idioma + "/booths/whittier"}>
-               <image
-                  xlink:href="/img/booths-pics/whittier.webp"
-                  x="655"
-                  y="635"
-               />
-            </a><a xlink:href={idioma + "/booths/all-of-us/"}>
-               <image
-                  xlink:href="/img/booths-pics/all-of-us.webp"
-                  x="890"
-                  y="520"
-               />
-            </a><a xlink:href={idioma + "/booths/joslin"}>
-               <image
-                  xlink:href="/img/booths-pics/joslin.webp"
-                  x="1110"
-                  y="440"
-               />
-            </a><a xlink:href={idioma + "/booths/project-bread/"}>
-               <image
-                  xlink:href="/img/booths-pics/project-bread.webp"
-                  x="1320"
-                  y="400"
-               />
-            </a>
-         </svg>
-      </div>
-   </div>
+  <div class="hero-body p-0">
+    <div class="container is-fluid p-0">
+      <svg
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        viewBox="0 0 2000 1125"
+      >
+        <image width="2000" height="1125" xlink:href="/img/mhf-plaza.webp" />
+        <a xlink:href={idioma + "/booths/helpline-mass"}>
+          <image
+            xlink:href="/img/booths-pics/mass-helpline.webp"
+            x="284"
+            y="528"
+          />
+        </a><a xlink:href={idioma + "/booths/united-health-care"}>
+          <image xlink:href="/img/booths-pics/united-hc.webp" x="520" y="430" />
+        </a><a xlink:href={idioma + "/booths/dana-farber/"}>
+          <image
+            xlink:href="/img/booths-pics/dana-farber.webp"
+            x="725"
+            y="345"
+          />
+        </a><a xlink:href={idioma + "/booths/madrc"}>
+          <image xlink:href="/img/booths-pics/madrc.webp" x="920" y="295" />
+        </a><a xlink:href={idioma + "/booths/alzheimer-assoc"}>
+          <image
+            xlink:href="/img/booths-pics/alzheimer-association.webp"
+            x="1110"
+            y="255"
+          />
+        </a><a xlink:href={idioma + "/booths/mass-health"}>
+          <image
+            xlink:href="/img/booths-pics/mass-health.webp"
+            x="376"
+            y="785"
+          />
+        </a><a xlink:href={idioma + "/booths/whittier"}>
+          <image xlink:href="/img/booths-pics/whittier.webp" x="655" y="635" />
+        </a><a xlink:href={idioma + "/booths/all-of-us/"}>
+          <image xlink:href="/img/booths-pics/all-of-us.webp" x="890" y="520" />
+        </a><a xlink:href={idioma + "/booths/joslin"}>
+          <image xlink:href="/img/booths-pics/joslin.webp" x="1110" y="440" />
+        </a><a xlink:href={idioma + "/booths/project-bread/"}>
+          <image
+            xlink:href="/img/booths-pics/project-bread.webp"
+            x="1320"
+            y="400"
+          />
+        </a>
+      </svg>
+    </div>
+  </div>
 </section>
 
 <section class="hero-mobile is-hidden-desktop">
-   <div class="container">
-      <div class="buttons is-centered">
-         <a href="/booths/all-of-us/" class="button">All of Us</a>
-         <a href="/booths/alzheimer-assoc/" class="button"
-            >Alzheimer's Association</a
-         >
-         <a href="/booths/dana-farber/" class="button"
-            >Dana-Farber Cancer Institute</a
-         >
-         <a href="/booths/madrc/" class="button"
-            >Massachusetts Alzheimer's <br> Disease Reasearch Center</a
-         >
-         <a href="/booths/mass-health/" class="button">Mass Health Connector</a>
-         <a href="/booths/helpline-mass/" class="button"
-            >Mass Behavioral Help Line</a
-         >
-         <a href="/booths/project-bread/" class="button">Project Bread</a>
-         <a href="/booths/dimock/" class="button">The Dimock Center</a>
-         <a href="/booths/united-health-care/" class="button"
-            >United Health Care</a
-         >
-         <a href="/booths/whittier/" class="button">Whittier Street</a>
-      </div>
-   </div>
+  <div class="container">
+    <div class="buttons is-centered">
+      <a href={idioma +"/booths/all-of-us/"} class="button">All of Us</a>
+      <a href={idioma + "/booths/alzheimer-assoc/"} class="button"
+        >Alzheimer's Association</a
+      >
+      <a href={idioma + "/booths/dana-farber/"} class="button"
+        >Dana-Farber Cancer Institute</a
+      >
+      <a href={idioma + "/booths/joslin/"} class="button"
+        >Joslin Diabetes Center</a
+      >
+      <a href={idioma + "/booths/madrc/"} class="button"
+        >Massachusetts Alzheimer's <br /> Disease Reasearch Center</a
+      >
+      <a href={idioma + "/booths/mass-health/"} class="button">Mass Health Connector</a>
+      <a href={idioma + "/booths/helpline-mass/"} class="button"
+        >Mass Behavioral Help Line</a
+      >
+      <a href={idioma + "/booths/project-bread/"} class="button">Project Bread</a>
+
+      <a href={idioma + "/booths/united-health-care/"} class="button">United Health Care</a
+      >
+      <a href={idioma + "/booths/whittier/"} class="button">Whittier Street</a>
+    </div>
+  </div>
 </section>
 
 <style>
-   .hero-mobile {
-      background: url("../images/bg-feria.webp") center no-repeat;
-      background-size: cover;
-   }
+  .hero-mobile {
+    background: url("../images/bg-feria.webp") center no-repeat;
+    background-size: cover;
+  }
 
-   .hero-mobile .container {
-      padding-block: 2rem;
-   }
+  .hero-mobile .container {
+    padding-block: 2rem;
+  }
 
-   .buttons {
-      gap: 1rem;
-   }
-   .hero-mobile .button {
-      width: 90%;
-      background-color: rgba(255, 255, 255, 0.2);
-      text-shadow: 1px 2px 2px #333;
-      font-size: large;
-      font-weight: 700;
-      color: white;
-   }
+  .buttons {
+    gap: 1rem;
+  }
+  .hero-mobile .button {
+    width: 90%;
+    background-color: rgba(255, 255, 255, 0.2);
+    text-shadow: 1px 2px 2px #333;
+    font-size: large;
+    font-weight: 700;
+    color: white;
+  }
 
-   .is-overlay {
-      background: rgba(121, 171, 236, 0.15);
-   }
+  .is-overlay {
+    background: rgba(121, 171, 236, 0.15);
+  }
 
-   a > image {
-      opacity: 0.8;
-      width: 125px;
-      height: 125px;
-      transition: all 0.3s;
-   }
+  a > image {
+    opacity: 0.8;
+    width: 125px;
+    height: 125px;
+    transition: all 0.3s;
+  }
 
-   a > image:hover {
-      width: 135px;
-      height: 135px;
-      opacity: 1;
-   }
+  a > image:hover {
+    width: 135px;
+    height: 135px;
+    opacity: 1;
+  }
 
-   .list,
-   .list a {
-      color: white;
-   }
+  .list,
+  .list a {
+    color: white;
+  }
 </style>
