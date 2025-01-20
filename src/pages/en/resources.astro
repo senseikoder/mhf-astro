@@ -2,59 +2,41 @@
 import PageLayout from "../../layouts/PageLayout.astro";
 import { Image } from "astro:assets";
 import banner_calendar_health from "../../images/recursos/banner-calendar-health.webp";
-import banner_report_2023 from "../../images/recursos/banner-report-2023.webp";
+import banner_report_2024 from "../../images/recursos/annual-report-2024.webp";
 import resource_mental_health from "../../images/recursos/resource-mental-health.webp";
 import resource_dementia from "../../images/recursos/resource-dementia.webp";
-import resource_summer from "../../images/recursos/resource-summer.webp";
 import resource_vph from "../../images/recursos/resource-vph.webp";
-import resource_skin_cancer from "../../images/recursos/resource-skin-cancer.webp";
 import resource_food_health from "../../images/recursos/resource-food-health.webp";
 
 const wpuploads = import.meta.env.WP_UPLOADS;
 ---
 
 <PageLayout title="Recursos" description="Lorem ipsum dolor sit amet">
-   <section class="section">
-      <div class="container has-text-white">
-         <div class="columns">
-            <div class="column is-8">
-               <a
-                  href={wpuploads +
-                     "/2024/01/2024-Health-Calendar-My-Health-Fair.pdf"}
-                  target="_blank"
-               >
-                  <Image src={banner_calendar_health} alt="" />
-               </a>
-            </div>
+  <section class="section">
+    <div class="container has-text-white">
+      <div class="columns is-centered">
+        <div class="column is-4">
+          <a href="/recursos/Annual-Report-2024.pdf" target="_blank">
+            <Image src={banner_report_2024} alt="" class="px-5" />
+          </a>
+        </div>
+      </div>
 
-            <div class="column is-4">
-               <a
-                  href={wpuploads + "/2024/03/Annual-Report-2023-Eng.pdf"}
-                  target="_blank"
-               >
-                  <Image src={banner_report_2023} alt="" class="px-5" />
-               </a>
-            </div>
-         </div>
-
-         <div class="columns is-centered">
-            <div class="column is-3">
-               <a
-                  href={wpuploads + "/2024/05/MENTAL-HEALTH.pdf"}
-                  target="_blank"
-               >
-                  <Image src={resource_mental_health} alt="" />
-               </a>
-            </div>
-            <div class="column is-3">
-               <a
-                  href={wpuploads + "/2023/02/MY-HEALTH-FAIR-PDF-Dementia.pdf"}
-                  target="_blank"
-               >
-                  <Image src={resource_dementia} alt="" />
-               </a>
-            </div>
-            <!-- <div class="column is-3">
+      <div class="columns is-centered">
+        <div class="column is-3">
+          <a href={wpuploads + "/2024/05/MENTAL-HEALTH.pdf"} target="_blank">
+            <Image src={resource_mental_health} alt="" />
+          </a>
+        </div>
+        <div class="column is-3">
+          <a
+            href={wpuploads + "/2023/02/MY-HEALTH-FAIR-PDF-Dementia.pdf"}
+            target="_blank"
+          >
+            <Image src={resource_dementia} alt="" />
+          </a>
+        </div>
+        <!-- <div class="column is-3">
                <a
                   href="/2022/09/Newspaper-Full-Page-1-1.pdf"
                   target="_blank"
@@ -62,18 +44,18 @@ const wpuploads = import.meta.env.WP_UPLOADS;
                   <Image src={resource_summer} alt="" />
                </a>
             </div> -->
-         </div>
+      </div>
 
-         <div class="columns is-centered">
-            <div class="column is-3">
-               <a
-                  href={wpuploads + "/2022/09/Newspaper-Full-Page-7.pdf"}
-                  target="_blank"
-               >
-                  <Image src={resource_vph} alt="" />
-               </a>
-            </div>
-            <!-- <div class="column is-3">
+      <div class="columns is-centered">
+        <div class="column is-3">
+          <a
+            href={wpuploads + "/2022/09/Newspaper-Full-Page-7.pdf"}
+            target="_blank"
+          >
+            <Image src={resource_vph} alt="" />
+          </a>
+        </div>
+        <!-- <div class="column is-3">
                <a
                   href="/2022/09/Newspaper-Full-Page-2-1.pdf"
                   target="_blank"
@@ -81,35 +63,35 @@ const wpuploads = import.meta.env.WP_UPLOADS;
                   <Image src={resource_skin_cancer} alt="" />
                </a>
             </div> -->
-            <div class="column is-3">
-               <a
-                  href={wpuploads + "/2022/09/Newspaper-Full-Page-3-1.pdf"}
-                  target="_blank"
-               >
-                  <Image src={resource_food_health} alt="" />
-               </a>
-            </div>
-         </div>
+        <div class="column is-3">
+          <a
+            href={wpuploads + "/2022/09/Newspaper-Full-Page-3-1.pdf"}
+            target="_blank"
+          >
+            <Image src={resource_food_health} alt="" />
+          </a>
+        </div>
       </div>
-   </section>
+    </div>
+  </section>
 </PageLayout>
 
 <style>
-   img {
-      box-shadow:
-         0 3px 6px -4px rgba(0, 0, 0, 0.16),
-         0 3px 6px rgba(0, 0, 0, 0.23);
-      transition:
-         transform 0.3s,
-         box-shadow 0.3s,
-         background-color 0.3s,
-         color 0.3s,
-         opacity 0.3s;
-   }
+  img {
+    box-shadow:
+      0 3px 6px -4px rgba(0, 0, 0, 0.16),
+      0 3px 6px rgba(0, 0, 0, 0.23);
+    transition:
+      transform 0.3s,
+      box-shadow 0.3s,
+      background-color 0.3s,
+      color 0.3s,
+      opacity 0.3s;
+  }
 
-   img:hover {
-      box-shadow:
-         0 10px 20px rgba(0, 0, 0, 0.19),
-         0 6px 6px rgba(0, 0, 0, 0.22);
-   }
+  img:hover {
+    box-shadow:
+      0 10px 20px rgba(0, 0, 0, 0.19),
+      0 6px 6px rgba(0, 0, 0, 0.22);
+  }
 </style>
