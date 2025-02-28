@@ -1,6 +1,7 @@
 ---
 export const prerender = false;
 import BlogPost from "../../layouts/BlogPost.astro";
+import placeholder from "../../images/placeholder.png";
 
 const { slug } = Astro.params;
 const wpurl = import.meta.env.WP_URL;
@@ -11,7 +12,9 @@ let res = await fetch(
 let [post] = await res.json();
 
 post["heroImage"] =
-	post._embedded["wp:featuredmedia"][0].media_details.sizes.large.source_url;
+  post._embedded["wp:featuredmedia"] && post._embedded["wp:featuredmedia"]["0"]
+    ? post._embedded["wp:featuredmedia"]["0"].source_url
+    : placeholder.src; // Adjust the path as necessary
 ---
 
 <BlogPost {...post}>

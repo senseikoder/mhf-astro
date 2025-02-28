@@ -15,7 +15,9 @@ const posts = await res.json();
       posts.map((post: any) => (
          <li class="mb-4">
             <a href={`/en/blog/${post.slug}`}>
-               <span class="has-text-info-40">{post.title.rendered}</span>
+               <span class="has-text-info-40">
+                  <Fragment set:html={post.title.rendered} />
+               </span>
             </a>
          </li>
       ))

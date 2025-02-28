@@ -1,6 +1,8 @@
 ---
 export const prerender = false;
 import PageLayout from "../../../../layouts/PageLayout.astro";
+import placeholder from "../../../../images/placeholder.png";
+
 
 const idioma = Astro.currentLocale;
 const wpurl = import.meta.env.WP_URL;
@@ -16,108 +18,106 @@ const posts = await res.json();
 
 // Convertir la fecha del post a un formato legible
 function fechaFormateada(fechaPost) {
-   const fecha = new Date(fechaPost);
-   const opcionesFecha = { month: "short", day: "numeric" };
-   return fecha.toLocaleDateString("es-ES", opcionesFecha);
+  const fecha = new Date(fechaPost);
+  const opcionesFecha = { month: "short", day: "numeric" };
+  return fecha.toLocaleDateString("es-ES", opcionesFecha);
 }
 ---
 
 <PageLayout title="Feria de Salud - Blog" description="Blog">
-   <section class="section is-medium banner"></section>
+  <section class="section is-medium banner"></section>
 
-   <section class="section">
-      <div class="container is-max-desktop">
-         <div class="columns is-multiline is-variable is-8">
-            {
-               posts.map((post: any) => (
-                  <div class="column is-6">
-                     <div class="card">
-                        <div class="card-content">
-                           <a href={`/en/blog/${post.slug}`}>
-                              <div class="date-overlay">
-                                 {fechaFormateada(post.date)}
-                              </div>
-                              <img
-                                 width={720}
-                                 height={360}
-                                 src={
-                                    post._embedded["wp:featuredmedia"]["0"]
-                                       .source_url
-                                 }
-                                 alt=""
-                              />
-                              <h4 class="title is-5 my-4">
-                                 <Fragment set:html={post.title.rendered} />
-                              </h4>
-                           </a>
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-multiline is-variable is-8">
+        {
+          posts.map((post: any) => (
+            <div class="column is-6">
+              <div class="card">
+                <div class="card-content">
+                  <a href={`/en/blog/${post.slug}`}>
+                    <div class="date-overlay">{fechaFormateada(post.date)}</div>
+                    <img
+                      width={720}
+                      height={360}
+                      src={
+                        post._embedded["wp:featuredmedia"] &&
+                        post._embedded["wp:featuredmedia"]["0"]
+                          ? post._embedded["wp:featuredmedia"]["0"].source_url
+                          : placeholder.src // Adjust the path as necessary
+                      }
+                      alt=""
+                    />
+                    <h4 class="title is-5 my-4">
+                      <Fragment set:html={post.title.rendered} />
+                    </h4>
+                  </a>
 
-                           <small>
-                              <Fragment set:html={post.excerpt.rendered} />
-                           </small>
-                        </div>
-                     </div>
-                  </div>
-               ))
-            }
-         </div>
-
-         <div class="buttons is-centered">
-            <a
-               class={`button is-link is-outlined ${pagina <= 1 ? "is-static" : ""}`}
-               href={pagina > 1 ? `/en/blog/page/${pagina - 1}` : "#"}
-               aria-disabled={pagina <= 1 ? "true" : "false"}
-               ><svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="1.3em"
-                  height="1.3em"
-                  viewBox="0 0 24 24"
-                  ><path
-                     fill="currentColor"
-                     d="M15.41 16.58L10.83 12l4.58-4.59L14 6l-6 6l6 6z"
-                  ></path></svg
-               ></a
-            >
-            <a
-               class={`button is-link is-outlined ${pagina == totalPaginas ? "is-static" : ""}`}
-               href={`/en/blog/page/${pagina + 1}`}
-               ><svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="1.3em"
-                  height="1.3em"
-                  viewBox="0 0 24 24"
-                  ><path
-                     fill="currentColor"
-                     d="M8.59 16.58L13.17 12L8.59 7.41L10 6l6 6l-6 6z"
-                  ></path></svg
-               ></a
-            >
-         </div>
+                  <small>
+                    <Fragment set:html={post.excerpt.rendered} />
+                  </small>
+                </div>
+              </div>
+            </div>
+          ))
+        }
       </div>
-   </section>
+
+      <div class="buttons is-centered">
+        <a
+          class={`button is-link is-outlined ${pagina <= 1 ? "is-static" : ""}`}
+          href={pagina > 1 ? `/en/blog/page/${pagina - 1}` : "#"}
+          aria-disabled={pagina <= 1 ? "true" : "false"}
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="1.3em"
+            height="1.3em"
+            viewBox="0 0 24 24"
+            ><path
+              fill="currentColor"
+              d="M15.41 16.58L10.83 12l4.58-4.59L14 6l-6 6l6 6z"></path></svg
+          ></a
+        >
+        <a
+          class={`button is-link is-outlined ${pagina == totalPaginas ? "is-static" : ""}`}
+          href={`/en/blog/page/${pagina + 1}`}
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="1.3em"
+            height="1.3em"
+            viewBox="0 0 24 24"
+            ><path
+              fill="currentColor"
+              d="M8.59 16.58L13.17 12L8.59 7.41L10 6l6 6l-6 6z"></path></svg
+          ></a
+        >
+      </div>
+    </div>
+  </section>
 </PageLayout>
 
 <style>
-   .banner {
-      background: url("../../../../images/banner-blog.webp") center / cover
-         no-repeat;
-      position: relative;
-   }
+  .banner {
+    background: url("../../../../images/banner-blog.webp") center / cover
+      no-repeat;
+    position: relative;
+  }
 
-   .date-overlay {
-      position: absolute;
-      top: 5px;
-      left: 5px;
-      background-color: #179ae1dc;
-      color: #fff;
-      padding: 5px 10px;
-      font-size: 1.2rem;
-      font-weight: bold;
-      z-index: 2;
-      border-radius: 10px;
-      text-transform: capitalize;
-   }
+  .date-overlay {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background-color: #179ae1dc;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    z-index: 2;
+    border-radius: 10px;
+    text-transform: capitalize;
+  }
 
-   .card {
-      position: relative;
-   }
+  .card {
+    position: relative;
+  }
 </style>

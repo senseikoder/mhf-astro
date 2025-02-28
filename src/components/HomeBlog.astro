@@ -1,73 +1,78 @@
 ---
 export const prerender = false;
 import FormattedDate from "./FormattedDate.astro";
+import placeholder from "../images/placeholder.png";
 
 const wpurl = import.meta.env.WP_URL;
 const idioma = Astro.currentLocale;
 const res = await fetch(`${wpurl}/posts?per_page=3&lang=${idioma}&_embed`);
 
 const posts = await res.json();
-const urlLang = idioma == 'es' ? '' : '/en'
+const urlLang = idioma == "es" ? "" : "/en";
 ---
 
 <section class="section banner">
-   <div class="is-overlay"></div>
-   <div class="container">
-      <h2 class="title has-text-light has-text-centered">
-         {
-            idioma == "es" ? (
-               <span>Recientes Vlogs de Salud</span>
-            ) : (
-               <span>Latest Health Vlogs</span>
-            )
-         }
-      </h2>
+  <div class="is-overlay"></div>
+  <div class="container">
+    <h2 class="title has-text-light has-text-centered">
+      {
+        idioma == "es" ? (
+          <span>Recientes Vlogs de Salud</span>
+        ) : (
+          <span>Latest Health Vlogs</span>
+        )
+      }
+    </h2>
 
-      <div class="columns is-multiline is-variable is-8">
-         {
-            posts.map((post: any) => (
-               <div class="column is-4">
-                  <div class="card">
-                     <div class="card-content">
-                        <a href={`${urlLang}/blog/${post.slug}`}>
-                           <img
-                              width={720}
-                              height={360}
-                              src={
-                                 post._embedded["wp:featuredmedia"]["0"]
-													.source_url
-                              }
-                              alt=""
-                           />
-                           <h4 class="title is-5">{post.title.rendered}</h4>
-                        </a>
-                        <p class="my-5">
-                           <Fragment
-                              class="has-text-black"
-                              set:html={post.excerpt.rendered}
-                           />
-                        </p>
-                        <p class="date mt-5">
-                           <small>
-                              <FormattedDate date={new Date(post.date)} />
-                           </small>
-                        </p>
-                     </div>
-                  </div>
-               </div>
-            ))
-         }
-      </div>
-   </div>
+    <div class="columns is-multiline is-variable is-8">
+      {
+        posts.map((post: any) => (
+          <div class="column is-4">
+            <div class="card">
+              <div class="card-content">
+                <a href={`${urlLang}/blog/${post.slug}`}>
+                  <img
+                    width={720}
+                    height={360}
+                    src={
+                      post._embedded["wp:featuredmedia"] &&
+                      post._embedded["wp:featuredmedia"]["0"]
+                        ? post._embedded["wp:featuredmedia"]["0"].source_url
+                        : placeholder.src
+                    }
+                    alt=""
+                  />
+                  <h4 class="title is-5">
+                    <Fragment set:html={post.title.rendered} />
+                  </h4>
+                </a>
+                <p class="my-5">
+                  <Fragment
+                    class="has-text-black"
+                    set:html={post.excerpt.rendered}
+                  />
+                </p>
+                <p class="date mt-5">
+                  <small>
+                    <FormattedDate date={new Date(post.date)} />
+                  </small>
+                </p>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
 </section>
 
 <style>
-   .banner {
-      background: url("../images/banner-about.webp") center / cover no-repeat;
-      position: relative;
-   }
+  .banner {
+    background: url("../images/banner-about.webp") center / cover no-repeat;
+    position: relative;
+  }
 
-   .is-overlay {
-      background-color: #0577b5d1;
-   }
+  .is-overlay {
+    background-color: #0577b5d1;
+  }
 </style>
