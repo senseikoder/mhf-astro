@@ -1,6 +1,18 @@
 ---
 import PageLayout from "../layouts/PageLayout.astro";
 import "plyr/dist/plyr.css";
+
+const apiKey = import.meta.env.YOUTUBE_API_KEY;
+
+const playlistId = "PLnKieTyBOHbMTVtLiMpJ_GM7fhKdDoUN3"
+let videos = [];
+
+const response = await fetch(
+  `https://www.googleapis.com/youtube/v3/playlistItems?playlistId=${playlistId}&key=${apiKey}&part=snippet,id&maxResults=3`
+);
+const data = await response.json();
+videos = data.items
+
 ---
 
 <PageLayout title="Aliados en video" description="Lorem ipsum dolor sit amet">

@@ -33,19 +33,19 @@ import HomeVideos from "../../components/HomeVideos.astro";
     </div>
   </section>
 
-  <section class="section p-2 is-hidden-touch">
-    <div class="has-text-centered">
-      <a href="https://elmundoboston.com" target="_blank" alt="El Mundo Boston">
-        <Image src={emb_header} alt="El Mundo Boston" />
-      </a>
-    </div>
-  </section>
-
   <!-- <HomeCats /> -->
 
   <HomeVideos />
 
   <HomeCarrusel />
+
+  <section class="section is-medium pt-6 is-hidden-touch">
+    <div class="has-text-centered">
+      <a href="https://elmundoboston.com" target="_blank">
+        <Image src={emb_header} alt="El Mundo Boston" />
+      </a>
+    </div>
+  </section>
 
   <HomeBlog />
 </HomeLayout>
