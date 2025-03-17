@@ -9,9 +9,9 @@ import FormattedTime from "../../../components/FormattedTime.astro";
 import Image from "astro/components/Image.astro";
 const booth = {
   image: "united-health-care.webp",
-  btn1: "brochure.webp",
+  btn1: "one-care.webp",
   btn2: "empleos.webp",
-  btn3: "recursos.webp",
+  btn3: "cuidado-mayores.webp",
   btn4: "eventos.webp",
   btn5: "contacto.webp",
 };
@@ -98,9 +98,9 @@ const eventos = await res.json();
                 height="266"></rect>
             </a>
 
-            <!-- Brochure -->
+            <!-- One Care -->
             <a
-              xlink:href={wpuploads + "/2024/03/2024-Spanish-BRC-PDF.pdf"}
+              xlink:href={"/docs-booths/OneCareBrochure_ES.pdf"}
               target="_blank"
               class="brochure"
             >
@@ -124,8 +124,8 @@ const eventos = await res.json();
               />
             </a>
 
-            <!-- Recursos -->
-            <a xlink:href="#recursos" class="recursos">
+            <!-- Senior Care -->
+            <a xlink:href={wpuploads + "/2024/03/2024-Spanish-BRC-PDF.pdf"} target="_blank">
               <image
                 x="80"
                 y="640"
