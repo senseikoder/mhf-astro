@@ -172,10 +172,10 @@ const eventos = await res.json();
   <section class="section" id="events">
     <div class="container is-max-widescreen">
       <div class="buttons is-centered">
-        <a class="button is-info is-outlined" href={`/eventos/${pagina - 1}`}
+        <a class="button is-info is-outlined" href={`${pagina - 1}`}
           >Prev week</a
         >
-        <a class="button is-info is-outlined" href={`/eventos/${pagina + 1}`}
+        <a class="button is-info is-outlined" href={`${pagina + 1}`}
           >Next week</a
         >
       </div>
@@ -226,7 +226,7 @@ const eventos = await res.json();
     </div>
   </section>
 
-  <section class="section" id="recursos">
+  <!-- <section class="section" id="recursos">
     <div class="container is-max-widescreen">
       <div class="mb-6">
         <h4 class="title has-text-centered"><u>Resources</u></h4>
@@ -243,7 +243,7 @@ const eventos = await res.json();
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <ModalBooths />
 
