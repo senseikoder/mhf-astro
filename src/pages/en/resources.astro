@@ -7,6 +7,7 @@ import resource_mental_health from "../../images/recursos/resource-mental-health
 import resource_dementia from "../../images/recursos/resource-dementia.webp";
 import resource_vph from "../../images/recursos/resource-vph.webp";
 import resource_food_health from "../../images/recursos/resource-food-health.webp";
+import resource_guide_immigrant from "../../images/recursos/Resource-Guide-for-Immigrants-Boston.webp";
 
 const wpuploads = import.meta.env.WP_UPLOADS;
 ---
@@ -24,6 +25,15 @@ const wpuploads = import.meta.env.WP_UPLOADS;
 
       <div class="columns is-centered">
         <div class="column is-3">
+               <a
+                  href="/recursos/Resource-Guide-for-Immigrants-in-Boston.pdf"
+                  target="_blank"
+               >
+                  <Image src={resource_guide_immigrant} alt="" />
+               </a>
+            </div>
+
+        <div class="column is-3">
           <a href={wpuploads + "/2024/05/MENTAL-HEALTH.pdf"} target="_blank">
             <Image src={resource_mental_health} alt="" />
           </a>
@@ -36,14 +46,6 @@ const wpuploads = import.meta.env.WP_UPLOADS;
             <Image src={resource_dementia} alt="" />
           </a>
         </div>
-        <!-- <div class="column is-3">
-               <a
-                  href="/2022/09/Newspaper-Full-Page-1-1.pdf"
-                  target="_blank"
-               >
-                  <Image src={resource_summer} alt="" />
-               </a>
-            </div> -->
       </div>
 
       <div class="columns is-centered">
