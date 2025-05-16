@@ -2,12 +2,16 @@
 import { Image } from "astro:assets";
 import aa from "../images/carrusel/A-A.jpg";
 import pbread from "../images/carrusel/p-bread.jpg";
-import aou from "../images/carrusel/AllofUs_Logo.png";
+// import aou from "../images/carrusel/AllofUs_Logo.png";
+import ferreras from "../images/carrusel/ferreras-counseling.webp";
 import danaf from "../images/carrusel/dana-farber.jpg";
 import uhc from "../images/carrusel/united-healthcare-slider.webp";
-import tufts from "../images/carrusel/tufts-logo.jpg";
+import madrc from "../images/carrusel/madrc.webp";
+// import tufts from "../images/carrusel/tufts-logo.jpg";
 import joslin from "../images/carrusel/joslin-slide.webp";
 import masshealth from "../images/carrusel/mass-health-slide.jpg";
+import helpline from "../images/carrusel/MassHelpline.webp";
+import whittier from "../images/carrusel/whittier-slide.webp";
 
 const idioma = Astro.currentLocale;
 ---
@@ -29,7 +33,7 @@ const idioma = Astro.currentLocale;
       <div class="sponsor-carousel">
         <div class="item-carousel">
           <figure class="image">
-            <Image src={aou} alt="" />
+            <Image src={ferreras} alt="" />
           </figure>
         </div>
         <div class="item-carousel">
@@ -54,12 +58,17 @@ const idioma = Astro.currentLocale;
         </div>
         <div class="item-carousel">
           <figure class="image">
-            <Image src={tufts} alt="" />
+            <Image src={madrc} alt="" />
           </figure>
         </div>
         <div class="item-carousel">
           <figure class="image">
-            <Image src={joslin} alt="" />
+            <Image src={whittier} alt="" />
+          </figure>
+        </div>
+        <div class="item-carousel">
+          <figure class="image">
+            <Image src={helpline} alt="" />
           </figure>
         </div>
         <div class="item-carousel">

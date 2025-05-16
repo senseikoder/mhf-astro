@@ -5,31 +5,35 @@ import banner from "../images/banner-popup-guia.webp";
 ---
 
 <div class="modal" id="modal-popup">
-   <div class="modal-background"></div>
-   <div class="modal-card">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <button class="delete" aria-label="close"></button>
 
-         <button class="delete" aria-label="close"></button>
-
-      <div class="modal-card-body">
-         <div class="content has-text-centered">
-            <Image src={banner} alt="" />
-            <h4 class="title">Complete sus datos para descargarlo</h4>
-            <Mailchimp />
-         </div>
+    <div class="modal-card-body">
+      <div class="content has-text-centered">
+        <Image src={banner} alt="" />
+        <h4 class="title mb-3">Complete sus datos para descargarlo</h4>
+        <Mailchimp />
       </div>
-      <footer class="modal-card-foot"></footer>
-   </div>
-   <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+  </div>
+  <button class="modal-close is-large" aria-label="close"></button>
 </div>
 
 <style>
-   .modal-card-head {
-      justify-content: center;
-   }
+  .modal-card-head {
+    justify-content: center;
+  }
 
-   .delete {
-      position: absolute;
-      right: 10px;
-      top: 10px;
-   }
+  .delete {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+  }
+
+  .modal-card-body {
+    border-radius: 10px;
+  }
+
+
 </style>

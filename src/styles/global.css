@@ -47,7 +47,7 @@ a.logo.navbar-item:hover {
 
 .modal {
   --bulma-modal-card-head-padding: .5rem;
-  --bulma-modal-card-body-padding: 1rem;
+  --bulma-modal-card-body-padding: .75rem;
   transition: all .3s;
 }
 

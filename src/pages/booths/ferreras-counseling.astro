@@ -1,0 +1,130 @@
+---
+import ModalBooths from "../../components/ModalBooths.astro";
+import ModalForm from "../../components/ModalForm.astro";
+import ModalVideo from "../../components/ModalVideo.astro";
+import BoothLayout from "../../layouts/BoothLayout.astro";
+const booth = {
+   image: "ferreras-counseling.webp",
+   btn1: "brochure.webp",
+   btn2: "preguntas.webp",
+   btn3: "empleos.webp",
+   btn4: "contacto.webp",
+   btn5: null,
+};
+const wpuploads = import.meta.env.WP_UPLOADS;
+---
+
+<BoothLayout
+   title="Ferreras Counseling & Wellness Center"
+   description="Lorem ipsum dolor sit amet"
+>
+   <section class="section banner-booth ferreras-counseling">
+      <div class="is-overlay"></div>
+      <div class="container has-text-white">
+         <div class="columns is-centered">
+            <div class="column is-6 has-text-centered">
+               <svg
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  viewBox="0 0 600 780"
+               >
+                  <image
+                     width="600"
+                     height="780"
+                     xlink:href={"/img/booths-bg/" + booth.image}
+                  />
+
+                  <a
+                     xlink:href="javascript:void(0)"
+                     class="modal-trigger video"
+                     data-target="modal-video"
+                  >
+                     <rect
+                        x="130"
+                        y="55"
+                        fill="#fff"
+                        opacity="0"
+                        width="390"
+                        height="250"></rect>
+                  </a>
+
+                  <!-- Brochure -->
+                  <a
+                     href="#"                     
+                     class="brochure"
+                  >
+                     <image
+                        x="90"
+                        y="555"
+                        xlink:href={"/img/booths-pics/" + booth.btn1}
+                     />
+                  </a>
+
+                  <!-- FAQ -->
+                  <a
+                     href="https://www.ferrerascounselingwellness.com/faq"
+                     target="_blank"
+                     class="faq"
+                  >
+                     <image
+                        x="310"
+                        y="555"
+                        xlink:href={"/img/booths-pics/" + booth.btn2}
+                     />
+                  </a>
+
+                  <!-- Empleos -->
+                  <a
+                     href="https://www.ferrerascounselingwellness.com/careers"
+                     target="_blank"
+                     class="empleos"
+                  >
+                     <image
+                        x="90"
+                        y="640"
+                        xlink:href={"/img/booths-pics/" + booth.btn3}
+                     />
+                  </a>
+                  <a
+                     href="javascript:void(0)"
+                     class="modal-trigger contacto"
+                     data-target="modal-form"
+                  >
+                     <image
+                        x="310"
+                        y="640"
+                        xlink:href={"/img/booths-pics/" + booth.btn4}
+                     />
+                  </a>
+
+                  <!-- <a xlink:href="#contacto">
+                     <rect
+                        x="205"
+                        y="716"
+                        fill="#fff"
+                        opacity="0"
+                        width="164"
+                        height="54"></rect>
+                  </a> -->
+               </svg>
+            </div>
+         </div>
+      </div>
+
+      <div class="has-text-centered mt-5">
+         <a href="/" class="button is-light is-rounded is-outlined is-medium"
+            >Volver a la Feria</a
+         >
+      </div>
+   </section>
+
+   <ModalBooths />
+
+   <ModalVideo videoID="https://youtu.be/3OP87DEKN7c" />
+
+   <ModalForm
+      to="referrals@ferrerascounselingwellness.com"
+      subject="Booth Ferreras Counseling - Nuevo contacto web"
+   />
+</BoothLayout>
