@@ -3,7 +3,7 @@ export const prerender = false;
 const idioma = Astro.currentLocale;
 import "plyr/dist/plyr.css";
 
-const apiKey = import.meta.env.YOUTUBE_API_KEY;
+const apiKey = import.meta.env.PUBLIC_YOUTUBE_API_KEY;
 
 const playlistId = idioma == "es" ? "PLnKieTyBOHbMTVtLiMpJ_GM7fhKdDoUN3" : "PLnKieTyBOHbMJTy7QtuL7zEPGECDd4IfI";
 let videos = [];
@@ -31,7 +31,8 @@ videos = data.items
     <div class="columns is-centered my-6">
   
         {
-          videos.map((video) => (
+
+          videos && videos.map((video) => (
             <div class="column is-4">
               <lite-youtube videoid={video.snippet.resourceId.videoId} />
 

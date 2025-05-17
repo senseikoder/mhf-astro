@@ -1,8 +1,8 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 // import netlify from "@astrojs/netlify";
-
 import vercel from "@astrojs/vercel/serverless";
+import vue from '@astrojs/vue';
 
 // https://astro.build/config
 export default defineConfig({
@@ -10,10 +10,10 @@ export default defineConfig({
   server: {
     port: 4323
   },
-  integrations: [sitemap()],
+  integrations: [sitemap(), vue()],
   prefetch: true,
   format: 'file',
-  output: 'hybrid',
+  output: 'static',
   i18n: {
     defaultLocale: "es",
     locales: ["es", "en"]
