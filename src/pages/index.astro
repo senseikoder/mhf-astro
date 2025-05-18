@@ -7,7 +7,7 @@ import HomeBlog from "../components/HomeBlog.astro";
 import HomePartners from "../components/HomePartners.astro";
 
 import "flickity/dist/flickity.min.css";
-import HomeVideos from "../components/HomeVideos.astro";
+import HomeVideos from "../components/HomeVideos.vue";
 ---
 
 <HomeLayout
@@ -34,7 +34,7 @@ import HomeVideos from "../components/HomeVideos.astro";
 
   <!-- <HomeCats /> -->
 
-  <HomeVideos />
+  <HomeVideos lang="es" client:load />
 
   <HomeCarrusel />
 
