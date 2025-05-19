@@ -1,6 +1,21 @@
 ---
-import VideoGallery from '../../components/VideoGallery.vue';
-import PageLayout from '../../layouts/PageLayout.astro';
+import PageLayout from "../../layouts/PageLayout.astro";
+import "plyr/dist/plyr.css";
+
+const apiKey = import.meta.env.PUBLIC_YOUTUBE_API_KEY;
+
+const listId = "UUNkGAfwzTiXgja3RCqELKyw"
+let videos = [];
+
+const response = await fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet,id&maxResults=25&playlistId=${listId}&key=${apiKey}`,{
+  cache: "no-store"
+});
+const data = await response.json();
+console.log(data.items);
+
+
+videos = data.items.filter(video => video.snippet.description?.includes("english"));
+
 ---
 
 <PageLayout title="Video allies" description="Lorem ipsum dolor sit amet">
@@ -10,7 +25,21 @@ import PageLayout from '../../layouts/PageLayout.astro';
         <h3 class="title">Partners in the Media</h3>
       </div>
 
-      <VideoGallery lang="en" client:load />
+      <div class="columns is-multiline is-centered">
+        {videos.map(video => (
+          <div class="column is-4 my-5">
+            <lite-youtube videoid={video.snippet.resourceId.videoId}></lite-youtube>
+            <h3 class="title is-5 my-4 has-text-centered">
+              <Fragment set:html={video.snippet.title} />
+            </h3>
+
+          </div>
+        ))}
+      </div>
+
     </div>
   </section>
 </PageLayout>
+<script>
+  import "@justinribeiro/lite-youtube";
+</script>
