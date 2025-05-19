@@ -35,6 +35,24 @@
           "value": "no-store"
         }
       ]
+    },
+    {
+      "source": "/events",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store"
+        }
+      ]
+    },
+    {
+      "source": "/en/events",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store"
+        }
+      ]
     }
   ]
 }
