@@ -35,7 +35,7 @@ const fetchVideos = async () => {
     // );
     const response = await fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet,id&maxResults=25&playlistId=${listId}&key=${apiKey}`)
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
     
     videos.value = data.items.filter(video => 
       video.snippet.description?.includes(languageFilter)

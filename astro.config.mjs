@@ -3,6 +3,7 @@ import sitemap from '@astrojs/sitemap';
 // import netlify from "@astrojs/netlify";
 import vercel from "@astrojs/vercel/serverless";
 import vue from '@astrojs/vue';
+import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
@@ -10,7 +11,7 @@ export default defineConfig({
   server: {
     port: 4323
   },
-  integrations: [sitemap(), vue()],
+  integrations: [sitemap(), vue(), icon()],
   prefetch: true,
   format: 'file',
   output: 'static',
