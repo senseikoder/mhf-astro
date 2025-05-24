@@ -44,7 +44,7 @@ const fecha_ini = formatDate(startDate);
 const fecha_fin = formatDate(endDate);
 
 const res = await fetch(
-   `${wpurl}/events?start_date=${fecha_ini}&end_date=${fecha_fin}&lang=${idioma}`,
+   `${wpurl}/events?start_date=${fecha_ini}&end_date=${fecha_fin}&lang=${idioma}&per_page=50`,
    {cache: "no-store"}
 );
 
