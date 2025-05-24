@@ -45,6 +45,7 @@ const fecha_fin = formatDate(endDate);
 
 const res = await fetch(
    `${wpurl}/events?start_date=${fecha_ini}&end_date=${fecha_fin}&lang=${idioma}`,
+   {cache: "no-store"}
 );
 
 const eventos = await res.json();
