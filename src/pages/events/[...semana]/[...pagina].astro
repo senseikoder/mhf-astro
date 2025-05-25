@@ -1,0 +1,203 @@
+---
+export const prerender = false;
+import PageLayout from "../../../layouts/PageLayout.astro";
+import FormattedDate from "../../../components/FormattedDate.astro";
+import FormattedTime from "../../../components/FormattedTime.astro";
+
+const idioma = Astro.currentLocale;
+const wpurl = import.meta.env.WP_URL_EVENTS;
+const { semana = '1', pagina = '1' } = Astro.params;
+
+// Convertir parámetros a números
+const numSemana = Number(semana);
+const numPagina = Number(pagina);
+const eventosPorPagina = 9; // Número de eventos por página
+
+// Función para obtener el lunes de la semana actual
+function getMonday(date) {
+   const day = date.getDay();
+   const diff = date.getDate() - day + (day == 0 ? -6 : 1);
+   return new Date(date.setDate(diff));
+}
+
+// Función para obtener el domingo de la semana actual
+function getSunday(monday) {
+   return new Date(monday.getTime() + 6 * 24 * 60 * 60 * 1000);
+}
+
+function formatDate(date) {
+   const year = date.getFullYear();
+   const month = String(date.getMonth() + 1).padStart(2, "0");
+   const day = String(date.getDate()).padStart(2, "0");
+   return `${year}-${month}-${day}`;
+}
+
+// Calcular la fecha de inicio y fin de la semana solicitada
+const today = new Date();
+const currentMonday = getMonday(new Date(today));
+currentMonday.setDate(currentMonday.getDate() + (numSemana - 1) * 7);
+const currentSunday = getSunday(new Date(currentMonday));
+
+const fecha_ini = formatDate(currentMonday);
+const fecha_fin = formatDate(currentSunday);
+
+// Obtener los eventos de la semana con paginación
+const res = await fetch(
+   `${wpurl}/events?start_date=${fecha_ini}&end_date=${fecha_fin}&lang=${idioma}&per_page=${eventosPorPagina}&page=${numPagina}`,
+   {cache: "no-store"}
+);
+
+const eventosData = await res.json();
+const eventosPaginados = eventosData.events || [];
+const totalEventos = eventosData.total || 0;
+const totalPaginas = eventosData.total_pages || 1;
+
+// Función para generar la URL de navegación
+const generarUrl = (nuevaSemana, nuevaPagina = 1) => {
+   // No permitir semanas menores a 1
+   const sem = Math.max(1, nuevaSemana);
+   // Asegurar que la página esté dentro de los límites
+   const pag = Math.max(1, Math.min(nuevaPagina, totalPaginas));
+   return `/events/${sem}/${pag}`;
+};
+---
+
+<PageLayout title="Feria de Salud - Eventos" description="Eventos de la feria de salud">
+   <section class="section">
+      <div class="container is-max-widescreen">
+         <!-- Navegación de semanas -->
+         <div class="buttons is-centered">
+            <a 
+               class="button is-info is-outlined" 
+               href={generarUrl(numSemana - 1, 1)}
+            >
+               Semana anterior
+            </a>
+            <a 
+               class="button is-info is-outlined" 
+               href={generarUrl(numSemana + 1, 1)}
+            >
+               Semana siguiente
+            </a>
+         </div>
+
+         <div class="has-text-centered my-4">
+            <p class="is-size-5">
+               Mostrando eventos de la semana: <strong>
+                  {currentMonday.toLocaleDateString('es-US',{ year: 'numeric', month: 'long', day: 'numeric' })}</strong>
+               al <strong>{currentSunday.toLocaleDateString('es-US',{ year: 'numeric', month: 'long', day: 'numeric' })}</strong>
+            </p>
+            <!-- {totalPaginas > 1 && (
+               <p class="is-size-6 mt-2">
+                  Página {numPagina} de {totalPaginas}
+               </p>
+            )} -->
+         </div>
+
+         <!-- Paginación de eventos -->
+         {totalPaginas > 1 && (
+            <nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
+               <a 
+                  class="pagination-previous" 
+                  href={generarUrl(numSemana, numPagina - 1)}
+                  disabled={numPagina <= 1}
+               >
+                  Anterior
+               </a>
+               <a 
+                  class="pagination-next" 
+                  href={generarUrl(numSemana, numPagina + 1)}
+                  disabled={numPagina >= totalPaginas}
+               >
+                  Siguiente
+               </a>
+               <ul class="pagination-list">
+                  {Array.from({length: totalPaginas}, (_, i) => i + 1).map(pag => (
+                     <li>
+                        <a 
+                           class={`pagination-link ${pag === numPagina ? 'is-current' : ''}`}
+                           href={generarUrl(numSemana, pag)}
+                           aria-label={`Ir a la página ${pag}`}
+                        >
+                           {pag}
+                        </a>
+                     </li>
+                  ))}
+               </ul>
+            </nav>
+         )}
+
+         <div class="columns is-multiline is-variable is-8">
+            {eventosPaginados.length > 0 ? (
+               eventosPaginados.map((evento) => (
+                  <div class="column is-4">
+                     <div class="card">
+                        <div class="card-content">
+                           <a href={`/event/${evento.slug}`}>
+                              <img
+                                 width={720}
+                                 height={360}
+                                 src={evento.image?.url || '/placeholder-event.jpg'}
+                                 alt={evento.title || 'Evento'}
+                                 loading="lazy"
+                              />
+                              <h4 class="title is-5 my-4">
+                                 <Fragment set:html={evento.title} />
+                              </h4>
+                           </a>
+                           <small>
+                              <FormattedDate
+                                 date={new Date(evento.start_date)}
+                              />{' '}
+                              @
+                              <FormattedTime
+                                 date_ini={new Date(evento.start_date)}
+                                 date_end={new Date(evento.end_date)}
+                              />
+                           </small>
+                        </div>
+                     </div>
+                  </div>
+               ))
+            ) : (
+               <div class="column is-12 has-text-centered">
+                  <p class="is-size-5">No hay eventos programados para esta semana.</p>
+               </div>
+            )}
+         </div>
+
+         <!-- Repetir la paginación en la parte inferior -->
+         {totalPaginas > 1 && (
+            <nav class="pagination is-centered mt-6" role="navigation" aria-label="pagination">
+               <a 
+                  class="pagination-previous" 
+                  href={generarUrl(numSemana, numPagina - 1)}
+                  disabled={numPagina <= 1}
+               >
+                  Anterior
+               </a>
+               <a 
+                  class="pagination-next" 
+                  href={generarUrl(numSemana, numPagina + 1)}
+                  disabled={numPagina >= totalPaginas}
+               >
+                  Siguiente
+               </a>
+               <ul class="pagination-list">
+                  {Array.from({length: totalPaginas}, (_, i) => i + 1).map(pag => (
+                     <li>
+                        <a 
+                           class={`pagination-link ${pag === numPagina ? 'is-current' : ''}`}
+                           href={generarUrl(numSemana, pag)}
+                           aria-label={`Ir a la página ${pag}`}
+                        >
+                           {pag}
+                        </a>
+                     </li>
+                  ))}
+               </ul>
+            </nav>
+         )}
+      </div>
+   </section>
+</PageLayout>
