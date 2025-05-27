@@ -1,9 +1,10 @@
 ---
 export const prerender = false;
-import PageLayout from "../../../../layouts/PageLayout.astro";
-import FormattedDate from "../../../../components/FormattedDate.astro";
-import FormattedTime from "../../../../components/FormattedTime.astro";
+import PageLayout from "@/layouts/PageLayout.astro";
+import FormattedDate from "@/components/FormattedDate.astro";
+import FormattedTime from "@/components/FormattedTime.astro";
 
+const idioma = Astro.currentLocale;
 const wpurl = import.meta.env.WP_URL_EVENTS;
 const { semana = '1', pagina = '1' } = Astro.params;
 
@@ -42,14 +43,13 @@ const fecha_fin = formatDate(currentSunday);
 
 // Get events for the week with pagination
 const res = await fetch(
-   `${wpurl}/events?start_date=${fecha_ini}&end_date=${fecha_fin}&lang=en&per_page=${eventosPorPagina}&page=${numPagina}`,
-   {cache: "no-store"}
+   `${wpurl}/events?start_date=${fecha_ini}&end_date=${fecha_fin}&lang=${idioma}&per_page=${eventosPorPagina}&page=${numPagina}`
 );
 
 const eventosData = await res.json();
 const eventosPaginados = eventosData.events || [];
 const totalEventos = eventosData.total || 0;
-const totalPaginas = eventosData.total_pages || 1;
+const totalPaginas = eventosData.total_pages;
 
 // Function to generate navigation URL
 const generarUrl = (nuevaSemana, nuevaPagina = 1) => {

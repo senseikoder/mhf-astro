@@ -1,0 +1,360 @@
+---
+export const prerender = false;
+import ModalBooths from "@/components/ModalBooths.astro";
+import ModalVideo from "@/components/ModalVideo.astro";
+import ModalForm from "@/components/ModalForm.astro";
+import BoothLayout from "@/layouts/BoothLayout.astro";
+import FormattedDate from "@/components/FormattedDate.astro";
+import FormattedTime from "@/components/FormattedTime.astro";
+import Image from "astro/components/Image.astro";
+const booth = {
+  image: "united-health-care.webp",
+  btn1: "one-care.webp",
+  btn2: "empleos.webp",
+  btn3: "senior-care.webp",
+  btn4: "eventos.webp",
+  btn5: "contacto.webp",
+};
+// import rec1 from "@/images/recursos/uhc-rec1.webp";
+import baneruhc from "@/images/banner-uhc.webp";
+
+const wpuploads = import.meta.env.WP_UPLOADS;
+const wpurl = import.meta.env.WP_URL_EVENTS;
+
+const idioma = Astro.currentLocale;
+
+const { semana = '1', pagina = '1' } = Astro.params;
+
+// Convertir parámetros a números
+const numSemana = Number(semana);
+const numPagina = Number(pagina);
+const eventosPorPagina = 9; // Número de eventos por página
+
+// Función para obtener el lunes de la semana actual
+function getMonday(date) {
+   const day = date.getDay();
+   const diff = date.getDate() - day + (day == 0 ? -6 : 1);
+   return new Date(date.setDate(diff));
+}
+
+// Función para obtener el domingo de la semana actual
+function getSunday(monday) {
+   return new Date(monday.getTime() + 6 * 24 * 60 * 60 * 1000);
+}
+
+function formatDate(date) {
+   const year = date.getFullYear();
+   const month = String(date.getMonth() + 1).padStart(2, "0");
+   const day = String(date.getDate()).padStart(2, "0");
+   return `${year}-${month}-${day}`;
+}
+
+// Calcular la fecha de inicio y fin de la semana solicitada
+const today = new Date();
+const currentMonday = getMonday(new Date(today));
+currentMonday.setDate(currentMonday.getDate() + (numSemana - 1) * 7);
+const currentSunday = getSunday(new Date(currentMonday));
+
+const fecha_ini = formatDate(currentMonday);
+const fecha_fin = formatDate(currentSunday);
+
+// Obtener los eventos de la semana con paginación
+const res = await fetch(
+   `${wpurl}/events?start_date=${fecha_ini}&end_date=${fecha_fin}&lang=${idioma}&per_page=${eventosPorPagina}&page=${numPagina}&tags=united-care`
+);
+
+const eventosData = await res.json();
+const eventosPaginados = eventosData.events || [];
+const totalEventos = eventosData.total || 0;
+const totalPaginas = eventosData.total_pages || 1;
+
+// Función para generar la URL de navegación
+const generarUrl = (nuevaSemana, nuevaPagina = 1) => {
+   // No permitir semanas menores a 1
+   const sem = Math.max(1, nuevaSemana);
+   // Asegurar que la página esté dentro de los límites
+   const pag = Math.max(1, Math.min(nuevaPagina, totalPaginas));
+   return `/events/${sem}/${pag}`;
+};
+---
+
+<BoothLayout title="United HealthCare" description="Lorem ipsum dolor sit amet">
+  <section class="section banner-booth united-health-care">
+    <div class="is-overlay"></div>
+    <div class="container has-text-white">
+      <div class="columns is-centered">
+        <div class="column is-6 has-text-centered">
+          <svg
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 600 780"
+          >
+            <image
+              width="600"
+              height="780"
+              xlink:href={"/img/booths-bg/" + booth.image}
+            />
+            <!-- Video -->
+            <a
+              xlink:href="javascript:void(0)"
+              class="modal-trigger video"
+              data-target="modal-video"
+            >
+              <rect
+                x="100"
+                y="54"
+                fill="#fff"
+                opacity="0"
+                width="413"
+                height="266"></rect>
+            </a>
+
+            <!-- One Care -->
+            <a
+              xlink:href={"/docs-booths/OneCareBrochure_ES.pdf"}
+              target="_blank"
+              class="brochure"
+            >
+              <image
+                x="80"
+                y="565"
+                xlink:href={"/img/booths-pics/" + booth.btn1}
+              />
+            </a>
+
+            <!-- Empleos -->
+            <a
+              xlink:href="https://careers.unitedhealthgroup.com/job/21083616/sales-account-manager-bilingual-spanish-springfield-ma-remote-springfield-ma/"
+              target="_blank"
+              class="empleos"
+            >
+              <image
+                x="300"
+                y="565"
+                xlink:href={"/img/booths-pics/" + booth.btn2}
+              />
+            </a>
+
+            <!-- Senior Care -->
+            <a xlink:href={wpuploads + "/2024/03/2024-Spanish-BRC-PDF.pdf"} target="_blank">
+              <image
+                x="80"
+                y="640"
+                xlink:href={"/img/booths-pics/" + booth.btn3}
+              />
+            </a>
+
+            <!-- Eventos -->
+            <a xlink:href="#eventos" class="eventos">
+              <image
+                x="300"
+                y="640"
+                xlink:href={"/img/booths-pics/" + booth.btn4}
+              />
+            </a>
+
+            <!-- Contacto -->
+            <a
+              xlink:href="javascript:void(0)"
+              class="modal-trigger contacto"
+              data-target="modal-form"
+            >
+              <image
+                x="195"
+                y="716"
+                xlink:href={"/img/booths-pics/" + booth.btn5}
+              />
+            </a>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="has-text-centered mt-5">
+      <a href="/" class="button is-light is-rounded is-outlined"
+        >Volver a la Feria</a
+      >
+    </div>
+  </section>
+
+  <section class="section" id="eventos">
+    <div class="container is-max-widescreen">
+      <!-- Navegación de semanas -->
+      <div class="buttons is-centered">
+        <a 
+           class="button is-info is-outlined" 
+           href={generarUrl(numSemana - 1, 1)}
+        >
+           Semana anterior
+        </a>
+        <a 
+           class="button is-info is-outlined" 
+           href={generarUrl(numSemana + 1, 1)}
+        >
+           Semana siguiente
+        </a>
+     </div>
+
+     <div class="has-text-centered my-4">
+        <p class="is-size-5">
+           Mostrando eventos de la semana: <strong>
+              {currentMonday.toLocaleDateString('es-US',{ year: 'numeric', month: 'long', day: 'numeric' })}</strong>
+           al <strong>{currentSunday.toLocaleDateString('es-US',{ year: 'numeric', month: 'long', day: 'numeric' })}</strong>
+        </p>
+        <!-- {totalPaginas > 1 && (
+           <p class="is-size-6 mt-2">
+              Página {numPagina} de {totalPaginas}
+           </p>
+        )} -->
+     </div>
+
+     <!-- Paginación de eventos -->
+     {totalPaginas > 1 && (
+        <nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
+           <a 
+              class="pagination-previous" 
+              href={generarUrl(numSemana, numPagina - 1)}
+              disabled={numPagina <= 1}
+           >
+              Anterior
+           </a>
+           <a 
+              class="pagination-next" 
+              href={generarUrl(numSemana, numPagina + 1)}
+              disabled={numPagina >= totalPaginas}
+           >
+              Siguiente
+           </a>
+           <ul class="pagination-list">
+              {Array.from({length: totalPaginas}, (_, i) => i + 1).map(pag => (
+                 <li>
+                    <a 
+                       class={`pagination-link ${pag === numPagina ? 'is-current' : ''}`}
+                       href={generarUrl(numSemana, pag)}
+                       aria-label={`Ir a la página ${pag}`}
+                    >
+                       {pag}
+                    </a>
+                 </li>
+              ))}
+           </ul>
+        </nav>
+     )}
+
+     <div class="columns is-multiline is-variable is-8">
+        {eventosPaginados.length > 0 ? (
+           eventosPaginados.map((evento) => (
+              <div class="column is-4">
+                 <div class="card">
+                    <div class="card-content">
+                       <a href={`/event/${evento.slug}`}>
+                          <img
+                             width={720}
+                             height={360}
+                             src={evento.image?.url || '/placeholder-event.jpg'}
+                             alt={evento.title || 'Evento'}
+                             loading="lazy"
+                          />
+                          <h4 class="title is-5 my-4">
+                             <Fragment set:html={evento.title} />
+                          </h4>
+                       </a>
+                       <small>
+                          <FormattedDate
+                             date={new Date(evento.start_date)}
+                          />{' '}
+                          @
+                          <FormattedTime
+                             date_ini={new Date(evento.start_date)}
+                             date_end={new Date(evento.end_date)}
+                          />
+                       </small>
+                    </div>
+                 </div>
+              </div>
+           ))
+        ) : (
+           <div class="column is-12 has-text-centered">
+              <p class="is-size-5">No hay eventos programados para esta semana.</p>
+           </div>
+        )}
+     </div>
+
+     <!-- Repetir la paginación en la parte inferior -->
+     {totalPaginas > 1 && (
+        <nav class="pagination is-centered mt-6" role="navigation" aria-label="pagination">
+           <a 
+              class="pagination-previous" 
+              href={generarUrl(numSemana, numPagina - 1)}
+              disabled={numPagina <= 1}
+           >
+              Anterior
+           </a>
+           <a 
+              class="pagination-next" 
+              href={generarUrl(numSemana, numPagina + 1)}
+              disabled={numPagina >= totalPaginas}
+           >
+              Siguiente
+           </a>
+           <ul class="pagination-list">
+              {Array.from({length: totalPaginas}, (_, i) => i + 1).map(pag => (
+                 <li>
+                    <a 
+                       class={`pagination-link ${pag === numPagina ? 'is-current' : ''}`}
+                       href={generarUrl(numSemana, pag)}
+                       aria-label={`Ir a la página ${pag}`}
+                    >
+                       {pag}
+                    </a>
+                 </li>
+              ))}
+           </ul>
+        </nav>
+     )}
+    </div>
+  </section>
+
+  <!-- <section class="section" id="recursos">
+    <div class="container is-max-widescreen">
+      <div class="mb-6">
+        <h4 class="title has-text-centered"><u>Recursos</u></h4>
+      </div>
+
+      <div class="columns is-centered">
+        <div class="column is-6">
+          <a
+            href={wpuploads + "2024/07/UnitedHealthcare-fresh-truck-ESP.pdf"}
+            target="_blank"
+          >
+            <Image src={rec1} alt="" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <ModalBooths />
+
+  <ModalVideo videoID="RR5feG5E3ek" />
+
+  <ModalForm
+    to="evelyn_sandoval@uhc.com,sharon.castillo@uhc.com"
+    subject="Booth United Health Care - Web Form"
+  >
+    <div class="has-text-centered">
+      <div class="image">
+        <Image src={baneruhc} alt="" />
+      </div>
+
+      <div class="block mt-4">
+        <a
+          href="tel:+1866-325-4811"
+          class="button is-medium is-rounded is-link is-outlined"
+          >866-325-4811</a
+        >
+      </div>
+    </div>
+  </ModalForm>
+</BoothLayout>

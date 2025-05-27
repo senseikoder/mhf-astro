@@ -1,11 +1,11 @@
 ---
 export const prerender = false;
-import ModalBooths from "../../../../components/ModalBooths.astro";
-import ModalForm from "../../../../components/ModalForm.astro";
-import ModalVideo from "../../../../components/ModalVideo.astro";
-import BoothLayout from "../../../../layouts/BoothLayout.astro";
-import FormattedDate from "../../../../components/FormattedDate.astro";
-import FormattedTime from "../../../../components/FormattedTime.astro";
+import ModalBooths from "@/components/ModalBooths.astro";
+import ModalForm from "@/components/ModalForm.astro";
+import ModalVideo from "@/components/ModalVideo.astro";
+import BoothLayout from "@/layouts/BoothLayout.astro";
+import FormattedDate from "@/components/FormattedDate.astro";
+import FormattedTime from "@/components/FormattedTime.astro";
 import Image from "astro/components/Image.astro";
 const booth = {
   image: "united-health-care.webp",
@@ -15,15 +15,20 @@ const booth = {
   btn4: "events.webp",
   btn5: "contact.webp",
 };
-import rec1 from "../../../../images/recursos/uhc-rec1_.webp";
-import baneruhc from "../../../../images/banner-uhc.webp";
+// import rec1 from "../../../../images/recursos/uhc-rec1_.webp";
+import baneruhc from "@/images/banner-uhc.webp";
 
 const wpuploads = import.meta.env.WP_UPLOADS;
 const wpurl = import.meta.env.WP_URL_EVENTS;
 
 const idioma = Astro.currentLocale;
-const { page } = Astro.params;
-let pagina = page ? Number(page) : 1;
+
+const { semana = '1', pagina = '1' } = Astro.params;
+
+// Convertir parámetros a números
+const numSemana = Number(semana);
+const numPagina = Number(pagina);
+const eventosPorPagina = 9; // Número de eventos por página
 
 // Función para obtener el lunes de la semana actual
 function getMonday(date) {
@@ -45,25 +50,33 @@ function formatDate(date) {
   return `${year}-${month}-${day}`;
 }
 
-// Calcular la fecha de inicio y fin de la semana actual
+// Calcular la fecha de inicio y fin de la semana solicitada
 const today = new Date();
 const currentMonday = getMonday(new Date(today));
-const currentSunday = getSunday(currentMonday);
+currentMonday.setDate(currentMonday.getDate() + (numSemana - 1) * 7);
+const currentSunday = getSunday(new Date(currentMonday));
 
-// Ajustar la semana según el parámetro de la página
-const startDate = new Date(currentMonday);
-startDate.setDate(startDate.getDate() + (pagina - 1) * 7);
-const endDate = new Date(currentSunday);
-endDate.setDate(endDate.getDate() + (pagina - 1) * 7);
+const fecha_ini = formatDate(currentMonday);
+const fecha_fin = formatDate(currentSunday);
 
-const fecha_ini = formatDate(startDate);
-const fecha_fin = formatDate(endDate);
-
+// Obtener los eventos de la semana con paginación
 const res = await fetch(
-  `${wpurl}/events?start_date=${fecha_ini}&end_date=${fecha_fin}&lang=${idioma}&tags=united-care&per_page=9`
+   `${wpurl}/events?start_date=${fecha_ini}&end_date=${fecha_fin}&lang=${idioma}&per_page=${eventosPorPagina}&page=${numPagina}&tags=united-care`
 );
 
-const eventos = await res.json();
+const eventosData = await res.json();
+const eventosPaginados = eventosData.events || [];
+const totalEventos = eventosData.total || 0;
+const totalPaginas = eventosData.total_pages || 1;
+
+// Función para generar la URL de navegación
+const generarUrl = (nuevaSemana, nuevaPagina = 1) => {
+   // No permitir semanas menores a 1
+   const sem = Math.max(1, nuevaSemana);
+   // Asegurar que la página esté dentro de los límites
+   const pag = Math.max(1, Math.min(nuevaPagina, totalPaginas));
+   return `/events/${sem}/${pag}`;
+};
 ---
 
 <BoothLayout
@@ -172,10 +185,10 @@ const eventos = await res.json();
   <section class="section" id="events">
     <div class="container is-max-widescreen">
       <div class="buttons is-centered">
-        <a class="button is-info is-outlined" href={`/en/booths/united-health-care/${pagina - 1}`}
+        <a class="button is-info is-outlined" href={generarUrl(numSemana - 1, 1)}
           >Prev week</a
         >
-        <a class="button is-info is-outlined" href={`/en/booths/united-health-care/${pagina + 1}`}
+        <a class="button is-info is-outlined" href={generarUrl(numSemana + 1, 1)}
           >Next week</a
         >
       </div>
@@ -183,14 +196,47 @@ const eventos = await res.json();
       <div class="has-text-centered my-4">
         <p class="is-size-5">
           Showing events of the week: <strong
-            >{startDate.toLocaleDateString()}</strong
-          > to <strong>{endDate.toLocaleDateString()}</strong>
+            >{currentMonday.toLocaleDateString('en-US',{ year: 'numeric', month: 'long', day: 'numeric' })}</strong
+          > to <strong>{currentSunday.toLocaleDateString('en-US',{ year: 'numeric', month: 'long', day: 'numeric' })}</strong>
         </p>
       </div>
 
+      <!-- Paginación de eventos -->
+     {totalPaginas > 1 && (
+        <nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
+           <a 
+              class="pagination-previous" 
+              href={generarUrl(numSemana, numPagina - 1)}
+              disabled={numPagina <= 1}
+           >
+              Previous
+           </a>
+           <a 
+              class="pagination-next" 
+              href={generarUrl(numSemana, numPagina + 1)}
+              disabled={numPagina >= totalPaginas}
+           >
+              Next
+           </a>
+           <ul class="pagination-list">
+              {Array.from({length: totalPaginas}, (_, i) => i + 1).map(pag => (
+                 <li>
+                    <a 
+                       class={`pagination-link ${pag === numPagina ? 'is-current' : ''}`}
+                       href={generarUrl(numSemana, pag)}
+                       aria-label={`Go to page ${pag}`}
+                    >
+                       {pag}
+                    </a>
+                 </li>
+              ))}
+           </ul>
+        </nav>
+     )}
+
       <div class="columns is-multiline is-variable is-8">
         {
-          eventos.events.map((evento: any) => (
+          eventosPaginados.map((evento: any) => (
             <div class="column is-4">
               <div class="card">
                 <div class="card-content">
@@ -223,6 +269,39 @@ const eventos = await res.json();
           ))
         }
       </div>
+
+      <!-- Repetir la paginación en la parte inferior -->
+     {totalPaginas > 1 && (
+        <nav class="pagination is-centered mt-6" role="navigation" aria-label="pagination">
+           <a 
+              class="pagination-previous" 
+              href={generarUrl(numSemana, numPagina - 1)}
+              disabled={numPagina <= 1}
+           >
+              Anterior
+           </a>
+           <a 
+              class="pagination-next" 
+              href={generarUrl(numSemana, numPagina + 1)}
+              disabled={numPagina >= totalPaginas}
+           >
+              Siguiente
+           </a>
+           <ul class="pagination-list">
+              {Array.from({length: totalPaginas}, (_, i) => i + 1).map(pag => (
+                 <li>
+                    <a 
+                       class={`pagination-link ${pag === numPagina ? 'is-current' : ''}`}
+                       href={generarUrl(numSemana, pag)}
+                       aria-label={`Ir a la página ${pag}`}
+                    >
+                       {pag}
+                    </a>
+                 </li>
+              ))}
+           </ul>
+        </nav>
+     )}
     </div>
   </section>
 

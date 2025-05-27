@@ -4,6 +4,7 @@ import sitemap from '@astrojs/sitemap';
 import vercel from "@astrojs/vercel/serverless";
 import vue from '@astrojs/vue';
 import icon from "astro-icon";
+import path from 'path';
 
 // https://astro.build/config
 export default defineConfig({
@@ -23,5 +24,12 @@ export default defineConfig({
   redirects: {
     '/blog': '/blog/page',
     '/en/blog': '/en/blog/page'
+  },
+  vite: {
+    resolve: {
+      alias: {
+        '@': path.resolve('./src')
+      }
+    }
   }
 });
