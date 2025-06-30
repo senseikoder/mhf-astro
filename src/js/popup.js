@@ -61,7 +61,7 @@ document.addEventListener("astro:page-load", () => {
       // Load Modal after 4 seconds
       setTimeout(() => {
          const $target = document.getElementById('modal-popup');
-         openModal($target);
+         // openModal($target);
       }, 7000);
    }
 });
