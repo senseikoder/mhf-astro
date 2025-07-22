@@ -7,6 +7,7 @@ import BoothLayout from "@/layouts/BoothLayout.astro";
 import FormattedDate from "@/components/FormattedDate.astro";
 import FormattedTime from "@/components/FormattedTime.astro";
 import Image from "astro/components/Image.astro";
+import { getMonday, getSunday, formatDate } from "@/utils/utils.js";
 const booth = {
   image: "united-health-care.webp",
   btn1: "one-care.webp",
@@ -29,26 +30,6 @@ const { semana = '1', pagina = '1' } = Astro.params;
 const numSemana = Number(semana);
 const numPagina = Number(pagina);
 const eventosPorPagina = 9; // Número de eventos por página
-
-// Función para obtener el lunes de la semana actual
-function getMonday(date) {
-  const day = date.getDay();
-  const diff = date.getDate() - day + (day == 0 ? -6 : 1);
-  return new Date(date.setDate(diff));
-}
-
-// Función para obtener el domingo de la semana actual
-function getSunday(monday) {
-  return new Date(monday.getTime() + 6 * 24 * 60 * 60 * 1000);
-}
-
-function formatDate(date) {
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, "0"); // Los meses en JavaScript son 0-indexados
-  const day = String(date.getDate()).padStart(2, "0");
-
-  return `${year}-${month}-${day}`;
-}
 
 // Calcular la fecha de inicio y fin de la semana solicitada
 const today = new Date();
@@ -75,7 +56,7 @@ const generarUrl = (nuevaSemana, nuevaPagina = 1) => {
    const sem = Math.max(1, nuevaSemana);
    // Asegurar que la página esté dentro de los límites
    const pag = Math.max(1, Math.min(nuevaPagina, totalPaginas));
-   return `/events/${sem}/${pag}`;
+   return `/booths/united-health-care/${sem}/${pag}`;
 };
 ---
 

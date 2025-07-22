@@ -6,6 +6,7 @@ import BoothLayout from "../../../layouts/BoothLayout.astro";
 import FormattedDate from "../../../components/FormattedDate.astro";
 import FormattedTime from "../../../components/FormattedTime.astro";
 import { Image } from "astro:assets";
+import { getMonday, getSunday, formatDate } from "@/utils/utils.js";
 import rec1 from "../../../images/recursos/rec1.webp";
 import rec2 from "../../../images/recursos/rec2.webp";
 import rec3 from "../../../images/recursos/rec3.webp";
@@ -28,28 +29,9 @@ const wpuploads = import.meta.env.WP_UPLOADS;
 const wpurl = import.meta.env.WP_URL_EVENTS;
 
 const idioma = Astro.currentLocale;
-const { page } = Astro.params;
-let pagina = page ? Number(page) : 1;
-
-// Función para obtener el lunes de la semana actual
-function getMonday(date) {
-   const day = date.getDay();
-   const diff = date.getDate() - day + (day == 0 ? -6 : 1);
-   return new Date(date.setDate(diff));
-}
-
-// Función para obtener el domingo de la semana actual
-function getSunday(monday) {
-   return new Date(monday.getTime() + 6 * 24 * 60 * 60 * 1000);
-}
-
-function formatDate(date) {
-   const year = date.getFullYear();
-   const month = String(date.getMonth() + 1).padStart(2, "0"); // Los meses en JavaScript son 0-indexados
-   const day = String(date.getDate()).padStart(2, "0");
-
-   return `${year}-${month}-${day}`;
-}
+const { pagina = 1 } = Astro.params;
+const numPagina = Number(pagina);
+const eventosPorPagina = 9;
 
 // Calcular la fecha de inicio y fin de la semana actual
 const today = new Date();
@@ -58,15 +40,15 @@ const currentSunday = getSunday(currentMonday);
 
 // Ajustar la semana según el parámetro de la página
 const startDate = new Date(currentMonday);
-startDate.setDate(startDate.getDate() + (pagina - 1) * 7);
+startDate.setDate(startDate.getDate() + (numPagina - 1) * 7);
 const endDate = new Date(currentSunday);
-endDate.setDate(endDate.getDate() + (pagina - 1) * 7);
+endDate.setDate(endDate.getDate() + (numPagina - 1) * 7);
 
 const fecha_ini = formatDate(startDate);
 const fecha_fin = formatDate(endDate);
 
 const res = await fetch(
-   `${wpurl}/events?start_date=${fecha_ini}&end_date=${fecha_fin}&lang=${idioma}&tags=alzheimer-association&per_page=9`,
+   `${wpurl}/events?start_date=${fecha_ini}&end_date=${fecha_fin}&lang=${idioma}&tags=alzheimer-association&per_page=${eventosPorPagina}`,
 );
 
 const eventos = await res.json();
