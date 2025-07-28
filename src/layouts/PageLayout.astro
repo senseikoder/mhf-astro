@@ -29,5 +29,17 @@ import Snippets from "../components/Snippets.astro";
       <script src="../js/main.js"></script>
       <ModalPopup />
       <TabLang />
+
+      <script is:inline>
+         function onReady() {
+           // add actions that you'd like to perform when OpenWidget is ready
+           // for example:
+           OpenWidget.call("maximize");
+         }
+   
+         if (!("ontouchstart" in window)) {
+           OpenWidget.on("ready", onReady);
+         }
+       </script>
    </body>
 </html>

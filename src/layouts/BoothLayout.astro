@@ -27,6 +27,8 @@ import Snippets from "../components/Snippets.astro";
       <slot />
       {idioma == "es" ? <Footer /> : <FooterEN />}
 
+      <TabLang />
+
       <script>
          document.addEventListener("astro:page-load", () => {
             const modal_body = document.querySelector(
@@ -89,6 +91,18 @@ import Snippets from "../components/Snippets.astro";
             // cargaEmail();
          });
       </script>
-      <TabLang />
+      
+
+      <script is:inline>
+         function onReady() {
+           // add actions that you'd like to perform when OpenWidget is ready
+           // for example:
+           OpenWidget.call("maximize");
+         }
+   
+         if (!("ontouchstart" in window)) {
+           OpenWidget.on("ready", onReady);
+         }
+       </script>
    </body>
 </html>
