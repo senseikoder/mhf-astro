@@ -88,14 +88,14 @@ import chatbot from "../images/btn-chatbot.fw.png";
   </div>
 </section>
 
-<!-- <button
+<button
   type="button"
   data-openwidget-action="maximize"
   class="chatbot"
   id="chatbot"
 >
   <Image src={chatbot} alt="Chatbot" width="50" height="50" />
-</button> -->
+</button>
 
 <style>
   .list {
@@ -120,7 +120,7 @@ import chatbot from "../images/btn-chatbot.fw.png";
     border-radius: 50%;
     width: 60px;
     height: 60px;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     padding: 5px;
@@ -134,4 +134,16 @@ import chatbot from "../images/btn-chatbot.fw.png";
     transform: scale(1.1);
   }
 </style>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const chatbot = document.getElementById("chatbot");
+
+    setTimeout(() => {
+      if (chatbot) {
+        chatbot.style.display = "flex";
+      }
+    }, 4000);
+  });
+</script>
 

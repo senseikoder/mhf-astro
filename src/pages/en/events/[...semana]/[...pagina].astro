@@ -3,7 +3,7 @@ export const prerender = false;
 import PageLayout from "@/layouts/PageLayout.astro";
 import FormattedDate from "@/components/FormattedDate.astro";
 import FormattedTime from "@/components/FormattedTime.astro";
-import { getMonday, getSunday, formatDate } from "@/utils/utils.js";
+import { getMonday, getSunday, formatDate } from "@/js/utils.js";
 
 const idioma = Astro.currentLocale;
 const wpurl = import.meta.env.WP_URL_EVENTS;

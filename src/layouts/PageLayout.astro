@@ -15,19 +15,21 @@ import Snippets from "../components/Snippets.astro";
 ---
 
 <html lang={idioma} data-theme="light">
-   <head>
-      <BaseHead title={title} description={description} />
-      <Snippets />
-      <ViewTransitions />
-   </head>
+  <head>
+    <BaseHead title={title} description={description} />
+    <Snippets />
+    <ViewTransitions />
+  </head>
 
-   <body>
-      <BodyTop/>
-      <Header />
-      <slot />
-      {idioma == "es" ? <Footer /> : <FooterEN />}
-      <script src="../js/main.js"></script>
-      <ModalPopup />
-      <TabLang />
-   </body>
+  <body>
+    <BodyTop />
+    <Header />
+    <slot />
+    {idioma == "es" ? <Footer /> : <FooterEN />}
+    <script src="../js/main.js"></script>
+    <script src="../js/popup.js"></script>
+
+    <ModalPopup />
+    <TabLang />
+  </body>
 </html>
