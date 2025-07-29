@@ -3,102 +3,144 @@ const today = new Date();
 import Image from "astro/components/Image.astro";
 import logoWhite from "../images/logo-mhf-white.webp";
 import Mailchimp from "./Mailchimp.astro";
+import chatbot from "../images/btn-chatbot.fw.png";
 ---
 
 <footer class="footer has-background-info-20 has-text-white">
-	<div class="container">
-		<div class="columns">
-			<div class="column is-4">
-				<div class="content">
-					<figure class="image mb-4">
-						<Image src={logoWhite} alt="Logo MHF" />
-					</figure>
+  <div class="container">
+    <div class="columns">
+      <div class="column is-4">
+        <div class="content">
+          <figure class="image mb-4">
+            <Image src={logoWhite} alt="Logo MHF" />
+          </figure>
 
-					<p>
-						My Health Fair es un sitio web bilingüe con sede en Boston,
-						Massachusetts que pertenece y es operado por RW Consulting,
-						LLC.
-					</p>
-					<p>
-						El sitio web conecta a las audiencias de habla inglesa e
-						hispanoparlantes, con Organizaciones de atención médica que
-						intentan llegar a ellos con la información y los servicios
-						necesarios a través de una feria de salud virtual.
-					</p>
-					<p>
-						Nuestra misión es abordar las barreras del idioma y la baja
-						alfabetización en servicios de salud en poblaciones
-						vulnerables y de difícil acceso, los 365 días del año.
-					</p>
-				</div>
-			</div>
-			<div class="column is-4">
-				<div class="content">
-					<ul class="list">
-						<li><a href="/resources">Recursos</a></li>
-						<li><a href="/contact">Contacto</a></li>
-						<li><a href="/toolkit">Toolkit</a></li>
-						<li>
-							<a href="/become-sponsor">Conviértete en Expositor</a>
-						</li>
-						<li><a href="/sitemap">Mapa del sitio</a></li>
-						<li>
-							<a href="/privacy-policy">Política de privacidad</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-			<div class="column is-4">
-				<p>
-					Suscríbase y reciba por correo electrónico el boletín de noticias
-					de MyHealthFair.com.
-				</p>
+          <p>
+            My Health Fair es un sitio web bilingüe con sede en Boston,
+            Massachusetts que pertenece y es operado por RW Consulting, LLC.
+          </p>
+          <p>
+            El sitio web conecta a las audiencias de habla inglesa e
+            hispanoparlantes, con Organizaciones de atención médica que intentan
+            llegar a ellos con la información y los servicios necesarios a
+            través de una feria de salud virtual.
+          </p>
+          <p>
+            Nuestra misión es abordar las barreras del idioma y la baja
+            alfabetización en servicios de salud en poblaciones vulnerables y de
+            difícil acceso, los 365 días del año.
+          </p>
+        </div>
+      </div>
+      <div class="column is-4">
+        <div class="content">
+          <ul class="list">
+            <li><a href="/resources">Recursos</a></li>
+            <li><a href="/contact">Contacto</a></li>
+            <li><a href="/toolkit">Toolkit</a></li>
+            <li>
+              <a href="/become-sponsor">Conviértete en Expositor</a>
+            </li>
+            <li><a href="/sitemap">Mapa del sitio</a></li>
+            <li>
+              <a href="/privacy-policy">Política de privacidad</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="column is-4">
+        <p>
+          Suscríbase y reciba por correo electrónico el boletín de noticias de
+          MyHealthFair.com.
+        </p>
 
-				<Mailchimp />
-			</div>
-		</div>
-	</div>
+        <Mailchimp />
+      </div>
+    </div>
+  </div>
 </footer>
 
 <section class="section py-3 has-background-info-25">
-	<div class="container has-text-white-ter">
-		<div class="columns">
-			<div class="column">
-				<div class="block has-text-centered-mobile is-size-7-mobile">
-					<p>
-						&copy; {today.getFullYear()} MyHealthFair. All rights reserved.
-					</p>
-				</div>
-			</div>
-			<div class="column">
-				<div
-					class="block has-text-right has-text-centered-mobile is-size-7-mobile"
-				>
-					<p>
-						Developed by <a
-							href="https://efrank.xyz"
-							target="_blank"
-							title="Frank albarracín"
-							class="has-text-link-light">eFrank</a
-						>
-					</p>
-				</div>
-			</div>
-		</div>
-	</div>
+  <div class="container has-text-white-ter">
+    <div class="columns">
+      <div class="column">
+        <div class="block has-text-centered-mobile is-size-7-mobile">
+          <p>
+            &copy; {today.getFullYear()} MyHealthFair. All rights reserved.
+          </p>
+        </div>
+      </div>
+      <div class="column">
+        <div
+          class="block has-text-right has-text-centered-mobile is-size-7-mobile"
+        >
+          <p>
+            Developed by <a
+              href="https://efrank.xyz"
+              target="_blank"
+              title="Frank albarracín"
+              class="has-text-link-light">eFrank</a
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
+<button
+  type="button"
+  data-openwidget-action="maximize"
+  class="chatbot"
+  id="chatbot"
+>
+  <Image src={chatbot} alt="Chatbot" width="50" height="50" />
+</button>
+
 <style>
-	.list {
-		list-style: none;
-	}
+  .list {
+    list-style: none;
+  }
 
-	.list li {
-		padding: 0.75rem;
-		border-bottom: 1px solid whitesmoke;
-	}
+  .list li {
+    padding: 0.75rem;
+    border-bottom: 1px solid whitesmoke;
+  }
 
-	.list a {
-		color: white;
-	}
+  .list a {
+    color: white;
+  }
+
+  .chatbot {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    background-color: #fff;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+  }
+
+  .chatbot:hover {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
+    transform: scale(1.1);
+  }
 </style>
+
+<script is:inline>
+  function onReady() {
+    OpenWidget.call("maximize");
+  }
+
+  if (!("ontouchstart" in window)) {
+    OpenWidget.on("ready", onReady);
+  }
+</script>
