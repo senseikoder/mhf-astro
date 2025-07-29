@@ -88,14 +88,14 @@ import chatbot from "../images/btn-chatbot.fw.png";
   </div>
 </section>
 
-<button
+<!-- <button
   type="button"
   data-openwidget-action="maximize"
   class="chatbot"
   id="chatbot"
 >
   <Image src={chatbot} alt="Chatbot" width="50" height="50" />
-</button>
+</button> -->
 
 <style>
   .list {
@@ -135,12 +135,3 @@ import chatbot from "../images/btn-chatbot.fw.png";
   }
 </style>
 
-<script is:inline>
-  function onReady() {
-    OpenWidget.call("maximize");
-  }
-
-  if (!("ontouchstart" in window)) {
-    OpenWidget.on("ready", onReady);
-  }
-</script>
