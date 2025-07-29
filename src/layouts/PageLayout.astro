@@ -1,5 +1,4 @@
 ---
-import { ViewTransitions } from "astro:transitions";
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
@@ -18,7 +17,6 @@ import Snippets from "../components/Snippets.astro";
   <head>
     <BaseHead title={title} description={description} />
     <Snippets />
-    <ViewTransitions />
   </head>
 
   <body>
@@ -27,8 +25,6 @@ import Snippets from "../components/Snippets.astro";
     <slot />
     {idioma == "es" ? <Footer /> : <FooterEN />}
     <script src="../js/main.js"></script>
-    <script src="../js/popup.js"></script>
-
     <ModalPopup />
     <TabLang />
   </body>

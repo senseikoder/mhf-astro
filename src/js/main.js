@@ -1,4 +1,4 @@
-document.addEventListener("astro:page-load", () => {
+document.addEventListener("DOMContentLoaded", () => {
 
    function scroll() {
       const navbar = document.querySelector(".navbar");
