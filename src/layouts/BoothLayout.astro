@@ -29,7 +29,7 @@ import Snippets from "../components/Snippets.astro";
       <TabLang />
 
       <script>
-         document.addEventListener("astro:page-load", () => {
+         document.addEventListener("DOMContentLoaded", () => {
             const modal_body = document.querySelector(
                ".modal-card-body .content",
             );

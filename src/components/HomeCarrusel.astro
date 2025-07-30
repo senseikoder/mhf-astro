@@ -85,7 +85,7 @@ const idioma = Astro.currentLocale;
 <script>
   import Flickity from "flickity";
 
-  document.addEventListener("astro:page-load", () => {
+  document.addEventListener("DOMContentLoaded", () => {
     const elem = document.querySelector(".sponsor-carousel");
     if (!elem) return;
 
