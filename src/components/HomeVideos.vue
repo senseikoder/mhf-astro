@@ -58,7 +58,6 @@ onMounted(() => {
         wrapAround: true,
         autoPlay: 5000,
         pauseAutoPlayOnHover: true,
-        imagesLoaded: true,
         groupCells: 1,
         adaptiveHeight: true
       });
@@ -112,45 +111,6 @@ videos = data.items
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
 }
 
-/* Estilos para los controles de navegación */
-:deep(.flickity-prev-next-button) {
-  background: rgba(255, 255, 255, 0.8);
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-:deep(.flickity-prev-next-button:hover) {
-  background: #fff;
-}
-
-:deep(.flickity-prev-next-button.previous) {
-  left: 10px;
-}
-
-:deep(.flickity-prev-next-button.next) {
-  right: 10px;
-}
-
-:deep(.flickity-page-dots) {
-  bottom: -30px;
-}
-
-:deep(.flickity-page-dots .dot) {
-  background: #666;
-  opacity: 0.5;
-  transition: all 0.3s ease;
-}
-
-:deep(.flickity-page-dots .dot.is-selected) {
-  background: #fff;
-  opacity: 1;
-}
 
 /* Ajustes responsivos */
 @media (min-width: 768px) {

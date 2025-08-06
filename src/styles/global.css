@@ -141,3 +141,9 @@ a.logo.navbar-item:hover {
     display: block;
   }
 }
+
+@media (max-width: 768px) {
+  .flickity-prev-next-button {
+    display: none;
+  }
+}
