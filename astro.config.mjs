@@ -1,7 +1,7 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
-import netlify from "@astrojs/netlify";
-// import vercel from "@astrojs/vercel";
+// import netlify from "@astrojs/netlify";
+import vercel from "@astrojs/vercel";
 import vue from '@astrojs/vue';
 import icon from "astro-icon";
 import path from 'path';
@@ -20,7 +20,7 @@ export default defineConfig({
     defaultLocale: "es",
     locales: ["es", "en"]
   },
-  adapter: netlify(),
+  adapter: vercel(),
   redirects: {
     '/blog': '/blog/page',
     '/en/blog': '/en/blog/page'
