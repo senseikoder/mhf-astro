@@ -2,7 +2,7 @@
 export const prerender = false;
 import PageLayout from "../../../../layouts/PageLayout.astro";
 
-const wpurl = import.meta.env.WP_URL;
+const wpurl = import.meta.env.PUBLIC_WP_URL;
 let pagina = 1;
 const { slug, page } = Astro.params;
 

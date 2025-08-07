@@ -3,7 +3,7 @@ import HomeLayout from "../layouts/HomeLayout.astro";
 
 import HomeFeria from "../components/HomeFeria.astro";
 import HomeCarrusel from "../components/HomeCarrusel.astro";
-import HomeBlog from "../components/HomeBlog.astro";
+import HomeBlog from "../components/HomeBlog.vue";
 import HomePartners from "../components/HomePartners.astro";
 
 import "flickity/dist/flickity.min.css";
@@ -39,7 +39,7 @@ import HomeVideos from "../components/HomeVideos.vue";
 
   <HomeCarrusel />
 
-  <HomeBlog />
+  <HomeBlog lang="es" client:load/>
 
   <HomePartners />
 

@@ -1,7 +1,7 @@
 <template>
   <section class="section">
     <div class="container has-text-white is-fullhd">
-      <div class="block has-text-centered">
+      <div class="block has-text-centered my-6">
         <h3 class="title" v-if="lang == 'es'">Aliados en la Media</h3>
         <h3 class="title" v-else>Partners in the Media</h3>
       </div>
@@ -12,8 +12,8 @@
             <LiteYouTubeEmbed
               :id="video.snippet.resourceId.videoId"
               :title="video.snippet.title"
-              aspect-height="9"
-              aspect-width="16"
+              :aspect-height="9"
+              :aspect-width="16"
             ></LiteYouTubeEmbed>
             <h3 class="title is-5 my-4 has-text-centered">
               <span v-html="video.snippet.title"></span>
@@ -34,11 +34,6 @@ const props = defineProps({
   lang: {
     type: String,
     default: 'en'
-  },
-  videos: {
-    type: Array,
-    required: true,
-    default: () => []
   }
 });
 
@@ -51,14 +46,10 @@ onMounted(() => {
       const Flickity = FlickityModule.default || FlickityModule;
 
       flickity.value = new Flickity('.videos-carousel', {
- 
+        draggable: true,
         contain: true,
-        pageDots: true,
-        prevNextButtons: true,
+        freeScroll: true,
         wrapAround: true,
-        autoPlay: 5000,
-        pauseAutoPlayOnHover: true,
-        groupCells: 1,
         adaptiveHeight: true
       });
     });

@@ -6,7 +6,7 @@ import FormattedTime from "@/components/FormattedTime.astro";
 import { getMonday, getSunday, formatDate } from "@/js/utils.js";
 
 const idioma = Astro.currentLocale;
-const wpurl = import.meta.env.WP_URL_EVENTS;
+const wpurl = import.meta.env.PUBLIC_WP_URL_EVENTS;
 const { semana = "1", pagina = "1" } = Astro.params;
 
 // Convert parameters to numbers

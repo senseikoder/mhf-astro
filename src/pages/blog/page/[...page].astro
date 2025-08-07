@@ -4,7 +4,7 @@ import PageLayout from "../../../layouts/PageLayout.astro";
 import placeholder from "../../../images/placeholder.png";
 
 const idioma = Astro.currentLocale;
-const wpurl = import.meta.env.WP_URL;
+const wpurl = import.meta.env.PUBLIC_WP_URL;
 
 let pagina = 1;
 const { page } = Astro.params;

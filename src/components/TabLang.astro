@@ -5,7 +5,7 @@ import flagEN from "../images/flag-eng.png";
 import { getRelativeLocaleUrl } from "astro:i18n";
 
 const idioma = Astro.currentLocale;
-const wpurl = import.meta.env.WP_URL;
+const wpurl = import.meta.env.PUBLIC_WP_URL;
 let objTrads = Astro.props["traducciones"];
 let isPost = Astro.props["isPost"];
 let isEvent = Astro.props["isEvent"];

@@ -4,7 +4,7 @@ import BlogPost from "../../../layouts/BlogPost.astro";
 import placeholder from "../../../images/placeholder.png";
 
 const { slug } = Astro.params;
-const wpurl = import.meta.env.WP_URL;
+const wpurl = import.meta.env.PUBLIC_WP_URL;
 
 let res = await fetch(`${wpurl}/posts?slug=${slug}&_embed`);
 let [post] = await res.json();

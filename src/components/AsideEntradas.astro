@@ -1,7 +1,7 @@
 ---
 export const prerender = false;
 
-const wpurl = import.meta.env.WP_URL;
+const wpurl = import.meta.env.PUBLIC_WP_URL;
 const res = await fetch(
    `${wpurl}/posts?per_page=5&lang=es`,
 );
