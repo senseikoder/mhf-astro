@@ -41,11 +41,11 @@ endDate.setDate(endDate.getDate() + (pagina - 1) * 7);
 const fecha_ini = formatDate(startDate);
 const fecha_fin = formatDate(endDate);
 
-const res = await fetch(
-   `${wpurl}/events?start_date=${fecha_ini}&end_date=${fecha_fin}&lang=${idioma}&tags=alzheimer-association&per_page=9`,
-);
+// const res = await fetch(
+//    `${wpurl}/events?start_date=${fecha_ini}&end_date=${fecha_fin}&lang=${idioma}&tags=alzheimer-association&per_page=9`,
+// );
 
-const eventos = await res.json();
+//const eventos = await res.json();
 ---
 
 <BoothLayout
@@ -149,13 +149,15 @@ const eventos = await res.json();
       </div>
 
       <div class="has-text-centered mt-5">
-         <a href="/en" class="button is-light is-rounded is-outlined"
+         <a href="/en" class="button is-light is-rounded is-outlined is-large"
             >Go back to Fair</a
          >
       </div>
    </section>
 
-   <section class="section" id="events">
+
+   <!-- Eventos -->
+   <!-- <section class="section" id="events">
       <div class="container is-max-widescreen">
          <div class="buttons is-centered">
             <a
@@ -215,7 +217,7 @@ const eventos = await res.json();
             }
          </div>
       </div>
-   </section>
+   </section> -->
 
    <section class="section" id="recursos">
       <div class="container is-max-widescreen">

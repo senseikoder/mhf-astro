@@ -1,0 +1,130 @@
+---
+import ModalBooths from "../../../components/ModalBooths.astro";
+import ModalForm from "../../../components/ModalForm.astro";
+import ModalVideo from "../../../components/ModalVideo.astro";
+import BoothLayout from "../../../layouts/BoothLayout.astro";
+const booth = {
+  image: "terapix.webp",
+  btn1: "brochure.webp",
+  btn2: "faq.webp",
+  btn3: "schedule.webp",
+  btn4: "contact.webp",
+  btn5: null,
+};
+
+---
+
+<BoothLayout title="Terapix Psicólogos Latinos Especializados" description="">
+  <section class="section banner-booth terapix">
+    <div class="is-overlay"></div>
+    <div class="container has-text-white">
+      <div class="columns is-centered">
+        <div class="column is-6 has-text-centered">
+          <svg
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 600 780"
+          >
+            <image
+              width="600"
+              height="780"
+              xlink:href={"/img/booths-bg/" + booth.image}
+            />
+
+            <a
+              href="javascript:void(0)"
+              class="modal-trigger video"
+              data-target="modal-video"
+            >
+              <rect
+                x="120"
+                y="49"
+                fill="#fff"
+                opacity="0"
+                width="413"
+                height="266"></rect>
+            </a>
+
+            <!-- Brochure -->
+            <a
+              href="/docs-booths/brochure-terapix.pdf"
+              target="_blank"
+              class="brochure"
+            >
+              <image
+                x="75"
+                y="575"
+                xlink:href={"/img/booths-pics/" + booth.btn1}
+              />
+            </a>
+
+            <!-- Preguntas -->
+            <a
+              href="https://terapixonline-com.translate.goog/faq/?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=es&_x_tr_pto=wapp"
+              target="_blank"
+              class="preguntas"
+            >
+              <image
+                x="295"
+                y="575"
+                xlink:href={"/img/booths-pics/" + booth.btn2}
+              />
+            </a>
+
+            <!-- Agendar -->
+            <a
+              href="https://terapixonline-com.translate.goog/reservar-sesiones/?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=es&_x_tr_pto=wapp#matching"
+              target="_blank"
+              class="agendar"
+            >
+              <image
+                x="75"
+                y="660"
+                xlink:href={"/img/booths-pics/" + booth.btn3}
+              />
+            </a>
+
+            <!-- Contacto -->
+            <a
+              href="javascript:void(0)"
+              class="modal-trigger contacto"
+              data-target="modal-form"
+            >
+              <image
+                x="295"
+                y="660"
+                xlink:href={"/img/booths-pics/" + booth.btn4}
+              />
+            </a>
+
+            <!-- <a xlink:href="#contacto">
+                     <rect
+                        x="205"
+                        y="716"
+                        fill="#fff"
+                        opacity="0"
+                        width="164"
+                        height="54"></rect>
+                  </a> -->
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="has-text-centered mt-5">
+      <a href="/" class="button is-light is-rounded is-outlined is-large"
+        >Volver a la Feria</a
+      >
+    </div>
+  </section>
+
+  <ModalBooths />
+
+  <ModalVideo videoID="q2_yXn-3_is" />
+
+  <ModalForm
+      to="hola@terapixonline.com"
+      subject="Booth Terapix - New contact web"
+   />
+</BoothLayout>
