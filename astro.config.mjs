@@ -11,7 +11,8 @@ import path from 'path';
 export default defineConfig({
   site: 'https://myhealthfair.com',
   server: {
-    port: 4323
+    host: true,
+    port: Number(process.env.PORT) || 4323
   },
   integrations: [sitemap(), vue(), icon()],
   prefetch: true,
