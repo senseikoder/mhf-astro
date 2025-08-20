@@ -4,18 +4,20 @@ import ModalForm from "../../components/ModalForm.astro";
 import ModalVideo from "../../components/ModalVideo.astro";
 import BoothLayout from "../../layouts/BoothLayout.astro";
 const booth = {
-  image: "terapix.webp",
+  image: "abacenters.webp",
   btn1: "brochure.webp",
   btn2: "preguntas.webp",
-  btn3: "agendar.webp",
-  btn4: "contacto.webp",
-  btn5: null,
+  btn3: "empleos.webp",
+  btn4: "eventos.webp",
+  btn5: "contacto.webp",
 };
-
 ---
 
-<BoothLayout title="Terapix Psicólogos Latinos Especializados" description="">
-  <section class="section banner-booth terapix">
+<BoothLayout
+  title="ABA Centers of America"
+  description="ABA Centers of America ofrece servicios de terapia ABA para personas con trastorno del espectro autista. Podemos ayudar a nuestros clientes en el hogar, la clínica, la escuela, la comunidad o en cualquier entorno."
+>
+  <section class="section banner-booth abacenters">
     <div class="is-overlay"></div>
     <div class="container has-text-white">
       <div class="columns is-centered">
@@ -48,7 +50,7 @@ const booth = {
 
             <!-- Brochure -->
             <a
-              href="/docs-booths/brochure-terapix.pdf"
+              href="/docs-booths/ABA-Therapy-Brochure.pdf"
               target="_blank"
               class="brochure"
             >
@@ -61,7 +63,7 @@ const booth = {
 
             <!-- Preguntas -->
             <a
-              href="https://terapixonline.com/faq/"
+              href="https://www-abacenters-com.translate.goog/aba-faq/?_x_tr_sl=auto&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=wapp"
               target="_blank"
               class="preguntas"
             >
@@ -72,41 +74,46 @@ const booth = {
               />
             </a>
 
-            <!-- Agendar -->
+            <!-- Empleos -->
             <a
-              href="https://terapixonline.com/reservar-sesiones/"
+              href="https://www-abacenters-com.translate.goog/careers-in-aba/?_x_tr_sl=auto&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=wapp"
               target="_blank"
-              class="agendar"
+              class="empleos"
             >
               <image
                 x="100"
-                y="620"
+                y="610"
                 xlink:href={"/img/booths-pics/" + booth.btn3}
               />
             </a>
 
-            <!-- Contacto -->
+            <!-- Eventos -->
             <a
-              href="javascript:void(0)"
-              class="modal-trigger contacto"
-              data-target="modal-form"
+              href="https://www-abacenters-com.translate.goog/events/?_x_tr_sl=auto&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=wapp#appointment"
+              target="_blank"
+              class="eventos"
             >
               <image
                 x="315"
-                y="620"
+                y="610"
                 xlink:href={"/img/booths-pics/" + booth.btn4}
               />
             </a>
 
-            <!-- <a xlink:href="#contacto">
-                     <rect
-                        x="205"
-                        y="716"
-                        fill="#fff"
-                        opacity="0"
-                        width="164"
-                        height="54"></rect>
-                  </a> -->
+            <!-- Contacto -->
+
+            <a
+              href="javascript:void(0)"
+              class="modal-trigger contacto"
+              data-target="modal-booth"
+              data-content="contacto"
+            >
+              <image
+                x="205"
+                y="690"
+                xlink:href={"/img/booths-pics/" + booth.btn5}
+              />
+            </a>
           </svg>
         </div>
       </div>
@@ -121,10 +128,16 @@ const booth = {
 
   <ModalBooths />
 
-  <ModalVideo videoID="q2_yXn-3_is" />
+  <ModalVideo videoID="OJ1fTY6PmTU" />
 
-  <ModalForm
-      to="hola@terapixonline.com"
-      subject="Booth Terapix - Nuevo contacto web"
-   />
+  <div id="contacto" class="is-hidden content">
+    <h3>Ayudando a las familias a crear su futuro</h3>
+
+    <div class="block is-size-5">
+      <p>Llame ahora para una consulta gratuita y confidencial</p>
+      <p><a href="tel:8449234222">(844) 923-4222</a></p>
+      <p><a href="tel:8449094222">(844) 909-4222</a></p>
+      <p><a href="tel:8449624222">(844) 962-4222</a></p>
+    </div>
+  </div>
 </BoothLayout>

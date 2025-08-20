@@ -1,39 +1,50 @@
-import { defineConfig } from 'astro/config';
-import sitemap from '@astrojs/sitemap';
+import { defineConfig } from "astro/config";
+import sitemap from "@astrojs/sitemap";
 // import netlify from "@astrojs/netlify";
 // import vercel from "@astrojs/vercel";
-import node from '@astrojs/node';
-import vue from '@astrojs/vue';
+import node from "@astrojs/node";
+import vue from "@astrojs/vue";
 import icon from "astro-icon";
-import path from 'path';
+import path from "path";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://myhealthfair.com',
+  site: "https://myhealthfair.com",
   server: {
     host: true,
-    port: Number(process.env.PORT) || 4323
+    port: Number(process.env.PORT) || 4323,
   },
-  integrations: [sitemap(), vue(), icon()],
+  integrations: [
+    sitemap({
+      customPages: [
+        "https://myhealthfair.com/booths/alzheimer-assoc/",
+        "https://myhealthfair.com/en/booths/alzheimer-assoc/",
+        "https://myhealthfair.com/booths/united-health-care/",
+        "https://myhealthfair.com/en/booths/united-health-care/",
+      ],
+    }),
+    vue(),
+    icon(),
+  ],
   prefetch: true,
-  format: 'file',
-  output: 'static',
+  format: "file",
+  output: "static",
   i18n: {
     defaultLocale: "es",
-    locales: ["es", "en"]
+    locales: ["es", "en"],
   },
   adapter: node({
-    mode: 'standalone',
-    }),
+    mode: "standalone",
+  }),
   redirects: {
-    '/blog': '/blog/page',
-    '/en/blog': '/en/blog/page'
+    "/blog": "/blog/page",
+    "/en/blog": "/en/blog/page",
   },
   vite: {
     resolve: {
       alias: {
-        '@': path.resolve('./src')
-      }
-    }
-  }
+        "@": path.resolve("./src"),
+      },
+    },
+  },
 });

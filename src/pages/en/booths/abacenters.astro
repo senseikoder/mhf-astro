@@ -1,21 +1,21 @@
 ---
 import ModalBooths from "../../../components/ModalBooths.astro";
-import ModalForm from "../../../components/ModalForm.astro";
 import ModalVideo from "../../../components/ModalVideo.astro";
+import ModalForm from "../../../components/ModalForm.astro";
 import BoothLayout from "../../../layouts/BoothLayout.astro";
 const booth = {
-  image: "terapix.webp",
+  image: "abacenters.webp",
   btn1: "brochure.webp",
   btn2: "faq.webp",
-  btn3: "schedule.webp",
-  btn4: "contact.webp",
-  btn5: null,
+  btn3: "jobs.webp",
+  btn4: "events.webp",
+  btn5: "contact.webp"
 };
-
+const wpuploads = import.meta.env.WP_UPLOADS;
 ---
 
-<BoothLayout title="Terapix Psicólogos Latinos Especializados" description="">
-  <section class="section banner-booth terapix">
+<BoothLayout title="ABA Centers of America" description="ABA Centers of America provides ABA therapy services for anyone with autism spectrum disorder. We can help clients in the home, clinic, school, community, or any environment.">
+  <section class="section banner-booth abacenters">
     <div class="is-overlay"></div>
     <div class="container has-text-white">
       <div class="columns is-centered">
@@ -48,7 +48,7 @@ const booth = {
 
             <!-- Brochure -->
             <a
-              href="/docs-booths/brochure-terapix.pdf"
+              href="/docs-booths/ABA-Therapy-Brochure.pdf"
               target="_blank"
               class="brochure"
             >
@@ -59,11 +59,11 @@ const booth = {
               />
             </a>
 
-            <!-- Preguntas -->
+            <!-- FAQ -->
             <a
-              href="https://terapixonline-com.translate.goog/faq/?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=es&_x_tr_pto=wapp"
+              href="https://www.abacenters.com/aba-faq"
               target="_blank"
-              class="preguntas"
+              class="faq"
             >
               <image
                 x="315"
@@ -72,59 +72,68 @@ const booth = {
               />
             </a>
 
-            <!-- Agendar -->
+            <!-- Jobs -->
             <a
-              href="https://terapixonline-com.translate.goog/reservar-sesiones/?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=es&_x_tr_pto=wapp#matching"
+              href="https://www.abacenters.com/careers-in-aba"
               target="_blank"
-              class="agendar"
+              class="modal-trigger jobs"
             >
               <image
                 x="100"
-                y="620"
+                y="610"
                 xlink:href={"/img/booths-pics/" + booth.btn3}
               />
             </a>
 
-            <!-- Contacto -->
+            <!-- Events -->
             <a
-              href="javascript:void(0)"
-              class="modal-trigger contacto"
-              data-target="modal-form"
+              href="https://www.abacenters.com/events/#appointment"
+              target="_blank"
+              class=" events"
+             
             >
               <image
                 x="315"
-                y="620"
+                y="610"
                 xlink:href={"/img/booths-pics/" + booth.btn4}
               />
             </a>
 
-            <!-- <a xlink:href="#contacto">
-                     <rect
-                        x="205"
-                        y="716"
-                        fill="#fff"
-                        opacity="0"
-                        width="164"
-                        height="54"></rect>
-                  </a> -->
+            <a
+            href="javascript:void(0)"
+            class="modal-trigger contact"
+            data-target="modal-booth"
+            data-content="contact"
+          >
+            <image
+              x="205"
+              y="690"
+              xlink:href={"/img/booths-pics/" + booth.btn5}
+            />
+          </a>
           </svg>
         </div>
       </div>
     </div>
 
     <div class="has-text-centered mt-5">
-      <a href="/" class="button is-light is-rounded is-outlined is-large"
-        >Volver a la Feria</a
+      <a href="/en" class="button is-light is-rounded is-outlined is-large"
+        >Go back to Fair</a
       >
     </div>
   </section>
 
   <ModalBooths />
 
-  <ModalVideo videoID="GRkzgkuVTX4" />
+  <ModalVideo videoID="shI54QsbWpI" />
 
-  <ModalForm
-      to="hola@terapixonline.com"
-      subject="Booth Terapix - New contact web"
-   />
+  <div id="contact" class="is-hidden content">
+    <h3>Helping Families Create Their Future</h3>
+    <div class="block is-size-5">
+      <p>Call Now for a Free Confidential Consultation</p>
+      <p><a href="tel:8449234222">(844) 923-4222</a></p>
+      <p><a href="tel:8449094222">(844) 909-4222</a></p>
+      <p><a href="tel:8449624222">(844) 962-4222</a></p>
+    </div>
+  </div>
 </BoothLayout>
