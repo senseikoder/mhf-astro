@@ -7,6 +7,8 @@ import vue from "@astrojs/vue";
 import icon from "astro-icon";
 import path from "path";
 
+import purgecss from "astro-purgecss";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://myhealthfair.com",
@@ -14,18 +16,19 @@ export default defineConfig({
     host: true,
     port: Number(process.env.PORT) || 4323,
   },
-  integrations: [
-    sitemap({
-      customPages: [
-        "https://myhealthfair.com/booths/alzheimer-assoc/",
-        "https://myhealthfair.com/en/booths/alzheimer-assoc/",
-        "https://myhealthfair.com/booths/united-health-care/",
-        "https://myhealthfair.com/en/booths/united-health-care/",
-      ],
-    }),
-    vue(),
-    icon(),
-  ],
+  integrations: [sitemap({
+    customPages: [
+      "https://myhealthfair.com/booths/alzheimer-assoc/",
+      "https://myhealthfair.com/en/booths/alzheimer-assoc/",
+      "https://myhealthfair.com/booths/united-health-care/",
+      "https://myhealthfair.com/en/booths/united-health-care/",
+    ],
+  }), vue(), icon(), purgecss({
+    content: [
+      './src/**/*.{astro,js,vue}'
+      // Add any other template files that contain styles
+    ]
+  })],
   prefetch: true,
   format: "file",
   output: "static",
