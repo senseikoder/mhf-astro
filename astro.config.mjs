@@ -23,12 +23,7 @@ export default defineConfig({
       "https://myhealthfair.com/booths/united-health-care/",
       "https://myhealthfair.com/en/booths/united-health-care/",
     ],
-  }), vue(), icon(), purgecss({
-    content: [
-      './src/**/*.{astro,js,vue}'
-      // Add any other template files that contain styles
-    ]
-  })],
+  }), vue(), icon(), purgecss()],
   prefetch: true,
   format: "file",
   output: "static",
