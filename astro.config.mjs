@@ -1,13 +1,9 @@
 import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
-// import netlify from "@astrojs/netlify";
-// import vercel from "@astrojs/vercel";
 import node from "@astrojs/node";
 import vue from "@astrojs/vue";
 import icon from "astro-icon";
 import path from "path";
-
-import purgecss from "astro-purgecss";
 
 // https://astro.build/config
 export default defineConfig({
@@ -23,7 +19,7 @@ export default defineConfig({
       "https://myhealthfair.com/booths/united-health-care/",
       "https://myhealthfair.com/en/booths/united-health-care/",
     ],
-  }), vue(), icon(), purgecss()],
+  }), vue(), icon()],
   prefetch: true,
   format: "file",
   output: "static",
