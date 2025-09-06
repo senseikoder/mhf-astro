@@ -5,12 +5,11 @@ import vue from "@astrojs/vue";
 import icon from "astro-icon";
 import path from "path";
 
-import purgecss from "astro-purgecss";
-
 // https://astro.build/config
 export default defineConfig({
   site: "https://myhealthfair.com",
   server: {
+    host: true,
     port: Number(process.env.PORT) || 4323,
   },
   integrations: [
@@ -23,17 +22,7 @@ export default defineConfig({
       ],
     }),
     vue(),
-    icon(),
-    purgecss({
-      content: ["./src/**/*.{astro,html,js,vue}"],
-      extractors: [
-        {
-          extractor: (content) => content.match(/[\w-/:]+(?<!:)/g) ?? [],
-          extensions: ["astro", "html", "vue", "js"],
-        },
-      ],
-      
-    }),
+    icon()
   ],
   prefetch: true,
   format: "file",
