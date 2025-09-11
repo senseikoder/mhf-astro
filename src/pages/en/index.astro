@@ -5,6 +5,7 @@ import HomeFeria from "../../components/HomeFeria.astro";
 import HomeCarrusel from "../../components/HomeCarrusel.astro";
 import HomeBlog from "../../components/HomeBlog.vue";
 import HomePartners from "../../components/HomePartners.astro";
+import HomeBannerEMB from "../../components/HomeBannerEMB.astro";
 
 import "flickity/dist/flickity.min.css";
 import HomeVideos from "../../components/HomeVideos.vue";
@@ -16,12 +17,15 @@ import HomeVideos from "../../components/HomeVideos.vue";
 >
   <HomeFeria />
 
-  <section class="section">
+  <HomeBannerEMB />
+
+  <section class="section is-relative">
+    <div class="is-overlay"></div>
     <div class="container">
       <div class="columns is-centered">
         <div class="column is-8">
-          <h2 class="title has-text-weight-semibold is-4 has-text-centered">
-            <span class="has-text-primary has-text-weight-bold"
+          <h2 class="title has-text-weight-semibold is-4 has-text-centered has-text-white my-6">
+            <span class="has-text-weight-bold"
               >My Health Fair</span
             > is a year-round digital health fair designed to give you direct access to trusted resources and information from local medical organizations and health experts — in English and Spanish, whenever you need it.
           </h2>

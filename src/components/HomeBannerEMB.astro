@@ -1,0 +1,19 @@
+---
+import {Image} from "astro:assets";
+const idioma = Astro.currentLocale;
+import bannerES from "../images/banner-column-elmundoboston-es.webp";
+import bannerEN from "../images/banner-column-elmundoboston.webp";
+const banner = idioma == "es" ? bannerES : bannerEN;
+---
+
+<section class="section">
+   <div class="container">
+     <div class="columns is-centered">
+       <div class="column is-8">
+         <a href="https://elmundoboston.com" target="_blank">
+           <Image src={banner} alt="Banner EMB" />
+         </a>
+       </div>
+     </div>
+   </div>
+ </section>
