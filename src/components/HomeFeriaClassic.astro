@@ -1,0 +1,158 @@
+---
+import ModalBooths from "./ModalBooths.astro";
+const idioma = Astro.currentLocale == "en" ? "/en" : "";
+---
+
+<section class="hero is-hidden-touch">
+  <!-- <div class="is-overlay"></div> -->
+
+  <div class="hero-body p-0">
+    <div class="container is-fluid p-0">
+      <svg
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        viewBox="0 0 2000 1125"
+      >
+        <image
+          width="2000"
+          height="1125"
+          xlink:href="/img/mhf-plaza-2025.webp"
+        />
+        <a onclick="openModal('united-health-care')">
+          <image xlink:href="/img/booths-pics/united-hc.webp" x="520" y="450" />
+        </a><a onclick="openModal('dana-farber')">
+          <image
+            xlink:href="/img/booths-pics/dana-farber.webp"
+            x="735"
+            y="385"
+          />
+        </a><a onclick="openModal('alzheimer-assoc')">
+          <image
+            xlink:href="/img/booths-pics/alzheimer-association.webp"
+            x="1110"
+            y="275"
+          />
+        </a><a onclick="openModal('ferreras-counseling')">
+          <image
+            xlink:href="/img/booths-pics/ferreras-counseling.webp"
+            x="890"
+            y="520"
+          />
+        </a>
+        
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="hero-mobile is-hidden-desktop">
+  <div class="container">
+    <div class="buttons is-centered">
+      <a href={idioma + "/booths/abacenters/"} class="button">Abacenters</a>
+      <a href={idioma + "/booths/alzheimer-assoc/"} class="button"
+        >Alzheimer's Association</a
+      >
+      <a href={idioma + "/booths/dana-farber/"} class="button"
+        >Dana-Farber Cancer Institute</a
+      >
+      <a href={idioma + "/booths/joslin/"} class="button"
+        >Joslin Diabetes Center</a
+      >
+      <a href={idioma + "/booths/madrc/"} class="button"
+        >Massachusetts Alzheimer's <br /> Disease Reasearch Center</a
+      >
+      <a href={idioma + "/booths/ferreras-counseling/"} class="button"
+        >Ferreras Counseling</a
+      >
+      <a href={idioma + "/booths/mass-health/"} class="button"
+        >Mass Health Connector</a
+      >
+      <a href={idioma + "/booths/helpline-mass/"} class="button"
+        >Mass Behavioral Help Line</a
+      >
+      <a href={idioma + "/booths/project-bread/"} class="button"
+        >Project Bread</a
+      >
+      <a href={idioma + "/booths/terapix/"} class="button">Terapix</a>
+
+      <a href={idioma + "/booths/united-health-care/"} class="button"
+        >United Health Care</a
+      >
+      <a href={idioma + "/booths/whittier/"} class="button">Whittier Street</a>
+    </div>
+  </div>
+</section>
+
+<ModalBooths />
+
+<script>
+  function openModal(booth) {
+    const modal = document.getElementById("modal-booth");
+    if (!modal) return;
+    const content = modal.querySelector(".content");
+    if (!content) return;
+    // Placeholder content, replace with actual booth info
+    content.innerHTML = `<h2>${booth.replace("-", " ").toUpperCase()}</h2><p>Información del booth próximamente.</p>`;
+    modal.classList.add("is-active");
+  }
+
+  // Close modal functions
+  document.addEventListener("DOMContentLoaded", () => {
+    const modal = document.getElementById("modal-booth");
+    if (!modal) return;
+    const closeButtons = modal.querySelectorAll(
+      ".delete, .modal-close, .modal-background"
+    );
+    closeButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        modal.classList.remove("is-active");
+      });
+    });
+  });
+</script>
+
+<style>
+  .hero-mobile {
+    background: url("../images/bg-feria.webp") center no-repeat;
+    background-size: cover;
+  }
+
+  .hero-mobile .container {
+    padding-block: 1rem;
+  }
+
+  .buttons {
+    gap: 0.6rem;
+  }
+  .hero-mobile .button {
+    width: 90%;
+    background-color: rgba(255, 255, 255, 0.2);
+    text-shadow: 1px 2px 2px #333;
+    font-size: large;
+    font-weight: 700;
+    color: white;
+  }
+
+  .is-overlay {
+    background: rgba(121, 171, 236, 0.15);
+  }
+
+  a > image {
+    opacity: 0.8;
+    width: 125px;
+    height: 125px;
+    transition: all 0.3s;
+  }
+
+  a > image:hover {
+    width: 135px;
+    height: 135px;
+    opacity: 1;
+  }
+
+  .list,
+  .list a {
+    color: white;
+  }
+</style>

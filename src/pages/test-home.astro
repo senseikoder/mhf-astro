@@ -1,0 +1,50 @@
+---
+import HomeLayout from "../layouts/HomeLayout.astro";
+
+import HomeFeriaClassic from "../components/HomeFeriaClassic.astro";
+import HomeCarrusel from "../components/HomeCarrusel.astro";
+import HomeBlog from "../components/HomeBlog.vue";
+import HomePartners from "../components/HomePartners.astro";
+import HomeBannerEMB from "../components/HomeBannerEMB.astro";
+
+import "flickity/dist/flickity.min.css";
+import HomeVideos from "../components/HomeVideos.vue";
+---
+
+<HomeLayout
+  title="Feria de Salud - Massachussets"
+  description="Te ayudamos a conseguir ayuda médica en Boston, Massachusetts, poniéndote en contacto con las organizaciones de salud que necesitas, los 365 días del año."
+>
+  <HomeFeriaClassic />
+
+  <HomeBannerEMB />
+
+  <section class="section is-relative">
+    <div class="is-overlay"></div>
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <h2 class="title has-text-weight-semibold is-4 has-text-centered has-text-white my-6">
+            <span class="has-text-weight-bold"
+              >My Health Fair</span
+            > es una feria de salud digital disponible todos los días del año, diseñada
+            para brindarle acceso directo a recursos confiables e información de
+            organizaciones médicas locales y expertos en salud — en español y en
+            inglés, cuando usted lo necesite.
+          </h2>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- <HomeCats /> -->
+
+  <HomeVideos lang="es" client:load />
+
+  <HomeCarrusel />
+
+  <HomeBlog lang="es" client:load/>
+
+  <HomePartners />
+
+</HomeLayout>
