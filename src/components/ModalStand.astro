@@ -1,0 +1,32 @@
+---
+import { Image } from "astro:assets";
+import logoHeader from "../images/logo-headers.webp";
+---
+
+<div class="modal" id="modal-stand">
+   <div class="modal-background"></div>
+   <div class="modal-card">
+      <header class="modal-card-head has-background-info">
+            <Image src={logoHeader} alt="" width="260" />
+            <button class="delete" aria-label="close"></button>
+      </header>
+      <div class="modal-card-body">
+         <div class="content"></div>
+      </div>
+      <footer class="modal-card-foot"></footer>
+   </div>
+   <button class="modal-close is-large" aria-label="close"></button>
+</div>
+
+<style>
+   .modal-card-head {
+      justify-content: center;
+   }
+
+   .delete {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+   }
+</style>
+

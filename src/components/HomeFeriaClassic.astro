@@ -1,5 +1,5 @@
 ---
-import ModalBooths from "./ModalBooths.astro";
+import ModalStand from "./ModalStand.astro";
 const idioma = Astro.currentLocale == "en" ? "/en" : "";
 ---
 
@@ -40,7 +40,6 @@ const idioma = Astro.currentLocale == "en" ? "/en" : "";
             y="520"
           />
         </a>
-        
       </svg>
     </div>
   </div>
@@ -49,57 +48,82 @@ const idioma = Astro.currentLocale == "en" ? "/en" : "";
 <section class="hero-mobile is-hidden-desktop">
   <div class="container">
     <div class="buttons is-centered">
-      <a href={idioma + "/booths/abacenters/"} class="button">Abacenters</a>
       <a href={idioma + "/booths/alzheimer-assoc/"} class="button"
         >Alzheimer's Association</a
       >
       <a href={idioma + "/booths/dana-farber/"} class="button"
         >Dana-Farber Cancer Institute</a
       >
-      <a href={idioma + "/booths/joslin/"} class="button"
-        >Joslin Diabetes Center</a
-      >
-      <a href={idioma + "/booths/madrc/"} class="button"
-        >Massachusetts Alzheimer's <br /> Disease Reasearch Center</a
-      >
+
       <a href={idioma + "/booths/ferreras-counseling/"} class="button"
         >Ferreras Counseling</a
       >
-      <a href={idioma + "/booths/mass-health/"} class="button"
-        >Mass Health Connector</a
-      >
-      <a href={idioma + "/booths/helpline-mass/"} class="button"
-        >Mass Behavioral Help Line</a
-      >
-      <a href={idioma + "/booths/project-bread/"} class="button"
-        >Project Bread</a
-      >
-      <a href={idioma + "/booths/terapix/"} class="button">Terapix</a>
 
       <a href={idioma + "/booths/united-health-care/"} class="button"
         >United Health Care</a
       >
-      <a href={idioma + "/booths/whittier/"} class="button">Whittier Street</a>
     </div>
   </div>
 </section>
 
-<ModalBooths />
+<ModalStand />
 
 <script>
+  // Datos de los stands
+  const standsData = {
+    "united-health-care": {
+      title: "United Health Care",
+      image: "/img/booths-pics/united-care-logo.webp",
+      description: "UnitedHealthcare (UHC) es una de las principales compañías de atención médica y seguros de EE. UU., parte de UnitedHealth Group, que ofrece una amplia gama de planes de salud para individuos, familias, empleadores y programas gubernamentales como Medicare y Medicaid",
+    },
+    "dana-farber": {
+      title: "Dana Farber Cancer Institute",
+      image: "/img/booths-pics/dana-farber-logo.webp",
+      description: "El Dana-Farber Cancer Institute, afiliado a la Facultad de Medicina de Harvard, es uno de los centros de investigación y tratamiento del cáncer más importantes del mundo.",
+    },
+    "alzheimer-assoc": {
+      title: "Alzheimer's Association",
+      image: "/img/booths-pics/alz-assoc-logo.webp",
+      description: "Alzheimer's Association es una organización sin fines de lucro que promueve la investigación, la prevención y el tratamiento del Alzheimer, la enfermedad más común de demencia.",
+    },
+    // Agrega más stands según sea necesario
+  };
+
   function openModal(booth) {
-    const modal = document.getElementById("modal-booth");
+    const modal = document.getElementById("modal-stand");
+    const stand = standsData[booth];
+
     if (!modal) return;
-    const content = modal.querySelector(".content");
-    if (!content) return;
-    // Placeholder content, replace with actual booth info
-    content.innerHTML = `<h2>${booth.replace("-", " ").toUpperCase()}</h2><p>Información del booth próximamente.</p>`;
+
+    // Actualizar el contenido del modal
+    const content = `
+      <div class="has-text-centered">
+        
+        <img src="${stand.image}" alt="${stand.title}" style="width: 300px; height: auto;">
+
+        <h2 class="title is-4 has-text-centered">${stand.title}</h2>
+       
+        <p>${stand.description}</p>
+        
+        <a><img src="/img/booths-pics/contacto.webp" alt=""></a>
+      </div>
+      `;
+
+    modal.querySelector(".content").innerHTML = content;
     modal.classList.add("is-active");
+
+    // Cerrar con la tecla ESC
+    document.onkeydown = function (evt) {
+      evt = evt || window.event;
+      if (evt.key === "Escape") {
+        modal.classList.remove("is-active");
+      }
+    };
   }
 
   // Close modal functions
   document.addEventListener("DOMContentLoaded", () => {
-    const modal = document.getElementById("modal-booth");
+    const modal = document.getElementById("modal-stand");
     if (!modal) return;
     const closeButtons = modal.querySelectorAll(
       ".delete, .modal-close, .modal-background"
@@ -110,6 +134,9 @@ const idioma = Astro.currentLocale == "en" ? "/en" : "";
       });
     });
   });
+
+  // Hacer la función accesible globalmente
+  window.openModal = openModal;
 </script>
 
 <style>
