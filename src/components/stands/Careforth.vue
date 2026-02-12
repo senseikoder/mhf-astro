@@ -14,12 +14,12 @@
       <image x="200" y="460" :href="'/img/booths-pics/' + booth.logo" width="220" />
 
       <!-- Brochure -->
-      <a href="/docs-booths/Careforth-Spa.pdf" target="_blank" class="brochure">
+      <a href="/docs-booths/brochure-careforth-ESP.pdf" target="_blank" class="brochure">
         <image x="100" y="550" :href="'/img/booths-pics/' + booth.btn1" width="200" />
       </a>
 
       <!-- Contacto -->
-      <a href="tel:866-797-2337" class="contacto" target="_blank">
+      <a href="https://www.careforth.com/" class="contacto" target="_blank">
         <image x="310" y="550" :href="'/img/booths-pics/' + booth.btn2" width="200" />
       </a>
       
@@ -36,7 +36,7 @@ const booth = ref({
   logo: "logo-careforth.webp",
   btn1: "brochure.svg",
   btn2: "contacto.svg",
-  videoID: "WHWeAcDGSuk" // ID del video de YouTube
+  videoID: "rXYAQsHACTQ" // ID del video de YouTube
 });
 
 </script>

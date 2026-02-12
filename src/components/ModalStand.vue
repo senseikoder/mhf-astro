@@ -30,6 +30,10 @@ export default {
     currentBooth: {
       type: String,
       default: ''
+    },
+    idioma: {
+      type: String,
+      default: 'es'
     }
   },
   emits: ['close', 'open-video'],
@@ -44,7 +48,19 @@ export default {
       'mahda': defineAsyncComponent(() => import('src/components/stands/Mahda.vue'))
     }
 
+    const boothComponentsEng = {
+      'united-health-care': defineAsyncComponent(() => import('src/components/stands/UnitedHealthCareEng.vue')),
+      'dana-farber': defineAsyncComponent(() => import('src/components/stands/DanaFarberEng.vue')),
+      'alzheimer-assoc': defineAsyncComponent(() => import('src/components/stands/AlzheimerAssocEng.vue')),
+      'ferreras-counseling': defineAsyncComponent(() => import('src/components/stands/FerrerasCounselingEng.vue')),
+      'careforth': defineAsyncComponent(() => import('src/components/stands/CareforthEng.vue')),
+      'mahda': defineAsyncComponent(() => import('src/components/stands/MahdaEng.vue'))
+    }
+
     const currentBoothComponent = computed(() => {
+      if (props.idioma === '/en') {
+        return boothComponentsEng[props.currentBooth] || null
+      }
       return boothComponents[props.currentBooth] || null
     })
 

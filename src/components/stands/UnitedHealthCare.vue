@@ -18,7 +18,7 @@
       </a>
 
       <!-- Contacto -->
-      <a href="tel:+1866-325-4811" class="contacto" target="_blank">
+      <a href="mailto:evelyn_sandoval@uhc.com;sharon.castillo@uhc.com" class="contacto" target="_blank">
         <image x="310" y="550" :href="'/img/booths-pics/' + booth.btn2" width="200" />
       </a>
       

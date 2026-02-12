@@ -12,12 +12,12 @@
       <image x="180" y="460" :href="'/img/booths-pics/' + booth.logo" width="250" />
 
       <!-- Brochure -->
-      <a href="/docs-booths/FerrerasCounselingBrochure_ES.pdf" target="_blank" class="brochure">
+      <a href="#" target="_blank" class="brochure">
         <image x="100" y="550" :href="'/img/booths-pics/' + booth.btn1" width="200" />
       </a>
 
       <!-- Contacto -->
-      <a href="tel:978-648-8515" class="contacto" target="_blank">
+      <a href="mailto:referrals@ferrerascounselingwellness.com" class="contacto" target="_blank">
         <image x="310" y="550" :href="'/img/booths-pics/' + booth.btn2" width="200" />
       </a>
     </svg>

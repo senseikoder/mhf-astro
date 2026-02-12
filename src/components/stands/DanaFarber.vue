@@ -9,15 +9,15 @@
       </a>
 
       <!-- Logo -->
-      <image x="200" y="440" :href="'/img/booths-pics/' + booth.logo" width="220" />
+      <image x="200" y="450" :href="'/img/booths-pics/' + booth.logo" width="220" />
 
       <!-- Brochure -->
-      <a href="/docs-booths/DanaFarberBrochure_ES.pdf" target="_blank" class="brochure">
+      <a href="/docs-booths/brochure-danaf-ESP.pdf" target="_blank" class="brochure">
         <image x="91" y="550" :href="'/img/booths-pics/' + booth.btn1" width="200" />
       </a>
 
       <!-- Contacto -->
-      <a href="tel:617-632-3000" class="contacto" target="_blank">
+      <a href="mailto:dfci_communitybenefits@dfci.harvard.edu" class="contacto" target="_blank">
         <image x="302" y="550" :href="'/img/booths-pics/' + booth.btn2" width="200" />
       </a>
     </svg>

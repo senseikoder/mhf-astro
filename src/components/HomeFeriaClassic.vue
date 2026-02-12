@@ -70,7 +70,7 @@
 
     <!-- Modal dinámico -->
     <ModalStand v-if="showModal" :isActive="showModal" :currentBooth="currentBooth" @close="closeModal"
-      @open-video="openVideoModal" />
+      @open-video="openVideoModal" :idioma="idioma" />
 
     <!-- Modal de video -->
     <ModalVideo v-if="showVideoModal" :isActive="showVideoModal" :videoID="currentVideoID" @close="closeVideoModal" />
@@ -172,8 +172,8 @@ a>image {
 }
 
 a>image:hover {
-  width: 135px;
-  height: 135px;
+  width: 140px;
+  height: 140px;
   opacity: 1;
 }
 

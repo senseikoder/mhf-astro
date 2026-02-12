@@ -14,7 +14,7 @@
       <image x="180" y="450" :href="'/img/booths-pics/' + booth.logo" width="250" />
 
       <!-- Brochure -->
-      <a href="/docs-booths/OneCareBrochure_ES.pdf" target="_blank" class="brochure">
+      <a href="/docs-booths/brochure-mahda.pdf" target="_blank" class="brochure">
         <image x="90" y="530" :href="'/img/booths-pics/' + booth.btn1" width="200" />
       </a>
 

@@ -12,12 +12,12 @@
       <image x="200" y="440" :href="'/img/booths-pics/' + booth.logo" width="220" />
 
       <!-- Brochure -->
-      <a href="/docs-booths/AlzheimerAssocBrochure_ES.pdf" target="_blank" class="brochure">
+      <a href="/docs-booths/brochure-aa-ESP.pdf" target="_blank" class="brochure">
         <image x="100" y="550" :href="'/img/booths-pics/' + booth.btn1" width="200" />
       </a>
 
       <!-- Contacto -->
-      <a href="tel:800-272-3900" class="contacto" target="_blank">
+      <a href="https://www.alz.org/ayuda-y-apoyo/linea-de-ayuda-24-7?lang=es-MX" class="contacto" target="_blank">
         <image x="310" y="550" :href="'/img/booths-pics/' + booth.btn2" width="200" />
       </a>
     </svg>
