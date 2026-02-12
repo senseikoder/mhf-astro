@@ -110,6 +110,12 @@ a.logo.navbar-item:hover {
 }
 
 
+.modal a image:hover {
+    filter: drop-shadow(0 0 5px var(--primary));
+    transition: all 0.3s ease;
+}
+
+
 @media (max-width: 575px) {
   .navbar.is-fixed-top {
     position: initial;

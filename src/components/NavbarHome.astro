@@ -8,7 +8,7 @@ import SubmenuBlogEN from "./SubmenuBlogEN.astro";
 const { pathname } = Astro.url;
 const idioma = Astro.currentLocale;
 let isHome = false;
-if (pathname == "/" || pathname == "/en" || pathname == "/en/") isHome = true;
+if (pathname == "/" || pathname == "/en" || pathname == "/en/" || pathname == "/test-home") isHome = true;
 ---
 
 <header class:list={["navbar", { "is-fixed-top": isHome }]}>

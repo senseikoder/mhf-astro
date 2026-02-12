@@ -1,7 +1,7 @@
 ---
 import HomeLayout from "../layouts/HomeLayout.astro";
 
-import HomeFeriaClassic from "../components/HomeFeriaClassic.astro";
+import HomeFeriaClassic from "../components/HomeFeriaClassic.vue";
 import HomeCarrusel from "../components/HomeCarrusel.astro";
 import HomeBlog from "../components/HomeBlog.vue";
 import HomePartners from "../components/HomePartners.astro";
@@ -15,7 +15,7 @@ import HomeVideos from "../components/HomeVideos.vue";
   title="Feria de Salud - Massachussets"
   description="Te ayudamos a conseguir ayuda médica en Boston, Massachusetts, poniéndote en contacto con las organizaciones de salud que necesitas, los 365 días del año."
 >
-  <HomeFeriaClassic />
+  <HomeFeriaClassic client:load />
 
   <HomeBannerEMB />
 
