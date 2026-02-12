@@ -9,7 +9,6 @@
         <image x="280" y="145" href="/img/booths-pics/youtube.svg" width="100" />
       </a>
 
-
       <!-- Logo -->
       <image x="200" y="440" :href="'/img/booths-pics/' + booth.logo" width="220" />
 

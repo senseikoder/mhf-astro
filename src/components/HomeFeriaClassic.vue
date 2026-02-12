@@ -46,17 +46,23 @@
     <section class="hero-mobile is-hidden-desktop">
       <div class="container">
         <div class="buttons is-centered">
-          <a :href="idioma + '/booths/alzheimer-assoc/'" class="button">
+          <a @click="openModal('alzheimer-assoc')" class="button">
             Alzheimer's Association
           </a>
-          <a :href="idioma + '/booths/dana-farber/'" class="button">
+          <a @click="openModal('dana-farber')" class="button">
             Dana-Farber Cancer Institute
           </a>
-          <a :href="idioma + '/booths/ferreras-counseling/'" class="button">
+          <a @click="openModal('ferreras-counseling')" class="button">
             Ferreras Counseling
           </a>
-          <a :href="idioma + '/booths/united-health-care/'" class="button">
+          <a @click="openModal('united-health-care')" class="button">
             United Health Care
+          </a>
+          <a @click="openModal('careforth')" class="button">
+            Careforth
+          </a>
+          <a @click="openModal('mahda')" class="button">
+            MAHDA
           </a>
         </div>
       </div>

@@ -1,17 +1,11 @@
 ---
 import { Image } from "astro:assets";
-import aa from "../images/carrusel/A-A.jpg";
-import pbread from "../images/carrusel/p-bread.jpg";
+import aa from "../images/carrusel/A-A.webp";
 import ferreras from "../images/carrusel/ferreras-counseling.webp";
-import danaf from "../images/carrusel/dana-farber.jpg";
-import uhc from "../images/carrusel/united-healthcare-slider.webp";
-import madrc from "../images/carrusel/madrc.webp";
-import joslin from "../images/carrusel/joslin-slide.webp";
-import masshealth from "../images/carrusel/mass-health-slide.jpg";
-import helpline from "../images/carrusel/MassHelpline.webp";
-import whittier from "../images/carrusel/whittier-slide.webp";
-import terapix from "../images/carrusel/terapix.webp";
-import abacenters from "../images/carrusel/abacenters.webp";
+import danaf from "../images/carrusel/dana-farber.webp";
+import uhc from "../images/carrusel/uhc.webp";
+import careforth from "../images/carrusel/careforth.webp";
+import mahda from "../images/carrusel/mahda.webp";
 
 const idioma = Astro.currentLocale;
 ---
@@ -43,12 +37,7 @@ const idioma = Astro.currentLocale;
         </div>
         <div class="item-carousel">
           <figure class="image">
-            <Image src={pbread} alt="" />
-          </figure>
-        </div>
-        <div class="item-carousel">
-          <figure class="image">
-            <Image src={danaf} alt="" />
+            <Image src={careforth} alt="" />
           </figure>
         </div>
         <div class="item-carousel">
@@ -58,39 +47,18 @@ const idioma = Astro.currentLocale;
         </div>
         <div class="item-carousel">
           <figure class="image">
-            <Image src={madrc} alt="" />
+            <Image src={danaf} alt="" />
           </figure>
         </div>
+
         <div class="item-carousel">
           <figure class="image">
-            <Image src={whittier} alt="" />
+            <Image src={mahda} alt="" />
           </figure>
         </div>
-        <div class="item-carousel">
-          <figure class="image">
-            <Image src={joslin} alt="" />
-          </figure>
-        </div>
-        <div class="item-carousel">
-          <figure class="image">
-            <Image src={helpline} alt="" />
-          </figure>
-        </div>
-        <div class="item-carousel">
-          <figure class="image">
-            <Image src={masshealth} alt="" />
-          </figure>
-        </div>
-        <div class="item-carousel">
-          <figure class="image">
-            <Image src={terapix} alt="" />
-          </figure>
-        </div>
-        <div class="item-carousel">
-          <figure class="image">
-            <Image src={abacenters} alt="" />
-          </figure>
-        </div>
+
+        
+  
       </div>
       <!-- End Carousel Services -->
     </div>
