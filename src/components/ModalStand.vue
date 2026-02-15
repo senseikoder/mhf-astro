@@ -8,20 +8,32 @@
       </header>
       <div class="modal-card-body p-0">
         <div class="content">
-          <component :is="currentBoothComponent" v-if="currentBoothComponent" @open-video="$emit('open-video', $event)" />
+          <component :is="currentBoothComponent" v-if="currentBoothComponent" @open-video="openVideoModal" @open-form="openFormModal" />
         </div>
       </div>
       <footer class="modal-card-foot"></footer>
     </div>
     <button class="modal-close is-large" aria-label="close" @click="$emit('close')"></button>
   </div>
+
+  <!-- Modal de formulario -->
+  <ModalForm v-if="showFormModal" :isActive="showFormModal" @close="closeFormModal" :emailAccount="emailAccount" :emailSubject="emailSubject" :phoneNumber="phoneNumber" :logoStand="logoStand" />
+
+  <!-- Modal de video -->
+  <ModalVideo v-if="showVideoModal" :isActive="showVideoModal" :videoID="currentVideoID" @close="closeVideoModal" />
 </template>
 
 <script>
-import { computed, defineAsyncComponent } from 'vue'
+import { computed, defineAsyncComponent, ref } from 'vue'
+import ModalForm from './ModalForm.vue'
+import ModalVideo from './ModalVideo.vue'
 
 export default {
   name: 'ModalStand',
+  components: {
+    ModalForm,
+    ModalVideo
+  },
   props: {
     isActive: {
       type: Boolean,
@@ -36,7 +48,7 @@ export default {
       default: 'es'
     }
   },
-  emits: ['close', 'open-video'],
+  emits: ['close'],
   setup(props) {
     // Componentes dinámicos para cada stand
     const boothComponents = {
@@ -64,8 +76,49 @@ export default {
       return boothComponents[props.currentBooth] || null
     })
 
+    const showFormModal = ref(false)
+    const showVideoModal = ref(false)
+    const currentVideoID = ref('')
+    const emailAccount = ref('')
+    const emailSubject = ref('')
+    const phoneNumber = ref('')
+    const logoStand = ref('')
+
+    const openFormModal = (email, subject, phone, logo) => {
+      showFormModal.value = true
+      emailAccount.value = email
+      emailSubject.value = subject
+      phoneNumber.value = phone
+      logoStand.value = logo
+    }
+
+    const closeFormModal = () => {
+      showFormModal.value = false
+    }
+
+    const openVideoModal = (videoID) => {
+      currentVideoID.value = videoID
+      showVideoModal.value = true
+    }
+
+    const closeVideoModal = () => {
+      showVideoModal.value = false
+      currentVideoID.value = ''
+    }
+
     return {
-      currentBoothComponent
+      currentBoothComponent,
+      showFormModal,
+      openFormModal,
+      closeFormModal,
+      showVideoModal, 
+      currentVideoID,
+      emailAccount,
+      emailSubject,
+      phoneNumber,
+      logoStand,
+      openVideoModal,
+      closeVideoModal
     }
   }
 }

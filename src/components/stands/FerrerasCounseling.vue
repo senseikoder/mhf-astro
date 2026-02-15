@@ -16,10 +16,15 @@
         <image x="100" y="550" :href="'/img/booths-pics/' + booth.btn1" width="200" />
       </a>
 
-      <!-- Contacto -->
-      <a href="mailto:referrals@ferrerascounselingwellness.com" class="contacto" target="_blank">
+      <!-- Contacto desktop -->
+      <a @click="$emit('open-form', emailAccount, subject, null, booth.logo)" class="is-hidden-mobile contacto" target="_blank">
         <image x="310" y="550" :href="'/img/booths-pics/' + booth.btn2" width="200" />
       </a>
+
+      <!-- Contacto -->
+      <a href="mailto:referrals@ferrerascounselingwellness.com" class="is-hidden-desktop contacto" target="_blank">
+        <image x="310" y="550" :href="'/img/booths-pics/' + booth.btn2" width="200" />
+      </a>  
     </svg>
   </div>
 </template>
@@ -34,5 +39,8 @@ const booth = ref({
   btn2: "contacto.svg",
   videoID: "yz77L1vy2pE" // ID del video de YouTube
 });
+
+const emailAccount = "referrals@ferrerascounselingwellness.com";
+const subject = "New Contact Request - Ferreras Counseling";
 
 </script>

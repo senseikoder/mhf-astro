@@ -70,29 +70,22 @@
 
     <!-- Modal dinámico -->
     <ModalStand v-if="showModal" :isActive="showModal" :currentBooth="currentBooth" @close="closeModal"
-      @open-video="openVideoModal" :idioma="idioma" />
-
-    <!-- Modal de video -->
-    <ModalVideo v-if="showVideoModal" :isActive="showVideoModal" :videoID="currentVideoID" @close="closeVideoModal" />
+      :idioma="idioma" />
   </div>
 </template>
 
 <script>
 import { ref, computed } from 'vue'
 import ModalStand from './ModalStand.vue'
-import ModalVideo from './ModalVideo.vue'
 
 export default {
   name: 'HomeFeriaClassic',
   components: {
-    ModalStand,
-    ModalVideo
+    ModalStand
   },
   setup() {
     const showModal = ref(false)
     const currentBooth = ref('')
-    const showVideoModal = ref(false)
-    const currentVideoID = ref('')
 
     const idioma = computed(() => {
       // Detectar idioma actual (similar a Astro.currentLocale)
@@ -112,26 +105,12 @@ export default {
       currentBooth.value = ''
     }
 
-    const openVideoModal = (videoID) => {
-      currentVideoID.value = videoID
-      showVideoModal.value = true
-    }
-
-    const closeVideoModal = () => {
-      showVideoModal.value = false
-      currentVideoID.value = ''
-    }
-
     return {
       showModal,
       currentBooth,
-      showVideoModal,
-      currentVideoID,
       idioma,
       openModal,
-      closeModal,
-      openVideoModal,
-      closeVideoModal
+      closeModal
     }
   }
 }

@@ -16,9 +16,14 @@
         <image x="91" y="550" :href="'/img/booths-pics/' + booth.btn1" width="200" />
       </a>
 
-      <!-- Contacto -->
-      <a href="mailto:dfci_communitybenefits@dfci.harvard.edu" class="contacto" target="_blank">
+      <!-- Contacto desktop -->
+      <a @click="$emit('open-form', emailAccount, subject, null, booth.logo)" class="is-hidden-mobile contacto" target="_blank">
         <image x="302" y="550" :href="'/img/booths-pics/' + booth.btn2" width="200" />
+      </a>
+
+      <!-- Contacto mobile-->
+      <a :href="'mailto' + emailAccount" class="is-hidden-desktop contacto" target="_blank">
+        <image x="310" y="550" :href="'/img/booths-pics/' + booth.btn2" width="200" />
       </a>
     </svg>
   </div>
@@ -34,5 +39,9 @@ const booth = ref({
   btn2: "contacto.svg",
   videoID: "6KDuxJ9NXs4" // ID del video de YouTube
 });
+
+const emailAccount = "dfci_communitybenefits@dfci.harvard.edu";
+const subject = "New Contact Request - Dana Farber";
+// const phoneNumber = "617-632-3100";
 
 </script>

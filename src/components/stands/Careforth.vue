@@ -5,7 +5,7 @@
       viewBox="0 0 600 780">
       <image width="600" height="780" :href="'/img/booths-bg/' + booth.image" />
       <!-- Video -->
-      <a @click="$emit('open-video', booth.videoID)" class="modal-trigger video" style="cursor: pointer;">
+      <a @click="$emit('open-video', booth.videoID)" class="video" style="cursor: pointer;">
         <image x="280" y="145" href="/img/booths-pics/youtube.svg" width="100" />
       </a>
 
@@ -18,10 +18,17 @@
         <image x="100" y="550" :href="'/img/booths-pics/' + booth.btn1" width="200" />
       </a>
 
-      <!-- Contacto -->
-      <a href="https://www.careforth.com/" class="contacto" target="_blank">
+      <!-- Contacto desktop-->
+
+      <a @click="$emit('open-form', emailAccount, subject, phoneNumber, booth.logo)" class="is-hidden-mobile contacto">
         <image x="310" y="550" :href="'/img/booths-pics/' + booth.btn2" width="200" />
       </a>
+
+      <!-- Contacto mobile-->
+      <a :href="'tel:' + phoneNumber" class="is-hidden-desktop contacto" target="_blank">
+        <image x="310" y="550" :href="'/img/booths-pics/' + booth.btn2" width="200" />
+      </a>
+  
       
 
     </svg>
@@ -38,6 +45,10 @@ const booth = ref({
   btn2: "contacto.svg",
   videoID: "rXYAQsHACTQ" // ID del video de YouTube
 });
+
+const emailAccount = "cfelix@careforth.com";
+const subject = "Nuevo contacto web - Careforth";
+const phoneNumber = "978-989-3211";
 
 </script>
 

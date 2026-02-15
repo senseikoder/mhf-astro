@@ -12,9 +12,9 @@ const { title, description } = Astro.props;
 // Supports weights 100-900
 import "@fontsource-variable/dm-sans";
 import TabLang from "../components/TabLang.astro";
-import ModalPopup from "../components/ModalPopup.astro";
 import BodyTop from "../components/BodyTop.astro";
 import Snippets from "../components/Snippets.astro";
+import ModalForm from "../components/ModalForm.astro";
 ---
 
 <html lang={idioma} data-theme="light">
@@ -34,7 +34,68 @@ import Snippets from "../components/Snippets.astro";
     {idioma == "es" ? <Footer /> : <FooterEN />}
     <script src="../js/main.js"></script>
     <TabLang />
-    <ModalPopup />
+    <ModalForm to="info@miferiadesalud.com" subject="Contacto desde feria - Careforth" />
+    <script>
+         document.addEventListener("DOMContentLoaded", () => {
+            const modal_body = document.querySelector(
+               ".modal-card-body .content",
+            );
 
+            // Functions to open and close a modal
+            function openModal($el) {
+               $el.classList.add("is-active");
+            }
+
+            function closeModal($el) {
+               $el.classList.remove("is-active");
+            }
+
+            function closeAllModals() {
+               (document.querySelectorAll(".modal") || []).forEach(($modal) => {
+                  closeModal($modal);
+               });
+            }
+
+            // Add a click event on buttons to open a specific modal
+            (document.querySelectorAll(".modal-trigger") || []).forEach(
+               ($trigger) => {
+                  const modal = $trigger.dataset.target;
+                  const $target = document.getElementById(modal);
+
+                  $trigger.addEventListener("click", () => {
+                     if ($trigger.dataset.content) {
+                        const div_content = document.querySelector(
+                           `#${$trigger.dataset.content}`,
+                        );
+                        modal_body.innerHTML = div_content.innerHTML;
+                     }
+                     openModal($target);
+                  });
+               },
+            );
+
+            // Add a click event on various child elements to close the parent modal
+            (
+               document.querySelectorAll(
+                  ".modal-background, .modal-close, .modal-card-head .delete",
+               ) || []
+            ).forEach(($close) => {
+               const $target = $close.closest(".modal");
+
+               $close.addEventListener("click", () => {
+                  closeModal($target);
+               });
+            });
+
+            // Add a keyboard event to close all modals
+            document.addEventListener("keydown", (event) => {
+               if (event.key === "Escape") {
+                  closeAllModals();
+               }
+            });
+
+            // cargaEmail();
+         });
+      </script>
   </body>
 </html>

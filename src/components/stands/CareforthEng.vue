@@ -18,8 +18,14 @@
         <image x="100" y="550" :href="'/img/booths-pics/' + booth.btn1" width="200" />
       </a>
 
-      <!-- Contacto -->
-      <a href="https://www.careforth.com/" class="contacto" target="_blank">
+      <!-- Contacto desktop-->
+
+      <a @click="$emit('open-form', emailAccount, subject, phoneNumber, booth.logo)" class="is-hidden-mobile contacto">
+        <image x="310" y="550" :href="'/img/booths-pics/' + booth.btn2" width="200" />
+      </a>
+
+      <!-- Contacto mobile-->
+      <a :href="'tel:' + phoneNumber" class="is-hidden-desktop contacto" target="_blank">
         <image x="310" y="550" :href="'/img/booths-pics/' + booth.btn2" width="200" />
       </a>
       
@@ -38,6 +44,10 @@ const booth = ref({
   btn2: "contact.svg",
   videoID: "XTQ7T812phw" // ID del video de YouTube
 });
+
+const emailAccount = "cfelix@careforth.com";
+const subject = "New Contact Request - Careforth";
+const phoneNumber = "978-989-3211";
 
 </script>
 

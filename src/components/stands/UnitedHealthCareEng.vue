@@ -17,8 +17,13 @@
         <image x="100" y="550" :href="'/img/booths-pics/' + booth.btn1" width="200" />
       </a>
 
-      <!-- Contacto -->
-      <a href="mailto:evelyn_sandoval@uhc.com;sharon.castillo@uhc.com" class="contacto" target="_blank">
+      <!-- Contact desktop -->
+      <a @click="$emit('open-form', emailAccount, subject, phoneNumber, booth.logo)" class="is-hidden-mobile contacto" target="_blank">
+        <image x="310" y="550" :href="'/img/booths-pics/' + booth.btn2" width="200" />
+      </a>
+
+      <!-- Contact mobile -->
+      <a :href="'tel:' + phoneNumber" class="is-hidden-desktop contacto" target="_blank">
         <image x="310" y="550" :href="'/img/booths-pics/' + booth.btn2" width="200" />
       </a>
       
@@ -37,6 +42,10 @@ const booth = ref({
   btn2: "contact.svg",
   videoID: "UUzn_J_NUzI" // ID del video de YouTube
 });
+
+const emailAccount = "evelyn_sandoval@uhc.com;sharon.castillo@uhc.com";
+const subject = "New Contact Request - UnitedHealthCare";
+const phoneNumber = "8663254811";
 
 </script>
 
