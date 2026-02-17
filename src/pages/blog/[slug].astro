@@ -8,7 +8,21 @@ const wpurl = import.meta.env.PUBLIC_WP_URL;
 
 let res = await fetch(
 	`${wpurl}/posts?slug=${slug}&_embed`,
+   {
+    headers: {
+      "User-Agent":
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+      "Accept": "application/json",
+      "Referer": wpurl,
+      "Origin": wpurl
+    }
+   }
 );
+if (!res.ok) {
+  const text = await res.text();
+  console.error(text);
+  throw new Error(`WP API error: ${res.status}`);
+}
 let [post] = await res.json();
 
 post["heroImage"] =
