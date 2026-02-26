@@ -13,13 +13,13 @@
       <!-- Logo -->
       <image x="180" y="450" :href="'/img/booths-pics/' + booth.logo" width="250" />
 
-      <!-- Brochure -->
-      <a href="/docs-booths/brochure-mahda.pdf" target="_blank" class="brochure">
+      <!-- Newsletter -->
+      <a href="/docs-booths/newsletter-mahda.pdf" target="_blank" class="newsletter">
         <image x="90" y="530" :href="'/img/booths-pics/' + booth.btn1" width="200" />
       </a>
 
       <!-- Contacto -->
-      <a href="javascript:void(0)" class="modal-trigger contacto" data-target="modal-form">
+      <a href="mailto:yudimquintero@gmail.com" class="contacto">
         <image x="300" y="530" :href="'/img/booths-pics/' + booth.btn2" width="200" />
       </a>
       
@@ -34,9 +34,9 @@ import { ref } from 'vue';
 const booth = ref({
   image: "bg-MAHDA.webp",
   logo: "logo-mahda.webp",
-  btn1: "brochure.svg",
+  btn1: "newsletter.svg",
   btn2: "contacto.svg",
-  videoID: "xxx" // ID del video de YouTube
+  videoID: "TC69J7zYLCk" // ID del video de YouTube
 });
 
 </script>
