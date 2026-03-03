@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
-import flagES from "../images/flag-esp.png";
-import flagEN from "../images/flag-eng.png";
+import flagES from "../images/esp.webp";
+import flagEN from "../images/eng.webp";
 import { getRelativeLocaleUrl } from "astro:i18n";
 
 const idioma = Astro.currentLocale;
@@ -62,10 +62,17 @@ if (isPost) {
 url = isPost ? urlPost : getRelativeLocaleUrl(urlLang, urlPath);
 ---
 
-<div class="tab is-hidden-mobile">
+<div class="tab">
    <a href={url}>
-      {idioma == "es" ? <span>English</span> : <span>Español</span>}
-      <Image src={imgFlag} alt="idioma" width="20" height="20" />
+      {
+         idioma == "es" ? 
+         <span class="is-hidden-mobile">English</span>
+         <span class="is-hidden-desktop"><b>ENG</b></span> 
+         : 
+         <span class="is-hidden-mobile">Español</span>
+         <span class="is-hidden-desktop"><b>ESP</b></span> 
+      }
+      <Image src={imgFlag} alt="idioma" width="20" height="20" class="mr-1" />
    </a>
 </div>
 
@@ -73,13 +80,15 @@ url = isPost ? urlPost : getRelativeLocaleUrl(urlLang, urlPath);
    .tab {
       position: absolute;
       z-index: 40;
-      top: -5px;
-      right: 40px;
+      top: 5px;
+      right: -5px;
       background: white;
-      border-radius: 0 0 7px 7px;
-      opacity: 0.8;
+      border-radius: 7px 0 0 7px;
+      opacity: 0.9;
       transition: all 0.3s;
+       box-shadow: 0 1px 2px lightgrey;
    }
+
 
    .tab a {
       /* display: block; */
@@ -92,8 +101,14 @@ url = isPost ? urlPost : getRelativeLocaleUrl(urlLang, urlPath);
    }
 
    .tab:hover {
-      top: 0;
+      right: 0;
       opacity: 1;
       box-shadow: 0 2px 4px grey;
+   }
+
+   @media (max-width: 575px) {
+      .tab {
+         opacity: 1;
+      }
    }
 </style>

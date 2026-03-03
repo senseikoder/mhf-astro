@@ -19,7 +19,7 @@
       </a>
 
       <!-- Contacto -->
-      <a href="mailto:yudimquintero@gmail.com" class="contacto">
+      <a href="mailto:massachusettshda@gmail.com" class="contacto">
         <image x="300" y="530" :href="'/img/booths-pics/' + booth.btn2" width="200" />
       </a>
       
