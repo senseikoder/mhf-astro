@@ -17,7 +17,7 @@
   </div>
 
   <!-- Modal de formulario -->
-  <ModalForm v-if="showFormModal" :isActive="showFormModal" @close="closeFormModal" :emailAccount="emailAccount" :emailSubject="emailSubject" :phoneNumber="phoneNumber" :logoStand="logoStand" />
+  <component :is="currentFormComponent" v-if="showFormModal" :isActive="showFormModal" @close="closeFormModal" :emailAccount="emailAccount" :emailSubject="emailSubject" :phoneNumber="phoneNumber" :logoStand="logoStand" />
 
   <!-- Modal de video -->
   <ModalVideo v-if="showVideoModal" :isActive="showVideoModal" :videoID="currentVideoID" @close="closeVideoModal" />
@@ -26,12 +26,14 @@
 <script>
 import { computed, defineAsyncComponent, ref } from 'vue'
 import ModalForm from './ModalForm.vue'
+import ModalFormCF from './ModalFormCF.vue'
 import ModalVideo from './ModalVideo.vue'
 
 export default {
   name: 'ModalStand',
   components: {
     ModalForm,
+    ModalFormCF,
     ModalVideo
   },
   props: {
@@ -68,6 +70,11 @@ export default {
       'careforth': defineAsyncComponent(() => import('src/components/stands/CareforthEng.vue')),
       'mahda': defineAsyncComponent(() => import('src/components/stands/MahdaEng.vue'))
     }
+
+    // Componente de formulario dinámico
+    const currentFormComponent = computed(() => {
+      return props.currentBooth === 'careforth' ? ModalFormCF : ModalForm
+    })
 
     const currentBoothComponent = computed(() => {
       if (props.idioma === '/en') {
@@ -108,6 +115,7 @@ export default {
 
     return {
       currentBoothComponent,
+      currentFormComponent,
       showFormModal,
       openFormModal,
       closeFormModal,

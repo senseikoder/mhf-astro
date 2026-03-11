@@ -43,7 +43,7 @@ const booth = ref({
   logo: "logo-careforth.webp",
   btn1: "brochure.svg",
   btn2: "contacto.svg",
-  videoID: "rXYAQsHACTQ" // ID del video de YouTube
+  videoID: "wfjBaJBuU8k" // ID del video de YouTube
 });
 
 const emailAccount = "cfelix@careforth.com";

@@ -7,6 +7,7 @@
           v-if="videoID"
           :id="videoID"
           :title="'Video'"
+          poster="sddefault"
         ></LiteYouTubeEmbed>
       <!-- </div> -->
     </div>
