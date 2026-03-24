@@ -10,12 +10,12 @@
     "start": "node ./dist/server/entry.mjs"
   },
   "dependencies": {
-    "@astrojs/node": "^9.4.2",
-    "@astrojs/sitemap": "^3.4.0",
-    "@astrojs/vue": "^5.0.13",
+    "@astrojs/node": "^10.0.3",
+    "@astrojs/sitemap": "^3.7.1",
+    "@astrojs/vue": "^6.0.1",
     "@fontsource-variable/dm-sans": "^5.0.5",
     "@justinribeiro/lite-youtube": "^1.8.1",
-    "astro": "^5.7.13",
+    "astro": "^6.0.8",
     "astro-icon": "^1.1.5",
     "astro-seo": "^1.1.0",
     "bulma": "^1.0.0",
