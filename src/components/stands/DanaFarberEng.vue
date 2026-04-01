@@ -37,7 +37,7 @@ const booth = ref({
   logo: "dana-farber-logo.webp",
   btn1: "brochure.svg",
   btn2: "contact.svg",
-  videoID: "6KDuxJ9NXs4" // ID del video de YouTube
+  videoID: "yICbfoy2ydc" // ID del video de YouTube
 });
 
 const emailAccount = "dfci_communitybenefits@dfci.harvard.edu";
