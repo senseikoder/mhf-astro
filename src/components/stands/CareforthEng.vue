@@ -29,6 +29,10 @@
         <image x="310" y="550" :href="'/img/booths-pics/' + booth.btn2" width="200" />
       </a>
       
+      <!-- Workbook -->
+      <a href="/docs-booths/caregiver-fatigue.pdf" target="_blank" class="workbook">
+        <image x="210" y="650" :href="'/img/booths-pics/' + booth.btn3" width="200" />
+      </a>
 
     </svg>
   </div>
@@ -42,6 +46,7 @@ const booth = ref({
   logo: "logo-careforth.webp",
   btn1: "brochure.svg",
   btn2: "contact.svg",
+  btn3: "workbook.svg",
   videoID: "XTQ7T812phw" // ID del video de YouTube
 });
 
