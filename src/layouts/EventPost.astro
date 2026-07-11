@@ -3,6 +3,7 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import FooterEN from "../components/FooterEN.astro";
+import WhatsAppButton from "../components/WhatsAppButton.astro";
 import AsideEntradas from "../components/AsideEntradas.astro";
 import AsidePosts from "../components/AsidePosts.astro";
 import AsideCategorias from "../components/AsideCategorias.astro";
@@ -21,92 +22,80 @@ import BodyTop from "../components/BodyTop.astro";
 ---
 
 <html lang={idioma} data-theme="light">
-   <head>
-      <BaseHead title={title} description={description} />
-      <Snippets/>
-   </head>
+  <head>
+    <BaseHead title={title} description={description} />
+    <Snippets />
+  </head>
 
-   <body>
-      <BodyTop />
-      <Header />
+  <body>
+    <BodyTop />
+    <Header />
 
-      <div class="section">
-         <div class="container">
-            <div class="columns">
-               <div class="column is-8 article">
-                  <article>
-                     <div class="hero-image mb-4">
-                        {
-                           heroImage && (
-                              <img
-                                 width={1020}
-                                 height={510}
-                                 src={heroImage}
-                                 alt=""
-                              />
-                           )
-                        }
-                     </div>
-                     <div class="content">
-                        <h1 class="title">
-                           <Fragment set:html={title} />
-                        </h1>
+    <div class="section">
+      <div class="container">
+        <div class="columns">
+          <div class="column is-8 article">
+            <article>
+              <div class="hero-image mb-4">
+                {
+                  heroImage && (
+                    <img width={1020} height={510} src={heroImage} alt="" />
+                  )
+                }
+              </div>
+              <div class="content">
+                <h1 class="title">
+                  <Fragment set:html={title} />
+                </h1>
 
-                        <div class="block">
-                           <span
-                              >Inicio: <FormattedDateTime
-                                 date={new Date(start_date)}
-                              /></span
-                           > -
-                           <span
-                              >Fin: <FormattedDateTime
-                                 date={new Date(end_date)}
-                              /></span
-                           >
-                           <span>
-                              - Tags:
+                <div class="block">
+                  <span
+                    >Inicio: <FormattedDateTime
+                      date={new Date(start_date)}
+                    /></span
+                  > -
+                  <span
+                    >Fin: <FormattedDateTime date={new Date(end_date)} /></span
+                  >
+                  <span>
+                    - Tags:
 
-                              {
-                                 tags.map((tag) => (
-                                    <span class="is-uppercase">{tag.name}</span>
-                                 ))
-                              }
-                           </span>
-                        </div>
+                    {
+                      tags.map((tag) => (
+                        <span class="is-uppercase">{tag.name}</span>
+                      ))
+                    }
+                  </span>
+                </div>
 
-                        <hr />
+                <hr />
 
-                        <!-- Descripcion -->
-                        <slot />
-                     </div>
-                  </article>
-               </div>
-               <div class="column is-4">
-                  <aside>
-                     {idioma == "es" ? <AsideEntradas /> : <AsidePosts />}
-                     {
-                        idioma == "es" ? (
-                           <AsideCategorias />
-                        ) : (
-                           <AsideCategories />
-                        )
-                     }
-                  </aside>
-               </div>
-            </div>
-         </div>
+                <!-- Descripcion -->
+                <slot />
+              </div>
+            </article>
+          </div>
+          <div class="column is-4">
+            <aside>
+              {idioma == "es" ? <AsideEntradas /> : <AsidePosts />}
+              {idioma == "es" ? <AsideCategorias /> : <AsideCategories />}
+            </aside>
+          </div>
+        </div>
       </div>
-      <main></main>
-      {idioma == "es" ? <Footer /> : <FooterEN />}
-      <script src="../js/main.js"></script>
-      <style>
-         .article {
-            box-shadow:
-               0 1px 3px -2px rgba(0, 0, 0, 0.12),
-               0 1px 2px rgba(0, 0, 0, 0.24);
-         }
-      </style>
+    </div>
+    <main></main>
+    {idioma == "es" ? <Footer /> : <FooterEN />}
+    <WhatsAppButton />
+    <script src="../js/main.js"></script>
+    <style>
+      .article {
+        box-shadow:
+          0 1px 3px -2px rgba(0, 0, 0, 0.12),
+          0 1px 2px rgba(0, 0, 0, 0.24);
+      }
+    </style>
 
-      <TabLang isEvent="1"/>
-   </body>
+    <TabLang isEvent="1" />
+  </body>
 </html>

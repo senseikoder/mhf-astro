@@ -5,14 +5,13 @@ import Footer from "../components/Footer.astro";
 import FooterEN from "../components/FooterEN.astro";
 import { Image } from "astro:assets";
 import emb_header from "../images/emb-header.webp";
-
+import WhatsAppButton from "../components/WhatsAppButton.astro";
 
 // Supports weights 100-900
 import "@fontsource-variable/dm-sans";
 import TabLang from "../components/TabLang.astro";
 import BodyTop from "../components/BodyTop.astro";
 import Snippets from "../components/Snippets.astro";
-
 
 const idioma = Astro.currentLocale;
 
@@ -39,6 +38,7 @@ const { title, description } = Astro.props;
     <NavbarHome />
     <slot />
     {idioma == "es" ? <Footer /> : <FooterEN />}
+    <WhatsAppButton />
     <script src="../js/main.js"></script>
     <TabLang />
   </body>
