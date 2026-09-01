@@ -11,7 +11,7 @@ interface Props {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image = 'src/images/logo-myhealthfair-og.webp' } = Astro.props;
+const { title, description, image = '/img/logo-myhealthfair-og.webp' } = Astro.props;
 ---
 
 
@@ -33,22 +33,13 @@ const { title, description, image = 'src/images/logo-myhealthfair-og.webp' } = A
         basic: {
           title: title,
           type: "website",
+          url: canonicalURL,
           image: image,
-        }
+        },
+        optional: {
+          description: description,
+          siteName: "My Health Fair",
+        },
       }}
     />	
 
-
-<!-- Open Graph / Facebook -->
-<!-- <meta property="og:type" content="website" />
-<meta property="og:url" content={Astro.url} />
-<meta property="og:title" content={title} />
-<meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image, Astro.url)} /> -->
-
-<!-- Twitter -->
-<!-- <meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={Astro.url} />
-<meta property="twitter:title" content={title} />
-<meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(image, Astro.url)} /> -->
