@@ -1,0 +1,30 @@
+---
+import { Image } from "astro:assets";
+const idioma = Astro.currentLocale;
+import banner from "../images/banner-federal.webp";
+---
+
+<section class="section has-background-light-grey">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-7">
+        <h2 class="title has-text-weight-semibold is-4 has-text-centered my-6">
+          {idioma === "es" ? "Cambios federales que afectan a los miembros de MassHealth (Medicaid)" : "Federal changes affecting MassHealth (Medicaid) members"}
+        </h2>
+        <p class="has-text-centered my-4">
+          <button class="button is-primary is-large has-text-white">
+            <a
+              href="https://www.mass.gov/federal-changes-affecting-masshealth-medicaid-members"
+              class="has-text-white"
+              target="_blank"
+              > {idioma === "es" ? "Aprender más" : "Learn More"}
+            </a>
+          </button>
+        </p>
+      </div>
+      <div class="column is-5">
+        <Image src={banner} alt="Banner EMB" />
+      </div>
+    </div>
+  </div>
+</section>

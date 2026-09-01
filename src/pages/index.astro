@@ -7,6 +7,7 @@ import HomeBlog from "../components/HomeBlog.vue";
 import HomePartners from "../components/HomePartners.astro";
 import HomeBannerEMB from "../components/HomeBannerEMB.astro";
 import HomeVideos from "../components/HomeVideos.vue";
+import HomeFederalNotice from "../components/HomeFederalNotice.astro";
 
 import "flickity/dist/flickity.min.css";
 ---
@@ -16,8 +17,10 @@ import "flickity/dist/flickity.min.css";
   description="Te ayudamos a conseguir ayuda médica en Boston, Massachusetts, poniéndote en contacto con las organizaciones de salud que necesitas, los 365 días del año."
 >
   <HomeFeriaClassic client:idle />
-
+  
   <HomeBannerEMB />
+  
+  <HomeFederalNotice />
 
   <section class="section is-relative">
     <div class="is-overlay"></div>

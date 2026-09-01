@@ -34,12 +34,16 @@ const { title, description, image = '/img/logo-myhealthfair-og.webp' } = Astro.p
           title: title,
           type: "website",
           url: canonicalURL,
-          image: image,
+          image: image          
         },
         optional: {
           description: description,
           siteName: "My Health Fair",
         },
+        image: {
+          width: 320,
+          height: 100,
+        }
       }}
     />	
 
