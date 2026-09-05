@@ -2,29 +2,106 @@
 import { Image } from "astro:assets";
 const idioma = Astro.currentLocale;
 import banner from "../images/banner-federal.webp";
+
+const translations = {
+  es: {
+    federalChanges: "Cambios Federales",
+    inMassHealth: "en MassHealth",
+    familyText: "Lo que toda Familia en Massachusetts debe saber",
+    button: "Deseo saber más",
+    attention: "ATENCIÓN:",
+    members: "Miembros de MassHealth",
+    ages: "Entre 19 y 64 Años",
+    newLaw: "Una Nueva Ley Federal",
+    couldAffect: "Podría Afectarlos",
+  },
+  en: {
+    federalChanges: "Federal Changes",
+    inMassHealth: "to MassHealth",
+    familyText: "What every Family in Massachusetts needs to know",
+    button: "I want to know more",
+    attention: "ATTENTION:",
+    members: "MassHealth Members",
+    ages: "Ages 19 to 64",
+    newLaw: "New Federal Law",
+    couldAffect: "May Impact You",
+  },
+};
+
+const t = translations[idioma];
 ---
 
-<section class="section has-background-light-grey">
+<section class="section has-background-primary p-0">
   <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-7">
-        <h2 class="title has-text-weight-semibold is-4 has-text-centered my-6">
-          {idioma === "es" ? "Cambios federales que afectan a los miembros de MassHealth (Medicaid)" : "Federal changes affecting MassHealth (Medicaid) members"}
-        </h2>
-        <p class="has-text-centered my-4">
-          <button class="button is-primary is-large has-text-white">
-            <a
-              href="https://www.mass.gov/federal-changes-affecting-masshealth-medicaid-members"
-              class="has-text-white"
-              target="_blank"
-              > {idioma === "es" ? "Aprender más" : "Learn More"}
-            </a>
-          </button>
-        </p>
+    <div class="columns is-vcentered">
+      <div class="column is-8 py-5">
+        <div class="content has-text-centered-mobile">
+          <h3 class="title has-text-white">
+            {t.federalChanges}
+            <br />
+            {t.inMassHealth}
+          </h3>
+
+          <h4 class="subtitle is-size-4 is-size-5-mobile has-text-white">
+            {t.familyText}
+          </h4>
+
+          <a
+            href="https://www.mass.gov/federal-changes-affecting-masshealth-medicaid-members"
+            class="button is-info is-large has-text-white"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {t.button}
+          </a>
+        </div>
       </div>
-      <div class="column is-5">
-        <Image src={banner} alt="Banner EMB" />
+      <div class="column is-4 has-background-info p-5">
+        <div class="content">
+          <Image
+            src={banner}
+            alt="MassHealth Banner"
+            class="mb-5"
+          />
+          <div class="has-background-info-dark p-5 has-text-centered is-size-5 is-rounded">
+            <p class="has-text-warning has-text-weight-bold is-size-4">
+              {t.attention}
+            </p>
+            <p class="has-text-warning has-text-weight-semibold">
+              {t.members}
+            </p>
+            <p class="has-text-warning has-text-weight-semibold">
+              {t.ages}
+            </p>
+            <p class="has-text-white has-text-weight-semibold">
+              {t.newLaw}
+            </p>
+            <p class="has-text-white has-text-weight-semibold">
+              {t.couldAffect}
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
+<style>
+  .content .title {
+    font-size: 4rem;
+  }
+
+  @media (max-width: 768px) {
+    .content .title {
+      font-size: 2rem;
+    }
+
+    .content .subtitle {
+      margin-top: 1rem;
+    }
+
+    .p-0 {
+      padding: 1rem !important;
+    }
+  }
+</style>
