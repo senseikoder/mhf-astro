@@ -57,8 +57,8 @@ if (isPost) {
 } else {
    urlPath =
       urlLang == "es" ? Astro.url.pathname.substr(3) : Astro.url.pathname;
-}
-
+   }
+   
 url = isPost ? urlPost : getRelativeLocaleUrl(urlLang, urlPath);
 ---
 
