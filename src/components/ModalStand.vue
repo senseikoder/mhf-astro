@@ -59,7 +59,8 @@ export default {
       'alzheimer-assoc': defineAsyncComponent(() => import('src/components/stands/AlzheimerAssoc.vue')),
       'ferreras-counseling': defineAsyncComponent(() => import('src/components/stands/FerrerasCounseling.vue')),
       'careforth': defineAsyncComponent(() => import('src/components/stands/Careforth.vue')),
-      'mahda': defineAsyncComponent(() => import('src/components/stands/Mahda.vue'))
+      'mahda': defineAsyncComponent(() => import('src/components/stands/Mahda.vue')),
+      'element-care': defineAsyncComponent(() => import('src/components/stands/ElementCare.vue'))
     }
 
     const boothComponentsEng = {
@@ -68,7 +69,8 @@ export default {
       'alzheimer-assoc': defineAsyncComponent(() => import('src/components/stands/AlzheimerAssocEng.vue')),
       'ferreras-counseling': defineAsyncComponent(() => import('src/components/stands/FerrerasCounselingEng.vue')),
       'careforth': defineAsyncComponent(() => import('src/components/stands/CareforthEng.vue')),
-      'mahda': defineAsyncComponent(() => import('src/components/stands/MahdaEng.vue'))
+      'mahda': defineAsyncComponent(() => import('src/components/stands/MahdaEng.vue')),
+      'element-care': defineAsyncComponent(() => import('src/components/stands/ElementCareEng.vue'))
     }
 
     // Componente de formulario dinámico

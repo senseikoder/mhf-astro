@@ -37,6 +37,11 @@
             <a @click="openModal('mahda')">
               <image xlink:href="/img/booths-pics/btn-mahda.webp" x="570" y="370" />
             </a>
+
+            <!-- Element Care -->
+            <!-- <a @click="openModal('element-care')">
+              <image xlink:href="/img/booths-pics/btn-elementcare.webp" x="780" y="330" />
+            </a> -->
           </svg>
         </div>
       </div>
