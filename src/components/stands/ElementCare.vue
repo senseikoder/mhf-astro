@@ -1,5 +1,5 @@
 <template>
-  <div class="has-text-centered">
+  <div class="has-text-centered" id="element-care">
     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
       viewBox="0 0 600 780">
       <image width="600" height="780" :href="'/img/booths-bg/' + booth.image" />
