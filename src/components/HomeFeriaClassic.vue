@@ -9,9 +9,9 @@
             <image width="1920" height="1080" xlink:href="/img/mhf-plaza-2026.webp" />
 
             <!-- United Health Care -->
-            <a @click="openModal('united-health-care')">
+            <!-- <a @click="openModal('united-health-care')">
               <image xlink:href="/img/booths-pics/btn-uhc.webp" x="1390" y="440" />
-            </a>
+            </a> -->
 
             <!-- Dana-Farber -->
             <a @click="openModal('dana-farber')">
@@ -39,9 +39,9 @@
             </a>
 
             <!-- Element Care -->
-            <!-- <a @click="openModal('element-care')">
-              <image xlink:href="/img/booths-pics/btn-elementcare.webp" x="780" y="330" />
-            </a> -->
+            <a @click="openModal('element-care')">
+              <image xlink:href="/img/booths-pics/btn-elementcare.webp" x="1390" y="440" />
+            </a>
           </svg>
         </div>
       </div>
@@ -60,8 +60,8 @@
           <a @click="openModal('ferreras-counseling')" class="button">
             Ferreras Counseling
           </a>
-          <a @click="openModal('united-health-care')" class="button">
-            United Health Care
+          <a @click="openModal('element-care')" class="button">
+            Element Care
           </a>
           <a @click="openModal('careforth')" class="button">
             Careforth
