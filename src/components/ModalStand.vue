@@ -27,6 +27,7 @@
 import { computed, defineAsyncComponent, ref } from 'vue'
 import ModalForm from './ModalForm.vue'
 import ModalFormCF from './ModalFormCF.vue'
+import ModalFormEC from './ModalFormEC.vue'
 import ModalVideo from './ModalVideo.vue'
 
 export default {
@@ -34,6 +35,7 @@ export default {
   components: {
     ModalForm,
     ModalFormCF,
+    ModalFormEC,
     ModalVideo
   },
   props: {
@@ -75,6 +77,9 @@ export default {
 
     // Componente de formulario dinámico
     const currentFormComponent = computed(() => {
+      if (props.currentBooth === 'element-care') {
+        return ModalFormEC
+      }
       return props.currentBooth === 'careforth' ? ModalFormCF : ModalForm
     })
 
