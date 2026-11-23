@@ -12,7 +12,7 @@
       <image x="200" y="450" :href="'/img/booths-pics/' + booth.logo" width="220" />
 
       <!-- Brochure -->
-      <a href="/docs-booths/brochure-danaf-ESP.pdf" target="_blank" class="brochure">
+      <a href="/docs-booths/brochure-danaf-ENG.pdf" target="_blank" class="brochure">
         <image x="91" y="550" :href="'/img/booths-pics/' + booth.btn1" width="200" />
       </a>
 

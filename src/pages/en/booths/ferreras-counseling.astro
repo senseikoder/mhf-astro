@@ -1,18 +1,16 @@
 ---
-import ModalBooths from "../../../components/ModalBooths.astro";
-import ModalForm from "../../../components/ModalForm.astro";
-import ModalVideo from "../../../components/ModalVideo.astro";
-import BoothLayout from "../../../layouts/BoothLayout.astro";
+import ModalBooths from "@/components/ModalBooths.astro";
+import ModalForm from "@/components/ModalForm.astro";
+import ModalVideo from "@/components/ModalVideo.astro";
+import BoothLayout from "@/layouts/BoothLayout.astro";
 const booth = {
-   image: "ferreras-counseling.webp",
-   btn1: "brochure.webp",
-   btn2: "faq.webp",
-   btn3: "jobs.webp",
-   btn4: "contact.webp",
-   btn5: null,
+  image: "bg-ferreras.webp",
+  logo: "logo-ferreras.webp",
+  btn1: "brochure.svg",
+  btn2: "contact.svg",
 };
-const wpuploads = import.meta.env.WP_UPLOADS;
 ---
+
 
 <BoothLayout
    title="Ferreras Counseling & Wellness Center"
@@ -36,18 +34,20 @@ const wpuploads = import.meta.env.WP_UPLOADS;
                   />
 
                   <a
-                     xlink:href="javascript:void(0)"
+                     href="javascript:void(0)"
                      class="modal-trigger video"
                      data-target="modal-video"
                   >
-                     <rect
-                     x="130"
-                     y="55"
-                     fill="#fff"
-                     opacity="0"
-                     width="390"
-                     height="250"></rect>
+                     <image x="280" y="145" href="/img/booths-pics/youtube.svg" width="100" />
                   </a>
+
+                  <!-- Logo -->
+                  <image
+                     x="190"
+                     y="450"
+                     xlink:href={"/img/booths-pics/" + booth.logo}
+                     width="240"
+                  />
 
                   <!-- Brochure -->
                   <a
@@ -56,37 +56,14 @@ const wpuploads = import.meta.env.WP_UPLOADS;
                      class="brochure"
                   >
                      <image
-                        x="90"
-                        y="575"
+                        x="100"
+                        y="550"
+                        width="200"
                         xlink:href={"/img/booths-pics/" + booth.btn1}
                      />
                   </a>
 
-                  <!-- FAQ -->
-                  <a
-                     xlink:href="https://ferrerascounselingwellness.com/faq"
-                     target="_blank"
-                     class="faq"
-                  >
-                     <image
-                        x="310"
-                        y="575"
-                        xlink:href={"/img/booths-pics/" + booth.btn2}
-                     />
-                  </a>
-
-                  <!-- Jobs -->
-                  <a
-                     href="https://ferrerascounselingwellness.com/careers"
-                     target="_blank"
-                     class="jobs"
-                  >
-                     <image
-                        x="90"
-                        y="660"
-                        xlink:href={"/img/booths-pics/" + booth.btn3}
-                     />
-                  </a>
+                 
                   <a
                      href="javascript:void(0)"
                      class="modal-trigger contact"
@@ -94,20 +71,13 @@ const wpuploads = import.meta.env.WP_UPLOADS;
                   >
                      <image
                         x="310"
-                        y="660"
-                        xlink:href={"/img/booths-pics/" + booth.btn4}
+                        y="550"
+                        width="200"
+                        xlink:href={"/img/booths-pics/" + booth.btn2}
                      />
                   </a>
 
-                  <!-- <a xlink:href="#contacto">
-                     <rect
-                        x="205"
-                        y="716"
-                        fill="#fff"
-                        opacity="0"
-                        width="164"
-                        height="54"></rect>
-                  </a> -->
+                 
                </svg>
             </div>
          </div>
@@ -127,5 +97,6 @@ const wpuploads = import.meta.env.WP_UPLOADS;
    <ModalForm
       to="referrals@ferrerascounselingwellness.com"
       subject="Booth Ferreras Counseling - New Contact Us Request"
+      logoHeader={booth.logo}
    />
 </BoothLayout>

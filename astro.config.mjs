@@ -9,18 +9,10 @@ import path from "path";
 export default defineConfig({
   site: "https://myhealthfair.com",
   server: {
-    host: true,
     port: Number(process.env.PORT) || 4323,
   },
   integrations: [
-    sitemap({
-      customPages: [
-        "https://myhealthfair.com/booths/alzheimer-assoc/",
-        "https://myhealthfair.com/en/booths/alzheimer-assoc/",
-        "https://myhealthfair.com/booths/united-health-care/",
-        "https://myhealthfair.com/en/booths/united-health-care/",
-      ],
-    }),
+    sitemap(),
     vue(),
     icon()
   ],

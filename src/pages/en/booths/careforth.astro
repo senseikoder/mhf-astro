@@ -1,0 +1,131 @@
+---
+import ModalBooths from "@/components/ModalBooths.astro";
+import ModalFormCF from "@/components/ModalFormCF.astro";
+import ModalVideo from "@/components/ModalVideo.astro";
+import BoothLayout from "@/layouts/BoothLayout.astro";
+const booth = {
+  image: "bg-careforth.webp",
+  logo: "logo-careforth.webp",
+  btn1: "brochure.svg",
+  btn2: "contact.svg",
+  btn3: "workbook.svg",
+};
+
+---
+
+<BoothLayout
+   title="Careforth"
+   description="Lorem ipsum dolor sit amet"
+>
+   <section class="section banner-booth dana-farber">
+      <div class="is-overlay"></div>
+      <div class="container has-text-white">
+         <div class="columns is-centered">
+            <div class="column is-6 has-text-centered">
+               <svg
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  viewBox="0 0 600 780"
+               >
+                  <image
+                     width="600"
+                     height="780"
+                     xlink:href={"/img/booths-bg/" + booth.image}
+                  />
+
+                  <a
+                     href="javascript:void(0)"
+                     class="modal-trigger video"
+                     data-target="modal-video"
+                  >
+                     <image x="280" y="145" href="/img/booths-pics/youtube.svg" width="100" />
+                  </a>
+
+                  <!-- Logo -->
+                  <image
+                     x="190"
+                     y="450"
+                     xlink:href={"/img/booths-pics/" + booth.logo}
+                     width="240"
+                  />
+
+                  <!-- Brochure -->
+                  <a
+                     href="/docs-booths/brochure-careforth-ENG.pdf"                     
+                     class="brochure"
+                     target="_blank"
+                  >
+                     <image
+                        x="100"
+                        y="555"
+                        width="200"
+                        xlink:href={"/img/booths-pics/" + booth.btn1}
+                     />
+                  </a>
+
+                 <!-- Contacto -->
+                  <a
+                     href="javascript:void(0)"
+                     class="modal-trigger contacto is-hidden-mobile"
+                     data-target="modal-form"
+                  >
+                     <image
+                        x="305"
+                        y="555"
+                        width="200"
+                        xlink:href={"/img/booths-pics/" + booth.btn2}
+                     />
+                  </a>
+
+                  <!-- Contacto mobile-->
+                  <a
+                     href="tel:978-989-3211"
+                     class="modal-trigger contacto is-hidden-desktop"
+                     target="_blank"
+                  >
+                     <image
+                        x="305"
+                        y="555"
+                        width="200"
+                        xlink:href={"/img/booths-pics/" + booth.btn2}
+                     />
+                  </a>
+
+                  <!-- Workbook -->
+                  <a
+                     href="/docs-booths/caregiver-fatigue.pdf"
+                     target="_blank"
+                     class="workbook"
+                  >
+                     <image
+                        x="180"
+                        y="650"
+                        xlink:href={'/img/booths-pics/' + booth.btn3}
+                        width="250"
+                     />
+                  </a>
+
+                 
+               </svg>
+            </div>
+         </div>
+      </div>
+
+      <div class="has-text-centered mt-5">
+         <a href="/" class="button is-light is-rounded is-outlined is-medium"
+            >Volver a la Feria</a
+         >
+      </div>
+   </section>
+
+   <ModalBooths />
+
+   <ModalVideo videoID="XTQ7T812phw" />
+
+   <ModalFormCF
+      to="molina.frank@outlook.com"
+      subject="New Contact Request - Careforth"
+      phoneNumber="978-989-3211"
+   />
+</BoothLayout>

@@ -40,10 +40,6 @@ a.logo.navbar-item:hover {
   font-size: 1.1em;
 }
 
-.logo img {
-  max-height: 80px;
-}
-
 .title {
   --bulma-title-weight: 500;
   --bulma-text-strong: #555;

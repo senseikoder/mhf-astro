@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
-import logoHeader from "../images/logo-headers.webp";
-const { to, subject } = Astro.props;
+// import logoHeader from "../images/logo-headers.webp";
+const { to, subject, logoHeader } = Astro.props;
 const isESP = Astro.currentLocale == "es";
 
 const form = {
@@ -17,7 +17,7 @@ const form = {
    <div class="modal-background"></div>
    <div class="modal-card">
       <header class="modal-card-head has-background-info">
-         <Image src={logoHeader} alt="" width="260" />
+         <Image src={'/img/booths-pics/' + logoHeader} alt="" width="260" height="100" />
          <button class="delete" aria-label="close"></button>
       </header>
       <div class="modal-card-body">

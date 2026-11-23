@@ -1,0 +1,322 @@
+---
+import { Image } from "astro:assets";
+// import logoHeader from "../images/logo-headers.webp";
+const { to, subject, logoHeader = "logo-careforth.webp", phoneNumber } = Astro.props;
+const isESP = Astro.currentLocale == "es";
+
+const form = {
+   labeltown: isESP ? "Seleccione su Ciudad" : "Select your Town",
+   labelname: isESP ? "Nombre" : "Name",
+   labelphone: isESP ? "Teléfono" : "Phone",
+   labelemail: isESP ? "Correo electrónico" : "Email",
+   labelmsj: isESP ? "Comentarios" : "Comments",
+   labelbtn: isESP ? "Enviar Mensaje" : "Send Message",
+   labelrelation: isESP ? "¿Cuál es su relación?" : "What's your relationship?",
+   labeleligible: isESP ? "¿Elegible para Medicaid?" : "Is eligible for Medicaid?",
+   labelDaughter: isESP ? "Hija" : "Daughter",
+   labelSon: isESP ? "Hijo" : "Son",
+   labelMother: isESP ? "Madre" : "Mother",
+   labelFather: isESP ? "Padre" : "Father",
+   labelBrother: isESP ? "Hermano" : "Brother",
+   labelSister: isESP ? "Hermana" : "Sister",
+   labelSpouse: isESP ? "Cónyuge" : "Spouse",
+   labelGrandchild: isESP ? "Nieto/a" : "Grandchild",
+   labelPatient: isESP ? "Paciente" : "Patient",
+   labelOther: isESP ? "Otro" : "Other",
+};
+
+const towns = [
+   "Abington", "Acton", "Agawam", "Amherst", "Andover", "Arlington",
+   "Attleboro", "Barnstable", "Belmont", "Beverly", "Billerica", "Boston",
+   "Braintree", "Brockton", "Brookline", "Burlington", "Cambridge", "Canton",
+   "Chelmsford", "Chelsea", "Chicopee", "Danvers", "Dartmouth", "Dedham",
+   "Dracut", "Easton", "Everett", "Fall River", "Falmouth", "Fitchburg",
+   "Framingham", "Franklin", "Gardner", "Gloucester", "Haverhill", "Holyoke",
+   "Lawrence", "Leominster", "Lexington", "Lowell", "Lynn", "Malden",
+   "Marlborough", "Medford", "Melrose", "Methuen", "Milton", "Natick",
+   "Needham", "New Bedford", "Newton", "North Adams", "North Andover",
+   "North Attleboro", "Northampton", "Peabody", "Pittsfield", "Plymouth",
+   "Quincy", "Randolph", "Revere", "Salem", "Saugus", "Shrewsbury",
+   "Somerville", "Springfield", "Stoughton", "Taunton", "Tewksbury",
+   "Wakefield", "Waltham", "Watertown", "Wellesley", "West Springfield",
+   "Westfield", "Weymouth", "Woburn", "Worcester",
+];
+
+const relations = [
+   { value: form.labelDaughter },
+   { value: form.labelSon },
+   { value: form.labelSpouse },
+   { value: form.labelMother },
+   { value: form.labelFather },
+   { value: form.labelGrandchild },
+   { value: form.labelSister },
+   { value: form.labelBrother },
+   { value: form.labelPatient },
+   { value: form.labelOther },
+];
+---
+
+<div class="modal" id="modal-form">
+   <div class="modal-background"></div>
+   <div class="modal-card">
+      <header class="modal-card-head has-background-info p-3">
+         <Image src={'/img/booths-pics/' + logoHeader} alt="" width="200" height="100" />
+         <button class="delete" aria-label="close"></button>
+      </header>
+      <div class="modal-card-body">
+         <div class="content">
+            <slot />
+
+            <form
+               id="booth-form-cf"
+               data-para={to}
+               data-asunto={subject}
+               data-label-town={form.labeltown}
+               data-label-name={form.labelname}
+               data-label-phone={form.labelphone}
+               data-label-email={form.labelemail}
+               data-label-eligible={form.labeleligible}
+               data-label-relation={form.labelrelation}
+               class="p-4"
+            >
+               <div class="columns is-multiline">
+                  {
+                     phoneNumber && (
+                        <div class="column is-12 has-text-centered">
+                           <a
+                              href={`tel:${phoneNumber}`}
+                              class="button is-primary is-medium is-outlined has-text-primary"
+                           >
+                              Call Us {phoneNumber}
+                           </a>
+                        </div>
+                     )
+                  }
+
+                  <div class="column is-6">
+                     <input
+                        class="input"
+                        type="text"
+                        id="cf-name"
+                        placeholder={form.labelname}
+                     />
+                  </div>
+                  <div class="column is-6">
+                     <div class="select">
+                        <select id="cf-town">
+                           <option value="">{form.labeltown}</option>
+                           {towns.map((town) => <option value={town}>{town}</option>)}
+                        </select>
+                     </div>
+                  </div>
+                  <div class="column is-12">
+                     <input
+                        class="input"
+                        type="text"
+                        id="cf-phone"
+                        placeholder={form.labelphone}
+                     />
+                  </div>
+                  <div class="column is-12">
+                     <input
+                        class="input"
+                        type="email"
+                        id="cf-email"
+                        placeholder={form.labelemail}
+                     />
+                  </div>
+                  <div class="column is-6">
+                     <div class="select">
+                        <select id="cf-eligible">
+                           <option value="">{form.labeleligible}</option>
+                           <option value="Yes">Yes</option>
+                           <option value="No">No</option>
+                           <option value="Not Sure">Not Sure</option>
+                        </select>
+                     </div>
+                  </div>
+                  <div class="column is-6">
+                     <div class="select">
+                        <select id="cf-relation">
+                           <option value="">{form.labelrelation}</option>
+                           {relations.map((rel) => (
+                              <option value={rel.value}>{rel.value}</option>
+                           ))}
+                        </select>
+                     </div>
+                  </div>
+                  <!-- T a r r i t o d e l i e m -->
+                  <div class="fieldset ohnohoney">
+                     <label for="cf-yourname"></label>
+                     <input
+                        autocomplete="off"
+                        type="text"
+                        id="cf-yourname"
+                        placeholder="Your name here"
+                     />
+                     <label for="cf-youremail"></label>
+                     <input
+                        autocomplete="off"
+                        type="email"
+                        id="cf-youremail"
+                        placeholder="Your e-mail here"
+                     />
+                  </div>
+                  <div class="column is-12">
+                     <div class="mt-10">
+                        <button
+                           class="button is-primary has-text-white"
+                           id="cf-boton"
+                        >
+                           {form.labelbtn}
+                        </button>
+                     </div>
+                  </div>
+               </div>
+            </form>
+
+            <div class="notification animated fadeInUp is-hidden">
+               <button class="delete"></button>
+               <span class="text"></span>
+            </div>
+         </div>
+      </div>
+      <footer class="modal-card-foot"></footer>
+   </div>
+   <button class="modal-close is-large" aria-label="close"></button>
+</div>
+
+<style>
+   .input::placeholder,
+   .textarea::placeholder,
+   .select::placeholder {
+      opacity: 1;
+      color: #555;
+   }
+
+   .modal-card-head {
+      justify-content: center;
+   }
+
+   .delete {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+   }
+
+   .notification {
+      width: 300px;
+      position: absolute;
+      bottom: 3rem;
+      right: 3rem;
+   }
+</style>
+
+<script>
+   document.addEventListener("DOMContentLoaded", () => {
+      const form = document.querySelector<HTMLFormElement>("#booth-form-cf");
+
+      if (!form) return;
+
+      const town = document.querySelector<HTMLSelectElement>("#cf-town");
+      const name = document.querySelector<HTMLInputElement>("#cf-name");
+      const phone = document.querySelector<HTMLInputElement>("#cf-phone");
+      const email = document.querySelector<HTMLInputElement>("#cf-email");
+      const eligible = document.querySelector<HTMLSelectElement>("#cf-eligible");
+      const relation = document.querySelector<HTMLSelectElement>("#cf-relation");
+      const yourname = document.querySelector<HTMLInputElement>("#cf-yourname");
+      const youremail = document.querySelector<HTMLInputElement>("#cf-youremail");
+      const boton = document.querySelector<HTMLButtonElement>("#cf-boton");
+
+      const notif = form.parentElement?.querySelector<HTMLElement>(".notification");
+      const notifDelete = notif?.querySelector<HTMLButtonElement>(".delete");
+      const para = (form.dataset.para || "").split(",");
+      const asunto = form.dataset.asunto || "";
+      const isESP = document.documentElement.lang !== "en";
+
+      const showNotif = (text: string, type: string) => {
+         if (!notif) return;
+         const textEl = notif.lastElementChild;
+         if (textEl) textEl.textContent = text;
+         notif.classList.remove("is-hidden", "is-success", "is-danger");
+         notif.classList.add(type);
+      };
+
+      notifDelete?.addEventListener("click", () => {
+         notif?.classList.add("is-hidden");
+      });
+
+      form.addEventListener("submit", async (event) => {
+         event.preventDefault();
+         if (yourname?.value || youremail?.value) return;
+         if (!town || !name || !phone || !email || !eligible || !relation || !boton) return;
+
+         boton.classList.add("is-loading");
+         boton.disabled = true;
+
+         const cuerpo = `<h3>Contact details</h3>
+<p><b>${form.dataset.labelTown}:</b> ${town.value}</p>
+<p><b>${form.dataset.labelName}:</b> ${name.value}</p>
+<p><b>${form.dataset.labelPhone}:</b> ${phone.value}</p>
+<p><b>${form.dataset.labelEmail}:</b> ${email.value}</p>
+<p><b>${form.dataset.labelEligible}:</b> ${eligible.value}</p>
+<p><b>${form.dataset.labelRelation}:</b> ${relation.value}</p>
+<br><br>
+<p>Message was sent from myhealthfair.com</p>`;
+
+         try {
+            const res = await fetch("/api/sendEmail.json", {
+               method: "POST",
+               headers: { "Content-Type": "application/json" },
+               body: JSON.stringify({
+                  from: "info@miferiadesalud.com",
+                  to: para,
+                  subject: asunto,
+                  html: cuerpo,
+               }),
+            });
+
+            if (res.ok) {
+               showNotif(
+                  isESP ? "Tu mensaje fue enviado! 👍" : "Your message was sent! 👍",
+                  "is-success",
+               );
+            } else {
+               console.error("Error:", await res.json());
+               showNotif("Oh sorry 🙁", "is-danger");
+            }
+         } catch (error) {
+            console.error(error);
+            showNotif("Oh sorry 🙁", "is-danger");
+         }
+
+         setTimeout(() => {
+            notif?.classList.add("is-hidden");
+            notif?.classList.remove("is-danger", "is-success");
+            boton.classList.remove("is-loading");
+            boton.disabled = false;
+
+            town.value = "";
+            name.value = "";
+            phone.value = "";
+            email.value = "";
+            eligible.value = "";
+            relation.value = "";
+            if (yourname) yourname.value = "";
+            if (youremail) youremail.value = "";
+         }, 2000);
+      });
+   });
+</script>
+
+<style>
+   .ohnohoney {
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 0;
+      width: 0;
+      z-index: -1;
+   }
+</style>

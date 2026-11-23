@@ -1,8 +1,8 @@
 ---
 import { Image } from "astro:assets";
-import logoMHF from "../images/logo-MHF-short.webp";
-// import SubmenuFeria from "./SubmenuFeria.astro";
-// import SubmenuFair from "./SubmenuFair.astro";
+import logoMHF from "../images/logo-myhealth-bg-light.webp";
+import SubmenuFeria from "./SubmenuFeria.astro";
+import SubmenuFair from "./SubmenuFair.astro";
 import SubmenuBlogES from "./SubmenuBlogES.astro";
 import SubmenuBlogEN from "./SubmenuBlogEN.astro";
 const { pathname } = Astro.url;
@@ -16,7 +16,7 @@ if (pathname == "/" || pathname == "/en" || pathname == "/en/" || pathname == "/
    <div class="container">
       <div class="navbar-brand is-justify-content-space-between">
          <a class="navbar-item logo" href={pathname}>
-            <Image src={logoMHF} alt="Logo" width="220" height="54" />
+            <Image src={logoMHF} alt="Logo" width={180} height={66} />
          </a>
 
          <span class="navbar-burger mx-1" data-target="navbarMenu">
@@ -38,7 +38,7 @@ if (pathname == "/" || pathname == "/en" || pathname == "/en/" || pathname == "/
                         Inicio
                      </a>
 
-                     {/* <SubmenuFeria /> */}
+                     <SubmenuFeria />
 
                      <a href="/about" class="navbar-item">
                         Acerca de
@@ -75,7 +75,7 @@ if (pathname == "/" || pathname == "/en" || pathname == "/en/" || pathname == "/
                         Home
                      </a>
 
-                     {/* <SubmenuFair /> */}
+                     <SubmenuFair />
 
                      <a href="/en/about" class="navbar-item">
                         About us
@@ -113,6 +113,10 @@ if (pathname == "/" || pathname == "/en" || pathname == "/en/" || pathname == "/
 <style>
    .navbar {
       background-color: rgba(255, 255, 255, 0.75);
+   }
+
+   .navbar-item img, .navbar-item svg{
+      max-height: 66px;
    }
 
    .is-white {

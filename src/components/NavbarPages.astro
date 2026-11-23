@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import HeaderLink from "./HeaderLink.astro";
-import logoMHF from "../images/logo-MHF-short.webp";
+import logoMHF from "../images/logo-myhealth-bg-light.webp";
 import SubmenuFeria from "./SubmenuFeria.astro";
 import SubmenuFair from "./SubmenuFair.astro";
 import SubmenuBlogES from "./SubmenuBlogES.astro";
@@ -14,7 +14,7 @@ const urlHome = idioma == "es" ? "/" : "/en";
   <div class="container">
     <div class="navbar-brand is-hidden-desktop">
       <a href={urlHome} class="navbar-item logo">
-        <Image src={logoMHF} alt="Logo" width="286" height="70" />
+        <Image src={logoMHF} alt="Logo" width="180" height="66" />
       </a>
       <span class="navbar-burger" data-target="navbarMenu">
         <span></span>
@@ -30,7 +30,7 @@ const urlHome = idioma == "es" ? "/" : "/en";
           idioma == "es" ? (
             <>
               <HeaderLink href="/">Inicio</HeaderLink>
-              {/* <SubmenuFeria /> */}
+              <SubmenuFeria />
               <HeaderLink href="/about">Acerca de</HeaderLink>
               <SubmenuBlogES />
               <HeaderLink href="/events">Eventos</HeaderLink>
@@ -50,7 +50,7 @@ const urlHome = idioma == "es" ? "/" : "/en";
           ) : (
             <>
               <HeaderLink href="/en">Home</HeaderLink>
-              {/* <SubmenuFair /> */}
+              <SubmenuFair />
               <HeaderLink href="/en/about">About us</HeaderLink>
               <SubmenuBlogEN />
               <HeaderLink href="/en/events">Events</HeaderLink>

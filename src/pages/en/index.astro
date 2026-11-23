@@ -1,7 +1,7 @@
 ---
 import HomeLayout from "../../layouts/HomeLayout.astro";
 
-import HomeFeriaClassic from "../../components/HomeFeriaClassic.vue";
+import HomeFeria from "../../components/HomeFeria.astro";
 import HomeCarrusel from "../../components/HomeCarrusel.astro";
 import HomeBlog from "../../components/HomeBlog.vue";
 import HomePartners from "../../components/HomePartners.astro";
@@ -16,7 +16,7 @@ import "flickity/dist/flickity.min.css";
   title="MyHealthFair - Massachussets"
   description="We help you get medical help in Boston, Massachusetts by connecting you with the health organizations you need, 365 days a year."
 >
-  <HomeFeriaClassic client:idle />
+  <HomeFeria />
 
   <HomeBannerEMB />
 
