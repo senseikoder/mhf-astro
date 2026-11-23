@@ -1,7 +1,8 @@
 ---
 const today = new Date();
 import Image from "astro/components/Image.astro";
-import logoWhite from "../images/logo-mhf-white.webp";
+// import logoWhite from "../images/logo-mhf-white.webp";
+import logoWhite from "../images/logo-hy-health-by-lamega.png";
 import Mailchimp from "./Mailchimp.astro";
 import chatbot from "../images/btn-chatbot.fw.png";
 import SocialLinksFoot from "./SocialLinksFoot.astro";
@@ -36,19 +37,27 @@ import SocialLinksFoot from "./SocialLinksFoot.astro";
       <div class="column is-4">
         <div class="content">
           <ul class="list">
-            <li><a href="/resources">Recursos</a></li>
-            <li><a href="/contact">Contacto</a></li>
-            <li><a href="/toolkit">Toolkit</a></li>
+            <li>
+              <a href="/resources">Recursos</a>
+            </li>
+            <li>
+              <a href="/contact">Contacto</a>
+            </li>
+            <li>
+              <a href="/toolkit">Toolkit</a>
+            </li>
             <li>
               <a href="/become-sponsor">Conviértete en Expositor</a>
             </li>
-            <li><a href="/sitemap">Mapa del sitio</a></li>
+            <li>
+              <a href="/sitemap">Mapa del sitio</a>
+            </li>
             <li>
               <a href="/privacy-policy">Política de privacidad</a>
             </li>
           </ul>
 
-           <div class="my-6 has-text-centered">
+          <div class="my-6 has-text-centered">
             <SocialLinksFoot />
           </div>
         </div>
@@ -70,22 +79,21 @@ import SocialLinksFoot from "./SocialLinksFoot.astro";
     <div class="columns">
       <div class="column">
         <div class="block has-text-centered-mobile is-size-7-mobile">
-          <p>
-            &copy; {today.getFullYear()} MyHealthFair. All rights reserved.
-          </p>
+          <p>&copy; {today.getFullYear()} MyHealthFair. All rights reserved.</p>
         </div>
       </div>
       <div class="column">
-        <div
-          class="block has-text-right has-text-centered-mobile is-size-7-mobile"
-        >
+        <div class="block has-text-right has-text-centered-mobile is-size-7-mobile">
           <p>
-            Developed by <a
+            Developed by{" "}
+            <a
               href="https://efrank.xyz"
               target="_blank"
               title="Frank albarracín"
-              class="has-text-link-light">eFrank</a
+              class="has-text-link-light"
             >
+              eFrank
+            </a>
           </p>
         </div>
       </div>
@@ -93,11 +101,7 @@ import SocialLinksFoot from "./SocialLinksFoot.astro";
   </div>
 </section>
 
-<button
-  type="button"
-  data-openwidget-action="maximize"
-  class="chatbot"
->
+<button type="button" data-openwidget-action="maximize" class="chatbot">
   <Image src={chatbot} alt="Chatbot" width="50" height="50" />
 </button>
 
@@ -139,9 +143,6 @@ import SocialLinksFoot from "./SocialLinksFoot.astro";
   }
 </style>
 
-
-
-
 <script>
   document.addEventListener("astro:page-load", () => {
     const chatbot = document.querySelector(".chatbot");
@@ -156,14 +157,5 @@ import SocialLinksFoot from "./SocialLinksFoot.astro";
         OpenWidget.call("maximize");
       }
     }, 5000);
-
   });
 </script>
-
-
-
-
-
-
-
-
