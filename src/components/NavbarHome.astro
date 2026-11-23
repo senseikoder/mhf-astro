@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
-import logoMHF from "../images/logo-myhealth-bg-light.webp";
+// import logoMHF from "../images/logo-myhealth-bg-light.webp";
+import logoGray from "../images/my-health-gray.svg";
 import SubmenuFeria from "./SubmenuFeria.astro";
 import SubmenuFair from "./SubmenuFair.astro";
 import SubmenuBlogES from "./SubmenuBlogES.astro";
@@ -16,7 +17,7 @@ if (pathname == "/" || pathname == "/en" || pathname == "/en/" || pathname == "/
    <div class="container">
       <div class="navbar-brand is-justify-content-space-between">
          <a class="navbar-item logo" href={pathname}>
-            <Image src={logoMHF} alt="Logo" width={180} height={66} />
+            <Image src={logoGray} alt="Logo" width={180} height={66} />
          </a>
 
          <span class="navbar-burger mx-1" data-target="navbarMenu">

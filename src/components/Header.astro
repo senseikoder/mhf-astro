@@ -2,7 +2,7 @@
 import Menu from "./NavbarPages.astro";
 import { Image } from "astro:assets";
 // import logo from "../images/logo-MHF-short.webp";
-import logo from "../images/logo-my-health.png";
+import logoGray from "../images/my-health-gray.svg";
 import emb_header from "../images/emb-header.webp";
 import SocialLinks from "./SocialLinks.astro";
 const idioma = Astro.currentLocale;
@@ -26,7 +26,7 @@ const urlHome = idioma == "es" ? "/" : "/en";
       <div class="column is-3 is-hidden-touch is-align-content-center">
         <figure class="image logo">
           <a href={urlHome}>
-            <Image src={logo} alt="logo MHF" width={200} height={74} />
+            <Image src={logoGray} alt="logo MHF" width={200} height={74} />
           </a>
         </figure>
       </div>

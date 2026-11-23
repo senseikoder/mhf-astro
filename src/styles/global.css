@@ -116,6 +116,11 @@ a.logo.navbar-item:hover {
 }
 
 
+.footer .logo img {
+  max-width: 300px;
+}
+
+
 @media (max-width: 575px) {
   .navbar.is-fixed-top {
     position: initial;
